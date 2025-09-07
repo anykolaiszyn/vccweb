@@ -88,13 +88,101 @@ What makes a cigar "boutique"? Small-batch production, unique blends, often from
 - **Roasted Nuts:** Almonds, pecans—enhance the natural tobacco notes
 - **Craft Beer:** Porter, stout, or IPA can surprise you
 
+---
+
+## Pipe Smoking: The Art of Slow Enjoyment
+
+### Why Pipes? A Different Experience
+Pipe smoking is meditation in motion—slower, more ritualistic, deeply contemplative. Where cigars are social celebrations, pipes are personal journeys. The ritual of packing, lighting, and tending creates a mindful break from the world.
+
+**Sensory Experience:** Expect cooler smoke, more complex flavor evolution, the satisfying tactile ritual of packing and tamping. Aromas are gentler but more nuanced than cigars.
+
+### Pipe Basics: What You Need to Know
+**The Anatomy:**
+- **Bowl:** Where the magic happens—holds and burns the tobacco
+- **Stem:** Connects bowl to your mouth, affects draw resistance
+- **Shank:** The thick part connecting bowl to stem
+- **Mortise & Tenon:** The joint where stem meets shank
+
+**Essential Tobacco Types:**
+- **Virginia:** Sweet, bright, natural tobacco flavor—perfect for beginners
+- **Burley:** Nutty, mild, absorbs flavoring well
+- **Oriental:** Spicy, exotic, adds complexity to blends
+- **Latakia:** Smoky, campfire-like—the "whiskey" of pipe tobacco
+- **Perique:** Fruity, peppery—used sparingly for spice
+
+### The Pipe Ritual: Step-by-Step
+**What to Expect at Our Events:**
+1. **Selection:** We'll help you choose the right pipe and tobacco blend
+2. **Packing:** Three-layer method—fluffy bottom, firm middle, tight top
+3. **Lighting:** Charring light first, then true light—patience is key
+4. **Smoking:** Slow, gentle puffs—if it gets hot, slow down
+5. **Tending:** Occasional tamping keeps it burning evenly
+
+**Timeline:** Plan 45-90 minutes for a full bowl—this isn't rushed.
+
+### Pipe Tobacco Flavor Matrix
+**Mild & Sweet (Beginner-Friendly):**
+- **Virginia blends:** Natural sweetness, bright flavors, gentle introduction
+- **Aromatic blends:** Vanilla, cherry, chocolate notes—familiar and welcoming
+- **Sensory notes:** Warm bread, light spices, subtle fruit
+
+**Medium & Complex (Next Level):**
+- **English blends:** Virginia base with Oriental and Latakia—sophisticated
+- **Virginia/Perique:** Sweet with peppery kick—balanced complexity
+- **Sensory notes:** Leather, earth, campfire, dried fruit
+
+**Full & Intense (Advanced):**
+- **Heavy Latakia blends:** Smoky, robust, campfire dominant
+- **Dark fired Kentucky:** Bold, smoky, intense nicotine
+- **Sensory notes:** Leather, barbecue smoke, dark chocolate, espresso
+
+### Renaissance Fair Special: Period-Appropriate Blends
+At our Renaissance events, we feature historically-inspired tobacco blends and clay pipes alongside modern briars. Experience tobacco as it was enjoyed centuries ago—simple, pure, connected to the earth.
+
+### Pipe Care Basics
+**What We Provide:**
+- Pre-seasoned pipes ready to smoke
+- Pipe cleaners and basic tools
+- Instruction on proper cleaning
+- Tips for building cake (the carbon layer inside the bowl)
+
+**For Your Own Pipe Journey:**
+- Let the pipe rest 24 hours between smokes
+- Clean the stem after each use
+- Ream the bowl when cake gets too thick
+- Rotate between multiple pipes for best experience
+
+---
+
 ## Getting Started: Our Recommendations
+
+### Cigar Recommendations
 **First Timer?** Start with a mild Connecticut wrapper Robusto. Pair it with coffee or light rum.
 
 **Ready to Level Up?** Try a medium Nicaraguan Toro with a good bourbon.
 
 **Want the Full Experience?** Go for a Maduro Churchill with aged rum—this is what the culture is all about.
 
+### Pipe Recommendations
+**New to Pipes?** Virginia blend in a classic billiard shape—sweet, straightforward, comfortable.
+
+**Ready for Complexity?** English blend with a touch of Latakia—sophisticated but approachable.
+
+**Want Tradition?** Our Renaissance Fair clay pipe with historical tobacco blend—pure authenticity.
+
 ---
 
-*Questions? Our hosts love talking tobacco! Every event is a chance to learn something new.*
+## What to Expect at Our Events
+
+**Sensory Environment:** Gentle outdoor breezes, rich tobacco aromas, warm lighting, comfortable seating. We create a relaxed atmosphere where you can take your time.
+
+**No Judgment Zone:** Whether you're a complete beginner or seasoned aficionado, our hosts meet you where you are. No pretense, no intimidation—just genuine enthusiasm for sharing what we love.
+
+**Take Your Time:** We never rush. Ask questions, try different options, find what speaks to you. Every person's tobacco journey is unique.
+
+**Clear Guidance:** Step-by-step instruction, patient teaching, honest recommendations based on your preferences—not what we want to sell.
+
+---
+
+*Questions? Our hosts love talking tobacco! Every event is a chance to learn something new, whether you're curious about your first cigar or perfecting your pipe technique.*

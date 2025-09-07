@@ -30,6 +30,13 @@ We arrive with everything needed to create an instant tropical smoking lounge:
 - Educational component for newcomers
 - Professional service throughout your event
 
+### 🧠 Neurodivergent-Friendly Approach
+- **Clear Communication:** Detailed event timelines provided in advance
+- **Sensory Considerations:** Quieter spaces available, sensory descriptions provided upfront
+- **No Pressure Environment:** Take your time, ask questions, no judgment
+- **Systematic Service:** Consistent setup procedures, reliable timing, familiar processes
+- **Accommodation Ready:** Need modifications? Just ask—we adapt to your comfort needs
+
 ## Event Types We Love
 - **Private Events** — Birthdays, anniversaries, bachelor/bachelorette parties, celebrations
 - **Renaissance Fairs** — Camelot Days, Florida Ren Fest, and artisan-focused events
@@ -68,6 +75,38 @@ We arrive with everything needed to create an instant tropical smoking lounge:
 - **🍹 Flavoring Station** — Custom infusions and pairings to match your vibe
 - **📦 Mobile Humidor** — Premium storage keeps everything fresh and ready
 - **🌴 Tropical Atmosphere** — We don't just bring cigars, we bring the whole Miami experience
+
+---
+
+## What to Expect: Your Event Timeline
+
+### Before Your Event (1-2 Weeks Prior)
+- **Initial Consultation:** We discuss your vision, guest count, preferences, any special accommodations
+- **Detailed Planning Email:** Complete timeline, setup details, product selections, what to expect
+- **Final Confirmation:** 48 hours before—weather backup plans, final guest count, any last-minute needs
+
+### Day of Event: Arrival & Setup (30-45 minutes)
+- **Professional Arrival:** We arrive with all equipment, products, and setup materials
+- **Systematic Setup:** Consistent process—station placement, humidor positioning, lighting setup
+- **Quality Check:** Everything tested and ready before guests arrive
+- **Host Introduction:** Meet your host, review the plan, address any questions
+
+### During Your Event: The Experience
+- **Sensory Environment:** Gentle outdoor ambiance, rich tobacco aromas, comfortable lighting
+- **Guest Interaction:** Patient instruction, personalized recommendations, educational sharing
+- **Accommodation Ready:** Quieter options available, detailed explanations provided, no rushing
+- **Professional Service:** Consistent quality, reliable timing, attentive without being intrusive
+
+### Event Conclusion: Clean Departure (15-20 minutes)
+- **Professional Cleanup:** We handle everything—no mess left behind
+- **Final Recommendations:** Take-home suggestions, local shop recommendations
+- **Follow-up:** How was the experience? Future event planning available
+
+### Sensory Considerations We Provide
+- **Aroma Descriptions:** "Rich cedar and leather," "smooth vanilla notes," "gentle campfire smoke"
+- **Texture Information:** "Firm but yielding draw," "smooth, cool smoke," "satisfying weight in hand"
+- **Sound Environment:** Natural outdoor acoustics, no loud music over conversation
+- **Visual Setup:** Warm lighting, organized stations, clear sight lines to everything
 - **👨‍🍳 Expert Hosts** — Knowledgeable, friendly guides who love sharing their passion
 
 ## Service Area

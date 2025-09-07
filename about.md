@@ -19,21 +19,35 @@ To deliver premium smoking experiences with that perfect blend of laid-back trop
 ## Our Story
 Founded by true aficionados who understand that great cigars are about more than smoke—they're about moments, memories, and the people you share them with. Whether you're celebrating a milestone, closing a deal, or just want to elevate your gathering, we create that perfect tropical lounge atmosphere anywhere in South Florida.
 
-From intimate private parties to grand corporate events, we bring the Vice City experience to you.itle: About
+From intimate private parties to grand corporate events, we bring the Vice City experience to you.
+
 ---
 
-# About Vice City Cigars
+## About the Owner: A Different Kind of Expertise
 
-Welcome to Vice City Cigars—your mobile tropical smoking oasis. Born in Boca Raton and inspired by the vibrant spirit of Miami, we bring quality, expertise, community, and authenticity to every event.
+### The Late Discovery That Changed Everything
+I was diagnosed with ADHD and autism at 42—and it finally explained why I approach tobacco with such intense focus and pattern recognition. What some might see as "overthinking" is actually my superpower: I obsess over quality details that others miss.
 
-## Our Mission
-To deliver premium cigars, pipes, and hookahs with effortless hospitality and a laid-back, tropical vibe.
+**Why This Matters for You:**
+- **Hyperfocus on Quality:** When I get interested in something, I dive *deep*. I don't just stock cigars—I study terroir, wrapper characteristics, aging processes, and supplier relationships with an intensity that borders on obsession.
+- **Pattern Recognition:** I naturally spot connections between flavor profiles, customer preferences, and perfect pairings. It's not just experience—it's how my brain processes information.
+- **Authentic Passion:** There's no "sales mode" with me. When I recommend a cigar or pipe tobacco, it's because I genuinely believe it's perfect for you, not because it has the highest margin.
 
-## Our Values
-- **Quality:** Only the finest cigars, pipes, and tobacco.
-- **Expertise:** Friendly, knowledgeable hosts to guide your experience.
-- **Community:** Bringing people together, one smoke at a time.
-- **Authenticity:** Real passion, real products, real connections.
+### The Neurodivergent Advantage in Tobacco
+**Attention to Detail:** I notice things—subtle flavor notes, burn inconsistencies, wrapper imperfections—that create the difference between good and exceptional.
 
-## Our Story
-Founded by aficionados who love the art of the leaf, Vice City Cigars is dedicated to making every gathering memorable. Whether it’s a private party, wedding, or corporate event, we create a welcoming, upscale lounge—anywhere in Boca Raton and beyond.
+**Systematic Approach:** Every cigar in our mobile humidor is there for a reason. Every event setup follows tested procedures. Consistency isn't just professional—it's how I naturally operate.
+
+**Honest Communication:** No tobacco industry BS or pretentious jargon. I explain things clearly, answer every question thoroughly, and never make you feel stupid for not knowing something.
+
+### Creating Comfortable Experiences
+**For Everyone:** Whether you're neurotypical or neurodivergent, introverted or extroverted, beginner or expert—I get it. Social situations can be tricky, sensory environments matter, and everyone processes information differently.
+
+**No Pressure:** Take your time deciding. Ask the same question three times. Need to step away for a quiet moment? Perfect. Want detailed technical information about that Nicaraguan wrapper? I'm here for it.
+
+**Clear Expectations:** You'll always know what to expect at our events—timeline, setup, options available, how things work. No surprises, no hidden social rules.
+
+---
+
+## The Renaissance Fair Connection
+My neurodivergent traits align perfectly with Renaissance Fair culture—deep appreciation for craftsmanship, attention to historical detail, and genuine enthusiasm for sharing specialized knowledge. At Camelot Days and other fairs, you'll find me in period-appropriate attire, discussing 16th-century tobacco varieties with the same intensity I bring to modern boutique cigars.
