@@ -187,8 +187,8 @@ We reserve the right to change this Privacy Policy. Changes are effective upon p
 ## Contact Information
 
 For privacy questions or concerns:
-- **Email:** [info@vicecitycigars.com](mailto:info@vicecitycigars.com)
-- **California Privacy Requests:** [info@vicecitycigars.com](mailto:info@vicecitycigars.com)
+- **Email:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
+- **California Privacy Requests:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
 - **Phone:** [561-331-0491](tel:+15613310491)
 
 ---

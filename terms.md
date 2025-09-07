@@ -148,7 +148,7 @@ These terms and conditions are governed solely by the laws of the State of Flori
 ## Contact Information
 
 For questions about these terms and conditions:
-- **Email:** [info@vicecitycigars.com](mailto:info@vicecitycigars.com)
+- **Email:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
 - **Phone:** [561-331-0491](tel:+15613310491)
 
 ---

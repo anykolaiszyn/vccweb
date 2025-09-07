@@ -8,7 +8,7 @@ title: Home
   <h1>Your Mobile Tropical Smoking Oasis</h1>
   <p class="hero-body">We bring that laid-back Miami-tropical energy to your events—hand-selected cigars, artisan pipes, premium hookahs, and the kind of effortless hospitality that makes every gathering unforgettable.</p>
   <div class="hero-cta">
-    <a href="{{ '/contact' | relative_url }}" class="btn btn-primary">Book an Event</a>
+    <a href="{{ '/contact' | relative_url }}" class="btn btn-primary">Book Your Event</a>
     <a href="{{ '/services' | relative_url }}" class="btn btn-secondary">Explore Services</a>
   </div>
 </section>

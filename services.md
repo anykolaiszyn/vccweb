@@ -12,22 +12,22 @@ Vice City Cigars transforms any event into a tropical smoking paradise. We bring
 <div class="services-overview">
   <div class="overview-card">
     <h3>🎉 Essential Package</h3>
-    <p><strong>$200 base</strong> • Perfect for intimate gatherings</p>
+    <p><strong>Starting at $200 + travel</strong> • Intimate gatherings</p>
     <p>Premium cigars, mobile setup, expert host</p>
     <a href="#essential-package" class="btn btn-secondary">Learn More</a>
   </div>
   
   <div class="overview-card">
     <h3>🌟 Premium Package</h3>
-    <p><strong>$350 base</strong> • Full tropical experience</p>
-    <p>Everything + rare cigars, pipes, enhanced setup</p>
+    <p><strong>Starting at $350 + travel</strong> • Full tropical experience</p>
+    <p>Rare cigars, pipes, enhanced setup</p>
     <a href="#premium-package" class="btn btn-secondary">Learn More</a>
   </div>
   
   <div class="overview-card">
     <h3>💎 Luxury Package</h3>
-    <p><strong>$500 base</strong> • Ultimate indulgence</p>
-    <p>Premium + hookahs, exclusive selections, full service</p>
+    <p><strong>Starting at $500 + travel</strong> • Ultimate indulgence</p>
+    <p>Hookahs, exclusive selections, bespoke design</p>
     <a href="#luxury-package" class="btn btn-secondary">Learn More</a>
   </div>
 </div>
@@ -91,17 +91,17 @@ We arrive with everything needed to create an instant tropical smoking lounge:
 
 <div class="event-cards">
   <div class="event-card">
-    <h3>Classic Oasis</h3>
+    <h3 id="essential-package">Classic Oasis</h3>
     <p><strong>Perfect for intimate gatherings (10-25 guests)</strong><br>
     Hand-selected cigars, expert host, professional cutting & lighting station, basic setup.</p>
   </div>
   <div class="event-card">
-    <h3>Tropical Deluxe</h3>
+    <h3 id="premium-package">Tropical Deluxe</h3>
     <p><strong>The full experience (25-75 guests)</strong><br>
     Premium cigars, fine pipes, hookahs, mobile humidor, flavoring station, enhanced tropical setup.</p>
   </div>
   <div class="event-card">
-    <h3>VIP Paradise</h3>
+    <h3 id="luxury-package">VIP Paradise</h3>
     <p><strong>Ultra-premium for special occasions (any size)</strong><br>
     Rare cigars, custom pairings, multiple hosts, full-service hospitality, bespoke event design.</p>
   </div>
@@ -125,6 +125,7 @@ We arrive with everything needed to create an instant tropical smoking lounge:
 ### Before Your Event (1-2 Weeks Prior)
 - **Initial Consultation:** We discuss your vision, guest count, preferences, any special accommodations
 - **Detailed Planning Email:** Complete timeline, setup details, product selections, what to expect
+- **Travel & Venue Coordination:** Travel and venue rules vary by county; we'll advise on local regulations
 - **Final Confirmation:** 48 hours before—weather backup plans, final guest count, any last-minute needs
 
 ### Day of Event: Arrival & Setup (30-45 minutes)

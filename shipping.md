@@ -50,7 +50,7 @@ We work with shipping partners to investigate missing packages and determine app
 ## Contact Information
 
 For shipping questions or concerns:
-- **Email:** [info@vicecitycigars.com](mailto:info@vicecitycigars.com)
+- **Email:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
 - **Phone:** [561-331-0491](tel:+15613310491)
 
 ---

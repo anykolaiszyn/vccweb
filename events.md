@@ -21,6 +21,8 @@ Our most anticipated event of the year! Find us in our period-appropriate booth 
 **📅 Spring 2026** | **📍 Location TBA**  
 Excited to announce we've been invited back! More details coming soon.
 
+📱 **Follow [@vicecitycigars](https://instagram.com/vicecitycigars) for pop-ups and surprise events!**
+
 ---
 
 ## South Florida Events
@@ -45,7 +47,7 @@ Looking to book your event? Check our availability and get your date locked in!
 
 **For now, the best way to check availability:**
 - 📞 **Call/Text:** [561-331-0491](tel:+15613310491)
-- 📧 **Email:** [info@vicecitycigars.com](mailto:info@vicecitycigars.com)
+- 📧 **Email:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
 
 ---
 
