@@ -79,13 +79,13 @@ body::before {
   pointer-events: none;
 }
 
-/* Main content with cyberpunk glass effect */
+/* Main content with cyberpunk glass effect - Mobile First */
 main {
   background: var(--vcc-bg-glass);
-  margin: 1.5rem;
+  margin: 1rem;
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-neon);
-  padding: 3rem 2.5rem;
+  padding: 2rem 1.5rem;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   position: relative;
@@ -121,7 +121,7 @@ main::after {
   padding: 0 1rem;
 }
 
-/* Miami Vice Typography System */
+/* Miami Vice Typography System - Mobile First */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
   color: var(--vcc-text-light);
@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   background: var(--gradient-neon-sunset);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -142,13 +142,13 @@ h1 {
 }
 
 h2 {
-  font-size: 2.8rem;
+  font-size: 2rem;
   color: var(--vice-cyan-blue);
   text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--vice-hot-pink);
   text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
 }
@@ -479,19 +479,145 @@ a:hover, a:focus {
   font-weight: 600;
 }
 
+/* Mobile-First Navigation */
 .header-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  gap: 2rem;
+  padding: 1rem;
+  gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  gap: 4px;
+  order: 2;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: var(--vice-cyan-blue);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.mobile-menu-toggle:hover .hamburger {
+  background: var(--vice-hot-pink);
+  box-shadow: 0 0 8px rgba(255, 20, 147, 0.7);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile-first logo */
+.logo-link {
+  order: 1;
+  flex-shrink: 0;
+}
+
+.site-logo {
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+  border: 2px solid var(--vice-cyan-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.site-logo:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  border-color: var(--vice-hot-pink);
+}
+
+/* Mobile navigation - hidden by default */
+.main-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--vcc-bg-dark);
+  border: 2px solid var(--vice-hot-pink);
+  border-top: none;
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
+  box-shadow: var(--shadow-neon);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  order: 4;
+}
+
+.main-nav.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.main-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+}
+
+.main-nav a {
+  font-weight: 500;
+  font-family: var(--font-ui);
+  color: var(--vcc-text-light);
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  position: relative;
+  text-decoration: none;
+  background: transparent;
+  display: block;
+  text-align: center;
+}
+
+.main-nav a:hover {
+  color: var(--vice-cyan-blue);
+  border-color: var(--vice-cyan-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  text-shadow: 0 0 5px currentColor;
+}
+
+.main-nav a.current {
+  background: rgba(255, 20, 147, 0.2);
+  color: var(--vice-hot-pink);
+  border-color: var(--vice-hot-pink);
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
 }
 
 .header-book-btn {
-  padding: 0.6rem 1.5rem;
-  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
   font-weight: 600;
   white-space: nowrap;
   background: var(--gradient-neon-accent);
@@ -501,64 +627,12 @@ a:hover, a:focus {
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  order: 3;
 }
 
 .header-book-btn:hover {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
   transform: translateY(-2px);
-}
-
-.main-nav ul {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.main-nav a {
-  font-weight: 500;
-  font-family: var(--font-ui);
-  color: var(--vcc-text-light);
-  padding: 0.75rem 1.25rem;
-  border: 1px solid transparent;
-  border-radius: var(--radius-small);
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.95rem;
-  position: relative;
-  text-decoration: none;
-  overflow: hidden;
-}
-
-.main-nav a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: var(--gradient-neon-accent);
-  transition: left 0.3s ease;
-  z-index: -1;
-}
-
-.main-nav a:hover::before {
-  left: 0;
-}
-
-.main-nav a:hover {
-  color: var(--vcc-bg-dark);
-  border-color: var(--vice-hot-pink);
-  box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
-}
-
-.main-nav a.current {
-  background: var(--gradient-neon-accent);
-  color: var(--vcc-bg-dark);
-  border-color: var(--vice-cyan-blue);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 /* Miami Vice Footer */
@@ -933,36 +1007,129 @@ blockquote::before {
   border-radius: 2px;
 }
 
-/* Miami Vice Responsive Design */
-@media (max-width: 1200px) {
-  .offerings-grid, .event-cards, .testimonial-list {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+/* Mobile-First Responsive Design */
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .header-flex {
+    padding: 1rem 2rem;
     gap: 2rem;
+    flex-wrap: nowrap;
+  }
+  
+  /* Hide mobile menu toggle on larger screens */
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  /* Show navigation inline on larger screens */
+  .main-nav {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    order: 2;
+    flex: 1;
+  }
+  
+  .main-nav ul {
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .main-nav a {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    text-align: left;
+    display: inline-block;
+  }
+  
+  .site-logo {
+    height: 60px;
+  }
+  
+  .header-book-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+  
+  h3 {
+    font-size: 1.7rem;
   }
   
   main {
-    margin: 1rem;
+    margin: 1.5rem;
     padding: 2.5rem 2rem;
   }
 }
 
-@media (max-width: 900px) {
-  .offerings-grid, .event-cards, .testimonial-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+/* Desktop and larger screens */
+@media (min-width: 1024px) {
+  .header-flex {
+    gap: 2.5rem;
   }
   
-  .footer-flex {
-    flex-direction: column;
-    text-align: center;
+  .main-nav ul {
     gap: 2rem;
   }
   
+  .main-nav a {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  .header-book-btn {
+    padding: 0.6rem 1.5rem;
+  }
+  
   h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
   
   h2 {
+    font-size: 2.5rem;
+  }
+  
+  h3 {
+    font-size: 1.8rem;
+  }
+  
+  main {
+    margin: 1.5rem;
+    padding: 3rem 2.5rem;
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1200px) {
+  .offerings-grid, .event-cards, .testimonial-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  h1 {
+    font-size: 4rem;
+  }
+  
+  h2 {
+    font-size: 2.8rem;
+  }
+  
+  h3 {
     font-size: 2rem;
   }
 }
