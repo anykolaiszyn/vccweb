@@ -3,10 +3,9 @@ tagline: "Your Mobile Tropical Smoking Oasis"
 description: "Premium cigars, pipes, hookahs, and mobile event services in Boca Raton. Tropical, laid-back, and expert hospitality."
 locale: en_US
 # Set your production URL and baseurl for GitHub Pages.
-# Example for user/organization site: url: "https://your-username.github.io" and baseurl: ""
-# Example for project site:      url: "https://your-username.github.io" and baseurl: "/vcc-website"
-url: "https://your-username.github.io"
-baseurl: ""
+# This is a project site, so baseurl should match the repository name
+url: "https://anykolaiszyn.github.io"
+baseurl: "/vccweb"
 social:
   instagram: "https://instagram.com/vicecitycigars"
   email: "info@vicecitycigars.com"
