@@ -1,72 +1,199 @@
+/* Import Art Deco Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap');
+
 :root {
-  --vcc-green: #2E7D6B;
-  --vcc-sand: #F4E7D4;
-  --vcc-ocean: #3AAACF;
-  --vcc-sunset: #FF8A5C;
-  --vcc-ink: #0F1021;
-  --vcc-white: #fff;
+  /* Hot Havana Nights Color Palette */
+  --havana-gold: #D4AF37;
+  --havana-copper: #B87333;
+  --havana-emerald: #50C878;
+  --havana-coral: #FF6B6B;
+  --havana-navy: #1E3A8A;
+  --havana-cream: #FDF6E3;
+  --havana-charcoal: #2C2C2C;
+  --havana-smoke: #4A4A4A;
+  --havana-pearl: #F8F8FF;
+  
+  /* Art Deco gradients */
+  --gradient-sunset: linear-gradient(135deg, #FF6B6B 0%, #D4AF37 50%, #B87333 100%);
+  --gradient-ocean: linear-gradient(135deg, #1E3A8A 0%, #50C878 100%);
+  --gradient-luxury: linear-gradient(135deg, #2C2C2C 0%, #B87333 50%, #D4AF37 100%);
   
   /* Enhanced contrast colors */
-  --vcc-bg-light: rgba(255, 255, 255, 0.95);
-  --vcc-bg-very-light: rgba(255, 255, 255, 0.98);
-  --vcc-text-dark: #1a1a1a;
-  --vcc-link-dark: #1e5f52;
-  --vcc-link-hover: #ff6b3d;
+  --vcc-bg-light: rgba(253, 246, 227, 0.95);
+  --vcc-bg-very-light: rgba(253, 246, 227, 0.98);
+  --vcc-text-dark: #2C2C2C;
+  --vcc-link-dark: #1E3A8A;
+  --vcc-link-hover: #D4AF37;
   
-  --radius: 16px;
-  --shadow: 0 8px 24px rgba(0,0,0,.15);
+  /* Art Deco styling */
+  --radius: 4px;
+  --radius-large: 12px;
+  --shadow: 0 8px 32px rgba(44, 44, 44, 0.15);
+  --shadow-luxury: 0 12px 48px rgba(212, 175, 55, 0.2);
   --shadow-light: 0 4px 16px rgba(0,0,0,.08);
-  --font-ui: 'Poppins', system-ui, sans-serif;
-  --font-accent: 'Prata', serif;
+  
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-ui: 'Montserrat', sans-serif;
+  --font-script: 'Dancing Script', cursive;
 }
 
 body {
-  background: linear-gradient(135deg, var(--vcc-ocean) 0%, var(--vcc-sunset) 100%);
+  background: var(--gradient-sunset);
   color: var(--vcc-text-dark);
   font-family: var(--font-ui);
+  font-weight: 400;
   margin: 0;
   min-height: 100vh;
-  line-height: 1.6;
+  line-height: 1.7;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Main content container with better contrast */
+/* Art Deco geometric background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(30, 58, 138, 0.1) 0%, transparent 50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Main content container with Art Deco styling */
 main {
   background: var(--vcc-bg-very-light);
-  margin: 1rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 2rem;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  margin: 1.5rem;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-luxury);
+  padding: 3rem 2.5rem;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  position: relative;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Art Deco corner decorations */
+main::before {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(45deg, var(--havana-gold) 0%, var(--havana-copper) 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  opacity: 0.3;
+}
+
+main::after {
+  content: '';
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(45deg, var(--havana-gold) 0%, var(--havana-copper) 100%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  opacity: 0.3;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
+/* Art Deco Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-accent);
-  color: var(--vcc-text-dark);
+  font-family: var(--font-display);
+  color: var(--havana-charcoal);
   margin-top: 0;
-  line-height: 1.3;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
 }
 
+h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: var(--gradient-luxury);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--havana-navy);
+  border-bottom: 3px solid var(--havana-gold);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: var(--havana-copper);
+  position: relative;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: var(--havana-emerald);
+}
+
+/* Elegant script accents */
+.script-accent {
+  font-family: var(--font-script);
+  font-weight: 700;
+  color: var(--havana-gold);
+  font-size: 1.2em;
+}
 a {
   color: var(--vcc-link-dark);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
   font-weight: 500;
-}
-a:hover, a:focus {
-  color: var(--vcc-link-hover);
-  text-decoration: underline;
+  position: relative;
 }
 
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--havana-gold);
+  transition: width 0.3s ease;
+}
+
+a:hover::after, a:focus::after {
+  width: 100%;
+}
+
+a:hover, a:focus {
+  color: var(--vcc-link-hover);
+  text-decoration: none;
+}
+
+/* Art Deco Buttons */
 .btn {
   display: inline-block;
-  padding: 0.75em 2em;
+  padding: 1rem 2.5rem;
   border-radius: var(--radius);
   font-family: var(--font-ui);
   font-weight: 600;
@@ -74,113 +201,252 @@ a:hover, a:focus {
   border: none;
   cursor: pointer;
   box-shadow: var(--shadow);
-  transition: background 0.2s, color 0.2s;
-}
-.btn-primary {
-  background: var(--vcc-sunset);
-  color: var(--vcc-white);
-}
-.btn-primary:hover, .btn-primary:focus {
-  background: var(--vcc-ocean);
-  color: var(--vcc-white);
-}
-.btn-secondary {
-  background: var(--vcc-ocean);
-  color: var(--vcc-white);
-}
-.btn-secondary:hover, .btn-secondary:focus {
-  background: var(--vcc-green);
-  color: var(--vcc-white);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
 }
 
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: var(--gradient-luxury);
+  color: var(--havana-cream);
+  border: 2px solid var(--havana-gold);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-luxury);
+  color: var(--havana-cream);
+}
+
+.btn-secondary {
+  background: var(--gradient-ocean);
+  color: var(--havana-cream);
+  border: 2px solid var(--havana-emerald);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-luxury);
+  color: var(--havana-cream);
+}
+
+/* Art Deco Cards */
 .card, .offering-card, .event-card {
   background: var(--vcc-bg-very-light);
-  border-radius: var(--radius);
+  border-radius: var(--radius-large);
   box-shadow: var(--shadow);
-  padding: 1.5em;
-  margin: 1em 0;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  margin: 1.5rem 0;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-luxury);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+}
+
+.card:hover, .offering-card:hover, .event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-luxury);
+  border-color: var(--havana-gold);
 }
 
 /* Enhanced text contrast for cards */
 .card p, .offering-card p, .event-card p {
   color: var(--vcc-text-dark);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
+/* Art Deco Hero Section */
 .hero {
-  background: linear-gradient(120deg, var(--vcc-ocean) 60%, var(--vcc-sunset) 100%);
-  color: var(--vcc-white);
+  background: var(--gradient-luxury);
+  color: var(--havana-cream);
   text-align: center;
-  padding: 3em 1em 2em 1em;
-  border-radius: 0 0 var(--radius) var(--radius);
-  box-shadow: var(--shadow);
-  margin-bottom: 2em;
+  padding: 4rem 2rem 3rem 2rem;
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
+  box-shadow: var(--shadow-luxury);
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(212, 175, 55, 0.1) 10px,
+      rgba(212, 175, 55, 0.1) 20px
+    );
+  pointer-events: none;
+}
+
+.hero-logo {
+  max-width: 280px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.hero-cta {
+  margin-top: 2.5rem;
+}
+
+.hero h1 {
+  color: var(--havana-cream);
+  -webkit-text-fill-color: var(--havana-cream);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--havana-pearl);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Art Deco Grid Layouts */
+.offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
+}
+
+.offering-card {
+  text-align: center;
+  background: var(--havana-pearl);
+  transition: all 0.4s ease;
   position: relative;
 }
-.hero-logo {
-  max-width: 220px;
-  margin-bottom: 1em;
-}
-.hero-cta {
-  margin-top: 2em;
+
+.offering-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--havana-gold);
+  transition: width 0.4s ease;
 }
 
-.offerings-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  justify-content: center;
+.offering-card:hover::after {
+  width: 80%;
 }
-.offering-card {
-  flex: 1 1 220px;
-  max-width: 320px;
-  min-width: 200px;
-  text-align: center;
-}
+
 .offering-card img {
   width: 100%;
-  max-width: 120px;
-  margin-bottom: 1em;
-  border-radius: var(--radius);
+  max-width: 150px;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-large);
+  filter: sepia(20%) saturate(1.2);
+  transition: filter 0.3s ease;
+}
+
+.offering-card:hover img {
+  filter: sepia(0%) saturate(1);
 }
 
 .event-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
 }
+
 .event-card {
-  flex: 1 1 220px;
-  max-width: 320px;
-  min-width: 200px;
   text-align: left;
+  background: var(--havana-pearl);
 }
 
+/* Art Deco Testimonials */
 .testimonial-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  justify-content: center;
-}
-.testimonial {
-  background: var(--vcc-bg-light);
-  color: var(--vcc-text-dark);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1.5em;
-  max-width: 340px;
-  font-style: italic;
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
 }
 
+.testimonial {
+  background: var(--havana-pearl);
+  color: var(--vcc-text-dark);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  font-style: italic;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: 1rem;
+  font-size: 4rem;
+  color: var(--havana-gold);
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+.testimonial::after {
+  content: '"';
+  position: absolute;
+  bottom: -1rem;
+  right: 1rem;
+  font-size: 4rem;
+  color: var(--havana-gold);
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+/* Art Deco Header */
 .site-header {
-  background: var(--vcc-white);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  background: var(--havana-cream);
+  box-shadow: 0 4px 20px rgba(44, 44, 44, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 3px solid var(--havana-gold);
 }
 
 .skip-link {
@@ -196,252 +462,506 @@ a:hover, a:focus {
   top: 1rem;
   width: auto;
   height: auto;
-  background: var(--vcc-ink);
-  color: var(--vcc-white);
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
+  background: var(--havana-charcoal);
+  color: var(--havana-cream);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
   z-index: 10000;
+  font-family: var(--font-ui);
+  font-weight: 600;
 }
+
 .header-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em 1em;
+  padding: 1rem 2rem;
 }
+
 .main-nav ul {
   display: flex;
-  gap: 1.5em;
+  gap: 2.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .main-nav a {
   font-weight: 600;
-  color: var(--vcc-ink);
-  padding: 0.5em 0.25em;
-  border-bottom: 2px solid transparent;
-  transition: border 0.2s;
-}
-.main-nav a:hover, .main-nav a:focus {
-  border-bottom: 2px solid var(--vcc-ocean);
-  color: var(--vcc-ocean);
+  font-family: var(--font-ui);
+  color: var(--havana-charcoal);
+  padding: 0.75rem 0.5rem;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  position: relative;
 }
 
-.site-footer {
-  background: var(--vcc-white);
-  color: var(--vcc-ink);
-  padding: 2em 1em 1em 1em;
-  border-radius: var(--radius) var(--radius) 0 0;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
-  margin-top: 3em;
+.main-nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--havana-gold);
+  transition: width 0.3s ease;
 }
+
+.main-nav a:hover::before, .main-nav a:focus::before {
+  width: 100%;
+}
+
+.main-nav a:hover, .main-nav a:focus {
+  border-bottom: 3px solid var(--havana-gold);
+  color: var(--havana-navy);
+}
+
+/* Art Deco Footer */
+.site-footer {
+  background: var(--havana-charcoal);
+  color: var(--havana-cream);
+  padding: 3rem 2rem 2rem 2rem;
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+  box-shadow: 0 -4px 20px rgba(44, 44, 44, 0.2);
+  margin-top: 4rem;
+  position: relative;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-luxury);
+}
+
 .footer-flex {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 2em;
+  gap: 2rem;
 }
+
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 1rem;
 }
+
 .footer-legal {
   display: flex;
   flex-direction: column;
-  gap: 0.25em;
-  font-size: 0.95em;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: var(--havana-pearl);
 }
+
 .badge-21 {
-  background: var(--vcc-green);
-  color: var(--vcc-white);
-  border-radius: 8px;
-  padding: 0.2em 0.7em;
-  font-size: 0.95em;
-  margin-left: 0.5em;
+  background: var(--gradient-ocean);
+  color: var(--havana-cream);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  margin-left: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--havana-emerald);
 }
+
 .no-samples {
-  color: var(--vcc-sunset);
-  font-size: 0.95em;
+  color: var(--havana-coral);
+  font-size: 1rem;
+  font-weight: 500;
 }
+
 .footer-social a {
   display: inline-block;
-  margin-left: 0.5em;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.1);
 }
 
 /* Footer legal links */
 .footer-links {
-  margin-top: 0.5em;
-  font-size: 0.9em;
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 .footer-links a {
-  color: var(--vcc-link-dark);
+  color: var(--havana-gold);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  font-weight: 500;
 }
 .footer-links a:hover {
-  color: var(--vcc-link-hover);
+  color: var(--havana-coral);
   text-decoration: underline;
 }
 
-/* Age Gate Modal */
+/* Art Deco Age Gate Modal */
 .age-gate-modal {
   display: none;
   position: fixed;
   z-index: 9999;
   left: 0; top: 0; right: 0; bottom: 0;
-  background: rgba(15,16,33,0.85);
+  background: rgba(44, 44, 44, 0.9);
   align-items: center;
   justify-content: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .age-gate-modal.active {
   display: flex;
 }
 .age-gate-content {
-  background: var(--vcc-white);
-  color: var(--vcc-ink);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 2em 2.5em;
+  background: var(--havana-cream);
+  color: var(--havana-charcoal);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-luxury);
+  padding: 3rem 3rem;
   text-align: center;
-  max-width: 340px;
+  max-width: 400px;
   margin: auto;
+  border: 3px solid var(--havana-gold);
+  position: relative;
 }
+
+.age-gate-content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-luxury);
+  border-radius: var(--radius-large);
+  z-index: -1;
+}
+
 .age-gate-actions {
   display: flex;
-  gap: 1em;
+  gap: 1.5rem;
   justify-content: center;
-  margin: 1.5em 0 0 0;
+  margin: 2rem 0 0 0;
 }
 .age-gate-legal {
-  font-size: 0.95em;
-  color: var(--vcc-sunset);
-  margin-top: 1em;
-}
-
-/* Forms */
-form {
-  background: var(--vcc-bg-very-light);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 2em 1.5em;
-  max-width: 420px;
-  margin: 2em auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-}
-form label {
-  font-weight: 600;
-  margin-bottom: 0.25em;
-  color: var(--vcc-text-dark);
-}
-form input, form textarea {
-  border: 1px solid var(--vcc-ocean);
-  border-radius: 8px;
-  padding: 0.75em;
-  font-size: 1em;
-  font-family: var(--font-ui);
-  margin-bottom: 0.5em;
-  background: var(--vcc-white);
-  color: var(--vcc-text-dark);
-}
-form textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-form button {
-  margin-top: 1em;
-}
-.form-note {
-  text-align: center;
-  margin-top: 1em;
-}
-.legal-reminder {
-  text-align: center;
-  color: var(--vcc-sunset);
-  font-size: 0.95em;
-  margin-top: 1em;
-}
-
-/* Blog */
-.blog-list {
-  list-style: none;
-  padding: 0;
-}
-.blog-list li {
-  margin-bottom: 2em;
-  background: var(--vcc-bg-very-light);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1.5em;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-}
-.blog-date {
-  color: var(--vcc-ocean);
-  font-size: 0.95em;
+  font-size: 1rem;
+  color: var(--havana-coral);
+  margin-top: 1.5rem;
   font-weight: 500;
 }
 
-/* Enhanced paragraph styling for better readability */
+/* Art Deco Forms */
+form {
+  background: var(--havana-pearl);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-luxury);
+  padding: 3rem 2.5rem;
+  max-width: 500px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 2px solid var(--havana-gold);
+  position: relative;
+}
+
+form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-luxury);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+}
+
+form label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--havana-charcoal);
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+form input, form textarea {
+  border: 2px solid var(--havana-copper);
+  border-radius: var(--radius);
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: var(--font-ui);
+  margin-bottom: 0.5rem;
+  background: var(--havana-cream);
+  color: var(--havana-charcoal);
+  transition: all 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+  border-color: var(--havana-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  outline: none;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: var(--font-ui);
+}
+
+form button {
+  margin-top: 1.5rem;
+}
+
+.form-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--havana-smoke);
+}
+
+.legal-reminder {
+  text-align: center;
+  color: var(--havana-coral);
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
+
+/* Art Deco Blog Styling */
+.blog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-list li {
+  margin-bottom: 3rem;
+  background: var(--havana-pearl);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.blog-list li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-luxury);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+}
+
+.blog-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-luxury);
+  border-color: var(--havana-gold);
+}
+
+.blog-date {
+  color: var(--havana-copper);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.blog-list h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Enhanced Typography */
 p {
   color: var(--vcc-text-dark);
-  line-height: 1.7;
-  margin-bottom: 1em;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
 /* List styling improvements */
 ul, ol {
   color: var(--vcc-text-dark);
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+ul li, ol li {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
 }
 
 /* Strong and emphasis styling */
 strong, b {
-  color: var(--vcc-text-dark);
+  color: var(--havana-navy);
   font-weight: 700;
 }
 
 em, i {
-  color: var(--vcc-text-dark);
+  color: var(--havana-copper);
+  font-style: italic;
 }
 
-/* Responsive */
+/* Quote styling */
+blockquote {
+  border-left: 4px solid var(--havana-gold);
+  padding-left: 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--havana-smoke);
+  background: rgba(212, 175, 55, 0.05);
+  padding: 1.5rem 2rem;
+  border-radius: 0 var(--radius-large) var(--radius-large) 0;
+}
+
+/* Art Deco Responsive Design */
+@media (max-width: 1200px) {
+  .offerings-grid, .event-cards, .testimonial-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  main {
+    margin: 1rem;
+    padding: 2.5rem 2rem;
+  }
+}
+
 @media (max-width: 900px) {
-  .offerings-grid, .event-cards, .testimonial-list, .footer-flex {
+  .offerings-grid, .event-cards, .testimonial-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footer-flex {
     flex-direction: column;
-    align-items: stretch;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 600px) {
   .hero {
-    padding: 2em 0.5em 1.5em 0.5em;
+    padding: 3rem 1.5rem 2.5rem 1.5rem;
   }
-  .header-flex, .footer-flex {
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .header-flex {
     flex-direction: column;
-    gap: 1em;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
   }
+  
   .main-nav ul {
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1rem;
+    text-align: center;
   }
+  
   .card, .offering-card, .event-card, .testimonial {
-    padding: 1em;
+    padding: 1.5rem;
   }
+  
+  .blog-list li {
+    padding: 2rem 1.5rem;
+  }
+  
   form {
-    padding: 1em 0.5em;
+    padding: 2rem 1.5rem;
+    margin: 2rem 1rem;
+  }
+  
+  main {
+    margin: 0.5rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  main::before, main::after {
+    width: 2rem;
+    height: 2rem;
   }
 }
 
-/* Focus Styles */
+/* Art Deco Focus Styles */
 a, button, input, textarea {
   outline: none;
-  transition: box-shadow 0.2s;
+  transition: all 0.3s ease;
 }
+
 a:focus, button:focus, input:focus, textarea:focus {
-  box-shadow: 0 0 0 3px var(--vcc-ocean);
-  outline: 2px solid var(--vcc-ocean);
+  box-shadow: 0 0 0 3px var(--havana-gold);
+  outline: 2px solid var(--havana-gold);
+}
+
+/* Special Art Deco Elements */
+.art-deco-divider {
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-luxury);
+  margin: 3rem 0;
+  border-radius: 2px;
+  position: relative;
+}
+
+.art-deco-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: var(--havana-gold);
+  border-radius: 50%;
+  border: 3px solid var(--havana-cream);
+}
+
+/* Enhanced visual hierarchy */
+.page-title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  background: var(--gradient-luxury);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin: 2rem 0 3rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
