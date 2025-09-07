@@ -1,4 +1,8 @@
 ---
+layout: page
+title: Learn
+---
+
 # Learn About Cigars & Smoking Culture
 
 New to cigars? Been smoking for years but want to learn more? Welcome! We're passionate about sharing the culture, tradition, and pure enjoyment that comes with great tobacco. Let's dive into the good stuff.
