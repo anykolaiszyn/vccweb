@@ -7,8 +7,6 @@ author: Vice City Cigars
 excerpt: "From period-accurate Renaissance Fair booths to modern tropical events, discover why the same passion for tobacco culture connects two very different worlds."
 ---
 
-# Two Worlds, One Passion: How Renaissance Fairs and Modern Events Share the Same Spirit
-
 If you follow our Instagram [@vicecitycigars](https://instagram.com/vicecitycigars), you've probably noticed something interesting: we move seamlessly between period-accurate Renaissance Fair setups and ultra-modern tropical events. One day we're in medieval garb discussing 16th-century tobacco varieties, the next we're bringing Miami vibes to a corporate party in Boca Raton.
 
 Some people ask: "Aren't those completely different audiences?" The answer might surprise you.

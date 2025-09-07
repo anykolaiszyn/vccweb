@@ -949,6 +949,142 @@ form button {
   color: var(--vice-hot-pink);
 }
 
+/* Miami Vice Blog Post Styling */
+.post-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(255, 20, 147, 0.3);
+  position: relative;
+}
+
+.post-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: var(--gradient-neon-accent);
+}
+
+.post-title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  background: var(--gradient-neon-sunset);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-ui);
+}
+
+.post-date {
+  color: var(--vice-cyan-blue);
+  font-family: var(--font-cyber);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 5px currentColor;
+}
+
+.post-author {
+  color: var(--vcc-text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.post-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.category-tag {
+  background: rgba(255, 20, 147, 0.2);
+  color: var(--vice-hot-pink);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-small);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--vice-hot-pink);
+  box-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
+}
+
+.post-body {
+  line-height: 1.8;
+}
+
+.post-body h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+}
+
+.post-body h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-body p {
+  margin-bottom: 1.5rem;
+}
+
+.post-body a {
+  color: var(--vice-cyan-blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--vice-cyan-blue);
+  transition: all 0.3s ease;
+}
+
+.post-body a:hover {
+  color: var(--vice-hot-pink);
+  border-bottom-color: var(--vice-hot-pink);
+  text-shadow: 0 0 5px currentColor;
+}
+
+/* Responsive post styling */
+@media (min-width: 768px) {
+  .post-title {
+    font-size: 3rem;
+  }
+  
+  .post-meta {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .post-meta > * {
+    margin: 0 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .post-title {
+    font-size: 3.5rem;
+  }
+}
+
 /* Enhanced Typography */
 p {
   color: var(--vcc-text-light);
