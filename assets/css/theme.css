@@ -270,6 +270,21 @@ a:hover, a:focus {
   margin-left: 0.5em;
 }
 
+/* Footer legal links */
+.footer-links {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+}
+.footer-links a {
+  color: var(--vcc-link-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover {
+  color: var(--vcc-link-hover);
+  text-decoration: underline;
+}
+
 /* Age Gate Modal */
 .age-gate-modal {
   display: none;
