@@ -3,20 +3,36 @@ layout: page
 title: Events
 ---
 
-# Upcoming Events & Calendar
+# Upcoming Events & Where to Find Us
 
-Stay in the loop with Vice City Cigars! Here's where you can catch us at public events, cigar nights, and special gatherings around South Florida.
+Stay in the loop with Vice City Cigars! Here's where you can catch us at public events, Renaissance Fairs, cigar nights, and special gatherings around South Florida and beyond.
 
-## Regularly Scheduled Events
+## Renaissance Fair Schedule 🏰
 
-### Weekly Cigar Nights
-*Details coming soon - we're working on partnerships with local venues*
+### Camelot Days 2025
+**📅 November 2025** | **📍 Pompano Beach, FL**  
+Our most anticipated event of the year! Find us in our period-appropriate booth with an exceptional selection of artisan pipes, premium tobacco blends, and boutique cigars. Perfect for history buffs and pipe enthusiasts.
 
-### Monthly Tastings
-*Premium cigar and spirit pairing events - dates TBA*
+🌐 **Fair Info:** [camelotdays.com](https://camelotdays.com/)  
+🎭 **What We Bring:** Artisan pipes, traditional blends, period-appropriate accessories  
+📸 **Follow Along:** [@vicecitycigars](https://instagram.com/vicecitycigars) for live updates
 
-### Holiday Celebrations
-*Special tropical-themed smoking events throughout the year*
+### Florida Renaissance Festival 2026
+**📅 Spring 2026** | **📍 Location TBA**  
+Excited to announce we've been invited back! More details coming soon.
+
+---
+
+## South Florida Events
+
+### Monthly Cigar Nights
+*Locations and partnerships coming soon - follow us for updates*
+
+### Private Event Showcases
+*Seasonal open houses and tasting events*
+
+### Pop-Up Appearances
+*Beach events, festivals, and community gatherings*
 
 ---
 

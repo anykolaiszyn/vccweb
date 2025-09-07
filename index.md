@@ -30,14 +30,14 @@ title: Home
   <h2>Event Services</h2>
   <div class="event-cards">
     <div class="event-card">
-      <h3>Private Parties</h3>
+      <h3>Private Events</h3>
       <p>Transform birthdays, anniversaries, and celebrations into tropical escapes. Complete with cutting & lighting station, flavoring bar, and our signature mobile humidor setup.</p>
       <a href="{{ '/contact' | relative_url }}" class="btn btn-secondary">Request a Callback</a>
     </div>
     <div class="event-card">
-      <h3>Weddings</h3>
-      <p>Create an unforgettable cigar lounge experience for your special day. Expert hosts, custom pairings, and that perfect tropical ambiance your guests will remember forever.</p>
-      <a href="{{ '/contact' | relative_url }}" class="btn btn-secondary">Request a Callback</a>
+      <h3>Renaissance Fairs</h3>
+      <p>Find us at Camelot Days and other Renaissance Fairs with our period-appropriate booth, artisan pipes, traditional blends, and boutique cigars for history enthusiasts.</p>
+      <a href="{{ '/events' | relative_url }}" class="btn btn-secondary">See Fair Schedule</a>
     </div>
     <div class="event-card">
       <h3>Corporate Events</h3>

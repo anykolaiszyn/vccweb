@@ -19,7 +19,8 @@ We arrive with everything needed to create an instant tropical smoking lounge:
 
 ### 📦 Premium Product Selection
 - **Boutique & Premium Cigars:** Hand-selected rare finds, limited releases, and exceptional everyday smokes
-- **Fine Pipes:** Classic briars, modern artisan pieces, premium tobacco blends
+- **Artisan Pipes:** Classic briars, handcrafted pieces, period-appropriate options for Renaissance events
+- **Premium Tobacco Blends:** Traditional and modern blends, fair-exclusive selections
 - **Exquisite Hookahs:** Top-tier shisha, multiple flavor options, group-friendly setups
 
 ### 👨‍🎓 Expert Hospitality
@@ -30,7 +31,8 @@ We arrive with everything needed to create an instant tropical smoking lounge:
 - Professional service throughout your event
 
 ## Event Types We Love
-- **Private Parties** — Birthdays, anniversaries, bachelor/bachelorette parties
+- **Private Events** — Birthdays, anniversaries, bachelor/bachelorette parties, celebrations
+- **Renaissance Fairs** — Camelot Days, Florida Ren Fest, and artisan-focused events
 - **Weddings** — Cocktail hours, receptions, rehearsal dinners
 - **Corporate Events** — Client entertainment, team celebrations, networking
 - **Holiday Gatherings** — Pool parties, rooftop events, backyard celebrations
