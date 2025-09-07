@@ -1,31 +1,42 @@
-/* Import Art Deco Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap');
+/* Import Authentic Miami Vice Typography */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&family=Pacifico&display=swap');
 
 :root {
-  /* Refined Tropical Color Palette - Calm backgrounds, vibrant accents */
-  --havana-gold: #D4AF37;
-  --havana-copper: #B87333;
-  --havana-emerald: #50C878;
-  --havana-coral: #FF8A5C;
-  --havana-navy: #1E3A8A;
-  --havana-ink: #0F1021;
-  --havana-ocean: #3AAACF;
-  --havana-cream: #FDF6E3;
-  --havana-charcoal: #2C2C2C;
-  --havana-smoke: #4A4A4A;
-  --havana-pearl: #F8F8FF;
+  /* Authentic Miami Vice Color Palette */
+  --vice-neon-pink: #FF1493;
+  --vice-cyan-blue: #00FFFF;
+  --vice-electric-purple: #8A2BE2;
+  --vice-hot-pink: #FF69B4;
+  --vice-miami-blue: #1E90FF;
+  --vice-white: #FFFFFF;
+  --vice-black: #000000;
+  --vice-dark-navy: #0A0A2E;
+  --vice-charcoal: #1A1A1A;
   
-  /* Calmer gradients - subtle tropical feel */
-  --gradient-hero: linear-gradient(135deg, var(--havana-ink) 0%, var(--havana-navy) 60%, var(--havana-ocean) 100%);
-  --gradient-ocean: linear-gradient(135deg, var(--havana-ocean) 0%, var(--havana-emerald) 100%);
-  --gradient-luxury: linear-gradient(135deg, var(--havana-charcoal) 0%, var(--havana-copper) 50%, var(--havana-gold) 100%);
+  /* Neon gradients for authentic Miami nightlife feel */
+  --gradient-neon-sunset: linear-gradient(135deg, var(--vice-neon-pink) 0%, var(--vice-electric-purple) 50%, var(--vice-cyan-blue) 100%);
+  --gradient-miami-night: linear-gradient(135deg, var(--vice-dark-navy) 0%, var(--vice-charcoal) 100%);
+  --gradient-neon-accent: linear-gradient(45deg, var(--vice-hot-pink) 0%, var(--vice-cyan-blue) 100%);
   
-  /* Enhanced contrast colors */
-  --vcc-bg-light: rgba(253, 246, 227, 0.95);
-  --vcc-bg-very-light: rgba(253, 246, 227, 0.98);
-  --vcc-text-dark: #2C2C2C;
-  --vcc-link-dark: #1E3A8A;
-  --vcc-link-hover: #FF8A5C;
+  /* Refined contrast for readability */
+  --vcc-bg-dark: rgba(10, 10, 46, 0.95);
+  --vcc-bg-glass: rgba(0, 0, 0, 0.8);
+  --vcc-text-light: #FFFFFF;
+  --vcc-text-neon: var(--vice-cyan-blue);
+  --vcc-link-neon: var(--vice-hot-pink);
+  --vcc-link-hover: var(--vice-cyan-blue);
+  
+  /* Miami Vice styling */
+  --radius: 8px;
+  --radius-large: 16px;
+  --shadow-neon: 0 8px 32px rgba(255, 20, 147, 0.3);
+  --shadow-cyber: 0 12px 48px rgba(0, 255, 255, 0.2);
+  --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.5);
+  
+  /* Authentic Vice City Typography */
+  --font-primary: 'Pacifico', cursive; /* Miami Vice brush script */
+  --font-ui: 'Exo 2', sans-serif; /* Modern geometric sans-serif */
+  --font-cyber: 'Orbitron', monospace; /* Futuristic accent font */
   
   /* Art Deco styling */
   --radius: 4px;
@@ -41,8 +52,8 @@
 }
 
 body {
-  background: var(--gradient-hero);
-  color: var(--vcc-text-dark);
+  background: var(--gradient-miami-night);
+  color: var(--vcc-text-light);
   font-family: var(--font-ui);
   font-weight: 400;
   margin: 0;
@@ -52,7 +63,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Art Deco geometric background pattern */
+/* Miami Vice neon grid pattern */
 body::before {
   content: '';
   position: fixed;
@@ -61,48 +72,47 @@ body::before {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(30, 58, 138, 0.1) 0%, transparent 50%);
+    linear-gradient(rgba(255, 20, 147, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
   z-index: -1;
   pointer-events: none;
 }
 
-/* Main content container with Art Deco styling */
+/* Main content with cyberpunk glass effect */
 main {
-  background: var(--vcc-bg-very-light);
+  background: var(--vcc-bg-glass);
   margin: 1.5rem;
   border-radius: var(--radius-large);
-  box-shadow: var(--shadow-luxury);
+  box-shadow: var(--shadow-neon);
   padding: 3rem 2.5rem;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   position: relative;
-  border: 2px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(255, 20, 147, 0.3);
 }
 
-/* Art Deco corner decorations */
+/* Neon corner accents */
 main::before {
   content: '';
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  width: 3rem;
-  height: 3rem;
-  background: linear-gradient(45deg, var(--havana-gold) 0%, var(--havana-copper) 100%);
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  opacity: 0.3;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-neon-accent);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
 }
 
 main::after {
   content: '';
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 3rem;
-  height: 3rem;
-  background: linear-gradient(45deg, var(--havana-gold) 0%, var(--havana-copper) 100%);
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-  opacity: 0.3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-neon-accent);
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
 }
 
 .container {
@@ -111,58 +121,45 @@ main::after {
   padding: 0 1rem;
 }
 
-/* Art Deco Typography */
+/* Miami Vice Typography System */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  color: var(--havana-charcoal);
+  font-family: var(--font-primary);
+  color: var(--vcc-text-light);
   margin-top: 0;
   line-height: 1.2;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  position: relative;
+  font-weight: 400;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
 }
 
 h1 {
-  font-size: 3.5rem;
-  font-weight: 900;
-  background: var(--gradient-luxury);
+  font-size: 4rem;
+  background: var(--gradient-neon-sunset);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
 }
 
 h2 {
-  font-size: 2.5rem;
-  color: var(--havana-navy);
-  border-bottom: 3px solid var(--havana-gold);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.8rem;
+  color: var(--vice-cyan-blue);
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
 h3 {
-  font-size: 1.8rem;
-  color: var(--havana-copper);
-  position: relative;
+  font-size: 2rem;
+  color: var(--vice-hot-pink);
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
 }
 
-h3::after {
-  content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  width: 3rem;
-  height: 2px;
-  background: var(--havana-emerald);
-}
-
-/* Elegant script accents */
-.script-accent {
-  font-family: var(--font-script);
-  font-weight: 700;
-  color: var(--havana-gold);
-  font-size: 1.2em;
+/* Neon accent text */
+.neon-accent {
+  font-family: var(--font-cyber);
+  color: var(--vice-cyan-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px currentColor;
 }
 a {
   color: var(--vcc-link-dark);
@@ -226,41 +223,45 @@ a:hover, a:focus {
 }
 
 .btn-primary {
-  background: var(--havana-ocean);
-  color: var(--havana-cream);
-  border: 2px solid var(--havana-ocean);
+  background: var(--gradient-neon-accent);
+  color: var(--vcc-bg-dark);
+  border: 2px solid var(--vice-cyan-blue);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
 .btn-primary:hover, .btn-primary:focus {
-  background: var(--havana-coral);
-  border-color: var(--havana-coral);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  border-color: var(--vice-hot-pink);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-luxury);
-  color: var(--havana-cream);
+  color: var(--vcc-bg-dark);
 }
 
 .btn-secondary {
-  background: var(--gradient-ocean);
-  color: var(--havana-cream);
-  border: 2px solid var(--havana-emerald);
+  background: transparent;
+  color: var(--vice-hot-pink);
+  border: 2px solid var(--vice-hot-pink);
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
 }
 
 .btn-secondary:hover, .btn-secondary:focus {
+  background: var(--vice-hot-pink);
+  color: var(--vcc-bg-dark);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-luxury);
-  color: var(--havana-cream);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
 }
 
-/* Art Deco Cards */
+/* Miami Vice Cards */
 .card, .offering-card, .event-card {
-  background: var(--vcc-bg-very-light);
+  background: var(--vcc-bg-glass);
   border-radius: var(--radius-large);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-neon);
   padding: 2rem;
   margin: 1.5rem 0;
-  border: 2px solid rgba(212, 175, 55, 0.2);
+  border: 2px solid rgba(255, 20, 147, 0.3);
   position: relative;
   transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 .card::before {
@@ -269,34 +270,35 @@ a:hover, a:focus {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--gradient-luxury);
+  height: 2px;
+  background: var(--gradient-neon-accent);
   border-radius: var(--radius-large) var(--radius-large) 0 0;
 }
 
 .card:hover, .offering-card:hover, .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-luxury);
-  border-color: var(--havana-gold);
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+  border-color: var(--vice-hot-pink);
 }
 
 /* Enhanced text contrast for cards */
 .card p, .offering-card p, .event-card p {
-  color: var(--vcc-text-dark);
+  color: var(--vcc-text-light);
   line-height: 1.7;
   font-weight: 400;
 }
 
-/* Art Deco Hero Section */
+/* Miami Vice Hero Section */
 .hero {
-  background: var(--gradient-luxury);
-  color: var(--havana-cream);
+  background: var(--gradient-miami-night);
+  color: var(--vcc-text-light);
   text-align: center;
   padding: 4rem 2rem 3rem 2rem;
   border-radius: 0 0 var(--radius-large) var(--radius-large);
-  box-shadow: var(--shadow-luxury);
+  box-shadow: var(--shadow-neon);
   margin-bottom: 3rem;
   position: relative;
+  border-bottom: 2px solid var(--vice-hot-pink);
   overflow: hidden;
 }
 
@@ -443,14 +445,16 @@ a:hover, a:focus {
   font-weight: 900;
 }
 
-/* Art Deco Header */
+/* Miami Vice Header */
 .site-header {
-  background: var(--havana-cream);
-  box-shadow: 0 4px 20px rgba(44, 44, 44, 0.1);
+  background: var(--vcc-bg-dark);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid var(--vice-hot-pink);
+  box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3);
   position: sticky;
   top: 0;
-  z-index: 100;
-  border-bottom: 3px solid var(--havana-gold);
+  z-index: 1000;
 }
 
 .skip-link {
@@ -481,6 +485,8 @@ a:hover, a:focus {
   justify-content: space-between;
   padding: 1rem 2rem;
   gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .header-book-btn {
@@ -488,6 +494,18 @@ a:hover, a:focus {
   font-size: 0.9rem;
   font-weight: 600;
   white-space: nowrap;
+  background: var(--gradient-neon-accent);
+  color: var(--vcc-bg-dark);
+  border: 1px solid var(--vice-cyan-blue);
+  border-radius: var(--radius-small);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.header-book-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transform: translateY(-2px);
 }
 
 .main-nav ul {
@@ -499,48 +517,60 @@ a:hover, a:focus {
 }
 
 .main-nav a {
-  font-weight: 600;
+  font-weight: 500;
   font-family: var(--font-ui);
-  color: var(--havana-charcoal);
-  padding: 0.75rem 0.5rem;
-  border-bottom: 3px solid transparent;
+  color: var(--vcc-text-light);
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.95rem;
   position: relative;
+  text-decoration: none;
+  overflow: hidden;
 }
 
 .main-nav a::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: var(--havana-gold);
-  transition: width 0.3s ease;
-}
-
-.main-nav a:hover::before, .main-nav a:focus::before {
+  left: -100%;
   width: 100%;
+  height: 100%;
+  background: var(--gradient-neon-accent);
+  transition: left 0.3s ease;
+  z-index: -1;
 }
 
-.main-nav a:hover, .main-nav a:focus {
-  border-bottom: 3px solid var(--havana-gold);
-  color: var(--havana-navy);
+.main-nav a:hover::before {
+  left: 0;
 }
 
-/* Art Deco Footer */
+.main-nav a:hover {
+  color: var(--vcc-bg-dark);
+  border-color: var(--vice-hot-pink);
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
+}
+
+.main-nav a.current {
+  background: var(--gradient-neon-accent);
+  color: var(--vcc-bg-dark);
+  border-color: var(--vice-cyan-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Miami Vice Footer */
 .site-footer {
-  background: var(--havana-charcoal);
-  color: var(--havana-cream);
+  background: var(--vcc-bg-dark);
+  color: var(--vcc-text-light);
   padding: 3rem 2rem 2rem 2rem;
   border-radius: var(--radius-large) var(--radius-large) 0 0;
-  box-shadow: 0 -4px 20px rgba(44, 44, 44, 0.2);
+  box-shadow: 0 -4px 20px rgba(255, 20, 147, 0.3);
   margin-top: 4rem;
   position: relative;
+  border-top: 2px solid var(--vice-hot-pink);
 }
 
 .site-footer::before {
@@ -549,8 +579,8 @@ a:hover, a:focus {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--gradient-luxury);
+  height: 1px;
+  background: var(--gradient-neon-accent);
 }
 
 .footer-flex {
@@ -567,41 +597,73 @@ a:hover, a:focus {
   gap: 1rem;
 }
 
+.footer-brand img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--vice-cyan-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.footer-brand h3 {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  color: var(--vice-cyan-blue);
+  text-shadow: 0 0 5px currentColor;
+  margin: 0;
+}
+
 .footer-legal {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   font-size: 1rem;
-  color: var(--havana-pearl);
+  color: var(--vcc-text-muted);
+}
+
+.footer-legal a {
+  color: var(--vice-hot-pink);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: var(--vice-cyan-blue);
+  text-shadow: 0 0 5px currentColor;
 }
 
 .badge-21 {
-  background: var(--gradient-ocean);
-  color: var(--havana-cream);
-  border-radius: var(--radius);
+  background: var(--gradient-neon-accent);
+  color: var(--vcc-bg-dark);
+  border-radius: var(--radius-small);
   padding: 0.5rem 1rem;
   font-size: 0.95rem;
   margin-left: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border: 2px solid var(--havana-emerald);
+  border: 2px solid var(--vice-cyan-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
 .no-samples {
-  color: var(--havana-coral);
+  color: var(--vice-electric-purple);
   font-size: 1rem;
   font-weight: 500;
+  text-shadow: 0 0 5px currentColor;
 }
 
 .footer-social a {
   display: inline-block;
   margin-left: 1rem;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  color: var(--vice-hot-pink);
 }
 
 .footer-social a:hover {
   transform: scale(1.1);
+  color: var(--vice-cyan-blue);
+  text-shadow: 0 0 10px currentColor;
 }
 
 /* Footer legal links */
@@ -610,23 +672,24 @@ a:hover, a:focus {
   font-size: 1rem;
 }
 .footer-links a {
-  color: var(--havana-gold);
+  color: var(--vice-hot-pink);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 .footer-links a:hover {
-  color: var(--havana-coral);
+  color: var(--vice-cyan-blue);
+  text-shadow: 0 0 5px currentColor;
   text-decoration: underline;
 }
 
-/* Art Deco Age Gate Modal */
+/* Miami Vice Age Gate Modal */
 .age-gate-modal {
   display: none;
   position: fixed;
   z-index: 9999;
   left: 0; top: 0; right: 0; bottom: 0;
-  background: rgba(44, 44, 44, 0.9);
+  background: rgba(20, 20, 30, 0.95);
   align-items: center;
   justify-content: center;
   -webkit-backdrop-filter: blur(10px);
@@ -636,15 +699,15 @@ a:hover, a:focus {
   display: flex;
 }
 .age-gate-content {
-  background: var(--havana-cream);
-  color: var(--havana-charcoal);
+  background: var(--vcc-bg-dark);
+  color: var(--vcc-text-light);
   border-radius: var(--radius-large);
-  box-shadow: var(--shadow-luxury);
+  box-shadow: var(--shadow-neon);
   padding: 3rem 3rem;
   text-align: center;
   max-width: 400px;
   margin: auto;
-  border: 3px solid var(--havana-gold);
+  border: 2px solid var(--vice-hot-pink);
   position: relative;
 }
 
@@ -655,9 +718,10 @@ a:hover, a:focus {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: var(--gradient-luxury);
+  background: var(--gradient-neon-accent);
   border-radius: var(--radius-large);
   z-index: -1;
+  opacity: 0.3;
 }
 
 .age-gate-actions {
@@ -668,24 +732,27 @@ a:hover, a:focus {
 }
 .age-gate-legal {
   font-size: 1rem;
-  color: var(--havana-coral);
+  color: var(--vice-electric-purple);
   margin-top: 1.5rem;
   font-weight: 500;
+  text-shadow: 0 0 5px currentColor;
 }
 
-/* Art Deco Forms */
+/* Miami Vice Forms */
 form {
-  background: var(--havana-pearl);
+  background: var(--vcc-bg-glass);
   border-radius: var(--radius-large);
-  box-shadow: var(--shadow-luxury);
+  box-shadow: var(--shadow-neon);
   padding: 3rem 2.5rem;
   max-width: 500px;
   margin: 3rem auto;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border: 2px solid var(--havana-gold);
+  border: 2px solid var(--vice-hot-pink);
   position: relative;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 form::before {
@@ -694,36 +761,37 @@ form::before {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--gradient-luxury);
+  height: 2px;
+  background: var(--gradient-neon-accent);
   border-radius: var(--radius-large) var(--radius-large) 0 0;
 }
 
 form label {
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--havana-charcoal);
+  color: var(--vice-cyan-blue);
   font-family: var(--font-ui);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.9rem;
+  text-shadow: 0 0 5px currentColor;
 }
 
 form input, form textarea {
-  border: 2px solid var(--havana-copper);
-  border-radius: var(--radius);
+  border: 2px solid var(--vice-hot-pink);
+  border-radius: var(--radius-small);
   padding: 1rem;
   font-size: 1rem;
   font-family: var(--font-ui);
   margin-bottom: 0.5rem;
-  background: var(--havana-cream);
-  color: var(--havana-charcoal);
+  background: var(--vcc-bg-dark);
+  color: var(--vcc-text-light);
   transition: all 0.3s ease;
 }
 
 form input:focus, form textarea:focus {
-  border-color: var(--havana-gold);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  border-color: var(--vice-cyan-blue);
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.3), 0 0 15px rgba(0, 255, 255, 0.5);
   outline: none;
 }
 
@@ -740,18 +808,20 @@ form button {
 .form-note {
   text-align: center;
   margin-top: 1.5rem;
-  color: var(--havana-smoke);
+  color: var(--vcc-text-muted);
+  font-family: var(--font-ui);
 }
 
 .legal-reminder {
   text-align: center;
-  color: var(--havana-coral);
+  color: var(--vice-electric-purple);
   font-size: 1rem;
   margin-top: 1.5rem;
   font-weight: 500;
+  text-shadow: 0 0 5px currentColor;
 }
 
-/* Art Deco Blog Styling */
+/* Miami Vice Blog Styling */
 .blog-list {
   list-style: none;
   padding: 0;
@@ -760,13 +830,15 @@ form button {
 
 .blog-list li {
   margin-bottom: 3rem;
-  background: var(--havana-pearl);
+  background: var(--vcc-bg-glass);
   border-radius: var(--radius-large);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-neon);
   padding: 2.5rem;
-  border: 2px solid rgba(212, 175, 55, 0.2);
+  border: 2px solid rgba(255, 20, 147, 0.3);
   position: relative;
   transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 .blog-list li::before {
@@ -775,35 +847,37 @@ form button {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--gradient-luxury);
+  height: 2px;
+  background: var(--gradient-neon-accent);
   border-radius: var(--radius-large) var(--radius-large) 0 0;
 }
 
 .blog-list li:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-luxury);
-  border-color: var(--havana-gold);
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+  border-color: var(--vice-hot-pink);
 }
 
 .blog-date {
-  color: var(--havana-copper);
+  color: var(--vice-cyan-blue);
   font-size: 1rem;
-  font-weight: 700;
-  font-family: var(--font-ui);
+  font-weight: 600;
+  font-family: var(--font-cyber);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
+  text-shadow: 0 0 5px currentColor;
 }
 
 .blog-list h2 {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: var(--vice-hot-pink);
 }
 
 /* Enhanced Typography */
 p {
-  color: var(--vcc-text-dark);
+  color: var(--vcc-text-light);
   line-height: 1.8;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
@@ -812,7 +886,7 @@ p {
 
 /* List styling improvements */
 ul, ol {
-  color: var(--vcc-text-dark);
+  color: var(--vcc-text-light);
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
@@ -824,29 +898,42 @@ ul li, ol li {
 
 /* Strong and emphasis styling */
 strong, b {
-  color: var(--havana-navy);
+  color: var(--vice-cyan-blue);
   font-weight: 700;
+  text-shadow: 0 0 5px currentColor;
 }
 
 em, i {
-  color: var(--havana-copper);
+  color: var(--vice-hot-pink);
   font-style: italic;
 }
 
 /* Quote styling */
 blockquote {
-  border-left: 4px solid var(--havana-gold);
+  border-left: 4px solid var(--vice-hot-pink);
   padding-left: 2rem;
   margin: 2rem 0;
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--havana-smoke);
-  background: rgba(212, 175, 55, 0.05);
+  color: var(--vcc-text-muted);
+  background: rgba(255, 20, 147, 0.1);
   padding: 1.5rem 2rem;
   border-radius: 0 var(--radius-large) var(--radius-large) 0;
+  position: relative;
 }
 
-/* Art Deco Responsive Design */
+blockquote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gradient-neon-accent);
+  border-radius: 2px;
+}
+
+/* Miami Vice Responsive Design */
 @media (max-width: 1200px) {
   .offerings-grid, .event-cards, .testimonial-list {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Learn
---### Full-Bodied (For the Experienced)
+---
+
+### Full-Bodied (For the Experienced)
 **What to expect:** Rich, intense, complex—pepper, dark chocolate, earth, coffee  
 **Great with:** Aged rum, bourbon, dark beer  
 **Examples:** Maduro wrappers, after-dinner specials
