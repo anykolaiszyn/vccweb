@@ -1,9 +1,14 @@
 ---
 layout: page
 title: Learn
----
+--### Full-Bodied (For the Experienced)
+**What to expect:** Rich, intense, complex—pepper, dark chocolate, earth, coffee  
+**Great with:** Aged rum, bourbon, dark beer  
+**Examples:** Maduro wrappers, after-dinner specials
 
-# Learn About Cigars & Smoking Culture
+## Perfect Pairings
+
+Pairing cigars with the right drink elevates both experiences. Here's how to create harmony:arn About Cigars & Smoking Culture
 
 New to cigars? Been smoking for years but want to learn more? Welcome! We're passionate about sharing the culture, tradition, and pure enjoyment that comes with great tobacco. Let's dive into the good stuff.
 

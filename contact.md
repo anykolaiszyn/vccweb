@@ -42,7 +42,7 @@ Ready to bring the tropical smoking experience to your event? Let's make it happ
 
 <p class="form-note">**Or reach out directly:**  
 📧 Email us: <a href="mailto:info@vicecitycigars.com?subject=Event%20Booking%20Request&body=Hey%20Vice%20City%20Cigars!%0A%0AName:%20%5BYour%20Name%5D%0APhone:%20%5BYour%20Phone%5D%0AEvent%20Date:%20%5BDate%5D%0ALocation:%20%5BLocation%5D%0AGuest%20Count:%20%5BGuests%5D%0AEvent%20Type:%20%5BParty/Wedding/Corporate/etc%5D%0ANotes:%20%5BSpecial%20requests%5D%0A%0AThanks!">info@vicecitycigars.com</a>  
-📞 Call/Text: <a href="tel:+15613310491">(561) 331-0491</a>
+📞 Call/Text: <a href="tel:+15613310491">561-331-0491</a>
 </p>
 
 <p class="legal-reminder">21+ Only. We do not offer free samples.</p>

@@ -7,6 +7,48 @@ title: Services
 
 Vice City Cigars transforms any event into a tropical smoking paradise. We bring the complete mobile lounge experience—boutique & premium products, expert hosts, and that laid-back Miami energy that makes every gathering unforgettable.
 
+## Quick Overview
+
+<div class="services-overview">
+  <div class="overview-card">
+    <h3>🎉 Essential Package</h3>
+    <p><strong>$200 base</strong> • Perfect for intimate gatherings</p>
+    <p>Premium cigars, mobile setup, expert host</p>
+    <a href="#essential-package" class="btn btn-secondary">Learn More</a>
+  </div>
+  
+  <div class="overview-card">
+    <h3>🌟 Premium Package</h3>
+    <p><strong>$350 base</strong> • Full tropical experience</p>
+    <p>Everything + rare cigars, pipes, enhanced setup</p>
+    <a href="#premium-package" class="btn btn-secondary">Learn More</a>
+  </div>
+  
+  <div class="overview-card">
+    <h3>💎 Luxury Package</h3>
+    <p><strong>$500 base</strong> • Ultimate indulgence</p>
+    <p>Premium + hookahs, exclusive selections, full service</p>
+    <a href="#luxury-package" class="btn btn-secondary">Learn More</a>
+  </div>
+</div>
+
+<div class="value-props">
+  <div class="prop-card">
+    <h4>🧠 Neurodivergent-Friendly</h4>
+    <p>Detailed communication, clear expectations, sensory-conscious setups</p>
+  </div>
+  <div class="prop-card">
+    <h4>⚔️ Renaissance Expertise</h4>
+    <p>Period-accurate presentations, historical knowledge, authentic atmosphere</p>
+  </div>
+  <div class="prop-card">
+    <h4>🏢 Corporate Ready</h4>
+    <p>Professional service, luxury presentation, business-appropriate hosting</p>
+  </div>
+</div>
+
+---
+
 ## Our Mobile Services
 
 ### 🚐 Full Mobile Setup

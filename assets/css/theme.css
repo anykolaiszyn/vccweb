@@ -2,28 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap');
 
 :root {
-  /* Hot Havana Nights Color Palette */
+  /* Refined Tropical Color Palette - Calm backgrounds, vibrant accents */
   --havana-gold: #D4AF37;
   --havana-copper: #B87333;
   --havana-emerald: #50C878;
-  --havana-coral: #FF6B6B;
+  --havana-coral: #FF8A5C;
   --havana-navy: #1E3A8A;
+  --havana-ink: #0F1021;
+  --havana-ocean: #3AAACF;
   --havana-cream: #FDF6E3;
   --havana-charcoal: #2C2C2C;
   --havana-smoke: #4A4A4A;
   --havana-pearl: #F8F8FF;
   
-  /* Art Deco gradients */
-  --gradient-sunset: linear-gradient(135deg, #FF6B6B 0%, #D4AF37 50%, #B87333 100%);
-  --gradient-ocean: linear-gradient(135deg, #1E3A8A 0%, #50C878 100%);
-  --gradient-luxury: linear-gradient(135deg, #2C2C2C 0%, #B87333 50%, #D4AF37 100%);
+  /* Calmer gradients - subtle tropical feel */
+  --gradient-hero: linear-gradient(135deg, var(--havana-ink) 0%, var(--havana-navy) 60%, var(--havana-ocean) 100%);
+  --gradient-ocean: linear-gradient(135deg, var(--havana-ocean) 0%, var(--havana-emerald) 100%);
+  --gradient-luxury: linear-gradient(135deg, var(--havana-charcoal) 0%, var(--havana-copper) 50%, var(--havana-gold) 100%);
   
   /* Enhanced contrast colors */
   --vcc-bg-light: rgba(253, 246, 227, 0.95);
   --vcc-bg-very-light: rgba(253, 246, 227, 0.98);
   --vcc-text-dark: #2C2C2C;
   --vcc-link-dark: #1E3A8A;
-  --vcc-link-hover: #D4AF37;
+  --vcc-link-hover: #FF8A5C;
   
   /* Art Deco styling */
   --radius: 4px;
@@ -39,7 +41,7 @@
 }
 
 body {
-  background: var(--gradient-sunset);
+  background: var(--gradient-hero);
   color: var(--vcc-text-dark);
   font-family: var(--font-ui);
   font-weight: 400;
@@ -224,12 +226,14 @@ a:hover, a:focus {
 }
 
 .btn-primary {
-  background: var(--gradient-luxury);
+  background: var(--havana-ocean);
   color: var(--havana-cream);
-  border: 2px solid var(--havana-gold);
+  border: 2px solid var(--havana-ocean);
 }
 
 .btn-primary:hover, .btn-primary:focus {
+  background: var(--havana-coral);
+  border-color: var(--havana-coral);
   transform: translateY(-2px);
   box-shadow: var(--shadow-luxury);
   color: var(--havana-cream);
@@ -476,6 +480,14 @@ a:hover, a:focus {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
+  gap: 2rem;
+}
+
+.header-book-btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .main-nav ul {
@@ -949,6 +961,69 @@ a:focus, button:focus, input:focus, textarea:focus {
   background: var(--havana-gold);
   border-radius: 50%;
   border: 3px solid var(--havana-cream);
+}
+
+/* Services Overview Cards */
+.services-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 3rem 0;
+}
+
+.overview-card {
+  background: var(--havana-pearl);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  text-align: center;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--havana-gold);
+  box-shadow: var(--shadow-luxury);
+}
+
+.overview-card h3 {
+  margin-top: 0;
+  color: var(--havana-navy);
+  font-size: 1.4rem;
+}
+
+.overview-card p {
+  margin-bottom: 1rem;
+}
+
+.overview-card .btn {
+  margin-top: 1rem;
+}
+
+.value-props {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.prop-card {
+  background: var(--vcc-bg-light);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border-left: 4px solid var(--havana-emerald);
+}
+
+.prop-card h4 {
+  margin-top: 0;
+  color: var(--havana-navy);
+  font-size: 1.1rem;
+}
+
+.prop-card p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
 }
 
 /* Enhanced visual hierarchy */
