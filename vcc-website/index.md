@@ -4,7 +4,7 @@ title: Home
 ---
 
 <section class="hero">
-  <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="Vice City Cigars logo" class="hero-logo" loading="eager" width="220" height="auto">
+  <img src="{{ '/assets/img/vcclogo.png' | relative_url }}" alt="Vice City Cigars logo" class="hero-logo" loading="eager" width="220" height="auto">
   <h1>Your Mobile Tropical Smoking Oasis</h1>
   <p class="hero-body">We bring laid-back, Miami-tropical vibes to your events—curated cigars, fine pipes, hookahs, and effortless hospitality.</p>
   <div class="hero-cta">

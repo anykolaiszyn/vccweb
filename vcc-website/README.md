@@ -4,7 +4,7 @@ Deploy on GitHub Pages:
 
 1. Push to GitHub
 2. Go to **Settings → Pages → Source: main → / (root)**
-3. Replace `assets/img/logo.png` with your real logo (transparent PNG, 600–1200px wide).
+3. Replace `assets/img/vcclogo.png` with your real logo (prefer transparent PNG, 600–1200px wide).
 4. (Optional) Point the contact form to your chosen static form endpoint; otherwise mailto: works.
 5. Update phone, email, and social links in `_config.yml` and footer.
 6. Add real photos to `assets/img/gallery/` and swap hero background.
