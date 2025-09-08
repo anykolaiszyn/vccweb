@@ -13,8 +13,8 @@ Ready to bring the tropical smoking experience to your event? Let's make it happ
 
 ---
 
-<form id="contact-form" action="" method="POST" data-form-endpoint="" autocomplete="on">
-  <!-- To use Formspree, set data-form-endpoint to 'https://formspree.io/f/your-form-id' and set action accordingly. Leave empty to keep the site publishable without secrets. -->
+<form id="contact-form" action="https://formspree.io/f/vccigar" method="POST" autocomplete="on">
+  <!-- Form configured with Formspree. Replace 'vccigar' with actual form ID when ready. Fallback email available below. -->
   <label for="name">Name</label>
   <input type="text" id="name" name="name" required aria-required="true">
 

@@ -18,7 +18,7 @@ title: Home
   <div class="offerings-grid">
     {% for item in site.data.menu %}
     <div class="offering-card">
-      <img src="{{ item.img | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      <img src="{{ item.img | relative_url }}" alt="{{ item.title }}" loading="lazy" width="400" height="300">
       <h3>{{ item.title }}</h3>
       <p>{{ item.blurb }}</p>
     </div>

@@ -1430,3 +1430,37 @@ a:focus, button:focus, input:focus, textarea:focus {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+
+/* Contact Form Status Messages */
+.form-status {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-status.success {
+  background: rgba(0, 255, 0, 0.1);
+  border: 2px solid var(--vice-cyan-blue);
+  color: var(--vice-cyan-blue);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.form-status.error {
+  background: rgba(255, 20, 147, 0.1);
+  border: 2px solid var(--vice-neon-pink);
+  color: var(--vice-neon-pink);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+}
+
+/* Form validation error styling */
+input.error, textarea.error {
+  border-color: var(--vice-neon-pink) !important;
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.5) !important;
+}
+
+input.error:focus, textarea.error:focus {
+  outline: 2px solid var(--vice-neon-pink);
+}
