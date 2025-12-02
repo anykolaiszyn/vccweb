@@ -1,0 +1,65 @@
+---
+layout: default
+title: 404 - Page Not Found
+permalink: /404.html
+---
+
+<style>
+  .error-page {
+    text-align: center;
+    padding: 4rem 2rem;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .error-code {
+    font-size: 6rem;
+    font-family: var(--font-primary);
+    background: var(--gradient-neon-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5));
+  }
+  
+  .error-message {
+    font-size: 2rem;
+    color: var(--vice-cyan-blue);
+    margin-bottom: 2rem;
+    font-family: var(--font-ui);
+  }
+  
+  .error-description {
+    font-size: 1.2rem;
+    color: var(--vcc-text-light);
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+  
+  .error-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
+
+<div class="error-page">
+  <div class="error-code">404</div>
+  <h1 class="error-message">Lost in the Smoke</h1>
+  <p class="error-description">
+    Looks like this page went up in smoke. The page you're looking for doesn't exist, 
+    or maybe it's been relocated to a better humidor.
+  </p>
+  <div class="error-actions">
+    <a href="{{ '/' | relative_url }}" class="btn btn-primary">Return Home</a>
+    <a href="{{ '/contact' | relative_url }}" class="btn btn-secondary">Contact Us</a>
+  </div>
+</div>

@@ -1,2 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /assets/
+Disallow: /_site/
+Disallow: /CONTENT-CHECKLIST.md
+Disallow: /content-batch-*.md
+
+Sitemap: https://anykolaiszyn.github.io/vccweb/sitemap.xml

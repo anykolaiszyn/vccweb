@@ -2,19 +2,44 @@ title: "Vice City Cigars"
 tagline: "Your Mobile Tropical Smoking Oasis"
 description: "Premium cigars, pipes, hookahs, and mobile event services in Boca Raton. Tropical, laid-back, and expert hospitality."
 locale: en_US
+
+# Author & Brand Information
+author:
+  name: "Vice City Cigars"
+  email: "vccigar@gmail.com"
+  phone: "+1-561-331-0491"
+  location: "Boca Raton, FL"
+
 # Set your production URL and baseurl for GitHub Pages.
 # This is a project site, so baseurl should match the repository name
 url: "https://anykolaiszyn.github.io"
 baseurl: "/vccweb"
+
+# Social Media Links
 social:
+  name: "Vice City Cigars"
+  links:
+    - "https://instagram.com/vicecitycigars"
   instagram: "https://instagram.com/vicecitycigars"
   email: "vccigar@gmail.com"
   phone: "+1-561-331-0491"
+
+# Build Settings
 theme: null
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  syntax_highlighter: rouge
+
 sass:
   style: compressed
+  sass_dir: assets/css
+
 permalink: pretty
+
+# Exclude from processing
 exclude:
   - node_modules
   - vendor
@@ -25,7 +50,40 @@ exclude:
   - .vscode
   - package.json
   - package-lock.json
-plugins: []
+  - CONTENT-CHECKLIST.md
+  - content-planning-template.md
+  - content-batch-1.md
+  - content-batch-2.md
+  - PERSONA-ANALYSIS.md
+  - SOCIAL-MEDIA-STRATEGY.md
+
+# Jekyll Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
 collections:
   posts:
     output: true
+    permalink: /:categories/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Vice City Cigars"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# SEO Settings
+logo: /assets/img/vcclogoclear.png
+twitter:
+  card: summary_large_image

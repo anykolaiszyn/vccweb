@@ -1,1 +1,200 @@
-<!-- GitHub Pages auto-enables jekyll-sitemap. This placeholder keeps validators happy; Pages will serve the generated sitemap. -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://anykolaiszyn.github.io/vccweb/</loc>
+    <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Main Pages -->
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/404.html</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/about/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/contact/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/events/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/blog/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/learn/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/privacy/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/refund/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/services/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/shipping/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/sitemap.xml</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/terms/</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/feed.xml</loc>
+      
+        <lastmod>2025-12-02T10:01:24-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+  
+  <!-- Blog Posts -->
+  
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/business/renaissance/events/culture/2025/11/25/two-worlds-one-passion/</loc>
+      <lastmod>2025-11-25T00:00:00-05:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>
+  
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/entrepreneurship/neurodivergent/personal/2025/11/20/neurodivergent-tobacco-entrepreneur/</loc>
+      <lastmod>2025-11-20T00:00:00-05:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>
+  
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/cigars/beginner-guide/education/2025/11/15/choosing-your-first-cigar/</loc>
+      <lastmod>2025-11-15T00:00:00-05:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>
+  
+    <url>
+      <loc>https://anykolaiszyn.github.io/vccweb/events/renaissance/culture/2025/11/10/renaissance-fair-magic/</loc>
+      <lastmod>2025-11-10T00:00:00-05:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>
+  
+</urlset>
