@@ -48,138 +48,51 @@ permalink: /tobacco-shop/
       flex-direction: column;
     }
 
-    /* ===== Header Styles ===== */
-    .shop-header {
+    /* ===== Shop Subheader ===== */
+    .shop-subheader {
       background: linear-gradient(135deg, var(--vcc-darker-bg) 0%, var(--vcc-dark-bg) 100%);
       border-bottom: 2px solid var(--vcc-neon-pink);
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 2rem 1rem;
       box-shadow: var(--vcc-shadow);
     }
 
-    .header-container {
+    .shop-subheader .container {
       max-width: 1400px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 2rem;
+      flex-wrap: wrap;
     }
 
-    .brand-section {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
+    .shop-info {
+      flex: 1;
     }
 
-    .brand-name {
-      font-size: 1.5rem;
-      font-weight: bold;
+    .shop-title {
+      font-size: 2rem;
       color: var(--vcc-cyan);
-      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-      text-decoration: none;
+      text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+      margin: 0 0 0.5rem 0;
+      font-family: var(--font-primary);
     }
 
-    .brand-tagline {
-      font-size: 0.85rem;
+    .shop-subtitle {
       color: var(--vcc-text-muted);
-      font-style: italic;
-    }
-
-    .nav-section {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+      margin: 0;
+      font-size: 1.1rem;
     }
 
     .cart-indicator {
       background: var(--vcc-neon-pink);
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
-      white-space: nowrap;
-    }
-
-    /* ===== Dropdown Menu ===== */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-toggle {
-      background: var(--vcc-gold);
-      color: var(--vcc-darker-bg);
-      border: none;
       padding: 0.75rem 1.5rem;
+      border-radius: 25px;
       font-size: 1rem;
       font-weight: 600;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .dropdown-toggle:hover {
-      background: var(--vcc-gold-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 204, 102, 0.4);
-    }
-
-    .dropdown-toggle::after {
-      content: '▼';
-      font-size: 0.7rem;
-    }
-
-    .dropdown.active .dropdown-toggle::after {
-      transform: rotate(180deg);
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: calc(100% + 0.5rem);
-      right: 0;
-      background: var(--vcc-card-bg);
-      border: 1px solid var(--vcc-border);
-      border-radius: 4px;
-      min-width: 250px;
-      box-shadow: var(--vcc-shadow-hover);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-10px);
-      transition: all 0.3s ease;
-      z-index: 100;
-    }
-
-    .dropdown.active .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 1rem 1.5rem;
-      color: var(--vcc-text-light);
-      text-decoration: none;
-      border-bottom: 1px solid var(--vcc-border);
-      transition: all 0.3s ease;
-    }
-
-    .dropdown-menu a:last-child {
-      border-bottom: none;
-    }
-
-    .dropdown-menu a:hover {
-      background: var(--vcc-darker-bg);
-      color: var(--vcc-gold);
-      padding-left: 2rem;
+      box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+      white-space: nowrap;
     }
 
     /* ===== Main Content ===== */
@@ -348,31 +261,23 @@ permalink: /tobacco-shop/
 
     /* ===== Responsive Design ===== */
     @media (max-width: 768px) {
-      .shop-header {
-        padding: 1rem;
-      }
-
-      .header-container {
+      .shop-subheader .container {
         flex-direction: column;
-        gap: 1rem;
         align-items: stretch;
+        text-align: center;
       }
 
-      .nav-section {
-        flex-direction: column;
-        gap: 1rem;
+      .shop-title {
+        font-size: 1.75rem;
       }
 
-      .dropdown-toggle,
+      .shop-subtitle {
+        font-size: 1rem;
+      }
+
       .cart-indicator {
         width: 100%;
-        justify-content: center;
-      }
-
-      .dropdown-menu {
-        right: auto;
-        left: 0;
-        width: 100%;
+        text-align: center;
       }
 
       .section-title {
@@ -387,56 +292,28 @@ permalink: /tobacco-shop/
         padding: 1rem;
       }
     }
-
-    /* ===== Back to Home Link ===== */
-    .back-link {
-      display: inline-block;
-      color: var(--vcc-cyan);
-      text-decoration: none;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .back-link:hover {
-      color: var(--vcc-gold);
-      text-shadow: 0 0 10px rgba(255, 204, 102, 0.5);
-    }
-
-    .back-link::before {
-      content: '← ';
-    }
   </style>
 </head>
 <body>
   <div class="tobacco-shop-page">
-    <!-- Header with Shop Dropdown -->
-    <header class="shop-header">
-      <div class="header-container">
-        <div class="brand-section">
-          <a href="{{ '/' | relative_url }}" class="brand-name">Vice City Cigars</a>
-          <span class="brand-tagline">Cigars • Pipes • Tobacco</span>
+    <!-- Use site header -->
+    {% include header.html %}
+
+    <!-- Shop-specific header bar -->
+    <div class="shop-subheader">
+      <div class="container">
+        <div class="shop-info">
+          <h1 class="shop-title">In-Stock Tobacco Products</h1>
+          <p class="shop-subtitle">Browse what's available now for pre-order and pickup</p>
         </div>
-        <nav class="nav-section">
-          <div class="dropdown" id="shopDropdown">
-            <button class="dropdown-toggle" aria-label="Shop menu" aria-expanded="false">
-              Shop
-            </button>
-            <div class="dropdown-menu">
-              <a href="{{ '/square-shop' | relative_url }}">Square Shop</a>
-              <a href="{{ '/tobacco-shop' | relative_url }}">In-Stock Tobacco Products</a>
-            </div>
-          </div>
-          <div class="cart-indicator">
-            Cart: <span id="cartCount">0</span> items
-          </div>
-        </nav>
+        <div class="cart-indicator">
+          🛒 Cart: <span id="cartCount">0</span> items
+        </div>
       </div>
-    </header>
+    </div>
 
     <!-- Main Content -->
     <main>
-      <a href="{{ '/' | relative_url }}" class="back-link">Back to Home</a>
 
       <!-- In-Stock Tobacco Products Section -->
       <section id="instock-tobacco">
@@ -635,37 +512,8 @@ permalink: /tobacco-shop/
       }
     }
 
-    // ===== Dropdown Toggle =====
-    function initDropdown() {
-      const dropdown = document.getElementById('shopDropdown');
-      const toggle = dropdown.querySelector('.dropdown-toggle');
-      
-      toggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        dropdown.classList.toggle('active');
-        const isExpanded = dropdown.classList.contains('active');
-        toggle.setAttribute('aria-expanded', isExpanded);
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', () => {
-        dropdown.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-
-      // Close dropdown when clicking menu items
-      const menuLinks = dropdown.querySelectorAll('.dropdown-menu a');
-      menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          dropdown.classList.remove('active');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-
     // ===== Initialize on Page Load =====
     document.addEventListener('DOMContentLoaded', () => {
-      initDropdown();
       fetchProducts();
     });
 

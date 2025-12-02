@@ -549,51 +549,55 @@ a:hover, a:focus {
   border-color: var(--vice-hot-pink);
 }
 
-/* Navigation dropdown styles */
-.nav-dropdown {
-  position: relative;
-}
+/* Navigation dropdown styles - Desktop */
+@media (min-width: 769px) {
+  .nav-dropdown {
+    position: relative;
+  }
 
-.nav-dropdown-toggle::after {
-  content: '';
-}
+  .nav-dropdown > a {
+    cursor: pointer;
+  }
 
-.nav-dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: var(--vcc-bg-dark);
-  border: 2px solid var(--vice-hot-pink);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-neon);
-  min-width: 200px;
-  list-style: none;
-  padding: 0.5rem 0;
-  margin-top: 0.5rem;
-  z-index: 1000;
-}
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--vcc-bg-dark);
+    border: 2px solid var(--vice-hot-pink);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-neon);
+    min-width: 220px;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    z-index: 2000;
+  }
 
-.nav-dropdown-menu li {
-  margin: 0;
-}
+  .nav-dropdown-menu li {
+    margin: 0;
+  }
 
-.nav-dropdown-menu a {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  color: var(--vcc-text-light);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--vcc-text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
 
-.nav-dropdown-menu a:hover {
-  background: rgba(255, 20, 147, 0.2);
-  color: var(--vice-cyan-blue);
-  padding-left: 2rem;
-}
+  .nav-dropdown-menu a:hover {
+    background: rgba(255, 20, 147, 0.2);
+    color: var(--vice-cyan-blue);
+    padding-left: 2rem;
+  }
 
-.nav-dropdown:hover .nav-dropdown-menu {
-  display: block;
+  .nav-dropdown:hover .nav-dropdown-menu {
+    display: block;
+  }
 }
 
 /* Mobile navigation - hidden by default */
@@ -1225,22 +1229,7 @@ blockquote::before {
     padding: 0;
     justify-content: center;
   }
-
-  /* Mobile: expand dropdown inline */
-  .main-nav .nav-dropdown-menu {
-    position: static;
-    display: none;
-    border: none;
-    box-shadow: none;
-    background: rgba(255, 20, 147, 0.1);
-    margin-top: 0;
-    padding-left: 1rem;
-  }
-
-  .main-nav .nav-dropdown:hover .nav-dropdown-menu,
-  .main-nav .nav-dropdown-menu:hover {
-    display: block;
-  }
+}
   
   .main-nav a {
     padding: 0.75rem 1rem;
