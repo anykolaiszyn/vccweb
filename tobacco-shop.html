@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /shop/
+permalink: /tobacco-shop/
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@ permalink: /shop/
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Browse our in-stock tobacco products and pre-order premium cigars, pipes, and tobacco from Vice City Cigars.">
-  <title>Tobacco Shop | Vice City Cigars</title>
+  <title>In-Stock Tobacco Products | Vice City Cigars</title>
   
   <style>
     /* ===== CSS Variables ===== */
@@ -212,46 +212,6 @@ permalink: /shop/
       color: var(--vcc-text-muted);
       font-size: 1.1rem;
       line-height: 1.8;
-    }
-
-    /* ===== Square Shop Placeholder ===== */
-    #square-shop {
-      background: var(--vcc-card-bg);
-      border: 2px solid var(--vcc-border);
-      border-radius: 8px;
-      padding: 3rem;
-      text-align: center;
-    }
-
-    .placeholder-card {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .placeholder-card h3 {
-      font-size: 2rem;
-      color: var(--vcc-gold);
-      margin-bottom: 1rem;
-    }
-
-    .placeholder-card p {
-      color: var(--vcc-text-muted);
-      margin-bottom: 2rem;
-      line-height: 1.8;
-    }
-
-    .cta-button {
-      background: linear-gradient(135deg, var(--vcc-gold) 0%, #ffaa44 100%);
-      color: var(--vcc-darker-bg);
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 4px;
-      cursor: not-allowed;
-      opacity: 0.7;
-      transition: all 0.3s ease;
-      display: inline-block;
     }
 
     /* ===== Compliance Notice ===== */
@@ -463,8 +423,8 @@ permalink: /shop/
               Shop
             </button>
             <div class="dropdown-menu">
-              <a href="#square-shop">Square Shop</a>
-              <a href="#instock-tobacco">In-Stock Tobacco Products</a>
+              <a href="{{ '/square-shop' | relative_url }}">Square Shop</a>
+              <a href="{{ '/tobacco-shop' | relative_url }}">In-Stock Tobacco Products</a>
             </div>
           </div>
           <div class="cart-indicator">
@@ -477,28 +437,6 @@ permalink: /shop/
     <!-- Main Content -->
     <main>
       <a href="{{ '/' | relative_url }}" class="back-link">Back to Home</a>
-
-      <!-- Square Shop Placeholder Section -->
-      <section id="square-shop">
-        <div class="section-header">
-          <h1 class="section-title">Square Shop</h1>
-        </div>
-        <div class="placeholder-card">
-          <h3>Coming Soon</h3>
-          <p>
-            Our full online store powered by Square is currently being set up. 
-            You'll soon be able to browse our complete catalog, make secure payments, 
-            and have products shipped directly to your door.
-          </p>
-          <p>
-            In the meantime, check out our <strong>In-Stock Tobacco Products</strong> 
-            below for pre-order options, or contact us directly for immediate needs.
-          </p>
-          <button class="cta-button" disabled>
-            Open Square Shop (Coming Soon)
-          </button>
-        </div>
-      </section>
 
       <!-- In-Stock Tobacco Products Section -->
       <section id="instock-tobacco">
