@@ -1,0 +1,48 @@
+# SECURITY - DO NOT COMMIT FILES WITH API KEYS/TOKENS
+apps-script-updated.js
+square-inventory-sync.js
+*-sync.js
+
+# Access tokens and credentials
+*.token
+*.key
+*.env
+.env.local
+.env.*.local
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Node modules (if using npm)
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build files
+vendor/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
