@@ -475,8 +475,8 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
 }
 
 .modal-content {
-  background: rgba(15, 22, 32, 0.98);
-  border: 2px solid #FF1493;
+  background: #0f1620 !important;
+  border: 2px solid #FF1493 !important;
   border-radius: 12px;
   max-width: 700px;
   width: 100%;
@@ -484,8 +484,11 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   overflow-y: auto;
   position: relative;
   box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
-  z-index: 10000;
+  z-index: 10001 !important;
   margin: auto;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .modal-close {
@@ -1043,8 +1046,20 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   // ============================================
 
   function openProductModal(item) {
+    console.log('openProductModal called with:', item);
     selectedProduct = item;
+
     const modal = document.getElementById('product-modal');
+    console.log('Modal element:', modal);
+
+    if (!modal) {
+      console.error('Modal element not found!');
+      return;
+    }
+
+    const modalContent = modal.querySelector('.modal-content');
+    console.log('Modal content element:', modalContent);
+
     const desc = stripHtml(item.Description || 'No description available.');
     let imgUrl = item.Drive_Image_URL || item.Square_Image_URL || '';
 
@@ -1059,6 +1074,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
       this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%231a1a3e" width="600" height="400"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="32" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
       console.log('Modal image failed to load:', imgUrl);
     };
+
     document.getElementById('modal-product-name').textContent = item.Display_Name || 'Unnamed Product';
     document.getElementById('modal-product-category').textContent = getDisplayCategory(item.Categories);
     document.getElementById('modal-product-description').textContent = desc;
@@ -1067,12 +1083,26 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     document.getElementById('modal-product-sku').textContent = item.SKU || 'N/A';
     document.getElementById('modal-product-full-cat').textContent = lastSegment(item.Categories);
 
-    // Show modal
+    // Show modal - multiple methods to ensure it shows
     modal.classList.add('active');
     modal.style.display = 'flex';
+    modal.style.visibility = 'visible';
+    modal.style.opacity = '1';
+
+    if (modalContent) {
+      modalContent.style.display = 'block';
+      modalContent.style.visibility = 'visible';
+      modalContent.style.opacity = '1';
+    }
+
     document.body.style.overflow = 'hidden';
 
     // Log for debugging
+    console.log('Modal styles after opening:', {
+      display: modal.style.display,
+      visibility: modal.style.visibility,
+      classList: modal.classList.toString()
+    });
     console.log('Modal opened for:', item.Display_Name);
   }
 
