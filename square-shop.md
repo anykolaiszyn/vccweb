@@ -135,7 +135,7 @@ permalink: /square-shop/
 
     <div class="alternative-cta">
       <p><strong>Need tobacco products now?</strong></p>
-      <a href="{{ '/tobacco-shop.html' | relative_url }}" class="btn btn-primary">Browse Tobacco Shop</a>
+      <a href="{{ '/tobacco-shop' | relative_url }}" class="btn btn-primary">Browse Tobacco Shop</a>
       <a href="{{ '/contact' | relative_url }}" class="btn btn-secondary">Contact Us Directly</a>
     </div>
   </div>
