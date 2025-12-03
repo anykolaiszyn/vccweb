@@ -670,8 +670,8 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   <div class="shop-subheader">
     <div class="container">
       <div class="shop-info">
-        <h1 class="shop-title">In-Stock Tobacco Products</h1>
-        <p class="shop-subtitle">Live inventory available at events and for in-person pickup. Pre-orders are reservations; payment is invoiced after age verification.</p>
+        <h1 class="shop-title">Premium Tobacco Products</h1>
+        <p class="shop-subtitle">Available for in-person pickup and shipping nationwide. Payment is invoiced after age verification. Adult signature required upon delivery.</p>
       </div>
       <div class="cart-indicator">🛒 Cart: <span id="cart-count">0</span></div>
     </div>
@@ -680,9 +680,9 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   <main id="main-content" class="container">
     <section id="instock-tobacco" class="card" aria-labelledby="instock-title">
       <div class="card-body">
-        <h2 id="instock-title" class="section-title">In-Stock Tobacco Products</h2>
-        <p class="section-sub">This reflects current in-person/event stock. Orders are pre-orders/reservations, not instant checkout. Payment is handled by manual invoice (ACH / Bitcoin) after age verification.</p>
-        <div class="notice">🔞 21+ only. Orders are manually age-verified and invoiced before shipment. No card payments are processed on this site.</div>
+        <h2 id="instock-title" class="section-title">Shop Premium Tobacco</h2>
+        <p class="section-sub">Browse our curated selection of premium cigars, pipe tobacco, and accessories. Orders are invoiced after age verification. We ship nationwide with required adult signature delivery.</p>
+        <div class="notice">🔞 21+ only. All orders require age verification. Payment by invoice (ACH / Bitcoin) after verification. Adult signature required at delivery ($8.50).</div>
 
         <!-- Search & Sort Controls -->
         <div class="search-controls">
@@ -774,7 +774,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
             <textarea id="notes" placeholder="Anything we should know"></textarea>
           </div>
 
-          <button id="submit-btn" class="btn btn-primary">Submit Pre-Order</button>
+          <button id="submit-btn" class="btn btn-primary">Submit Order</button>
         </div>
       </div>
     </section>
@@ -807,7 +807,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
             <span id="modal-product-full-cat" class="meta-value"></span>
           </div>
         </div>
-        <button id="modal-add-to-cart" class="btn btn-primary">Add to Pre-Order</button>
+        <button id="modal-add-to-cart" class="btn btn-primary">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -826,6 +826,11 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   let sortOrder = 'name';
   let selectedProduct = null;
   let isVerifiedCustomer = false;
+
+  // Shipping constants
+  const ADULT_SIGNATURE_FEE = 8.50;
+  const POSTAGE_FEE = 7.00;
+  const POSTAGE_FREE_THRESHOLD = 50.00;
 
   // ============================================
   // HELPER FUNCTIONS
@@ -936,13 +941,23 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
       const displayCat = getDisplayCategory(item.Categories);
 
       // Use Drive image if available, fallback to placeholder
-      const imgUrl = item.Drive_Image_URL || item.Square_Image_URL || 'https://via.placeholder.com/400x300/1a1a3e/00ffff?text=No+Image';
+      let imgUrl = item.Drive_Image_URL || item.Square_Image_URL || '';
+
+      // Debug: log image URLs
+      if (!imgUrl) {
+        console.log('No image URL for:', item.Display_Name, 'Drive:', item.Drive_Image_URL, 'Square:', item.Square_Image_URL);
+      }
+
+      // Fallback to placeholder if no image
+      if (!imgUrl) {
+        imgUrl = 'https://via.placeholder.com/400x300/1a1a3e/00ffff?text=No+Image';
+      }
 
       const card = document.createElement('div');
       card.className = 'product-card';
       card.dataset.sku = item.SKU;
       card.innerHTML = `
-        <img src="${sanitizeText(imgUrl)}" alt="${sanitizeText(item.Display_Name)}" class="product-image" loading="lazy">
+        <img src="${sanitizeText(imgUrl)}" alt="${sanitizeText(item.Display_Name)}" class="product-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a1a3e/00ffff?text=No+Image'; console.log('Image failed to load:', '${sanitizeText(imgUrl)}');">
         <div class="product-content">
           <div>
             <h3 class="product-name">${sanitizeText(item.Display_Name || 'Unnamed Product')}</h3>
@@ -954,7 +969,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
             <span class="product-price">${formatPrice(item.Price)}</span>
           </div>
           <div class="product-sku">SKU: ${sanitizeText(item.SKU || 'N/A')}</div>
-          <button class="add-to-cart-btn" data-sku="${sanitizeText(item.SKU || '')}">Add to Pre-Order</button>
+          <button class="add-to-cart-btn" data-sku="${sanitizeText(item.SKU || '')}">Add to Cart</button>
         </div>
       `;
 
@@ -1019,9 +1034,19 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     selectedProduct = item;
     const modal = document.getElementById('product-modal');
     const desc = stripHtml(item.Description || 'No description available.');
-    const imgUrl = item.Drive_Image_URL || item.Square_Image_URL || 'https://via.placeholder.com/600x400/1a1a3e/00ffff?text=No+Image';
+    let imgUrl = item.Drive_Image_URL || item.Square_Image_URL || '';
 
-    document.getElementById('modal-product-image').src = imgUrl;
+    if (!imgUrl) {
+      imgUrl = 'https://via.placeholder.com/600x400/1a1a3e/00ffff?text=No+Image';
+      console.log('Modal: No image for', item.Display_Name);
+    }
+
+    const imgElement = document.getElementById('modal-product-image');
+    imgElement.src = imgUrl;
+    imgElement.onerror = function() {
+      this.src = 'https://via.placeholder.com/600x400/1a1a3e/00ffff?text=No+Image';
+      console.log('Modal image failed to load:', imgUrl);
+    };
     document.getElementById('modal-product-name').textContent = item.Display_Name || 'Unnamed Product';
     document.getElementById('modal-product-category').textContent = getDisplayCategory(item.Categories);
     document.getElementById('modal-product-description').textContent = desc;
@@ -1121,36 +1146,120 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   // CART SUMMARY
   // ============================================
 
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    saveCart();
+    setCartCount();
+    renderCartSummary();
+  }
+
+  function calculateShipping(subtotal) {
+    const postageFee = subtotal < POSTAGE_FREE_THRESHOLD ? POSTAGE_FEE : 0;
+    const signatureFee = ADULT_SIGNATURE_FEE;
+    return {
+      postage: postageFee,
+      signature: signatureFee,
+      total: postageFee + signatureFee
+    };
+  }
+
   function renderCartSummary() {
     const wrap = document.getElementById('cart-summary');
     wrap.innerHTML = '';
 
     if (cart.length === 0) {
-      wrap.innerHTML = '<div class="empty">Your pre-order cart is empty.</div>';
+      wrap.innerHTML = '<div class="empty">Your cart is empty. Browse products and add items to order.</div>';
       document.getElementById('checkout-panel').hidden = true;
       return;
     }
 
-    const grouped = Object.values(cart.reduce((acc, item) => {
-      const key = item.name;
-      acc[key] = acc[key] || { name: item.name, qty: 0, price: item.price };
-      acc[key].qty += 1;
-      return acc;
-    }, {}));
+    // Calculate subtotal
+    const subtotal = cart.reduce((sum, item) => sum + (item.price || 0), 0);
+    const shipping = calculateShipping(subtotal);
+    const total = subtotal + shipping.total;
 
     const list = document.createElement('div');
     list.className = 'cart-list';
-    grouped.forEach(g => {
+
+    // Header
+    const header = document.createElement('div');
+    header.style.cssText = 'font-weight: 700; color: #00FFFF; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid rgba(255, 20, 147, 0.5);';
+    header.textContent = `Your Cart (${cart.length} ${cart.length === 1 ? 'item' : 'items'})`;
+    list.appendChild(header);
+
+    // Cart items
+    cart.forEach((item, index) => {
       const row = document.createElement('div');
       row.className = 'cart-row';
-      row.innerHTML = `<div>${sanitizeText(g.name)}</div><div>x${g.qty} • ${formatPrice(g.price)}</div>`;
+      row.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.08);';
+      row.innerHTML = `
+        <div style="flex: 1;">
+          <div style="color: #e6edf3; font-weight: 600; margin-bottom: 4px;">${sanitizeText(item.name)}</div>
+          <div style="color: #9fb0bf; font-size: 0.85rem;">SKU: ${sanitizeText(item.sku || 'N/A')}</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="color: #ffcc66; font-weight: 700; font-size: 1.1rem;">${formatPrice(item.price)}</span>
+          <button class="remove-cart-btn" data-index="${index}" style="background: rgba(255, 107, 107, 0.2); border: 1px solid #ff6b6b; color: #ff6b6b; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.3s ease;" onmouseover="this.style.background='#ff6b6b'; this.style.color='#0A0A2E';" onmouseout="this.style.background='rgba(255, 107, 107, 0.2)'; this.style.color='#ff6b6b';">Remove</button>
+        </div>
+      `;
       list.appendChild(row);
     });
+
+    // Subtotal
+    const subtotalRow = document.createElement('div');
+    subtotalRow.style.cssText = 'display: flex; justify-content: space-between; padding: 12px 0 8px; margin-top: 8px; border-top: 2px solid rgba(255, 20, 147, 0.3); color: #e6edf3; font-size: 1rem;';
+    subtotalRow.innerHTML = `<span>Subtotal:</span><span style="font-weight: 600;">${formatPrice(subtotal)}</span>`;
+    list.appendChild(subtotalRow);
+
+    // Shipping breakdown
+    const shippingHeader = document.createElement('div');
+    shippingHeader.style.cssText = 'color: #9fb0bf; font-size: 0.9rem; margin-top: 12px; margin-bottom: 8px; font-weight: 600;';
+    shippingHeader.textContent = 'Shipping & Handling:';
+    list.appendChild(shippingHeader);
+
+    if (shipping.postage > 0) {
+      const postageRow = document.createElement('div');
+      postageRow.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; color: #c7d2db; font-size: 0.9rem;';
+      postageRow.innerHTML = `<span>Postage & Handling (orders under $${POSTAGE_FREE_THRESHOLD}):</span><span>${formatPrice(shipping.postage)}</span>`;
+      list.appendChild(postageRow);
+    } else {
+      const freePostageRow = document.createElement('div');
+      freePostageRow.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; color: #57d7c8; font-size: 0.9rem;';
+      freePostageRow.innerHTML = `<span>✓ Free Postage (order over $${POSTAGE_FREE_THRESHOLD}):</span><span>$0.00</span>`;
+      list.appendChild(freePostageRow);
+    }
+
+    const signatureRow = document.createElement('div');
+    signatureRow.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; color: #c7d2db; font-size: 0.9rem;';
+    signatureRow.innerHTML = `<span>Adult Signature Required:</span><span>${formatPrice(shipping.signature)}</span>`;
+    list.appendChild(signatureRow);
+
+    const shippingNotice = document.createElement('div');
+    shippingNotice.style.cssText = 'background: rgba(0, 255, 255, 0.08); border: 1px dashed rgba(0, 255, 255, 0.3); color: #9fb0bf; font-size: 0.8rem; padding: 8px; margin: 8px 0; border-radius: 6px; line-height: 1.4;';
+    shippingNotice.innerHTML = '<strong style="color: #00FFFF;">📦 Shipping Notice:</strong> All tobacco shipments require adult signature ($8.50) to ensure delivery to 21+ recipients. Orders under $50 include $7 postage & handling fee.';
+    list.appendChild(shippingNotice);
+
+    // Total
+    const totalRow = document.createElement('div');
+    totalRow.style.cssText = 'display: flex; justify-content: space-between; padding: 16px 0 8px; margin-top: 12px; border-top: 2px solid #FF1493; color: #00FFFF; font-size: 1.3rem; font-weight: 700;';
+    totalRow.innerHTML = `<span>Total:</span><span>${formatPrice(total)}</span>`;
+    list.appendChild(totalRow);
+
     wrap.appendChild(list);
+
+    // Attach remove button handlers
+    setTimeout(() => {
+      document.querySelectorAll('.remove-cart-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const index = parseInt(btn.dataset.index);
+          removeFromCart(index);
+        });
+      });
+    }, 0);
 
     const btn = document.createElement('button');
     btn.className = 'checkout-btn';
-    btn.textContent = 'Open Checkout & ID Verification';
+    btn.textContent = 'Proceed to Checkout & ID Verification';
     btn.addEventListener('click', () => {
       const panel = document.getElementById('checkout-panel');
       panel.hidden = false;
@@ -1314,7 +1423,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
       }
 
       ok.hidden = false;
-      ok.textContent = `Thank you! Your pre-order has been submitted. Order ID: ${data.orderId || 'VCC-XXXXXX'}. We will verify your age and send an invoice via email.`;
+      ok.textContent = `Thank you! Your order has been submitted. Order ID: ${data.orderId || 'VCC-XXXXXX'}. We will verify your age and send an invoice via email within 24 hours.`;
 
       clearCart();
       document.getElementById('checkout-panel').hidden = true;
