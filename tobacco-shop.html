@@ -950,14 +950,18 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
 
       // Fallback to placeholder if no image
       if (!imgUrl) {
-        imgUrl = 'https://via.placeholder.com/400x300/1a1a3e/00ffff?text=No+Image';
+        imgUrl = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%231a1a3e" width="400" height="300"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="24" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
       }
 
       const card = document.createElement('div');
       card.className = 'product-card';
       card.dataset.sku = item.SKU;
+
+      // Store item data for click handler
+      card._itemData = item;
+
       card.innerHTML = `
-        <img src="${sanitizeText(imgUrl)}" alt="${sanitizeText(item.Display_Name)}" class="product-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a1a3e/00ffff?text=No+Image'; console.log('Image failed to load:', '${sanitizeText(imgUrl)}');">
+        <img src="${imgUrl}" alt="${sanitizeText(item.Display_Name)}" class="product-image" loading="lazy">
         <div class="product-content">
           <div>
             <h3 class="product-name">${sanitizeText(item.Display_Name || 'Unnamed Product')}</h3>
@@ -973,10 +977,16 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
         </div>
       `;
 
-      // Click card to open modal
+      // Image error handler
+      const img = card.querySelector('.product-image');
+      img.addEventListener('error', function() {
+        this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%231a1a3e" width="400" height="300"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="24" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+      });
+
+      // Click card to open modal (except when clicking button)
       card.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('add-to-cart-btn')) {
-          openProductModal(item);
+        if (!e.target.closest('.add-to-cart-btn')) {
+          openProductModal(card._itemData);
         }
       });
 
@@ -1037,14 +1047,14 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     let imgUrl = item.Drive_Image_URL || item.Square_Image_URL || '';
 
     if (!imgUrl) {
-      imgUrl = 'https://via.placeholder.com/600x400/1a1a3e/00ffff?text=No+Image';
+      imgUrl = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%231a1a3e" width="600" height="400"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="32" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
       console.log('Modal: No image for', item.Display_Name);
     }
 
     const imgElement = document.getElementById('modal-product-image');
     imgElement.src = imgUrl;
     imgElement.onerror = function() {
-      this.src = 'https://via.placeholder.com/600x400/1a1a3e/00ffff?text=No+Image';
+      this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%231a1a3e" width="600" height="400"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="32" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
       console.log('Modal image failed to load:', imgUrl);
     };
     document.getElementById('modal-product-name').textContent = item.Display_Name || 'Unnamed Product';
