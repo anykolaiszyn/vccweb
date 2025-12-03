@@ -4,6 +4,10 @@ title: Square Shop
 permalink: /square-shop/
 ---
 
+<div class="shop-context-banner merchandise-banner">
+  🛍️ <strong>MERCHANDISE SHOP</strong> - General Products - Secure Checkout - Separate from Tobacco Shop
+</div>
+
 <style>
   .square-shop-section {
     max-width: 800px;
@@ -130,8 +134,8 @@ permalink: /square-shop/
     </div>
 
     <div class="alternative-cta">
-      <p><strong>Need something now?</strong></p>
-      <a href="{{ '/shop' | relative_url }}" class="btn btn-primary">Browse In-Stock Products</a>
+      <p><strong>Need tobacco products now?</strong></p>
+      <a href="{{ '/tobacco-shop.html' | relative_url }}" class="btn btn-primary">Browse Tobacco Shop</a>
       <a href="{{ '/contact' | relative_url }}" class="btn btn-secondary">Contact Us Directly</a>
     </div>
   </div>

@@ -5,41 +5,497 @@ title: In-Stock Tobacco Products
 description: Browse our in-stock tobacco products and pre-order premium cigars, pipes, and tobacco from Vice City Cigars.
 ---
 
+<style>
+/* Shop Context Banner - Legal Separation Indicator */
+.shop-context-banner {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-bottom: 2px solid;
+  backdrop-filter: blur(10px);
+  font-family: var(--font-ui, 'Exo 2', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tobacco-banner {
+  background: rgba(255, 20, 147, 0.2);
+  border-color: #FF1493;
+  color: #FF1493;
+  box-shadow: 0 2px 10px rgba(255, 20, 147, 0.3);
+}
+
+/* Shop Subheader */
+.shop-subheader {
+  background: rgba(10, 10, 46, 0.8);
+  border-bottom: 2px solid #FF1493;
+  padding: 1.5rem 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.shop-subheader .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.shop-info h1 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  color: #00FFFF;
+  font-family: 'Pacifico', cursive;
+}
+
+.shop-subtitle {
+  font-size: 0.9rem;
+  color: #c7d2db;
+  margin: 0;
+  max-width: 600px;
+}
+
+.cart-indicator {
+  background: #FF1493;
+  color: #0A0A2E;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 700;
+  border: 2px solid #00FFFF;
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+}
+
+/* Main Content */
+.tobacco-shop-page {
+  min-height: 100vh;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  color: #00FFFF;
+  font-family: 'Pacifico', cursive;
+}
+
+.section-sub {
+  color: #9fb0bf;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.notice {
+  background: rgba(255, 204, 102, 0.08);
+  border: 1px dashed rgba(255, 204, 102, 0.4);
+  color: #ffcc66;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 16px 0 24px;
+  font-size: 0.9rem;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0 24px;
+}
+
+.chip {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e6edf3;
+  background: transparent;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.chip:hover {
+  border-color: #ffcc66;
+  transform: translateY(-2px);
+}
+
+.chip.active {
+  background: #ffcc66;
+  color: #0A0A2E;
+  border-color: #ffcc66;
+  box-shadow: 0 0 10px rgba(255, 204, 102, 0.4);
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.product-card {
+  background: rgba(15, 22, 32, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.product-card:hover {
+  border-color: #FF1493;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+  transform: translateY(-4px);
+}
+
+.product-name {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.product-category {
+  color: #9fb0bf;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-description {
+  color: #c7d2db;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.product-stock {
+  color: #00FFFF;
+  font-weight: 600;
+}
+
+.product-price {
+  color: #ffcc66;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.product-sku {
+  font-size: 0.8rem;
+  color: #9fb0bf;
+}
+
+.add-to-cart-btn {
+  background: #ffcc66;
+  color: #0A0A2E;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.add-to-cart-btn:hover {
+  background: #e6b95a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 204, 102, 0.4);
+}
+
+/* Cart Summary */
+.cart-summary {
+  margin-top: 24px;
+}
+
+.empty {
+  color: #9fb0bf;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 32px;
+}
+
+.cart-list {
+  background: rgba(15, 22, 32, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  color: #e6edf3;
+}
+
+.cart-row:last-child {
+  border-bottom: none;
+}
+
+.checkout-btn {
+  width: 100%;
+  background: #FF1493;
+  color: #ffffff;
+  border: 2px solid #00FFFF;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
+}
+
+.checkout-btn:hover {
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Checkout Form */
+.checkout {
+  margin-top: 32px;
+  background: rgba(15, 22, 32, 0.8);
+  border: 2px solid #FF1493;
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.checkout label {
+  display: block;
+  font-size: 0.85rem;
+  color: #9fb0bf;
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.checkout input,
+.checkout textarea,
+.checkout select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 10, 46, 0.6);
+  color: #e6edf3;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.checkout input:focus,
+.checkout textarea:focus,
+.checkout select:focus {
+  outline: none;
+  border-color: #00FFFF;
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
+}
+
+.checkout textarea {
+  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.btn-primary {
+  width: 100%;
+  background: #ffcc66;
+  color: #0A0A2E;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  margin-top: 16px;
+}
+
+.btn-primary:hover {
+  background: #e6b95a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 204, 102, 0.4);
+}
+
+.error {
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.35);
+  color: #ffc7c7;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 12px;
+}
+
+.success {
+  background: rgba(57, 215, 200, 0.12);
+  border: 1px solid rgba(57, 215, 200, 0.35);
+  color: #c9fffa;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 12px;
+}
+
+/* Loading State */
+#loading {
+  text-align: center;
+  padding: 48px;
+  color: #9fb0bf;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-subheader .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-context-banner {
+    font-size: 0.75rem;
+    padding: 0.6rem 0.75rem;
+  }
+}
+</style>
+
 <div class="tobacco-shop-page">
+  <div class="shop-context-banner tobacco-banner">
+    🔞 <strong>TOBACCO SHOP</strong> - Age-Restricted Products Only - Pre-Order System - Separate from Merchandise Shop
+  </div>
+
   <div class="shop-subheader">
     <div class="container">
       <div class="shop-info">
         <h1 class="shop-title">In-Stock Tobacco Products</h1>
-        <p class="shop-subtitle">Browse what's available now for pre-order and pickup</p>
+        <p class="shop-subtitle">Live inventory available at events and for in-person pickup. Pre-orders are reservations; payment is invoiced after age verification.</p>
       </div>
-      <div class="cart-indicator">
-        🛒 Cart: <span id="cartCount">0</span> items
-      </div>
+      <div class="cart-indicator">🛒 Cart: <span id="cart-count">0</span></div>
     </div>
   </div>
 
   <main id="main-content" class="container">
-    <section id="instock-tobacco" class="card">
-      <div class="section-header">
-        <h2 class="section-title">In-Stock Tobacco Products</h2>
-        <p class="section-subtitle">
-          Browse what's currently available at our mobile events and in-person pickups.
-          Pre-order your favorites and we'll have them ready for you!
-        </p>
-      </div>
+    <section id="instock-tobacco" class="card" aria-labelledby="instock-title">
+      <div class="card-body">
+        <h2 id="instock-title" class="section-title">In-Stock Tobacco Products</h2>
+        <p class="section-sub">This reflects current in-person/event stock. Orders are pre-orders/reservations, not instant checkout. Payment is handled by manual invoice (Novo ACH / Bitcoin) after age verification.</p>
+        <div class="notice">🔞 21+ only. Orders are manually age-verified and invoiced before shipment. No card payments are processed on this site.</div>
 
-      <div class="compliance-notice">
-        <strong>🔞 21+ Only</strong>
-        <p>
-          All orders are manually age-verified and invoiced.
-          No credit card payments are processed on this website.
-          We'll contact you to arrange payment and pickup/delivery.
-        </p>
-      </div>
+        <!-- Filters -->
+        <div class="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="cigars">Cigars</button>
+          <button class="chip" data-filter="pipe">Pipe Tobacco</button>
+          <button class="chip" data-filter="shisha">Shisha Tobacco</button>
+        </div>
 
-      <div id="productContainer">
-        <div class="loading-state">
-          Loading available cigars & tobacco...
+        <!-- Grid -->
+        <div id="loading" class="empty">Loading available cigars & tobacco…</div>
+        <div id="product-grid" class="product-grid" aria-live="polite"></div>
+
+        <!-- Cart summary -->
+        <div class="cart-summary" id="cart-summary"></div>
+
+        <!-- Checkout panel -->
+        <div class="checkout" id="checkout-panel" hidden>
+          <h3 class="section-title">Checkout & ID Verification</h3>
+          <p class="section-sub">Provide your details and upload a one-time ID for age verification. Photo ID is required by federal law for all tobacco purchases.</p>
+
+          <div id="age-note" class="notice" hidden></div>
+          <div id="error-banner" class="error" hidden></div>
+          <div id="success-banner" class="success" hidden></div>
+
+          <div class="form-row">
+            <div>
+              <label for="fullName">Full name *</label>
+              <input id="fullName" type="text" required>
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input id="email" type="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" placeholder="Optional but recommended">
+            </div>
+            <div>
+              <label for="dob">Date of birth * (Must be 21+)</label>
+              <input id="dob" type="date" required max="2004-12-02" min="1900-01-01">
+            </div>
+          </div>
+
+          <div>
+            <label for="address">Shipping address</label>
+            <textarea id="address" placeholder="Street, City, State, ZIP"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="payment">Payment preference</label>
+              <select id="payment">
+                <option>Bank Invoice (ACH via Novo)</option>
+                <option>Bitcoin (direct wallet)</option>
+                <option>Other / Discuss</option>
+              </select>
+            </div>
+            <div>
+              <label for="idfile">ID upload (image/PDF, max 5MB) *</label>
+              <input id="idfile" type="file" accept="image/jpeg,image/jpg,image/png,application/pdf" required capture="environment">
+            </div>
+          </div>
+
+          <div>
+            <label for="notes">Notes</label>
+            <textarea id="notes" placeholder="Anything we should know"></textarea>
+          </div>
+
+          <button id="submit-btn" class="btn btn-primary">Submit Pre-Order</button>
         </div>
       </div>
     </section>
@@ -47,188 +503,393 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
 </div>
 
 <script>
-    // ===== Configuration =====
-    const API_URL = 'https://script.google.com/macros/s/AKfycbxV-V5BHN2a97yb0fPYVjuofjJRUAFPnPu1d73kKwnxkqXTojYEFK3c0B1qAOzKO1Aquw/exec';
-    
-    // ===== Global State =====
-    let cart = [];
+  // API Configuration
+  const API_URL = 'https://script.google.com/macros/s/AKfycbxV-V5BHN2a97yb0fPYVjuofjJRUAFPnPu1d73kKwnxkqXTojYEFK3c0B1qAOzKO1Aquw/exec';
 
-    // ===== Helper Functions =====
-    
-    /**
-     * Sanitize category string - take the last segment after '>'
-     */
-    function sanitizeCategory(rawCategories) {
-      if (!rawCategories || rawCategories.trim() === '') return 'Uncategorized';
-      const segments = rawCategories.split('>').map(s => s.trim());
-      return segments[segments.length - 1] || 'Uncategorized';
+  // State
+  let catalog = [];
+  let cart = [];
+  let activeFilter = 'all';
+
+  // ============================================
+  // HELPER FUNCTIONS
+  // ============================================
+
+  function stripHtml(html) {
+    const d = document.createElement('div');
+    d.innerHTML = html || '';
+    return d.textContent || d.innerText || '';
+  }
+
+  function sanitizeText(text) {
+    const d = document.createElement('div');
+    d.textContent = text || '';
+    return d.innerHTML;
+  }
+
+  function formatPrice(p) {
+    const n = Number(p);
+    return isNaN(n) ? '$0.00' : `$${n.toFixed(2)}`;
+  }
+
+  function lastSegment(cat) {
+    if (!cat) return 'Uncategorized';
+    const parts = cat.split('>').map(s => s.trim());
+    return parts.pop() || 'Uncategorized';
+  }
+
+  function deriveCategoryType(raw) {
+    if (!raw) return 'other';
+    const parts = raw.split('>').map(s => s.trim().toLowerCase());
+    if (parts.some(p => p.includes('cigar'))) return 'cigars';
+    if (parts.some(p => p.includes('pipe'))) return 'pipe';
+    if (parts.some(p => p.includes('shisha') || p.includes('hookah'))) return 'shisha';
+    return 'other';
+  }
+
+  // ============================================
+  // CART PERSISTENCE
+  // ============================================
+
+  function saveCart() {
+    localStorage.setItem('vcc-tobacco-cart', JSON.stringify(cart));
+    localStorage.setItem('vcc-tobacco-cart-timestamp', Date.now());
+  }
+
+  function loadCart() {
+    const saved = localStorage.getItem('vcc-tobacco-cart');
+    const timestamp = localStorage.getItem('vcc-tobacco-cart-timestamp');
+
+    // Expire after 24 hours
+    if (saved && timestamp && (Date.now() - parseInt(timestamp) < 86400000)) {
+      cart = JSON.parse(saved);
+      setCartCount();
+      renderCartSummary();
+    }
+  }
+
+  function clearCart() {
+    cart = [];
+    localStorage.removeItem('vcc-tobacco-cart');
+    localStorage.removeItem('vcc-tobacco-cart-timestamp');
+    setCartCount();
+    renderCartSummary();
+  }
+
+  function setCartCount() {
+    const localBadge = document.getElementById('cart-count');
+    if (localBadge) localBadge.textContent = cart.length;
+  }
+
+  // ============================================
+  // PRODUCT RENDERING
+  // ============================================
+
+  function renderGrid(items) {
+    const grid = document.getElementById('product-grid');
+    const loading = document.getElementById('loading');
+    loading.hidden = true;
+    grid.innerHTML = '';
+
+    if (!items || items.length === 0) {
+      loading.hidden = false;
+      loading.textContent = 'No items are currently in stock. Please check back soon.';
+      return;
     }
 
-    /**
-     * Strip HTML tags from description
-     */
-    function stripHtml(html) {
-      if (!html) return '';
-      const temp = document.createElement('div');
-      temp.innerHTML = html;
-      return temp.textContent || temp.innerText || '';
-    }
-
-    /**
-     * Format price as currency
-     */
-    function formatPrice(price) {
-      const num = Number(price);
-      return isNaN(num) ? '$0.00' : `$${num.toFixed(2)}`;
-    }
-
-    /**
-     * Update cart counter in header
-     */
-    function updateCartCounter() {
-      const cartCount = document.getElementById('cartCount');
-      if (cartCount) {
-        cartCount.textContent = cart.length;
-      }
-        const cartCountHeader = document.getElementById('cartCountHeader');
-        if (cartCountHeader) {
-          cartCountHeader.textContent = cart.length;
-        }
-    }
-
-    /**
-     * Add item to cart
-     */
-    function addToCart(sku, name, price) {
-      const item = {
-        sku: sku,
-        name: name,
-        price: price,
-        timestamp: new Date().toISOString()
-      };
-      
-      cart.push(item);
-      updateCartCounter();
-      
-      console.log('Added to cart:', item);
-      console.log('Current cart:', cart);
-      
-      // Show user feedback
-      alert(`Added "${name}" to your pre-order cart!\n\nItems in cart: ${cart.length}`);
-    }
-
-    /**
-     * Render product cards
-     */
-    function renderProducts(items) {
-      const container = document.getElementById('productContainer');
-      
-      if (!items || items.length === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            No items are currently in stock. Please check back soon or contact Vice City Cigars.
-          </div>
-        `;
-        return;
-      }
-
-      const grid = document.createElement('div');
-      grid.className = 'product-grid';
-
-      items.forEach(item => {
-        const category = sanitizeCategory(item.Categories);
-        const description = stripHtml(item.Description);
-        const shortDescription = description.length > 150 
-          ? description.substring(0, 150) + '...' 
-          : description;
-        const sku = item.SKU || 'N/A';
-        const stock = item.Qty_On_Hand || 0;
-        const price = formatPrice(item.Price);
-
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <div>
-            <h3 class="product-name">${item.Display_Name || 'Unnamed Product'}</h3>
-            <span class="product-category">${category}</span>
-          </div>
-          <p class="product-description">${shortDescription || 'No description available.'}</p>
-          <div class="product-meta">
-            <span class="product-stock">In stock: ${stock}</span>
-            <span class="product-price">${price}</span>
-          </div>
-          <div class="product-sku">SKU: ${sku}</div>
-          <button class="add-to-cart-btn" data-sku="${sku}" data-name="${item.Display_Name}" data-price="${item.Price}">
-            Add to Pre-Order
-          </button>
-        `;
-
-        grid.appendChild(card);
-      });
-
-      container.innerHTML = '';
-      container.appendChild(grid);
-
-      // Attach event listeners to all Add to Cart buttons
-      const buttons = container.querySelectorAll('.add-to-cart-btn');
-      buttons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          const sku = e.target.dataset.sku;
-          const name = e.target.dataset.name;
-          const price = e.target.dataset.price;
-          addToCart(sku, name, price);
-        });
-      });
-    }
-
-    /**
-     * Fetch products from API
-     */
-    async function fetchProducts() {
-      try {
-        const response = await fetch(`${API_URL}?route=inventory`);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data && data.items) {
-          renderProducts(data.items);
-        } else {
-          throw new Error('Invalid API response format');
-        }
-      } catch (error) {
-        console.error('Error fetching products:', error);
-        
-        const container = document.getElementById('productContainer');
-        container.innerHTML = `
-          <div class="empty-state">
-            <p>Unable to load products at this time.</p>
-            <p style="color: var(--vcc-text-muted); font-size: 0.9rem; margin-top: 1rem;">
-              Error: ${error.message}
-            </p>
-            <p style="margin-top: 2rem;">
-              Please contact Vice City Cigars directly at 
-              <a href="tel:+15613310491" style="color: var(--vcc-gold);">561-331-0491</a>
-            </p>
-          </div>
-        `;
-      }
-    }
-
-    // ===== Initialize on Page Load =====
-    document.addEventListener('DOMContentLoaded', () => {
-      fetchProducts();
+    items.forEach(item => {
+      const desc = stripHtml(item.Description || '');
+      const short = desc.length > 160 ? desc.slice(0, 160) + '…' : desc;
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <div>
+          <h3 class="product-name">${sanitizeText(item.Display_Name || 'Unnamed Product')}</h3>
+          <span class="product-category">${sanitizeText(lastSegment(item.Categories))} • ${sanitizeText(item.CategoryType)}</span>
+        </div>
+        <p class="product-description">${sanitizeText(short || 'No description available.')}</p>
+        <div class="product-meta">
+          <span class="product-stock">In stock: ${sanitizeText(String(item.Qty_On_Hand || 0))}</span>
+          <span class="product-price">${formatPrice(item.Price)}</span>
+        </div>
+        <div class="product-sku">SKU: ${sanitizeText(item.SKU || 'N/A')}</div>
+        <button class="add-to-cart-btn" data-sku="${sanitizeText(item.SKU || '')}" data-name="${sanitizeText(item.Display_Name || '')}" data-price="${item.Price || 0}" data-cat="${sanitizeText(item.CategoryType)}">Add to Pre-Order</button>
+      `;
+      grid.appendChild(card);
     });
 
-    // ===== Expose cart to console for debugging =====
-    window.getCart = () => {
-      console.table(cart);
-      return cart;
-    };
+    grid.querySelectorAll('button.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = {
+          sku: btn.dataset.sku,
+          name: btn.dataset.name,
+          price: Number(btn.dataset.price) || 0,
+          categoryType: btn.dataset.cat
+        };
+        cart.push(item);
+        saveCart();
+        setCartCount();
+        renderCartSummary();
+      });
+    });
+  }
 
-    console.log('%c🔥 Vice City Cigars Tobacco Shop Loaded', 'color: #ffcc66; font-size: 16px; font-weight: bold;');
-    console.log('%cTo view cart contents, type: getCart()', 'color: #00ffff;');
-  </script>
+  // ============================================
+  // CATALOG LOADING
+  // ============================================
+
+  async function loadCatalog() {
+    try {
+      const res = await fetch(`${API_URL}?route=inventory`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      catalog = (data.items || []).map(it => ({
+        ...it,
+        CategoryType: deriveCategoryType(it.Categories)
+      }));
+      applyFilter(activeFilter);
+    } catch (err) {
+      const loading = document.getElementById('loading');
+      loading.hidden = false;
+      loading.textContent = `Unable to load products (${err.message}). Please try again later.`;
+      console.error(err);
+    }
+  }
+
+  // ============================================
+  // FILTERS
+  // ============================================
+
+  function applyFilter(type) {
+    activeFilter = type;
+    document.querySelectorAll('.chip').forEach(c => {
+      c.classList.toggle('active', c.dataset.filter === type);
+    });
+    const items = type === 'all' ? catalog : catalog.filter(i => i.CategoryType === type);
+    renderGrid(items);
+  }
+
+  function initFilters() {
+    document.querySelectorAll('.chip').forEach(c => {
+      c.addEventListener('click', () => applyFilter(c.dataset.filter));
+    });
+  }
+
+  // ============================================
+  // CART SUMMARY
+  // ============================================
+
+  function renderCartSummary() {
+    const wrap = document.getElementById('cart-summary');
+    wrap.innerHTML = '';
+
+    if (cart.length === 0) {
+      wrap.innerHTML = '<div class="empty">Your pre-order cart is empty.</div>';
+      document.getElementById('checkout-panel').hidden = true;
+      return;
+    }
+
+    const grouped = Object.values(cart.reduce((acc, item) => {
+      const key = item.name;
+      acc[key] = acc[key] || { name: item.name, qty: 0, price: item.price };
+      acc[key].qty += 1;
+      return acc;
+    }, {}));
+
+    const list = document.createElement('div');
+    list.className = 'cart-list';
+    grouped.forEach(g => {
+      const row = document.createElement('div');
+      row.className = 'cart-row';
+      row.innerHTML = `<div>${sanitizeText(g.name)}</div><div>x${g.qty} • ${formatPrice(g.price)}</div>`;
+      list.appendChild(row);
+    });
+    wrap.appendChild(list);
+
+    const btn = document.createElement('button');
+    btn.className = 'checkout-btn';
+    btn.textContent = 'Open Checkout & ID Verification';
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById('checkout-panel');
+      panel.hidden = false;
+      window.scrollTo({ top: panel.offsetTop - 80, behavior: 'smooth' });
+    });
+    wrap.appendChild(btn);
+  }
+
+  // ============================================
+  // AGE VERIFICATION
+  // ============================================
+
+  async function checkCustomer(email) {
+    try {
+      const res = await fetch(`${API_URL}?route=checkCustomer&email=${encodeURIComponent(email)}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      const note = document.getElementById('age-note');
+      note.hidden = false;
+      if (data && data.verified) {
+        note.textContent = `Age verification on file from ${data.verifiedDate || 'a prior date'}. ID upload still required per federal regulations.`;
+      } else {
+        note.textContent = 'Photo ID upload required to verify your age per federal law.';
+      }
+    } catch (err) {
+      // Silent fail; optional feature
+    }
+  }
+
+  function calculateAge(dob) {
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  // ============================================
+  // FILE HANDLING
+  // ============================================
+
+  function readFileBase64(file) {
+    const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+
+    if (file.size > MAX_SIZE) {
+      throw new Error('File size must be under 5MB. Please compress or use a different image.');
+    }
+
+    if (!allowedTypes.includes(file.type)) {
+      throw new Error('Only JPEG, PNG, or PDF files are allowed for ID upload.');
+    }
+
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const res = String(reader.result || '');
+        const idx = res.indexOf(';base64,');
+        resolve(idx > 0 ? res.slice(idx + 8) : res);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // ============================================
+  // ORDER SUBMISSION
+  // ============================================
+
+  async function submitPreOrder() {
+    const err = document.getElementById('error-banner');
+    const ok = document.getElementById('success-banner');
+    err.hidden = ok.hidden = true;
+
+    try {
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const dob = document.getElementById('dob').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const paymentMethod = document.getElementById('payment').value;
+      const notes = document.getElementById('notes').value.trim();
+      const idInput = document.getElementById('idfile');
+      const file = idInput.files && idInput.files[0];
+
+      if (!name || !email || !dob) {
+        throw new Error('Please complete required fields (name, email, DOB).');
+      }
+
+      if (cart.length === 0) {
+        throw new Error('Your cart is empty. Add items first.');
+      }
+
+      // Age verification - CRITICAL for legal compliance
+      const age = calculateAge(dob);
+      if (age < 21) {
+        throw new Error('You must be 21 or older to purchase tobacco products. Federal law prohibits tobacco sales to anyone under 21.');
+      }
+
+      // ID upload is ALWAYS required - no exceptions per FDA regulations
+      if (!file) {
+        throw new Error('Photo ID upload is required for all tobacco purchases per federal law. No exceptions.');
+      }
+
+      const idPayload = {
+        name: file.name,
+        type: file.type,
+        dataBase64: await readFileBase64(file)
+      };
+
+      const payload = {
+        customerName: name,
+        email,
+        phone,
+        dob,
+        shippingAddress: address,
+        paymentMethod,
+        notes,
+        cart,
+        idFile: idPayload
+      };
+
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (!data.success) {
+        throw new Error(data.message || 'Submission failed');
+      }
+
+      ok.hidden = false;
+      ok.textContent = `Thank you! Your pre-order has been submitted. Order ID: ${data.orderId || 'VCC-XXXXXX'}. We will verify your age and send an invoice via email.`;
+
+      clearCart();
+      document.getElementById('checkout-panel').hidden = true;
+      document.getElementById('fullName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('dob').value = '';
+      document.getElementById('address').value = '';
+      document.getElementById('notes').value = '';
+      document.getElementById('idfile').value = '';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      err.hidden = false;
+      err.textContent = e.message || 'An error occurred submitting your pre-order.';
+      console.error(e);
+    }
+  }
+
+  // ============================================
+  // INITIALIZATION
+  // ============================================
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initFilters();
+    loadCatalog();
+    loadCart();
+    setCartCount();
+
+    document.getElementById('submit-btn').addEventListener('click', submitPreOrder);
+    document.getElementById('email').addEventListener('blur', (e) => {
+      const email = e.target.value.trim();
+      if (email) checkCustomer(email);
+    });
+
+    // Warn before leaving with items in cart
+    window.addEventListener('beforeunload', (e) => {
+      if (cart.length > 0) {
+        e.preventDefault();
+        e.returnValue = 'You have items in your tobacco cart. Are you sure you want to leave?';
+        return e.returnValue;
+      }
+    });
+  });
+</script>
