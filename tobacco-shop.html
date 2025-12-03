@@ -1,356 +1,52 @@
 ---
-layout: null
+layout: page
 permalink: /tobacco-shop/
+title: In-Stock Tobacco Products
+description: Browse our in-stock tobacco products and pre-order premium cigars, pipes, and tobacco from Vice City Cigars.
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Browse our in-stock tobacco products and pre-order premium cigars, pipes, and tobacco from Vice City Cigars.">
-  <title>In-Stock Tobacco Products | Vice City Cigars</title>
-  
-  <style>
-    /* ===== CSS Variables ===== */
-    :root {
-      --vcc-dark-bg: #0b1114;
-      --vcc-darker-bg: #111821;
-      --vcc-card-bg: #1a2028;
-      --vcc-gold: #ffcc66;
-      --vcc-gold-hover: #ffdd88;
-      --vcc-text-light: #e8e8e8;
-      --vcc-text-muted: #a0a0a0;
-      --vcc-border: #2a3038;
-      --vcc-neon-pink: #ff1493;
-      --vcc-cyan: #00ffff;
-      --vcc-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      --vcc-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.7);
-    }
 
-    /* ===== Global Styles ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Ensure site header dropdown behaves correctly on this standalone page */
-    .nav-dropdown-menu { display: none; }
-    @media (min-width: 769px) {
-      .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--vcc-dark-bg);
-      color: var(--vcc-text-light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .tobacco-shop-page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ===== Shop Subheader ===== */
-    .shop-subheader {
-      background: linear-gradient(135deg, var(--vcc-darker-bg) 0%, var(--vcc-dark-bg) 100%);
-      border-bottom: 2px solid var(--vcc-neon-pink);
-      padding: 2rem 1rem;
-      box-shadow: var(--vcc-shadow);
-    }
-
-    .shop-subheader .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .shop-info {
-      flex: 1;
-    }
-
-    .shop-title {
-      font-size: 2rem;
-      color: var(--vcc-cyan);
-      text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
-      margin: 0 0 0.5rem 0;
-      font-family: var(--font-primary);
-    }
-
-    .shop-subtitle {
-      color: var(--vcc-text-muted);
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .cart-indicator {
-      background: var(--vcc-neon-pink);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 25px;
-      font-size: 1rem;
-      font-weight: 600;
-      box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
-      white-space: nowrap;
-    }
-
-    /* ===== Main Content ===== */
-    main {
-      flex: 1;
-      max-width: 1400px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    section {
-      margin-bottom: 4rem;
-    }
-
-    .section-header {
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid var(--vcc-neon-pink);
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      color: var(--vcc-cyan);
-      text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-subtitle {
-      color: var(--vcc-text-muted);
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    /* ===== Compliance Notice ===== */
-    .compliance-notice {
-      background: rgba(255, 20, 147, 0.1);
-      border: 2px solid var(--vcc-neon-pink);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .compliance-notice strong {
-      color: var(--vcc-neon-pink);
-      font-size: 1.2rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .compliance-notice p {
-      color: var(--vcc-text-light);
-      margin: 0;
-    }
-
-    /* ===== Product Grid ===== */
-    .loading-state,
-    .empty-state {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--vcc-text-muted);
-      font-size: 1.2rem;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .product-card {
-      background: var(--vcc-card-bg);
-      border: 1px solid var(--vcc-border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      box-shadow: var(--vcc-shadow);
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--vcc-shadow-hover);
-      border-color: var(--vcc-gold);
-    }
-
-    .product-name {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--vcc-text-light);
-      margin-bottom: 0.5rem;
-    }
-
-    .product-category {
-      display: inline-block;
-      background: var(--vcc-neon-pink);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .product-description {
-      color: var(--vcc-text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .product-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 1rem;
-      border-top: 1px solid var(--vcc-border);
-    }
-
-    .product-stock {
-      font-size: 0.9rem;
-      color: var(--vcc-cyan);
-      font-weight: 600;
-    }
-
-    .product-price {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--vcc-gold);
-    }
-
-    .product-sku {
-      font-size: 0.75rem;
-      color: var(--vcc-text-muted);
-      margin-top: 0.5rem;
-    }
-
-    .add-to-cart-btn {
-      background: var(--vcc-gold);
-      color: var(--vcc-darker-bg);
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-      margin-top: 1rem;
-    }
-
-    .add-to-cart-btn:hover {
-      background: var(--vcc-gold-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 204, 102, 0.4);
-    }
-
-    .add-to-cart-btn:active {
-      transform: translateY(0);
-    }
-
-    /* ===== Responsive Design ===== */
-    @media (max-width: 768px) {
-      .shop-subheader .container {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-      }
-
-      .shop-title {
-        font-size: 1.75rem;
-      }
-
-      .shop-subtitle {
-        font-size: 1rem;
-      }
-
-      .cart-indicator {
-        width: 100%;
-        text-align: center;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-
-      main {
-        padding: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="tobacco-shop-page">
-    <!-- Use site header -->
-    {% include header.html %}
-
-    <!-- Shop-specific header bar -->
-    <div class="shop-subheader">
-      <div class="container">
-        <div class="shop-info">
-          <h1 class="shop-title">In-Stock Tobacco Products</h1>
-          <p class="shop-subtitle">Browse what's available now for pre-order and pickup</p>
-        </div>
-        <div class="cart-indicator">
-          🛒 Cart: <span id="cartCount">0</span> items
-        </div>
+<div class="tobacco-shop-page">
+  <div class="shop-subheader">
+    <div class="container">
+      <div class="shop-info">
+        <h1 class="shop-title">In-Stock Tobacco Products</h1>
+        <p class="shop-subtitle">Browse what's available now for pre-order and pickup</p>
+      </div>
+      <div class="cart-indicator">
+        🛒 Cart: <span id="cartCount">0</span> items
       </div>
     </div>
-
-    <!-- Main Content -->
-    <main>
-
-      <!-- In-Stock Tobacco Products Section -->
-      <section id="instock-tobacco">
-        <div class="section-header">
-          <h1 class="section-title">In-Stock Tobacco Products</h1>
-          <p class="section-subtitle">
-            Browse what's currently available at our mobile events and in-person pickups. 
-            Pre-order your favorites and we'll have them ready for you!
-          </p>
-        </div>
-
-        <div class="compliance-notice">
-          <strong>🔞 21+ Only</strong>
-          <p>
-            All orders are manually age-verified and invoiced. 
-            No credit card payments are processed on this website. 
-            We'll contact you to arrange payment and pickup/delivery.
-          </p>
-        </div>
-
-        <!-- Loading / Products will be injected here -->
-        <div id="productContainer">
-          <div class="loading-state">
-            Loading available cigars & tobacco...
-          </div>
-        </div>
-      </section>
-    </main>
   </div>
 
-  <script>
+  <main id="main-content" class="container">
+    <section id="instock-tobacco" class="card">
+      <div class="section-header">
+        <h2 class="section-title">In-Stock Tobacco Products</h2>
+        <p class="section-subtitle">
+          Browse what's currently available at our mobile events and in-person pickups.
+          Pre-order your favorites and we'll have them ready for you!
+        </p>
+      </div>
+
+      <div class="compliance-notice">
+        <strong>🔞 21+ Only</strong>
+        <p>
+          All orders are manually age-verified and invoiced.
+          No credit card payments are processed on this website.
+          We'll contact you to arrange payment and pickup/delivery.
+        </p>
+      </div>
+
+      <div id="productContainer">
+        <div class="loading-state">
+          Loading available cigars & tobacco...
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
     // ===== Configuration =====
     const API_URL = 'https://script.google.com/macros/s/AKfycbxV-V5BHN2a97yb0fPYVjuofjJRUAFPnPu1d73kKwnxkqXTojYEFK3c0B1qAOzKO1Aquw/exec';
     
@@ -532,5 +228,3 @@ permalink: /tobacco-shop/
     console.log('%c🔥 Vice City Cigars Tobacco Shop Loaded', 'color: #ffcc66; font-size: 16px; font-weight: bold;');
     console.log('%cTo view cart contents, type: getCart()', 'color: #00ffff;');
   </script>
-</body>
-</html>
