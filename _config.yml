@@ -56,6 +56,9 @@ exclude:
   - content-batch-2.md
   - PERSONA-ANALYSIS.md
   - SOCIAL-MEDIA-STRATEGY.md
+  - tobacco-shop-backup.html
+  - apps-script-updated.js
+  - CODE-REVIEW-REPORT.md
 
 # Jekyll Plugins
 plugins:
