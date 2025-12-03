@@ -129,7 +129,12 @@
       </ul>
     </nav>
     
-    <a href="/vccweb/contact" class="btn btn-primary header-book-btn">Book Your Event</a>
+    <div class="header-actions">
+      <a href="/vccweb/tobacco-shop" class="cart-badge" aria-label="View cart">
+        🛒 <span id="cartCountHeader">0</span>
+      </a>
+      <a href="/vccweb/contact" class="btn btn-primary header-book-btn">Book Your Event</a>
+    </div>
   </div>
 </header>
 
@@ -220,6 +225,10 @@
       if (cartCount) {
         cartCount.textContent = cart.length;
       }
+        const cartCountHeader = document.getElementById('cartCountHeader');
+        if (cartCountHeader) {
+          cartCountHeader.textContent = cart.length;
+        }
     }
 
     /**

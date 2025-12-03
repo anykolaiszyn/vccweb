@@ -90,6 +90,10 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
       if (cartCount) {
         cartCount.textContent = cart.length;
       }
+        const cartCountHeader = document.getElementById('cartCountHeader');
+        if (cartCountHeader) {
+          cartCountHeader.textContent = cart.length;
+        }
     }
 
     /**

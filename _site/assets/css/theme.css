@@ -686,6 +686,21 @@ a:hover, a:focus {
   transform: translateY(-2px);
 }
 
+/* Shop subheader tweaks */
+.shop-subheader {
+  background: var(--vcc-bg-dark);
+  border-bottom: 2px solid var(--vice-hot-pink);
+}
+.shop-subheader .shop-title {
+  font-family: var(--font-primary);
+  color: var(--vice-cyan-blue);
+}
+.shop-subheader .cart-indicator {
+  background: var(--vice-hot-pink);
+  color: var(--vcc-bg-dark);
+  border: 2px solid var(--vice-cyan-blue);
+}
+
 /* Miami Vice Footer */
 .site-footer {
   background: var(--vcc-bg-dark);
@@ -1115,6 +1130,33 @@ form button {
 }
 
 /* Responsive post styling */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  order: 3;
+}
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 16px;
+  background: var(--vice-hot-pink);
+  color: var(--vcc-bg-dark);
+  border: 1px solid var(--vice-cyan-blue);
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cart-badge:hover {
+  color: var(--vcc-bg-dark);
+  box-shadow: 0 0 18px rgba(255, 20, 147, 0.6);
+  transform: translateY(-1px);
+}
+
 @media (min-width: 768px) {
   .post-title {
     font-size: 3rem;
