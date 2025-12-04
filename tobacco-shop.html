@@ -630,6 +630,15 @@ permalink: /tobacco-shop/
     return tmp.textContent || tmp.innerText || '';
   }
   
+  // Map display names for categories
+  function getCategoryDisplayName(categoryName) {
+    const displayMap = {
+      'RTPD - Regulated Products (IN PERSON ONLY)': 'Premium Tobacco',
+      'RTPD': 'Premium Tobacco'
+    };
+    return displayMap[categoryName] || categoryName;
+  }
+  
   // Build hierarchical category navigation
   function buildCategoryHierarchy() {
     const categoryList = document.getElementById('categoryList');
@@ -671,8 +680,9 @@ permalink: /tobacco-shop/
       li.className = 'category-item';
       li.dataset.categoryLevel = '1';
       li.dataset.categoryName = category;
+      const displayName = getCategoryDisplayName(category);
       li.innerHTML = `
-        <span>${category}</span>
+        <span>${displayName}</span>
         <span class="category-count">${level1Counts[category]} →</span>
       `;
       categoryList.appendChild(li);
@@ -694,7 +704,8 @@ permalink: /tobacco-shop/
     currentLi.className = 'category-item active';
     currentLi.style.fontWeight = 'bold';
     currentLi.style.borderBottom = '2px solid var(--neon-cyan)';
-    currentLi.innerHTML = `<span>${level1}</span>`;
+    const level1DisplayName = getCategoryDisplayName(level1);
+    currentLi.innerHTML = `<span>${level1DisplayName}</span>`;
     categoryList.appendChild(currentLi);
     
     // Count Level 2 categories
@@ -713,8 +724,9 @@ permalink: /tobacco-shop/
       li.className = 'category-item';
       li.dataset.categoryLevel = '2';
       li.dataset.categoryName = category;
+      const displayName = getCategoryDisplayName(category);
       li.innerHTML = `
-        <span>${category}</span>
+        <span>${displayName}</span>
         <span class="category-count">${level2Counts[category]} →</span>
       `;
       categoryList.appendChild(li);
@@ -729,7 +741,8 @@ permalink: /tobacco-shop/
     // Add back button
     const backLi = document.createElement('li');
     backLi.className = 'category-item category-back';
-    backLi.innerHTML = `<span>← Back to ${level1}</span>`;
+    const level1DisplayName = getCategoryDisplayName(level1);
+    backLi.innerHTML = `<span>← Back to ${level1DisplayName}</span>`;
     categoryList.appendChild(backLi);
     
     // Add current level indicator
@@ -737,7 +750,8 @@ permalink: /tobacco-shop/
     currentLi.className = 'category-item active';
     currentLi.style.fontWeight = 'bold';
     currentLi.style.borderBottom = '2px solid var(--neon-cyan)';
-    currentLi.innerHTML = `<span>${level2}</span>`;
+    const level2DisplayName = getCategoryDisplayName(level2);
+    currentLi.innerHTML = `<span>${level2DisplayName}</span>`;
     categoryList.appendChild(currentLi);
     
     // Count lowest level categories
@@ -758,8 +772,9 @@ permalink: /tobacco-shop/
       li.className = 'category-item';
       li.dataset.categoryLevel = 'lowest';
       li.dataset.categoryName = category;
+      const displayName = getCategoryDisplayName(category);
       li.innerHTML = `
-        <span>${category}</span>
+        <span>${displayName}</span>
         <span class="category-count">${lowestCounts[category]}</span>
       `;
       categoryList.appendChild(li);
@@ -846,7 +861,7 @@ permalink: /tobacco-shop/
     
     grid.innerHTML = filteredProducts.map(product => {
       const stockStatus = getStockStatus(product.stock);
-      const categoryDisplay = product.categoryLevel2 || product.categoryLevel1 || 'Tobacco';
+      const categoryDisplay = getCategoryDisplayName(product.categoryLevel2 || product.categoryLevel1 || 'Tobacco');
       return `
         <div class="product-card">
           <div class="product-image-container" onclick="viewProduct('${escapeHTML(product.sku)}')" style="cursor: pointer;">
