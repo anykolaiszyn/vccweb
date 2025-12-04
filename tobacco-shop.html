@@ -693,6 +693,114 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     font-size: 1.2rem !important;
   }
 }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+}
+
+/* Floating Cart Button */
+.floating-cart-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999997;
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.95), rgba(0, 255, 255, 0.2));
+  border: 2px solid #00FFFF;
+  border-radius: 50px;
+  padding: 12px 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  animation: floatIn 0.4s ease;
+}
+
+.floating-cart-btn.hidden {
+  display: none !important;
+}
+
+.floating-cart-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 40px rgba(0, 255, 255, 0.5);
+  border-color: #FF1493;
+}
+
+.floating-cart-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #0A0A2E;
+  font-weight: 700;
+}
+
+.floating-cart-icon {
+  font-size: 1.4rem;
+}
+
+.floating-cart-info {
+  text-align: right;
+}
+
+.floating-cart-count {
+  font-size: 0.85rem;
+  line-height: 1;
+  color: #0A0A2E;
+  font-weight: 700;
+}
+
+.floating-cart-total {
+  font-size: 1rem;
+  color: #0A0A2E;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile Floating Cart */
+@media (max-width: 768px) {
+  .floating-cart-btn {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 14px;
+  }
+
+  .floating-cart-icon {
+    font-size: 1.2rem;
+  }
+
+  .floating-cart-total {
+    font-size: 0.9rem;
+  }
+}
 </style>
 
 <div class="shop-context-banner tobacco-banner">
@@ -843,6 +951,17 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   </div>
 </div>
 
+<!-- Floating Cart Button -->
+<div id="floating-cart-btn" class="floating-cart-btn hidden">
+  <div class="floating-cart-content">
+    <span class="floating-cart-icon">🛒</span>
+    <div class="floating-cart-info">
+      <div class="floating-cart-count" id="floating-cart-count">0</div>
+      <div class="floating-cart-total" id="floating-cart-total">$0.00</div>
+    </div>
+  </div>
+</div>
+
 <script>
   // API Configuration
   const API_URL = 'https://script.google.com/macros/s/AKfycbxV-V5BHN2a97yb0fPYVjuofjJRUAFPnPu1d73kKwnxkqXTojYEFK3c0B1qAOzKO1Aquw/exec';
@@ -958,6 +1077,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     if (saved && timestamp && (Date.now() - parseInt(timestamp) < 86400000)) {
       cart = JSON.parse(saved);
       setCartCount();
+      updateFloatingCart();
       renderCartSummary();
     }
   }
@@ -967,12 +1087,40 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     localStorage.removeItem('vcc-tobacco-cart');
     localStorage.removeItem('vcc-tobacco-cart-timestamp');
     setCartCount();
+    updateFloatingCart();
     renderCartSummary();
   }
 
   function setCartCount() {
     const localBadge = document.getElementById('cart-count');
     if (localBadge) localBadge.textContent = cart.length;
+  }
+
+  function updateFloatingCart() {
+    const floatingBtn = document.getElementById('floating-cart-btn');
+    const floatingCount = document.getElementById('floating-cart-count');
+    const floatingTotal = document.getElementById('floating-cart-total');
+
+    if (cart.length === 0) {
+      floatingBtn.classList.add('hidden');
+      return;
+    }
+
+    floatingBtn.classList.remove('hidden');
+    
+    // Calculate total items (sum of quantities)
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const subtotal = cart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 1)), 0);
+    
+    floatingCount.textContent = totalItems;
+    floatingTotal.textContent = formatPrice(subtotal);
+  }
+
+  function scrollToCart() {
+    const cartSummary = document.getElementById('cart-summary');
+    if (cartSummary) {
+      window.scrollTo({ top: cartSummary.offsetTop - 80, behavior: 'smooth' });
+    }
   }
 
   // ============================================
@@ -1060,13 +1208,78 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   }
 
   function addToCart(item) {
-    cart.push({
-      sku: item.SKU,
-      name: item.Display_Name,
-      price: Number(item.Price) || 0
-    });
+    const sku = item.SKU;
+    const existing = cart.find(c => c.sku === sku);
+    
+    if (existing) {
+      // Stack quantity if item already in cart
+      existing.quantity = (existing.quantity || 1) + 1;
+    } else {
+      // Add new item with quantity = 1
+      cart.push({
+        sku: sku,
+        name: item.Display_Name,
+        price: Number(item.Price) || 0,
+        quantity: 1
+      });
+    }
+    
     saveCart();
     setCartCount();
+    updateFloatingCart();
+    renderCartSummary();
+    
+    // Show toast confirmation
+    showToast(`${item.Display_Name} added to cart!`);
+  }
+
+  function showToast(message) {
+    // Remove any existing toast
+    const existing = document.getElementById('toast-notification');
+    if (existing) existing.remove();
+    
+    const toast = document.createElement('div');
+    toast.id = 'toast-notification';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 255, 255, 0.95);
+      color: #0A0A2E;
+      padding: 14px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      z-index: 999998;
+      box-shadow: 0 4px 20px rgba(0, 255, 255, 0.4);
+      animation: slideUp 0.3s ease;
+      max-width: 90%;
+      text-align: center;
+    `;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    // Auto-remove after 2.5 seconds
+    setTimeout(() => {
+      toast.style.animation = 'slideDown 0.3s ease';
+      setTimeout(() => toast.remove(), 300);
+    }, 2500);
+  }
+
+  function updateCartItemQuantity(sku, delta) {
+    const item = cart.find(c => c.sku === sku);
+    if (!item) return;
+    
+    item.quantity = Math.max(1, (item.quantity || 1) + delta);
+    
+    if (item.quantity <= 0) {
+      cart = cart.filter(c => c.sku !== sku);
+    }
+    
+    saveCart();
+    setCartCount();
+    updateFloatingCart();
     renderCartSummary();
   }
 
@@ -1317,6 +1530,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     cart.splice(index, 1);
     saveCart();
     setCartCount();
+    updateFloatingCart();
     renderCartSummary();
   }
 
@@ -1340,8 +1554,8 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
       return;
     }
 
-    // Calculate subtotal
-    const subtotal = cart.reduce((sum, item) => sum + (item.price || 0), 0);
+    // Calculate subtotal with quantities
+    const subtotal = cart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 1)), 0);
     const shipping = calculateShipping(subtotal);
     const total = subtotal + shipping.total;
 
@@ -1351,11 +1565,14 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     // Header
     const header = document.createElement('div');
     header.style.cssText = 'font-weight: 700; color: #00FFFF; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid rgba(255, 20, 147, 0.5);';
-    header.textContent = `Your Cart (${cart.length} ${cart.length === 1 ? 'item' : 'items'})`;
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    header.textContent = `Your Cart (${totalItems} ${totalItems === 1 ? 'item' : 'items'})`;
     list.appendChild(header);
 
     // Cart items
     cart.forEach((item, index) => {
+      const qty = item.quantity || 1;
+      const itemTotal = (item.price || 0) * qty;
       const row = document.createElement('div');
       row.className = 'cart-row';
       row.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.08);';
@@ -1365,7 +1582,14 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
           <div style="color: #9fb0bf; font-size: 0.85rem;">SKU: ${sanitizeText(item.sku || 'N/A')}</div>
         </div>
         <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="color: #ffcc66; font-weight: 700; font-size: 1.1rem;">${formatPrice(item.price)}</span>
+          <div style="text-align: right;">
+            <div style="color: #ffcc66; font-weight: 700; font-size: 1rem; margin-bottom: 4px;">${formatPrice(itemTotal)}</div>
+            <div style="display: flex; align-items: center; gap: 6px; background: rgba(255, 20, 147, 0.1); border: 1px solid rgba(255, 20, 147, 0.3); border-radius: 4px; padding: 2px 6px; width: fit-content; margin-left: auto;">
+              <button class="qty-btn qty-minus" data-sku="${sanitizeText(item.sku)}" style="background: transparent; border: none; color: #FF1493; cursor: pointer; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-weight: 700;">−</button>
+              <span style="color: #e6edf3; font-weight: 600; min-width: 24px; text-align: center;">${qty}</span>
+              <button class="qty-btn qty-plus" data-sku="${sanitizeText(item.sku)}" style="background: transparent; border: none; color: #FF1493; cursor: pointer; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-weight: 700;">+</button>
+            </div>
+          </div>
           <button class="remove-cart-btn" data-index="${index}" style="background: rgba(255, 107, 107, 0.2); border: 1px solid #ff6b6b; color: #ff6b6b; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.3s ease;" onmouseover="this.style.background='#ff6b6b'; this.style.color='#0A0A2E';" onmouseout="this.style.background='rgba(255, 107, 107, 0.2)'; this.style.color='#ff6b6b';">Remove</button>
         </div>
       `;
@@ -1420,6 +1644,20 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
         btn.addEventListener('click', () => {
           const index = parseInt(btn.dataset.index);
           removeFromCart(index);
+        });
+      });
+      
+      // Attach quantity change handlers
+      document.querySelectorAll('.qty-minus').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const sku = btn.dataset.sku;
+          updateCartItemQuantity(sku, -1);
+        });
+      });
+      document.querySelectorAll('.qty-plus').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const sku = btn.dataset.sku;
+          updateCartItemQuantity(sku, 1);
         });
       });
     }, 0);
@@ -1619,6 +1857,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     loadCatalog();
     loadCart();
     setCartCount();
+    updateFloatingCart();
 
     // Search input
     const searchInput = document.getElementById('search-input');
@@ -1678,5 +1917,8 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
         return e.returnValue;
       }
     });
+
+    // Floating cart button click handler
+    document.getElementById('floating-cart-btn').addEventListener('click', scrollToCart);
   });
 </script>
