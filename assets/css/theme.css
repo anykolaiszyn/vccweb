@@ -489,6 +489,7 @@ a:hover, a:focus {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  flex-wrap: nowrap;
 }
 
 /* Mobile menu toggle */
@@ -500,7 +501,7 @@ a:hover, a:focus {
   cursor: pointer;
   padding: 0.5rem;
   gap: 4px;
-  order: 2;
+  z-index: 1001;
 }
 
 .hamburger {
@@ -531,8 +532,8 @@ a:hover, a:focus {
 
 /* Mobile-first logo */
 .logo-link {
-  order: 1;
   flex-shrink: 0;
+  z-index: 1001;
 }
 
 .site-logo {
