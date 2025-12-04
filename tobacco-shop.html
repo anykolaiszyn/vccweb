@@ -758,10 +758,10 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
 
 /* Floating Cart Button */
 .floating-cart-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999997;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 999999 !important;
   background: linear-gradient(135deg, rgba(255, 20, 147, 0.95), rgba(0, 255, 255, 0.2));
   border: 2px solid #00FFFF;
   border-radius: 50px;
@@ -772,10 +772,13 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   animation: floatIn 0.4s ease;
+  pointer-events: auto;
 }
 
 .floating-cart-btn.hidden {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 .floating-cart-btn:hover {
