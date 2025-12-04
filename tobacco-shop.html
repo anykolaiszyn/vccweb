@@ -496,6 +496,43 @@ permalink: /tobacco-shop/
   font-weight: 600;
 }
 
+/* Shop Header */
+.shop-page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(255, 20, 147, 0.3);
+}
+
+.shop-page-header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shop-page-header p {
+  color: #ccc;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 300;
+}
+
+@media (max-width: 640px) {
+  .shop-page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .shop-page-header p {
+    font-size: 0.9rem;
+  }
+}
+
 /* Toast Notification */
 .toast {
   position: fixed;
@@ -554,6 +591,12 @@ permalink: /tobacco-shop/
   }
 }
 </style>
+
+<!-- Shop Header -->
+<div class="shop-page-header">
+  <h1>Vice City Cigars Tobacco Shop</h1>
+  <p>Premium cigars, pipes, and tobacco products from South Florida</p>
+</div>
 
 <!-- Age Warning -->
 <div class="age-warning">
