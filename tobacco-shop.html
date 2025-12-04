@@ -457,15 +457,12 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
 .modal-overlay {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   background: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   z-index: 999999 !important;
+  overflow-y: auto;
 }
 
 .modal-overlay.active {
@@ -476,9 +473,9 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   background: #0f1620 !important;
   border: 2px solid #FF1493 !important;
   border-radius: 12px;
-  width: 85%;
+  width: 90%;
   max-width: 420px;
-  max-height: 85vh;
+  max-height: 95vh;
   overflow-y: auto;
   position: fixed !important;
   top: 50% !important;
@@ -486,6 +483,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   transform: translate(-50%, -50%) !important;
   box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
   z-index: 1000000 !important;
+  margin: auto;
 }
 
 .modal-close {
@@ -515,10 +513,11 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
 
 .modal-image {
   width: 100%;
-  max-height: 250px;
+  height: 240px;
   object-fit: cover;
   background: rgba(10, 10, 46, 0.6);
   border-bottom: 2px solid #FF1493;
+  display: block;
 }
 
 .modal-body {
@@ -661,6 +660,38 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   .modal-meta {
     grid-template-columns: 1fr;
   }
+
+  .modal-content {
+    width: 95% !important;
+    max-width: 100% !important;
+    max-height: 92vh !important;
+    margin: auto !important;
+  }
+
+  .modal-image {
+    height: 200px;
+  }
+
+  .modal-body {
+    padding: 12px !important;
+  }
+
+  .modal-title {
+    font-size: 1.1rem !important;
+    margin: 0 0 6px !important;
+  }
+
+  .modal-category {
+    font-size: 0.8rem;
+  }
+
+  .modal-close {
+    width: 36px !important;
+    height: 36px !important;
+    top: 12px !important;
+    right: 12px !important;
+    font-size: 1.2rem !important;
+  }
 }
 </style>
 
@@ -688,7 +719,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
           <div class="search-box">
             <input type="text" id="search-input" placeholder="Search products by name, description, or SKU...">
           </div>
-          <select id="sort-select" class="sort-select">
+          <select id="sort-select" class="sort-select" aria-label="Sort products by">
             <option value="name">Sort by Name</option>
             <option value="price-low">Price: Low to High</option>
             <option value="price-high">Price: High to Low</option>
