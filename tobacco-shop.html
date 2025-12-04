@@ -159,8 +159,8 @@ permalink: /tobacco-shop/
 /* Product Grid */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 3rem;
 }
 
@@ -416,8 +416,8 @@ permalink: /tobacco-shop/
   }
   
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
   }
   
   .floating-cart {
@@ -673,7 +673,7 @@ permalink: /tobacco-shop/
       return `
         <div class="product-card" onclick="viewProduct('${escapeHTML(product.sku)}')">
           <div class="product-image-container">
-            <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" class="product-image" loading="lazy">
+            <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" class="product-image">
             <span class="product-stock-badge ${stockStatus.class}">${stockStatus.text}</span>
           </div>
           <div class="product-info">
