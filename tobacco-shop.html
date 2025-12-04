@@ -286,29 +286,55 @@ permalink: /tobacco-shop/
 }
 
 .product-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
   margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .product-price {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--gold);
   font-weight: 700;
   font-family: 'Orbitron', sans-serif;
+  margin: 0.5rem 0;
+  display: block;
 }
 
-.view-details-btn {
+.add-to-cart-btn {
   background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
   color: #fff;
   border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 6px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+}
+
+.add-to-cart-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.view-details-btn {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -316,8 +342,8 @@ permalink: /tobacco-shop/
 }
 
 .view-details-btn:hover {
+  background: rgba(0, 255, 255, 0.1);
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
 }
 
 /* Floating Cart Button */
@@ -415,6 +441,26 @@ permalink: /tobacco-shop/
   color: #ccc;
   margin: 0;
   line-height: 1.6;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+  z-index: 999998;
+  transition: transform 0.3s ease;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Mobile Responsive */
@@ -800,19 +846,23 @@ permalink: /tobacco-shop/
     
     grid.innerHTML = filteredProducts.map(product => {
       const stockStatus = getStockStatus(product.stock);
+      const categoryDisplay = product.categoryLevel2 || product.categoryLevel1 || 'Tobacco';
       return `
-        <div class="product-card" onclick="viewProduct('${escapeHTML(product.sku)}')">
-          <div class="product-image-container">
+        <div class="product-card">
+          <div class="product-image-container" onclick="viewProduct('${escapeHTML(product.sku)}')" style="cursor: pointer;">
             <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" class="product-image">
             <span class="product-stock-badge ${stockStatus.class}">${stockStatus.text}</span>
           </div>
           <div class="product-info">
-            <div class="product-category">${escapeHTML(product.category)}</div>
+            <div class="product-category">${escapeHTML(categoryDisplay)}</div>
             <h3 class="product-name">${escapeHTML(product.name)}</h3>
+            <div class="product-price">$${product.price.toFixed(2)}</div>
             <p class="product-description">${escapeHTML(product.description)}</p>
             <div class="product-footer">
-              <span class="product-price">$${product.price.toFixed(2)}</span>
-              <button class="view-details-btn" onclick="event.stopPropagation(); viewProduct('${escapeHTML(product.sku)}')">
+              <button class="add-to-cart-btn" onclick="addToCartFromGrid('${escapeHTML(product.sku)}', '${escapeHTML(product.name)}', ${product.price}, '${escapeHTML(product.image)}', ${product.stock})" ${product.stock === 0 ? 'disabled' : ''}>
+                🛒 Add to Cart
+              </button>
+              <button class="view-details-btn" onclick="viewProduct('${escapeHTML(product.sku)}')">
                 View Details
               </button>
             </div>
@@ -850,6 +900,66 @@ permalink: /tobacco-shop/
   window.viewProduct = function(sku) {
     window.location.href = `{{ '/tobacco-shop/product' | relative_url }}?sku=${encodeURIComponent(sku)}`;
   };
+  
+  // Add to cart from product grid
+  window.addToCartFromGrid = function(sku, name, price, image, stock) {
+    if (stock === 0) return;
+    
+    // Get existing cart
+    let cart = getCart();
+    
+    // Check if product already in cart
+    const existingIndex = cart.findIndex(item => item.sku === sku);
+    
+    if (existingIndex >= 0) {
+      // Update quantity
+      cart[existingIndex].quantity += 1;
+    } else {
+      // Add new item
+      cart.push({
+        sku: sku,
+        name: name,
+        price: price,
+        quantity: 1,
+        image: image
+      });
+    }
+    
+    // Save cart with 24hr expiry
+    saveCart(cart);
+    updateCartDisplay();
+    
+    // Show toast notification
+    showToast(`Added ${name} to cart`);
+  };
+  
+  // Save cart to localStorage
+  function saveCart(items) {
+    const data = {
+      items: items,
+      expiry: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
+    };
+    localStorage.setItem('vcc_tobacco_cart', JSON.stringify(data));
+  }
+  
+  // Show toast notification
+  function showToast(message) {
+    // Create toast if it doesn't exist
+    let toast = document.getElementById('gridToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'gridToast';
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+    }
+    
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2500);
+  }
   
   // Update cart display
   function updateCartDisplay() {
