@@ -821,6 +821,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   let filteredCatalog = [];
   let cart = [];
   let activeFilter = 'all';
+  let activeSubcategory = null;
   let searchQuery = '';
   let sortOrder = 'name';
   let selectedProduct = null;
@@ -1177,6 +1178,15 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
       });
     }
 
+    // Apply subcategory filter if active
+    if (activeSubcategory) {
+      items = items.filter(item => {
+        const l2 = item.Category_Level_2 || '';
+        const lowest = item.Lowest_Category || '';
+        return (l2 && l2 === activeSubcategory) || (!l2 && lowest === activeSubcategory);
+      });
+    }
+
     // Apply sort
     switch (sortOrder) {
       case 'name':
@@ -1209,23 +1219,30 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
         label.textContent = 'Subcategories:';
         label.style.pointerEvents = 'none';
         subEl.appendChild(label);
+        // Add clear chip if subcategory is active
+        if (activeSubcategory) {
+          const clearBtn = document.createElement('button');
+          clearBtn.className = 'chip active';
+          clearBtn.textContent = '✕ Clear';
+          clearBtn.addEventListener('click', () => {
+            activeSubcategory = null;
+            applyFiltersAndSort();
+          });
+          subEl.appendChild(clearBtn);
+        }
         subcats.forEach(name => {
           const btn = document.createElement('button');
-          btn.className = 'chip';
+          btn.className = activeSubcategory === name ? 'chip active' : 'chip';
           btn.textContent = name;
           btn.addEventListener('click', () => {
-            // Filter within current active category by subcategory name
-            const list = filteredCatalog.filter(it => {
-              const l2 = it.Category_Level_2 || '';
-              const lowest = it.Lowest_Category || '';
-              return (l2 && l2 === name) || (!l2 && lowest === name);
-            });
-            renderGrid(list);
+            activeSubcategory = name;
+            applyFiltersAndSort();
           });
           subEl.appendChild(btn);
         });
       } else {
         subEl.style.display = 'none';
+        activeSubcategory = null;
       }
     }
   }
@@ -1242,6 +1259,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
       btn.textContent = cat;
       btn.addEventListener('click', () => {
         activeFilter = cat;
+        activeSubcategory = null;
         document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
         btn.classList.add('active');
         applyFiltersAndSort();
@@ -1252,6 +1270,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     // Re-attach all button handler
     container.querySelector('[data-filter="all"]').addEventListener('click', () => {
       activeFilter = 'all';
+      activeSubcategory = null;
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
       container.querySelector('[data-filter="all"]').classList.add('active');
       applyFiltersAndSort();
