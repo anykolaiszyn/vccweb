@@ -484,7 +484,7 @@ a:hover, a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -536,7 +536,7 @@ a:hover, a:focus {
 }
 
 .site-logo {
-  height: 50px;
+  height: 40px;
   width: auto;
   border-radius: 50%;
   border: 2px solid var(--vice-cyan-blue);
@@ -1283,6 +1283,10 @@ blockquote::before {
     padding: 1rem 2rem;
     gap: 2rem;
     flex-wrap: nowrap;
+  }
+  
+  .site-logo {
+    height: 50px;
   }
   
   /* Hide mobile menu toggle on larger screens */
