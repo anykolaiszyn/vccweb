@@ -1,81 +1,71 @@
 // assets/js/age-gate.js
 (function() {
   var modal = document.getElementById('age-gate-modal');
-  if (!modal) return;
+  var overlay = document.getElementById('age-gate-overlay');
+  if (!modal || !overlay) return;
   var yesBtn = document.getElementById('age-gate-yes');
   var noBtn = document.getElementById('age-gate-no');
   var storageKey = 'vcc-age-verified';
   var expiryKey = 'vcc-age-verified-expiry';
-  var now = new Date();
-  var expiry = new Date(now.getTime() + 30*24*60*60*1000); // 30 days
 
-  function showModal() {
-    modal.classList.add('active');
+  function now() { return new Date(); }
+  function expiryDate() { return new Date(now().getTime() + 30*24*60*60*1000); }
+
+  function show() {
+    overlay.style.display = 'block';
+    modal.style.display = 'block';
     modal.setAttribute('aria-hidden', 'false');
-    modal.focus();
     document.body.style.overflow = 'hidden';
+    setTimeout(function(){ modal.focus(); yesBtn && yesBtn.focus(); }, 50);
   }
-  function hideModal() {
-    modal.classList.remove('active');
+  function hide() {
+    overlay.style.display = 'none';
+    modal.style.display = 'none';
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-  var skip = document.querySelector('.skip-link');
-  if (skip) skip.focus();
+    var skip = document.querySelector('.skip-link');
+    if (skip) skip.focus();
   }
   function setVerified() {
-    localStorage.setItem(storageKey, 'yes');
-    localStorage.setItem(expiryKey, expiry.toISOString());
+    try {
+      localStorage.setItem(storageKey, 'yes');
+      localStorage.setItem(expiryKey, expiryDate().toISOString());
+    } catch (e) {}
   }
   function isVerified() {
-    var v = localStorage.getItem(storageKey);
-    var e = localStorage.getItem(expiryKey);
-    if (v === 'yes' && e && new Date(e) > now) return true;
-    return false;
+    try {
+      var v = localStorage.getItem(storageKey);
+      var e = localStorage.getItem(expiryKey);
+      return (v === 'yes' && e && new Date(e) > now());
+    } catch (e) { return false; }
   }
   function trapFocus(e) {
-    if (!modal.classList.contains('active')) return;
+    if (modal.style.display !== 'block') return;
     var focusable = modal.querySelectorAll('button');
+    if (!focusable.length) return;
     if (e.key === 'Tab') {
-      if (e.shiftKey && document.activeElement === focusable[0]) {
-        e.preventDefault();
-        focusable[focusable.length-1].focus();
-      } else if (!e.shiftKey && document.activeElement === focusable[focusable.length-1]) {
-        e.preventDefault();
-        focusable[0].focus();
-      }
+      var first = focusable[0], last = focusable[focusable.length-1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
-    if (e.key === 'Escape') {
-      // Do not allow closing
-      e.preventDefault();
-    }
-  }
-  if (!isVerified()) {
-    showModal();
-    yesBtn.addEventListener('click', function() {
-      setVerified();
-      hideModal();
-    });
-    noBtn.addEventListener('click', function() {
-      modal.querySelector('.age-gate-content').innerHTML = '<h2>Sorry!</h2><p>You must be 21 or older to enter.</p>';
-    });
-    modal.addEventListener('keydown', trapFocus);
-    setTimeout(function() { yesBtn.focus(); }, 200);
+    if (e.key === 'Escape') { e.preventDefault(); }
   }
 
-  // Contact form optional endpoint handler
+  if (!isVerified()) {
+    show();
+    if (yesBtn) yesBtn.addEventListener('click', function(){ setVerified(); hide(); });
+    if (noBtn) noBtn.addEventListener('click', function(){ modal.querySelector('.age-gate-content').innerHTML = '<h2>Sorry!</h2><p>You must be 21 or older to enter.</p>'; });
+    modal.addEventListener('keydown', trapFocus);
+  }
+
   document.addEventListener('submit', function(e) {
     var form = e.target;
     if (form && form.id === 'contact-form') {
       var endpoint = form.getAttribute('data-form-endpoint');
-      if (endpoint) {
-        form.action = endpoint;
-        return; // allow normal POST
-      } else {
-        // No endpoint set; encourage using mailto button
-        e.preventDefault();
-        var mail = document.querySelector('a[href^="mailto:"]');
-        if (mail) mail.click();
-      }
+      if (endpoint) { form.action = endpoint; return; }
+      e.preventDefault();
+      var mail = document.querySelector('a[href^="mailto:"]');
+      if (mail) mail.click();
     }
   });
 })();

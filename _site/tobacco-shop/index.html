@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   
   <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; frame-ancestors 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://via.placeholder.com https://drive.google.com https://lh3.googleusercontent.com; connect-src 'self' https://formspree.io https://script.google.com https://script.googleusercontent.com; frame-ancestors 'none';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -85,16 +85,23 @@
 </head>
 
   <body>
-    <div id="age-gate-modal" class="age-gate-modal" role="dialog" aria-modal="true" aria-labelledby="age-gate-title" tabindex="-1">
-  <div class="age-gate-content">
+    <div id="age-gate-overlay" class="age-gate-overlay" aria-hidden="true"></div>
+<div id="age-gate-modal" class="age-gate-modal" role="dialog" aria-modal="true" aria-labelledby="age-gate-title" tabindex="-1">
+  <div class="age-gate-content" role="document">
     <h2 id="age-gate-title">Are you 21 or older?</h2>
-  <p aria-live="polite">This site is for adults 21+ only. Please confirm your age to enter.</p>
+    <p id="age-gate-desc">This site is for adults 21+ only. Please confirm your age to enter.</p>
     <div class="age-gate-actions">
-      <button id="age-gate-yes" class="btn btn-primary">Yes, I am 21+</button>
+      <button id="age-gate-yes" class="btn btn-primary" aria-describedby="age-gate-desc">Yes, I am 21+</button>
       <button id="age-gate-no" class="btn btn-secondary">No</button>
     </div>
     <p class="age-gate-legal">We do not offer free samples.</p>
   </div>
+  <style>
+    .age-gate-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999998;display:none}
+    .age-gate-modal{position:fixed;top:50vh;left:50vw;transform:translate(-50%,-50%);z-index:999999;display:none;max-width:520px;width:92%;background:rgba(10,10,46,.95);border:1px solid rgba(255,20,147,.4);border-radius:12px;box-shadow:0 12px 48px rgba(0,255,255,.2)}
+    .age-gate-content{padding:1.25rem;color:#e6edf3}
+    .age-gate-actions{display:flex;gap:.75rem;justify-content:flex-start;margin-top:1rem}
+  </style>
 </div>
 <script src="/vccweb/assets/js/age-gate.js" defer></script>
 
@@ -114,13 +121,8 @@
     <nav class="main-nav" aria-label="Main navigation">
       <ul>
         <li><a href="/vccweb/">Home</a></li>
-        <li class="nav-dropdown">
-          <a href="#shop">Shop ▼</a>
-          <ul class="nav-dropdown-menu">
-            <li><a href="/vccweb/square-shop">Square Shop</a></li>
-            <li><a href="/vccweb/tobacco-shop">Tobacco Products</a></li>
-          </ul>
-        </li>
+        <li><a href="/vccweb/square-shop">Merchandise</a></li>
+        <li><a href="/vccweb/tobacco-shop">Tobacco Shop</a></li>
         <li><a href="/vccweb/services">Services</a></li>
         <li><a href="/vccweb/events">Events</a></li>
         <li><a href="/vccweb/learn">Learn</a></li>
@@ -128,11 +130,8 @@
         <li><a href="/vccweb/contact">Contact</a></li>
       </ul>
     </nav>
-    
+
     <div class="header-actions">
-      <a href="/vccweb/tobacco-shop" class="cart-badge" aria-label="View cart">
-        🛒 <span id="cartCountHeader">0</span>
-      </a>
       <a href="/vccweb/contact" class="btn btn-primary header-book-btn">Book Your Event</a>
     </div>
   </div>
@@ -140,233 +139,1631 @@
 
     <main class="container" id="main-content" role="main" tabindex="-1">
       <article class="page-content">
-  <div class="tobacco-shop-page">
-  <div class="shop-subheader">
-    <div class="container">
-      <div class="shop-info">
-        <h1 class="shop-title">In-Stock Tobacco Products</h1>
-        <p class="shop-subtitle">Browse what's available now for pre-order and pickup</p>
-      </div>
-      <div class="cart-indicator">
-        🛒 Cart: <span id="cartCount">0</span> items
+  <style>
+/* Shop Context Banner - Legal Separation Indicator */
+.shop-context-banner {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-bottom: 2px solid;
+  backdrop-filter: blur(10px);
+  font-family: var(--font-ui, 'Exo 2', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tobacco-banner {
+  background: rgba(255, 20, 147, 0.08);
+  border-color: rgba(255, 20, 147, 0.3);
+  color: #FF1493;
+}
+
+/* Shop Subheader */
+.shop-subheader {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 20, 147, 0.2);
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.shop-subheader .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.shop-info h1 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  color: #00FFFF;
+  font-family: 'Pacifico', cursive;
+}
+
+.shop-subtitle {
+  font-size: 0.9rem;
+  color: #c7d2db;
+  margin: 0;
+  max-width: 600px;
+}
+
+.cart-indicator {
+  background: rgba(255, 20, 147, 0.15);
+  color: #FF1493;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 20, 147, 0.4);
+  font-size: 1rem;
+}
+
+/* Main Content */
+#instock-tobacco {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin: 0 0 0.75rem;
+  color: #00FFFF;
+  font-family: 'Pacifico', cursive;
+}
+
+.section-sub {
+  color: #9fb0bf;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.notice {
+  background: rgba(255, 204, 102, 0.08);
+  border: 1px dashed rgba(255, 204, 102, 0.4);
+  color: #ffcc66;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 16px 0 24px;
+  font-size: 0.9rem;
+}
+
+/* Search & Controls */
+.search-controls {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 10, 46, 0.6);
+  color: #e6edf3;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #00FFFF;
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
+}
+
+.search-box::before {
+  content: '🔍';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
+
+.sort-select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 10, 46, 0.6);
+  color: #e6edf3;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #ffcc66;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 24px;
+}
+
+.chip {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e6edf3;
+  background: transparent;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.chip:hover {
+  border-color: #ffcc66;
+  transform: translateY(-2px);
+}
+
+.chip.active {
+  background: #ffcc66;
+  color: #0A0A2E;
+  border-color: #ffcc66;
+  box-shadow: 0 0 10px rgba(255, 204, 102, 0.4);
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 2rem 0;
+}
+
+.product-card {
+  background: rgba(15, 22, 32, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  border-color: #FF1493;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+  transform: translateY(-4px);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: rgba(10, 10, 46, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.product-content {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.product-category {
+  color: #9fb0bf;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-description {
+  color: #c7d2db;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.product-stock {
+  color: #00FFFF;
+  font-weight: 600;
+}
+
+.product-price {
+  color: #ffcc66;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.product-sku {
+  font-size: 0.8rem;
+  color: #9fb0bf;
+}
+
+.add-to-cart-btn {
+  background: #ffcc66;
+  color: #0A0A2E;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.add-to-cart-btn:hover {
+  background: #e6b95a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 204, 102, 0.4);
+}
+
+/* Cart Summary */
+.cart-summary {
+  margin-top: 24px;
+}
+
+.empty {
+  color: #9fb0bf;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 32px;
+}
+
+.cart-list {
+  background: rgba(15, 22, 32, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  color: #e6edf3;
+}
+
+.cart-row:last-child {
+  border-bottom: none;
+}
+
+.checkout-btn {
+  width: 100%;
+  background: #FF1493;
+  color: #ffffff;
+  border: 2px solid #00FFFF;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
+}
+
+.checkout-btn:hover {
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Checkout Form */
+.checkout {
+  margin-top: 32px;
+  background: rgba(15, 22, 32, 0.8);
+  border: 2px solid #FF1493;
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.checkout label {
+  display: block;
+  font-size: 0.85rem;
+  color: #9fb0bf;
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.checkout input,
+.checkout textarea,
+.checkout select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 10, 46, 0.6);
+  color: #e6edf3;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.checkout input:focus,
+.checkout textarea:focus,
+.checkout select:focus {
+  outline: none;
+  border-color: #00FFFF;
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
+}
+
+.checkout textarea {
+  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.btn-primary {
+  width: 100%;
+  background: #ffcc66;
+  color: #0A0A2E;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  margin-top: 16px;
+}
+
+.btn-primary:hover {
+  background: #e6b95a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 204, 102, 0.4);
+}
+
+.error {
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.35);
+  color: #ffc7c7;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 12px;
+}
+
+.success {
+  background: rgba(57, 215, 200, 0.12);
+  border: 1px solid rgba(57, 215, 200, 0.35);
+  color: #c9fffa;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 12px;
+}
+
+/* Loading State */
+#loading {
+  text-align: center;
+  padding: 48px;
+  color: #9fb0bf;
+}
+
+/* Product Detail Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 999999 !important;
+}
+
+.modal-overlay.active {
+  display: block !important;
+}
+
+.modal-content {
+  background: #0f1620 !important;
+  border: 2px solid #FF1493 !important;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: fixed !important;
+  top: 50vh !important;
+  left: 50vw !important;
+  transform: translate(-50%, -50%) !important;
+  box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
+  z-index: 1000000 !important;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 20, 147, 0.2);
+  border: 1px solid #FF1493;
+  color: #FF1493;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: #FF1493;
+  color: #0A0A2E;
+  transform: rotate(90deg);
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  background: rgba(10, 10, 46, 0.6);
+  border-bottom: 2px solid #FF1493;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  color: #00FFFF;
+  margin: 0 0 12px;
+  font-family: 'Pacifico', cursive;
+}
+
+.modal-category {
+  color: #ffcc66;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.modal-description {
+  color: #c7d2db;
+  line-height: 1.7;
+  margin: 16px 0;
+}
+
+.modal-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+  padding: 16px;
+  background: rgba(255, 20, 147, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 20, 147, 0.3);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-label {
+  color: #9fb0bf;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.meta-value {
+  color: #e6edf3;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.meta-value.price {
+  color: #ffcc66;
+  font-size: 1.4rem;
+}
+
+.meta-value.stock {
+  color: #00FFFF;
+}
+
+.id-privacy-notice {
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px dashed rgba(0, 255, 255, 0.4);
+  color: #c7d2db;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.id-privacy-notice strong {
+  color: #00FFFF;
+}
+
+.returning-customer-option {
+  background: rgba(255, 204, 102, 0.08);
+  border: 1px solid rgba(255, 204, 102, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.returning-customer-option label {
+  color: #ffcc66;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: normal;
+}
+
+.returning-customer-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-subheader .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-context-banner {
+    font-size: 0.75rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .search-controls {
+    flex-direction: column;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .modal-meta {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<div class="shop-context-banner tobacco-banner">
+  🔞 <strong>TOBACCO SHOP</strong> - Age-Restricted Products Only - Pre-Order System - Separate from Merchandise Shop
+</div>
+
+<div class="shop-subheader">
+  <div class="container">
+    <div class="shop-info">
+      <h1 class="shop-title">Premium Tobacco Products</h1>
+      <p class="shop-subtitle">Available for in-person pickup and shipping nationwide. Payment is invoiced after age verification. Adult signature required upon delivery.</p>
+    </div>
+    <div class="cart-indicator">🛒 Cart: <span id="cart-count">0</span></div>
+  </div>
+</div>
+
+<section id="instock-tobacco" aria-labelledby="instock-title">
+  <h2 id="instock-title" class="section-title">Shop Premium Tobacco</h2>
+        <p class="section-sub">Browse our curated selection of premium cigars, pipe tobacco, and accessories. Orders are invoiced after age verification. We ship nationwide with required adult signature delivery.</p>
+        <div class="notice">🔞 21+ only. All orders require age verification. Payment by invoice (ACH / Bitcoin) after verification. Adult signature required at delivery ($8.50).</div>
+
+        <!-- Search & Sort Controls -->
+        <div class="search-controls">
+          <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search products by name, description, or SKU...">
+          </div>
+          <select id="sort-select" class="sort-select">
+            <option value="name">Sort by Name</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="stock">Stock Level</option>
+          </select>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters" id="filters-container">
+          <button class="chip active" data-filter="all">All Products</button>
+        </div>
+        <!-- Subcategory Filters (auto-populated when a category is selected) -->
+        <div id="subcategory-filters" class="filters"></div>
+
+        <!-- Grid -->
+        <div id="loading" class="empty">Loading available cigars & tobacco…</div>
+        <div id="product-grid" class="product-grid" aria-live="polite"></div>
+
+        <!-- Cart summary -->
+        <div class="cart-summary" id="cart-summary"></div>
+
+        <!-- Checkout panel -->
+        <div class="checkout" id="checkout-panel" hidden>
+          <h3 class="section-title">Checkout & ID Verification</h3>
+          <p class="section-sub">Provide your details and upload your government-issued photo ID for age verification as required by federal law.</p>
+
+          <div class="id-privacy-notice">
+            <strong>🔒 Your Privacy Matters</strong><br>
+            We require a government-issued photo ID to comply with federal tobacco regulations (21+ verification). Your ID is stored securely and <strong>permanently deleted within 24 hours of verification</strong>. We never share your information with third parties. This one-time verification helps us serve you faster on future orders.
+          </div>
+
+          <div id="age-note" class="notice" hidden></div>
+          <div id="error-banner" class="error" hidden></div>
+          <div id="success-banner" class="success" hidden></div>
+
+          <div class="form-row">
+            <div>
+              <label for="fullName">Full name *</label>
+              <input id="fullName" type="text" required>
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input id="email" type="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" placeholder="Optional but recommended">
+            </div>
+            <div>
+              <label for="dob">Date of birth * (Must be 21+)</label>
+              <input id="dob" type="date" required max="2004-12-02" min="1900-01-01">
+            </div>
+          </div>
+
+          <div>
+            <label for="address">Shipping address</label>
+            <textarea id="address" placeholder="Street, City, State, ZIP"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="payment">Payment preference</label>
+              <select id="payment">
+                <option>Bank Invoice (ACH)</option>
+                <option>Bitcoin (direct wallet)</option>
+                <option>Other / Discuss</option>
+              </select>
+            </div>
+            <div>
+              <label for="idfile">ID upload (image/PDF, max 5MB) *</label>
+              <input id="idfile" type="file" accept="image/jpeg,image/jpg,image/png,application/pdf">
+              <div id="returning-customer-skip" class="returning-customer-option" hidden>
+                <input type="checkbox" id="skip-id-checkbox">
+                <label for="skip-id-checkbox">I'm a returning customer - skip ID upload (already verified)</label>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="notes">Notes</label>
+            <textarea id="notes" placeholder="Anything we should know"></textarea>
+          </div>
+
+          <button id="submit-btn" class="btn btn-primary">Submit Order</button>
+        </div>
+</section>
+
+<!-- Product Detail Modal -->
+  <div id="product-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <img id="modal-product-image" class="modal-image" alt="Product image">
+      <div class="modal-body">
+        <h3 id="modal-product-name" class="modal-title"></h3>
+        <div id="modal-product-category" class="modal-category"></div>
+        <div id="modal-product-description" class="modal-description"></div>
+        <div class="modal-meta">
+          <div class="meta-item">
+            <span class="meta-label">Price</span>
+            <span id="modal-product-price" class="meta-value price"></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">In Stock</span>
+            <span id="modal-product-stock" class="meta-value stock"></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">SKU</span>
+            <span id="modal-product-sku" class="meta-value"></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Category</span>
+            <span id="modal-product-full-cat" class="meta-value"></span>
+          </div>
+        </div>
+        <button id="modal-add-to-cart" class="btn btn-primary">Add to Cart</button>
       </div>
     </div>
   </div>
-
-  <main id="main-content" class="container">
-    <section id="instock-tobacco" class="card">
-      <div class="section-header">
-        <h2 class="section-title">In-Stock Tobacco Products</h2>
-        <p class="section-subtitle">
-          Browse what's currently available at our mobile events and in-person pickups.
-          Pre-order your favorites and we'll have them ready for you!
-        </p>
-      </div>
-
-      <div class="compliance-notice">
-        <strong>🔞 21+ Only</strong>
-        <p>
-          All orders are manually age-verified and invoiced.
-          No credit card payments are processed on this website.
-          We'll contact you to arrange payment and pickup/delivery.
-        </p>
-      </div>
-
-      <div id="productContainer">
-        <div class="loading-state">
-          Loading available cigars & tobacco...
-        </div>
-      </div>
-    </section>
-  </main>
 </div>
 
 <script>
-    // ===== Configuration =====
-    const API_URL = 'https://script.google.com/macros/s/AKfycbxV-V5BHN2a97yb0fPYVjuofjJRUAFPnPu1d73kKwnxkqXTojYEFK3c0B1qAOzKO1Aquw/exec';
-    
-    // ===== Global State =====
-    let cart = [];
+  // API Configuration
+  const API_URL = 'https://script.google.com/macros/s/AKfycbxV-V5BHN2a97yb0fPYVjuofjJRUAFPnPu1d73kKwnxkqXTojYEFK3c0B1qAOzKO1Aquw/exec';
 
-    // ===== Helper Functions =====
-    
-    /**
-     * Sanitize category string - take the last segment after '>'
-     */
-    function sanitizeCategory(rawCategories) {
-      if (!rawCategories || rawCategories.trim() === '') return 'Uncategorized';
-      const segments = rawCategories.split('>').map(s => s.trim());
-      return segments[segments.length - 1] || 'Uncategorized';
+  // State
+  let catalog = [];
+  let filteredCatalog = [];
+  let cart = [];
+  let activeFilter = 'all';
+  let searchQuery = '';
+  let sortOrder = 'name';
+  let selectedProduct = null;
+  let isVerifiedCustomer = false;
+
+  // Shipping constants
+  const ADULT_SIGNATURE_FEE = 8.50;
+  const POSTAGE_FEE = 7.00;
+  const POSTAGE_FREE_THRESHOLD = 50.00;
+
+  // ============================================
+  // HELPER FUNCTIONS
+  // ============================================
+
+  function stripHtml(html) {
+    const d = document.createElement('div');
+    d.innerHTML = html || '';
+    return d.textContent || d.innerText || '';
+  }
+
+  function sanitizeText(text) {
+    const d = document.createElement('div');
+    d.textContent = text || '';
+    return d.innerHTML;
+  }
+
+  function formatPrice(p) {
+    const n = Number(p);
+    return isNaN(n) ? '$0.00' : `$${n.toFixed(2)}`;
+  }
+
+  function lastSegment(cat) {
+    if (!cat) return 'Uncategorized';
+    const parts = cat.split('>').map(s => s.trim());
+    return parts.pop() || 'Uncategorized';
+  }
+
+  // Extract display category - prefer Level 2, fallback to Lowest Category
+  function getDisplayCategory(item) {
+    // Priority 1: Use Category Level 2 from Square sync
+    if (item.Category_Level_2) {
+      return item.Category_Level_2;
     }
 
-    /**
-     * Strip HTML tags from description
-     */
-    function stripHtml(html) {
-      if (!html) return '';
-      const temp = document.createElement('div');
-      temp.innerHTML = html;
-      return temp.textContent || temp.innerText || '';
+    // Priority 2: Use Lowest Category from Square sync
+    if (item.Lowest_Category) {
+      return item.Lowest_Category;
     }
 
-    /**
-     * Format price as currency
-     */
-    function formatPrice(price) {
-      const num = Number(price);
-      return isNaN(num) ? '$0.00' : `$${num.toFixed(2)}`;
-    }
-
-    /**
-     * Update cart counter in header
-     */
-    function updateCartCounter() {
-      const cartCount = document.getElementById('cartCount');
-      if (cartCount) {
-        cartCount.textContent = cart.length;
+    // Fallback: Parse from Categories string (skip RTPD parent if exists)
+    if (item.Categories) {
+      const parts = item.Categories.split('>').map(s => s.trim());
+      if (parts.length > 1 && parts[0].includes('RTPD')) {
+        return parts[1]; // Return second level
       }
-        const cartCountHeader = document.getElementById('cartCountHeader');
-        if (cartCountHeader) {
-          cartCountHeader.textContent = cart.length;
-        }
+      return parts[0] || 'Uncategorized';
     }
 
-    /**
-     * Add item to cart
-     */
-    function addToCart(sku, name, price) {
-      const item = {
-        sku: sku,
-        name: name,
-        price: price,
-        timestamp: new Date().toISOString()
-      };
-      
-      cart.push(item);
-      updateCartCounter();
-      
-      console.log('Added to cart:', item);
-      console.log('Current cart:', cart);
-      
-      // Show user feedback
-      alert(`Added "${name}" to your pre-order cart!\n\nItems in cart: ${cart.length}`);
-    }
+    return 'Uncategorized';
+  }
 
-    /**
-     * Render product cards
-     */
-    function renderProducts(items) {
-      const container = document.getElementById('productContainer');
-      
-      if (!items || items.length === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            No items are currently in stock. Please check back soon or contact Vice City Cigars.
-          </div>
-        `;
-        return;
-      }
-
-      const grid = document.createElement('div');
-      grid.className = 'product-grid';
-
-      items.forEach(item => {
-        const category = sanitizeCategory(item.Categories);
-        const description = stripHtml(item.Description);
-        const shortDescription = description.length > 150 
-          ? description.substring(0, 150) + '...' 
-          : description;
-        const sku = item.SKU || 'N/A';
-        const stock = item.Qty_On_Hand || 0;
-        const price = formatPrice(item.Price);
-
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <div>
-            <h3 class="product-name">${item.Display_Name || 'Unnamed Product'}</h3>
-            <span class="product-category">${category}</span>
-          </div>
-          <p class="product-description">${shortDescription || 'No description available.'}</p>
-          <div class="product-meta">
-            <span class="product-stock">In stock: ${stock}</span>
-            <span class="product-price">${price}</span>
-          </div>
-          <div class="product-sku">SKU: ${sku}</div>
-          <button class="add-to-cart-btn" data-sku="${sku}" data-name="${item.Display_Name}" data-price="${item.Price}">
-            Add to Pre-Order
-          </button>
-        `;
-
-        grid.appendChild(card);
-      });
-
-      container.innerHTML = '';
-      container.appendChild(grid);
-
-      // Attach event listeners to all Add to Cart buttons
-      const buttons = container.querySelectorAll('.add-to-cart-btn');
-      buttons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          const sku = e.target.dataset.sku;
-          const name = e.target.dataset.name;
-          const price = e.target.dataset.price;
-          addToCart(sku, name, price);
-        });
-      });
-    }
-
-    /**
-     * Fetch products from API
-     */
-    async function fetchProducts() {
-      try {
-        const response = await fetch(`${API_URL}?route=inventory`);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data && data.items) {
-          renderProducts(data.items);
-        } else {
-          throw new Error('Invalid API response format');
-        }
-      } catch (error) {
-        console.error('Error fetching products:', error);
-        
-        const container = document.getElementById('productContainer');
-        container.innerHTML = `
-          <div class="empty-state">
-            <p>Unable to load products at this time.</p>
-            <p style="color: var(--vcc-text-muted); font-size: 0.9rem; margin-top: 1rem;">
-              Error: ${error.message}
-            </p>
-            <p style="margin-top: 2rem;">
-              Please contact Vice City Cigars directly at 
-              <a href="tel:+15613310491" style="color: var(--vcc-gold);">561-331-0491</a>
-            </p>
-          </div>
-        `;
-      }
-    }
-
-    // ===== Initialize on Page Load =====
-    document.addEventListener('DOMContentLoaded', () => {
-      fetchProducts();
+  // Derive subcategories for the active top-level category
+  function extractSubcategories(items, activeCat) {
+    if (!activeCat || activeCat === 'all') return [];
+    const set = new Set();
+    items.forEach(it => {
+      const top = getDisplayCategory(it);
+      if (top !== activeCat) return;
+      const l2 = it.Category_Level_2 || '';
+      const lowest = it.Lowest_Category || '';
+      if (l2) set.add(l2.trim());
+      else if (lowest) set.add(lowest.trim());
     });
+    return Array.from(set).sort();
+  }
 
-    // ===== Expose cart to console for debugging =====
-    window.getCart = () => {
-      console.table(cart);
-      return cart;
+  // Get unique categories for filtering
+  function extractCategories(items) {
+    const catSet = new Set();
+    items.forEach(item => {
+      const displayCat = getDisplayCategory(item);
+      if (displayCat && displayCat !== 'Uncategorized') {
+        catSet.add(displayCat);
+      }
+    });
+    return Array.from(catSet).sort();
+  }
+
+  // ============================================
+  // CART PERSISTENCE
+  // ============================================
+
+  function saveCart() {
+    localStorage.setItem('vcc-tobacco-cart', JSON.stringify(cart));
+    localStorage.setItem('vcc-tobacco-cart-timestamp', Date.now());
+  }
+
+  function loadCart() {
+    const saved = localStorage.getItem('vcc-tobacco-cart');
+    const timestamp = localStorage.getItem('vcc-tobacco-cart-timestamp');
+
+    // Expire after 24 hours
+    if (saved && timestamp && (Date.now() - parseInt(timestamp) < 86400000)) {
+      cart = JSON.parse(saved);
+      setCartCount();
+      renderCartSummary();
+    }
+  }
+
+  function clearCart() {
+    cart = [];
+    localStorage.removeItem('vcc-tobacco-cart');
+    localStorage.removeItem('vcc-tobacco-cart-timestamp');
+    setCartCount();
+    renderCartSummary();
+  }
+
+  function setCartCount() {
+    const localBadge = document.getElementById('cart-count');
+    if (localBadge) localBadge.textContent = cart.length;
+  }
+
+  // ============================================
+  // PRODUCT RENDERING
+  // ============================================
+
+  function renderGrid(items) {
+    const grid = document.getElementById('product-grid');
+    const loading = document.getElementById('loading');
+    loading.hidden = true;
+    grid.innerHTML = '';
+
+    if (!items || items.length === 0) {
+      loading.hidden = false;
+      loading.textContent = searchQuery
+        ? `No products match "${searchQuery}". Try a different search.`
+        : 'No items are currently in stock. Please check back soon.';
+      return;
+    }
+
+    items.forEach(item => {
+      const desc = stripHtml(item.Description || '');
+      const short = desc.length > 120 ? desc.slice(0, 120) + '…' : desc;
+      const displayCat = getDisplayCategory(item);
+
+      // Use Drive image if available, fallback to placeholder
+      let imgUrl = item.Drive_Image_URL || item.Square_Image_URL || '';
+
+      // Debug: log image URLs
+      if (!imgUrl) {
+        console.log('No image URL for:', item.Display_Name, 'Drive:', item.Drive_Image_URL, 'Square:', item.Square_Image_URL);
+      }
+
+      // Fallback to placeholder if no image
+      if (!imgUrl) {
+        imgUrl = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%231a1a3e" width="400" height="300"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="24" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+      }
+
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.dataset.sku = item.SKU;
+
+      // Store item data for click handler
+      card._itemData = item;
+
+      card.innerHTML = `
+        <img src="${imgUrl}" alt="${sanitizeText(item.Display_Name)}" class="product-image" loading="lazy">
+        <div class="product-content">
+          <div>
+            <h3 class="product-name">${sanitizeText(item.Display_Name || 'Unnamed Product')}</h3>
+            <span class="product-category">${sanitizeText(displayCat)}</span>
+          </div>
+          <p class="product-description">${sanitizeText(short || 'No description available.')}</p>
+          <div class="product-meta">
+            <span class="product-stock">In stock: ${sanitizeText(String(item.Qty_On_Hand || 0))}</span>
+            <span class="product-price">${formatPrice(item.Price)}</span>
+          </div>
+          <div class="product-sku">SKU: ${sanitizeText(item.SKU || 'N/A')}</div>
+          <button class="add-to-cart-btn" data-sku="${sanitizeText(item.SKU || '')}">Add to Cart</button>
+        </div>
+      `;
+
+      // Image error handler
+      const img = card.querySelector('.product-image');
+      img.addEventListener('error', function() {
+        this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%231a1a3e" width="400" height="300"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="24" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+      });
+
+      // Click card to open modal (except when clicking button)
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('.add-to-cart-btn')) {
+          openProductModal(card._itemData);
+        }
+      });
+
+      // Add to cart button
+      const addBtn = card.querySelector('.add-to-cart-btn');
+      addBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        addToCart(item);
+      });
+
+      grid.appendChild(card);
+    });
+  }
+
+  function addToCart(item) {
+    cart.push({
+      sku: item.SKU,
+      name: item.Display_Name,
+      price: Number(item.Price) || 0
+    });
+    saveCart();
+    setCartCount();
+    renderCartSummary();
+  }
+
+  // ============================================
+  // CATALOG LOADING
+  // ============================================
+
+  async function loadCatalog() {
+    try {
+      const res = await fetch(`${API_URL}?route=inventory`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      catalog = data.items || [];
+
+      // Build dynamic category filters
+      buildCategoryFilters();
+
+      // Apply initial filter and sort
+      applyFiltersAndSort();
+    } catch (err) {
+      const loading = document.getElementById('loading');
+      loading.hidden = false;
+      loading.textContent = `Unable to load products (${err.message}). Please try again later.`;
+      console.error(err);
+    }
+  }
+
+  // ============================================
+  // PRODUCT MODAL
+  // ============================================
+
+  function openProductModal(item) {
+    console.log('openProductModal called with:', item);
+    selectedProduct = item;
+
+    const modal = document.getElementById('product-modal');
+    console.log('Modal element:', modal);
+
+    if (!modal) {
+      console.error('Modal element not found!');
+      return;
+    }
+
+    const modalContent = modal.querySelector('.modal-content');
+    console.log('Modal content element:', modalContent);
+
+    const desc = stripHtml(item.Description || 'No description available.');
+    let imgUrl = item.Drive_Image_URL || item.Square_Image_URL || '';
+
+    if (!imgUrl) {
+      imgUrl = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%231a1a3e" width="600" height="400"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="32" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+      console.log('Modal: No image for', item.Display_Name);
+    }
+
+    const imgElement = document.getElementById('modal-product-image');
+    imgElement.src = imgUrl;
+    imgElement.onerror = function() {
+      this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%231a1a3e" width="600" height="400"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="32" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+      console.log('Modal image failed to load:', imgUrl);
     };
 
-    console.log('%c🔥 Vice City Cigars Tobacco Shop Loaded', 'color: #ffcc66; font-size: 16px; font-weight: bold;');
-    console.log('%cTo view cart contents, type: getCart()', 'color: #00ffff;');
-  </script>
+    document.getElementById('modal-product-name').textContent = item.Display_Name || 'Unnamed Product';
+    document.getElementById('modal-product-category').textContent = getDisplayCategory(item);
+    document.getElementById('modal-product-description').textContent = desc;
+    document.getElementById('modal-product-price').textContent = formatPrice(item.Price);
+    document.getElementById('modal-product-stock').textContent = item.Qty_On_Hand || 0;
+    document.getElementById('modal-product-sku').textContent = item.SKU || 'N/A';
+    document.getElementById('modal-product-full-cat').textContent = lastSegment(item.Categories);
+
+    // Show modal with accessibility
+    modal.classList.add('active');
+    modal.style.display = 'block';
+    modal.setAttribute('role','dialog');
+    modal.setAttribute('aria-modal','true');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+
+    // Focus management
+    const focusable = modal.querySelectorAll('button, [href], input, select, textarea');
+    const first = focusable[0];
+    (first || modal).focus();
+
+    // Log for debugging
+    console.log('Modal styles after opening:', {
+      display: modal.style.display,
+      visibility: modal.style.visibility,
+      classList: modal.classList.toString()
+    });
+    console.log('Modal opened for:', item.Display_Name);
+  }
+
+  function closeProductModal() {
+    const modal = document.getElementById('product-modal');
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    selectedProduct = null;
+    console.log('Modal closed');
+  }
+
+  // Trap focus within modal
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('product-modal');
+    if (!modal || modal.style.display !== 'block') return;
+    if (e.key === 'Tab') {
+      const focusable = modal.querySelectorAll('button, [href], input, select, textarea');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // ============================================
+  // SEARCH, FILTER & SORT
+  // ============================================
+
+  function applyFiltersAndSort() {
+    let items = [...catalog];
+
+    // Apply search filter
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      items = items.filter(item => {
+        const name = (item.Display_Name || '').toLowerCase();
+        const desc = stripHtml(item.Description || '').toLowerCase();
+        const sku = (item.SKU || '').toLowerCase();
+        const cat = (item.Categories || '').toLowerCase();
+        return name.includes(query) || desc.includes(query) || sku.includes(query) || cat.includes(query);
+      });
+    }
+
+    // Apply category filter
+    if (activeFilter !== 'all') {
+      items = items.filter(item => {
+        const displayCat = getDisplayCategory(item);
+        return displayCat === activeFilter;
+      });
+    }
+
+    // Apply sort
+    switch (sortOrder) {
+      case 'name':
+        items.sort((a, b) => (a.Display_Name || '').localeCompare(b.Display_Name || ''));
+        break;
+      case 'price-low':
+        items.sort((a, b) => (a.Price || 0) - (b.Price || 0));
+        break;
+      case 'price-high':
+        items.sort((a, b) => (b.Price || 0) - (a.Price || 0));
+        break;
+      case 'stock':
+        items.sort((a, b) => (b.Qty_On_Hand || 0) - (a.Qty_On_Hand || 0));
+        break;
+    }
+
+    filteredCatalog = items;
+    renderGrid(filteredCatalog);
+
+    // Update subcategory filters for active category
+    const subcats = extractSubcategories(catalog, activeFilter);
+    const subEl = document.getElementById('subcategory-filters');
+    if (subEl) {
+      subEl.innerHTML = '';
+      if (subcats.length) {
+        subEl.style.display = 'flex';
+        // Add a label chip
+        const label = document.createElement('span');
+        label.className = 'chip';
+        label.textContent = 'Subcategories:';
+        label.style.pointerEvents = 'none';
+        subEl.appendChild(label);
+        subcats.forEach(name => {
+          const btn = document.createElement('button');
+          btn.className = 'chip';
+          btn.textContent = name;
+          btn.addEventListener('click', () => {
+            // Filter within current active category by subcategory name
+            const list = filteredCatalog.filter(it => {
+              const l2 = it.Category_Level_2 || '';
+              const lowest = it.Lowest_Category || '';
+              return (l2 && l2 === name) || (!l2 && lowest === name);
+            });
+            renderGrid(list);
+          });
+          subEl.appendChild(btn);
+        });
+      } else {
+        subEl.style.display = 'none';
+      }
+    }
+  }
+
+  function buildCategoryFilters() {
+    const categories = extractCategories(catalog);
+    const container = document.getElementById('filters-container');
+    container.innerHTML = '<button class="chip active" data-filter="all">All Products</button>';
+
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'chip';
+      btn.dataset.filter = cat;
+      btn.textContent = cat;
+      btn.addEventListener('click', () => {
+        activeFilter = cat;
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        applyFiltersAndSort();
+      });
+      container.appendChild(btn);
+    });
+
+    // Re-attach all button handler
+    container.querySelector('[data-filter="all"]').addEventListener('click', () => {
+      activeFilter = 'all';
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      container.querySelector('[data-filter="all"]').classList.add('active');
+      applyFiltersAndSort();
+    });
+  }
+
+
+  // ============================================
+  // CART SUMMARY
+  // ============================================
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    saveCart();
+    setCartCount();
+    renderCartSummary();
+  }
+
+  function calculateShipping(subtotal) {
+    const postageFee = subtotal < POSTAGE_FREE_THRESHOLD ? POSTAGE_FEE : 0;
+    const signatureFee = ADULT_SIGNATURE_FEE;
+    return {
+      postage: postageFee,
+      signature: signatureFee,
+      total: postageFee + signatureFee
+    };
+  }
+
+  function renderCartSummary() {
+    const wrap = document.getElementById('cart-summary');
+    wrap.innerHTML = '';
+
+    if (cart.length === 0) {
+      wrap.innerHTML = '<div class="empty">Your cart is empty. Browse products and add items to order.</div>';
+      document.getElementById('checkout-panel').hidden = true;
+      return;
+    }
+
+    // Calculate subtotal
+    const subtotal = cart.reduce((sum, item) => sum + (item.price || 0), 0);
+    const shipping = calculateShipping(subtotal);
+    const total = subtotal + shipping.total;
+
+    const list = document.createElement('div');
+    list.className = 'cart-list';
+
+    // Header
+    const header = document.createElement('div');
+    header.style.cssText = 'font-weight: 700; color: #00FFFF; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid rgba(255, 20, 147, 0.5);';
+    header.textContent = `Your Cart (${cart.length} ${cart.length === 1 ? 'item' : 'items'})`;
+    list.appendChild(header);
+
+    // Cart items
+    cart.forEach((item, index) => {
+      const row = document.createElement('div');
+      row.className = 'cart-row';
+      row.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.08);';
+      row.innerHTML = `
+        <div style="flex: 1;">
+          <div style="color: #e6edf3; font-weight: 600; margin-bottom: 4px;">${sanitizeText(item.name)}</div>
+          <div style="color: #9fb0bf; font-size: 0.85rem;">SKU: ${sanitizeText(item.sku || 'N/A')}</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="color: #ffcc66; font-weight: 700; font-size: 1.1rem;">${formatPrice(item.price)}</span>
+          <button class="remove-cart-btn" data-index="${index}" style="background: rgba(255, 107, 107, 0.2); border: 1px solid #ff6b6b; color: #ff6b6b; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.3s ease;" onmouseover="this.style.background='#ff6b6b'; this.style.color='#0A0A2E';" onmouseout="this.style.background='rgba(255, 107, 107, 0.2)'; this.style.color='#ff6b6b';">Remove</button>
+        </div>
+      `;
+      list.appendChild(row);
+    });
+
+    // Subtotal
+    const subtotalRow = document.createElement('div');
+    subtotalRow.style.cssText = 'display: flex; justify-content: space-between; padding: 12px 0 8px; margin-top: 8px; border-top: 2px solid rgba(255, 20, 147, 0.3); color: #e6edf3; font-size: 1rem;';
+    subtotalRow.innerHTML = `<span>Subtotal:</span><span style="font-weight: 600;">${formatPrice(subtotal)}</span>`;
+    list.appendChild(subtotalRow);
+
+    // Shipping breakdown
+    const shippingHeader = document.createElement('div');
+    shippingHeader.style.cssText = 'color: #9fb0bf; font-size: 0.9rem; margin-top: 12px; margin-bottom: 8px; font-weight: 600;';
+    shippingHeader.textContent = 'Shipping & Handling:';
+    list.appendChild(shippingHeader);
+
+    if (shipping.postage > 0) {
+      const postageRow = document.createElement('div');
+      postageRow.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; color: #c7d2db; font-size: 0.9rem;';
+      postageRow.innerHTML = `<span>Postage & Handling (orders under $${POSTAGE_FREE_THRESHOLD}):</span><span>${formatPrice(shipping.postage)}</span>`;
+      list.appendChild(postageRow);
+    } else {
+      const freePostageRow = document.createElement('div');
+      freePostageRow.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; color: #57d7c8; font-size: 0.9rem;';
+      freePostageRow.innerHTML = `<span>✓ Free Postage (order over $${POSTAGE_FREE_THRESHOLD}):</span><span>$0.00</span>`;
+      list.appendChild(freePostageRow);
+    }
+
+    const signatureRow = document.createElement('div');
+    signatureRow.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; color: #c7d2db; font-size: 0.9rem;';
+    signatureRow.innerHTML = `<span>Adult Signature Required:</span><span>${formatPrice(shipping.signature)}</span>`;
+    list.appendChild(signatureRow);
+
+    const shippingNotice = document.createElement('div');
+    shippingNotice.style.cssText = 'background: rgba(0, 255, 255, 0.08); border: 1px dashed rgba(0, 255, 255, 0.3); color: #9fb0bf; font-size: 0.8rem; padding: 8px; margin: 8px 0; border-radius: 6px; line-height: 1.4;';
+    shippingNotice.innerHTML = '<strong style="color: #00FFFF;">📦 Shipping Notice:</strong> All tobacco shipments require adult signature ($8.50) to ensure delivery to 21+ recipients. Orders under $50 include $7 postage & handling fee.';
+    list.appendChild(shippingNotice);
+
+    // Total
+    const totalRow = document.createElement('div');
+    totalRow.style.cssText = 'display: flex; justify-content: space-between; padding: 16px 0 8px; margin-top: 12px; border-top: 2px solid #FF1493; color: #00FFFF; font-size: 1.3rem; font-weight: 700;';
+    totalRow.innerHTML = `<span>Total:</span><span>${formatPrice(total)}</span>`;
+    list.appendChild(totalRow);
+
+    wrap.appendChild(list);
+
+    // Attach remove button handlers
+    setTimeout(() => {
+      document.querySelectorAll('.remove-cart-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const index = parseInt(btn.dataset.index);
+          removeFromCart(index);
+        });
+      });
+    }, 0);
+
+    const btn = document.createElement('button');
+    btn.className = 'checkout-btn';
+    btn.textContent = 'Proceed to Checkout & ID Verification';
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById('checkout-panel');
+      panel.hidden = false;
+      window.scrollTo({ top: panel.offsetTop - 80, behavior: 'smooth' });
+    });
+    wrap.appendChild(btn);
+  }
+
+  // ============================================
+  // AGE VERIFICATION
+  // ============================================
+
+  async function checkCustomer(email) {
+    try {
+      const res = await fetch(`${API_URL}?route=checkCustomer&email=${encodeURIComponent(email)}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      const note = document.getElementById('age-note');
+      const returningSkip = document.getElementById('returning-customer-skip');
+      const idFile = document.getElementById('idfile');
+
+      note.hidden = false;
+
+      if (data && data.verified) {
+        isVerifiedCustomer = true;
+        note.style.background = 'rgba(57, 215, 200, 0.12)';
+        note.style.borderColor = 'rgba(57, 215, 200, 0.35)';
+        note.style.color = '#c9fffa';
+        note.textContent = `✓ Welcome back! Age verified on ${data.verifiedDate || 'file'}. You may skip ID upload.`;
+
+        // Show returning customer option
+        returningSkip.hidden = false;
+        idFile.removeAttribute('required');
+      } else {
+        isVerifiedCustomer = false;
+        note.style.background = 'rgba(255, 204, 102, 0.08)';
+        note.style.borderColor = 'rgba(255, 204, 102, 0.4)';
+        note.style.color = '#ffcc66';
+        note.textContent = '📋 First time ordering? We need to verify your age per federal law.';
+
+        // Hide returning customer option
+        returningSkip.hidden = true;
+        idFile.setAttribute('required', 'required');
+      }
+    } catch (err) {
+      // Silent fail; optional feature
+    }
+  }
+
+  function calculateAge(dob) {
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  // ============================================
+  // FILE HANDLING
+  // ============================================
+
+  function readFileBase64(file) {
+    const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+
+    if (file.size > MAX_SIZE) {
+      throw new Error('File size must be under 5MB. Please compress or use a different image.');
+    }
+
+    if (!allowedTypes.includes(file.type)) {
+      throw new Error('Only JPEG, PNG, or PDF files are allowed for ID upload.');
+    }
+
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const res = String(reader.result || '');
+        const idx = res.indexOf(';base64,');
+        resolve(idx > 0 ? res.slice(idx + 8) : res);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // ============================================
+  // ORDER SUBMISSION
+  // ============================================
+
+  async function submitPreOrder() {
+    const err = document.getElementById('error-banner');
+    const ok = document.getElementById('success-banner');
+    err.hidden = ok.hidden = true;
+
+    try {
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const dob = document.getElementById('dob').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const paymentMethod = document.getElementById('payment').value;
+      const notes = document.getElementById('notes').value.trim();
+      const idInput = document.getElementById('idfile');
+      const file = idInput.files && idInput.files[0];
+
+      if (!name || !email || !dob) {
+        throw new Error('Please complete required fields (name, email, DOB).');
+      }
+
+      if (cart.length === 0) {
+        throw new Error('Your cart is empty. Add items first.');
+      }
+
+      // Age verification - CRITICAL for legal compliance
+      const age = calculateAge(dob);
+      if (age < 21) {
+        throw new Error('You must be 21 or older to purchase tobacco products. Federal law prohibits tobacco sales to anyone under 21.');
+      }
+
+      // ID upload logic - allow skip for verified returning customers
+      const skipIdCheckbox = document.getElementById('skip-id-checkbox');
+      const isSkippingId = skipIdCheckbox && skipIdCheckbox.checked && isVerifiedCustomer;
+
+      let idPayload = null;
+      if (file) {
+        idPayload = {
+          name: file.name,
+          type: file.type,
+          dataBase64: await readFileBase64(file)
+        };
+      } else if (!isSkippingId) {
+        // ID required if not skipping (new customer or returning customer who didn't check skip)
+        throw new Error('Photo ID upload is required for all tobacco purchases per federal law. Returning customers may skip if previously verified.');
+      }
+
+      const payload = {
+        customerName: name,
+        email,
+        phone,
+        dob,
+        shippingAddress: address,
+        paymentMethod,
+        notes,
+        cart,
+        idFile: idPayload
+      };
+
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (!data.success) {
+        throw new Error(data.message || 'Submission failed');
+      }
+
+      ok.hidden = false;
+      ok.textContent = `Thank you! Your order has been submitted. Order ID: ${data.orderId || 'VCC-XXXXXX'}. We will verify your age and send an invoice via email within 24 hours.`;
+
+      clearCart();
+      document.getElementById('checkout-panel').hidden = true;
+      document.getElementById('fullName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('dob').value = '';
+      document.getElementById('address').value = '';
+      document.getElementById('notes').value = '';
+      document.getElementById('idfile').value = '';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      err.hidden = false;
+      err.textContent = e.message || 'An error occurred submitting your pre-order.';
+      console.error(e);
+    }
+  }
+
+  // ============================================
+  // INITIALIZATION
+  // ============================================
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Load catalog and cart
+    loadCatalog();
+    loadCart();
+    setCartCount();
+
+    // Search input
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      applyFiltersAndSort();
+    });
+
+    // Sort select
+    const sortSelect = document.getElementById('sort-select');
+    sortSelect.addEventListener('change', (e) => {
+      sortOrder = e.target.value;
+      applyFiltersAndSort();
+    });
+
+    // Product modal handlers
+    document.querySelector('.modal-close').addEventListener('click', closeProductModal);
+    document.getElementById('product-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'product-modal') closeProductModal();
+    });
+    document.getElementById('modal-add-to-cart').addEventListener('click', () => {
+      if (selectedProduct) {
+        addToCart(selectedProduct);
+        closeProductModal();
+      }
+    });
+
+    // Checkout form
+    document.getElementById('submit-btn').addEventListener('click', submitPreOrder);
+    document.getElementById('email').addEventListener('blur', (e) => {
+      const email = e.target.value.trim();
+      if (email) checkCustomer(email);
+    });
+
+    // Returning customer ID skip checkbox
+    document.getElementById('skip-id-checkbox').addEventListener('change', (e) => {
+      const idFile = document.getElementById('idfile');
+      if (e.target.checked) {
+        idFile.removeAttribute('required');
+      } else {
+        idFile.setAttribute('required', 'required');
+      }
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('product-modal').classList.contains('active')) {
+        closeProductModal();
+      }
+    });
+
+    // Warn before leaving with items in cart
+    window.addEventListener('beforeunload', (e) => {
+      if (cart.length > 0) {
+        e.preventDefault();
+        e.returnValue = 'You have items in your tobacco cart. Are you sure you want to leave?';
+        return e.returnValue;
+      }
+    });
+  });
+</script>
 
 </article>
 

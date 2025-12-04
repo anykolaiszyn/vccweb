@@ -700,6 +700,8 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
         <div class="filters" id="filters-container">
           <button class="chip active" data-filter="all">All Products</button>
         </div>
+        <!-- Subcategory Filters (auto-populated when a category is selected) -->
+        <div id="subcategory-filters" class="filters"></div>
 
         <!-- Grid -->
         <div id="loading" class="empty">Loading available cigars & tobacco…</div>
@@ -760,7 +762,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
             </div>
             <div>
               <label for="idfile">ID upload (image/PDF, max 5MB) *</label>
-              <input id="idfile" type="file" accept="image/jpeg,image/jpg,image/png,application/pdf" capture="environment">
+              <input id="idfile" type="file" accept="image/jpeg,image/jpg,image/png,application/pdf">
               <div id="returning-customer-skip" class="returning-customer-option" hidden>
                 <input type="checkbox" id="skip-id-checkbox">
                 <label for="skip-id-checkbox">I'm a returning customer - skip ID upload (already verified)</label>
@@ -878,6 +880,21 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     }
 
     return 'Uncategorized';
+  }
+
+  // Derive subcategories for the active top-level category
+  function extractSubcategories(items, activeCat) {
+    if (!activeCat || activeCat === 'all') return [];
+    const set = new Set();
+    items.forEach(it => {
+      const top = getDisplayCategory(it);
+      if (top !== activeCat) return;
+      const l2 = it.Category_Level_2 || '';
+      const lowest = it.Lowest_Category || '';
+      if (l2) set.add(l2.trim());
+      else if (lowest) set.add(lowest.trim());
+    });
+    return Array.from(set).sort();
   }
 
   // Get unique categories for filtering
@@ -1087,10 +1104,18 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     document.getElementById('modal-product-sku').textContent = item.SKU || 'N/A';
     document.getElementById('modal-product-full-cat').textContent = lastSegment(item.Categories);
 
-    // Show modal
+    // Show modal with accessibility
     modal.classList.add('active');
     modal.style.display = 'block';
+    modal.setAttribute('role','dialog');
+    modal.setAttribute('aria-modal','true');
+    modal.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
+
+    // Focus management
+    const focusable = modal.querySelectorAll('button, [href], input, select, textarea');
+    const first = focusable[0];
+    (first || modal).focus();
 
     // Log for debugging
     console.log('Modal styles after opening:', {
@@ -1105,10 +1130,25 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     const modal = document.getElementById('product-modal');
     modal.classList.remove('active');
     modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
     document.body.style.overflow = '';
     selectedProduct = null;
     console.log('Modal closed');
   }
+
+  // Trap focus within modal
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('product-modal');
+    if (!modal || modal.style.display !== 'block') return;
+    if (e.key === 'Tab') {
+      const focusable = modal.querySelectorAll('button, [href], input, select, textarea');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
 
   // ============================================
   // SEARCH, FILTER & SORT
@@ -1155,6 +1195,39 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
 
     filteredCatalog = items;
     renderGrid(filteredCatalog);
+
+    // Update subcategory filters for active category
+    const subcats = extractSubcategories(catalog, activeFilter);
+    const subEl = document.getElementById('subcategory-filters');
+    if (subEl) {
+      subEl.innerHTML = '';
+      if (subcats.length) {
+        subEl.style.display = 'flex';
+        // Add a label chip
+        const label = document.createElement('span');
+        label.className = 'chip';
+        label.textContent = 'Subcategories:';
+        label.style.pointerEvents = 'none';
+        subEl.appendChild(label);
+        subcats.forEach(name => {
+          const btn = document.createElement('button');
+          btn.className = 'chip';
+          btn.textContent = name;
+          btn.addEventListener('click', () => {
+            // Filter within current active category by subcategory name
+            const list = filteredCatalog.filter(it => {
+              const l2 = it.Category_Level_2 || '';
+              const lowest = it.Lowest_Category || '';
+              return (l2 && l2 === name) || (!l2 && lowest === name);
+            });
+            renderGrid(list);
+          });
+          subEl.appendChild(btn);
+        });
+      } else {
+        subEl.style.display = 'none';
+      }
+    }
   }
 
   function buildCategoryFilters() {

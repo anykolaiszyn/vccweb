@@ -1,0 +1,425 @@
+---
+layout: page
+permalink: /tobacco-shop/
+title: In-Stock Tobacco Products
+description: Browse our in-stock tobacco products and pre-order premium cigars, pipes, and tobacco from Vice City Cigars.
+---
+
+<div class="tobacco-shop-page">
+  <div class="shop-context-banner tobacco-banner">
+    🔞 <strong>TOBACCO SHOP</strong> - Age-Restricted Products Only - Pre-Order System - Separate from Merchandise Shop
+  </div>
+  <div class="shop-subheader">
+    <div class="container">
+      <div class="shop-info">
+        <h1 class="shop-title">In-Stock Tobacco Products</h1>
+        <p class="shop-subtitle">Live inventory available at events and for in-person pickup. Pre-orders are reservations; payment is invoiced after age verification.</p>
+      </div>
+      <div class="cart-indicator">🛒 Cart: <span id="cart-count">0</span></div>
+    </div>
+  </div>
+
+  <main id="main-content" class="container">
+    <!-- In-Stock Tobacco Catalog -->
+    <section id="instock-tobacco" class="card" aria-labelledby="instock-title">
+      <div class="card-body">
+        <h2 id="instock-title" class="section-title">In-Stock Tobacco Products</h2>
+        <p class="section-sub">This reflects current in-person/event stock. Orders are pre-orders/reservations, not instant checkout. Payment is handled by manual invoice (Novo ACH / Bitcoin) after age verification.</p>
+        <div class="notice">🔞 21+ only. Orders are manually age-verified and invoiced before shipment. No card payments are processed on this site.</div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="cigars">Cigars</button>
+          <button class="chip" data-filter="pipe">Pipe Tobacco</button>
+          <button class="chip" data-filter="shisha">Shisha Tobacco</button>
+        </div>
+
+        <!-- Grid -->
+        <div id="loading" class="empty">Loading available cigars & tobacco…</div>
+        <div id="product-grid" class="product-grid" aria-live="polite"></div>
+
+        <!-- Cart summary -->
+        <div class="cart-summary" id="cart-summary"></div>
+
+        <!-- Checkout panel -->
+        <div class="checkout" id="checkout-panel" hidden>
+          <h3 class="section-title">Checkout & ID Verification</h3>
+          <p class="section-sub">Provide your details and upload a one-time ID for age verification. Returning customers may be auto-verified by email.</p>
+
+          <div id="age-note" class="notice" hidden></div>
+          <div id="error-banner" class="error" hidden></div>
+          <div id="success-banner" class="success" hidden></div>
+
+          <div class="form-row">
+            <div>
+              <label for="fullName">Full name *</label>
+              <input id="fullName" type="text" required>
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input id="email" type="email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" placeholder="Optional but recommended">
+            </div>
+            <div>
+              <label for="dob">Date of birth * (Must be 21+)</label>
+              <input id="dob" type="date" required max="2004-12-02" min="1900-01-01">
+            </div>
+          </div>
+
+          <div>
+            <label for="address">Shipping address</label>
+            <textarea id="address" placeholder="Street, City, State, ZIP"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="payment">Payment preference</label>
+              <select id="payment">
+                <option>Bank Invoice (ACH via Novo)</option>
+                <option>Bitcoin (direct wallet)</option>
+                <option>Other / Discuss</option>
+              </select>
+            </div>
+            <div>
+              <label for="idfile">ID upload (image/PDF, max 5MB) *</label>
+              <input id="idfile" type="file" accept="image/jpeg,image/jpg,image/png,application/pdf" required capture="environment">
+            </div>
+          </div>
+
+          <div>
+            <label for="notes">Notes</label>
+            <textarea id="notes" placeholder="Anything we should know"></textarea>
+          </div>
+
+          <button id="submit-btn" class="btn btn-primary">Submit Pre-Order</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  // Constants & state
+  const API_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  let catalog = [];
+  let cart = [];
+  let idRequired = true;
+
+  // Helpers
+  function stripHtml(html){ const d=document.createElement('div'); d.innerHTML=html||''; return d.textContent||d.innerText||''; }
+  function sanitizeText(text){ const d=document.createElement('div'); d.textContent=text||''; return d.innerHTML; }
+  function formatPrice(p){ const n=Number(p); return isNaN(n)?'$0.00':`$${n.toFixed(2)}`; }
+  function lastSegment(cat){ if(!cat) return 'Uncategorized'; const parts=cat.split('>').map(s=>s.trim()); return parts.pop()||'Uncategorized'; }
+  function deriveCategoryType(raw){
+    if(!raw) return 'other';
+    const parts = raw.split('>').map(s=>s.trim().toLowerCase());
+    if (parts.some(p=>p.includes('cigar'))) return 'cigars';
+    if (parts.some(p=>p.includes('pipe')||p.includes('pipes'))) return 'pipe';
+    if (parts.some(p=>p.includes('shisha')||p.includes('hookah'))) return 'shisha';
+    return 'other';
+  }
+
+  // Cart persistence with localStorage
+  function saveCart() {
+    localStorage.setItem('vcc-tobacco-cart', JSON.stringify(cart));
+    localStorage.setItem('vcc-tobacco-cart-timestamp', Date.now());
+  }
+
+  function loadCart() {
+    const saved = localStorage.getItem('vcc-tobacco-cart');
+    const timestamp = localStorage.getItem('vcc-tobacco-cart-timestamp');
+
+    // Expire cart after 24 hours
+    if (saved && timestamp && (Date.now() - parseInt(timestamp) < 86400000)) {
+      cart = JSON.parse(saved);
+      setCartCount();
+      renderCartSummary();
+    }
+  }
+
+  function clearCart() {
+    cart = [];
+    localStorage.removeItem('vcc-tobacco-cart');
+    localStorage.removeItem('vcc-tobacco-cart-timestamp');
+    setCartCount();
+    renderCartSummary();
+  }
+
+  function setCartCount(){
+    const localBadge = document.getElementById('cart-count');
+    if(localBadge) localBadge.textContent = cart.length;
+  }
+
+  // Catalog rendering
+  function renderGrid(items){
+    const grid = document.getElementById('product-grid');
+    const loading = document.getElementById('loading');
+    loading.hidden = true;
+    grid.innerHTML = '';
+    if(!items || items.length===0){
+      loading.hidden = false;
+      loading.textContent = 'No items are currently in stock. Please check back soon.';
+      return;
+    }
+    items.forEach(item=>{
+      const desc = stripHtml(item.Description||'');
+      const short = desc.length>160?desc.slice(0,160)+'…':desc;
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <div>
+          <h3 class="product-name">${sanitizeText(item.Display_Name||'Unnamed Product')}</h3>
+          <span class="product-category">${sanitizeText(lastSegment(item.Categories))} • ${sanitizeText(item.CategoryType)}</span>
+        </div>
+        <p class="product-description">${sanitizeText(short||'No description available.')}</p>
+        <div class="product-meta">
+          <span class="product-stock">In stock: ${sanitizeText(String(item.Qty_On_Hand||0))}</span>
+          <span class="product-price">${formatPrice(item.Price)}</span>
+        </div>
+        <div class="product-sku">SKU: ${sanitizeText(item.SKU||'N/A')}</div>
+        <button class="add-to-cart-btn" data-sku="${sanitizeText(item.SKU||'')}" data-name="${sanitizeText(item.Display_Name||'')}" data-price="${item.Price||0}" data-cat="${sanitizeText(item.CategoryType)}">Add to Pre-Order</button>
+      `;
+      grid.appendChild(card);
+    });
+    grid.querySelectorAll('button.add-to-cart-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const item = {
+          sku: btn.dataset.sku,
+          name: btn.dataset.name,
+          price: Number(btn.dataset.price)||0,
+          categoryType: btn.dataset.cat
+        };
+        cart.push(item);
+        saveCart();
+        setCartCount();
+        renderCartSummary();
+        console.table(cart);
+      });
+    });
+  }
+
+  // Load catalog
+  async function loadCatalog(){
+    try {
+      const res = await fetch(`${API_URL}?route=inventory`);
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      catalog = (data.items||[]).map(it=>({
+        ...it,
+        CategoryType: deriveCategoryType(it.Categories)
+      }));
+      renderGrid(catalog);
+    } catch(err){
+      const loading = document.getElementById('loading');
+      loading.hidden = false;
+      loading.textContent = `Unable to load products (${err.message}). Please try again later.`;
+      console.error(err);
+    }
+  }
+
+  // Filters
+  function applyFilter(type){
+    document.querySelectorAll('.chip').forEach(c=>{
+      c.classList.toggle('active', c.dataset.filter===type);
+      if(type==='all' && c.dataset.filter==='all') c.classList.add('active');
+      if(type!=='all' && c.dataset.filter==='all') c.classList.remove('active');
+    });
+    const items = type==='all' ? catalog : catalog.filter(i=>i.CategoryType===type);
+    renderGrid(items);
+  }
+  function initFilters(){
+    document.querySelectorAll('.chip').forEach(c=>{
+      c.addEventListener('click', ()=> applyFilter(c.dataset.filter));
+    });
+  }
+
+  // Cart summary (group by name)
+  function renderCartSummary(){
+    const wrap = document.getElementById('cart-summary');
+    wrap.innerHTML = '';
+    if(cart.length===0){
+      wrap.innerHTML = '<div class="empty">Your pre-order cart is empty.</div>';
+      document.getElementById('checkout-panel').hidden = true;
+      return;
+    }
+    const grouped = Object.values(cart.reduce((acc, item)=>{
+      const key = item.name;
+      acc[key] = acc[key] || { name: item.name, qty: 0, price: item.price };
+      acc[key].qty += 1;
+      return acc;
+    }, {}));
+    const list = document.createElement('div');
+    list.className = 'cart-list';
+    grouped.forEach(g=>{
+      const row = document.createElement('div');
+      row.className = 'cart-row';
+      row.innerHTML = `<div>${g.name}</div><div>x${g.qty} • ${formatPrice(g.price)}</div>`;
+      list.appendChild(row);
+    });
+    wrap.appendChild(list);
+    const btn = document.createElement('button');
+    btn.className = 'btn btn-primary checkout-btn';
+    btn.textContent = 'Open Checkout & ID Verification';
+    btn.addEventListener('click', ()=>{
+      const panel = document.getElementById('checkout-panel');
+      panel.hidden = false;
+      window.scrollTo({ top: panel.offsetTop - 80, behavior: 'smooth' });
+    });
+    wrap.appendChild(btn);
+  }
+
+  // Age check - ALWAYS requires ID per FDA regulations
+  async function checkCustomer(email){
+    try {
+      const res = await fetch(`${API_URL}?route=checkCustomer&email=${encodeURIComponent(email)}`);
+      if(!res.ok) return;
+      const data = await res.json();
+      const note = document.getElementById('age-note');
+      note.hidden = false;
+      if(data && data.verified){
+        note.textContent = `Age verification on file from ${data.verifiedDate || 'a prior date'}. ID upload still required per federal regulations.`;
+      } else {
+        note.textContent = 'Photo ID upload required to verify your age per federal law.';
+      }
+    } catch(err){
+      // Silent fail; optional feature
+    }
+  }
+
+  // File to base64 (strip prefix) with validation
+  function readFileBase64(file){
+    const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+
+    if (file.size > MAX_SIZE) {
+      throw new Error('File size must be under 5MB. Please compress or use a different image.');
+    }
+
+    if (!allowedTypes.includes(file.type)) {
+      throw new Error('Only JPEG, PNG, or PDF files are allowed for ID upload.');
+    }
+
+    return new Promise((resolve, reject)=>{
+      const reader = new FileReader();
+      reader.onload = () => {
+        const res = String(reader.result||'');
+        const idx = res.indexOf(';base64,');
+        resolve(idx>0 ? res.slice(idx+8) : res);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Age calculation helper
+  function calculateAge(dob) {
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  // Submit
+  async function submitPreOrder(){
+    const err = document.getElementById('error-banner');
+    const ok = document.getElementById('success-banner');
+    err.hidden = ok.hidden = true;
+
+    try {
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const dob = document.getElementById('dob').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const paymentMethod = document.getElementById('payment').value;
+      const notes = document.getElementById('notes').value.trim();
+      const idInput = document.getElementById('idfile');
+      const file = idInput.files && idInput.files[0];
+
+      if(!name || !email || !dob){ throw new Error('Please complete required fields (name, email, DOB).'); }
+      if(cart.length===0){ throw new Error('Your cart is empty. Add items first.'); }
+
+      // Age verification - CRITICAL for legal compliance
+      const age = calculateAge(dob);
+      if(age < 21){ throw new Error('You must be 21 or older to purchase tobacco products. Federal law prohibits tobacco sales to anyone under 21.'); }
+
+      // ID upload is ALWAYS required - no exceptions per FDA regulations
+      if(!file){ throw new Error('Photo ID upload is required for all tobacco purchases per federal law. No exceptions.'); }
+
+      const idPayload = file ? {
+        name: file.name,
+        type: file.type,
+        dataBase64: await readFileBase64(file)
+      } : null;
+
+      const payload = {
+        customerName: name,
+        email,
+        phone,
+        dob,
+        shippingAddress: address,
+        paymentMethod,
+        notes,
+        cart,
+        idFile: idPayload
+      };
+
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if(!data.success){ throw new Error(data.message || 'Submission failed'); }
+
+      ok.hidden = false;
+      ok.textContent = `Thank you! Your pre-order has been submitted. Order ID: ${data.orderId || 'VCC-XXXXXX'}. We will verify your age and send an invoice via email.`;
+      clearCart();
+      document.getElementById('checkout-panel').hidden = true;
+      document.getElementById('fullName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('dob').value = '';
+      document.getElementById('address').value = '';
+      document.getElementById('notes').value = '';
+      document.getElementById('idfile').value = '';
+    } catch(e){
+      err.hidden = false;
+      err.textContent = e.message || 'An error occurred submitting your pre-order.';
+      console.error(e);
+    }
+  }
+
+  // Init
+  document.addEventListener('DOMContentLoaded', ()=>{
+    initFilters();
+    loadCatalog();
+    loadCart();
+    setCartCount();
+    document.getElementById('submit-btn').addEventListener('click', submitPreOrder);
+    document.getElementById('email').addEventListener('blur', (e)=>{
+      const email = e.target.value.trim();
+      if(email) checkCustomer(email);
+    });
+
+    // Warn before leaving with items in cart
+    window.addEventListener('beforeunload', (e) => {
+      if (cart.length > 0) {
+        e.preventDefault();
+        e.returnValue = 'You have items in your tobacco cart. Are you sure you want to leave?';
+        return e.returnValue;
+      }
+    });
+  });
+</script>

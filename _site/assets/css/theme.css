@@ -701,6 +701,45 @@ a:hover, a:focus {
   border: 2px solid var(--vice-cyan-blue);
 }
 
+/* Tobacco Shop scoped styles */
+.tobacco-shop-page .section-title { font-size: 1.25rem; margin: 0 0 0.25rem; }
+.tobacco-shop-page .section-sub { color: var(--vcc-text-muted, #9fb0bf); margin: 0 0 1rem; font-size: 0.9rem; }
+.tobacco-shop-page .notice { background: rgba(255,204,102,0.08); border: 1px dashed rgba(255,204,102,0.4); color: #ffcc66; border-radius: 12px; padding: 10px 12px; margin: 12px 0 18px; font-size: 0.9rem; }
+
+.tobacco-shop-page .filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 18px; }
+.tobacco-shop-page .chip { border: 1px solid rgba(255,255,255,0.14); color: #e6edf3; background: transparent; border-radius: 999px; padding: 6px 10px; font-size: 0.85rem; cursor: pointer; }
+.tobacco-shop-page .chip:hover { border-color: #ffcc66; }
+.tobacco-shop-page .chip.active { background: #ffcc66; color: #1a1206; border-color: #ffcc66; }
+
+.tobacco-shop-page .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.tobacco-shop-page .product-card { background: #0f1620; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.tobacco-shop-page .product-name { font-size: 1rem; margin: 0; }
+.tobacco-shop-page .product-category { color: #9fb0bf; font-size: 0.8rem; }
+.tobacco-shop-page .product-description { color: #c7d2db; font-size: 0.9rem; max-height: 72px; overflow: hidden; }
+.tobacco-shop-page .product-meta { display: flex; justify-content: space-between; font-size: 0.9rem; }
+.tobacco-shop-page .product-sku { font-size: 0.8rem; color: #9fb0bf; }
+.tobacco-shop-page .add-to-cart-btn, .tobacco-shop-page .btn.btn-primary { background: #ffcc66; color: #1a1206; border: none; border-radius: 10px; padding: 8px 10px; font-weight: 700; cursor: pointer; }
+.tobacco-shop-page .add-to-cart-btn:hover, .tobacco-shop-page .btn.btn-primary:hover { background: #e6b95a; }
+
+.tobacco-shop-page .cart-summary { margin-top: 18px; }
+.tobacco-shop-page .empty { color: #9fb0bf; font-size: 0.9rem; }
+.tobacco-shop-page .cart-list { background: #0f1620; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px; }
+.tobacco-shop-page .cart-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); }
+.tobacco-shop-page .cart-row:last-child { border-bottom: none; }
+.tobacco-shop-page .checkout-btn { margin-top: 12px; }
+
+.tobacco-shop-page .checkout { margin-top: 22px; }
+.tobacco-shop-page .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tobacco-shop-page label { display: block; font-size: 0.8rem; color: #9fb0bf; margin-bottom: 6px; }
+.tobacco-shop-page input, .tobacco-shop-page textarea, .tobacco-shop-page select { width: 100%; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14); background: #0f1620; color: #e6edf3; }
+.tobacco-shop-page textarea { min-height: 80px; }
+.tobacco-shop-page .error { background: rgba(255,107,107,0.12); border: 1px solid rgba(255,107,107,0.35); color: #ffc7c7; border-radius: 10px; padding: 8px 10px; margin-top: 10px; }
+.tobacco-shop-page .success { background: rgba(57,215,200,0.12); border: 1px solid rgba(57,215,200,0.35); color: #c9fffa; border-radius: 10px; padding: 8px 10px; margin-top: 10px; }
+
+@media (max-width: 720px) {
+  .tobacco-shop-page .form-row { grid-template-columns: 1fr; }
+}
+
 /* Miami Vice Footer */
 .site-footer {
   background: var(--vcc-bg-dark);
@@ -1557,4 +1596,41 @@ input.error, textarea.error {
 
 input.error:focus, textarea.error:focus {
   outline: 2px solid var(--vice-neon-pink);
+}
+
+/* Shop Context Banners - Legal Separation Indicators */
+.shop-context-banner {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-bottom: 2px solid;
+  backdrop-filter: blur(10px);
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.shop-context-banner.tobacco-banner {
+  background: rgba(255, 20, 147, 0.2);
+  border-color: var(--vice-neon-pink);
+  color: var(--vice-neon-pink);
+  box-shadow: 0 2px 10px rgba(255, 20, 147, 0.3);
+}
+
+.shop-context-banner.merchandise-banner {
+  background: rgba(0, 255, 255, 0.2);
+  border-color: var(--vice-cyan-blue);
+  color: var(--vice-cyan-blue);
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .shop-context-banner {
+    font-size: 0.75rem;
+    padding: 0.6rem 0.75rem;
+  }
 }

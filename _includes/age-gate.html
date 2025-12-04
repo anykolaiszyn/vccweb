@@ -1,12 +1,19 @@
+<div id="age-gate-overlay" class="age-gate-overlay" aria-hidden="true"></div>
 <div id="age-gate-modal" class="age-gate-modal" role="dialog" aria-modal="true" aria-labelledby="age-gate-title" tabindex="-1">
-  <div class="age-gate-content">
+  <div class="age-gate-content" role="document">
     <h2 id="age-gate-title">Are you 21 or older?</h2>
-  <p aria-live="polite">This site is for adults 21+ only. Please confirm your age to enter.</p>
+    <p id="age-gate-desc">This site is for adults 21+ only. Please confirm your age to enter.</p>
     <div class="age-gate-actions">
-      <button id="age-gate-yes" class="btn btn-primary">Yes, I am 21+</button>
+      <button id="age-gate-yes" class="btn btn-primary" aria-describedby="age-gate-desc">Yes, I am 21+</button>
       <button id="age-gate-no" class="btn btn-secondary">No</button>
     </div>
     <p class="age-gate-legal">We do not offer free samples.</p>
   </div>
+  <style>
+    .age-gate-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999998;display:none}
+    .age-gate-modal{position:fixed;top:50vh;left:50vw;transform:translate(-50%,-50%);z-index:999999;display:none;max-width:520px;width:92%;background:rgba(10,10,46,.95);border:1px solid rgba(255,20,147,.4);border-radius:12px;box-shadow:0 12px 48px rgba(0,255,255,.2)}
+    .age-gate-content{padding:1.25rem;color:#e6edf3}
+    .age-gate-actions{display:flex;gap:.75rem;justify-content:flex-start;margin-top:1rem}
+  </style>
 </div>
 <script src="{{ '/assets/js/age-gate.js' | relative_url }}" defer></script>
