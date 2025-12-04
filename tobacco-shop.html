@@ -128,6 +128,11 @@ permalink: /tobacco-shop/
   border-color: var(--neon-cyan);
 }
 
+.sort-select option {
+  background: var(--card-bg);
+  color: #fff;
+}
+
 /* Main Product Grid */
 .shop-main {
   flex: 1;
@@ -730,13 +735,8 @@ permalink: /tobacco-shop/
     document.getElementById('cartCount').textContent = count;
     document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
     
-    // Show/hide cart button
-    const cartBtn = document.getElementById('floatingCart');
-    if (count > 0) {
-      cartBtn.style.display = 'flex';
-    } else {
-      cartBtn.style.display = 'none';
-    }
+    // Cart button always visible
+    document.getElementById('floatingCart').style.display = 'flex';
   }
   
   // Get cart from localStorage
