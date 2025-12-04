@@ -123,6 +123,11 @@ permalink: /tobacco-shop/checkout/
   font-family: inherit;
 }
 
+.form-select option {
+  background: var(--card-bg);
+  color: #fff;
+}
+
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--neon-cyan);
@@ -455,7 +460,7 @@ permalink: /tobacco-shop/checkout/
   </a>
   
   <div class="checkout-header">
-    <h1>🔐 Secure Checkout</h1>
+    <h1>🔐 Secure Order</h1>
     <p style="color: #aaa;">All information is encrypted and secure</p>
   </div>
   
@@ -607,31 +612,40 @@ permalink: /tobacco-shop/checkout/
           <div class="form-section">
             <div class="age-verification">
               <h3>⚠️ Age Verification Required</h3>
-              <ul>
-                <li>You must be <strong>21 or older</strong> to purchase tobacco products</li>
-                <li>Upload a clear photo of a valid <strong>government-issued ID</strong> (driver's license, passport, or state ID)</li>
-                <li>Your ID will be securely verified and <strong>deleted within 24 hours</strong></li>
-                <li><strong>Adult signature required</strong> upon delivery ($8.50 fee applies)</li>
-              </ul>
               
-              <div class="form-group">
-                <label class="form-label required">Upload Photo ID</label>
-                <div class="file-upload">
-                  <label for="idUpload" class="file-upload-btn">
-                    📷 Choose ID Photo (JPEG, PNG, PDF)
-                  </label>
-                  <input type="file" id="idUpload" accept="image/jpeg,image/png,application/pdf" required>
-                  <div class="form-hint">Max file size: 5MB</div>
-                  <div class="file-preview" id="filePreview">✓ ID uploaded successfully</div>
-                  <div class="form-error" id="idUploadError">Please upload your photo ID</div>
+              <!-- Returning Customer Option -->
+              <div class="age-check" style="margin-bottom: 1.5rem; background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3);">
+                <input type="checkbox" id="returningCustomer">
+                <label for="returningCustomer">I am a returning customer (previously verified)</label>
+              </div>
+              
+              <div id="ageVerificationSection">
+                <ul>
+                  <li>You must be <strong>21 or older</strong> to purchase tobacco products</li>
+                  <li>Upload a clear photo of a valid <strong>government-issued ID</strong> (driver's license, passport, or state ID)</li>
+                  <li>Your ID will be securely verified and <strong>deleted within 24 hours</strong></li>
+                  <li><strong>Adult signature required</strong> upon delivery ($8.50 fee applies)</li>
+                </ul>
+                
+                <div class="form-group">
+                  <label class="form-label required">Upload Photo ID</label>
+                  <div class="file-upload">
+                    <label for="idUpload" class="file-upload-btn">
+                      📷 Choose ID Photo (JPEG, PNG, PDF)
+                    </label>
+                    <input type="file" id="idUpload" accept="image/jpeg,image/png,application/pdf" required>
+                    <div class="form-hint">Max file size: 5MB</div>
+                    <div class="file-preview" id="filePreview">✓ ID uploaded successfully</div>
+                    <div class="form-error" id="idUploadError">Please upload your photo ID</div>
+                  </div>
                 </div>
+                
+                <div class="age-check">
+                  <input type="checkbox" id="ageConfirm" required>
+                  <label for="ageConfirm">I confirm that I am 21 years of age or older and agree to age verification</label>
+                </div>
+                <div class="form-error" id="ageConfirmError">You must confirm you are 21+</div>
               </div>
-              
-              <div class="age-check">
-                <input type="checkbox" id="ageConfirm" required>
-                <label for="ageConfirm">I confirm that I am 21 years of age or older and agree to age verification</label>
-              </div>
-              <div class="form-error" id="ageConfirmError">You must confirm you are 21+</div>
             </div>
           </div>
           
@@ -740,6 +754,26 @@ permalink: /tobacco-shop/checkout/
   function attachEventListeners() {
     // File upload
     document.getElementById('idUpload').addEventListener('change', handleFileUpload);
+    
+    // Returning customer toggle
+    document.getElementById('returningCustomer').addEventListener('change', function(e) {
+      const ageSection = document.getElementById('ageVerificationSection');
+      const idUpload = document.getElementById('idUpload');
+      const ageConfirm = document.getElementById('ageConfirm');
+      
+      if (e.target.checked) {
+        ageSection.style.display = 'none';
+        idUpload.required = false;
+        ageConfirm.required = false;
+        uploadedIDBase64 = 'RETURNING_CUSTOMER_BYPASS';
+      } else {
+        ageSection.style.display = 'block';
+        idUpload.required = true;
+        ageConfirm.required = true;
+        uploadedIDBase64 = null;
+        document.getElementById('filePreview').classList.remove('show');
+      }
+    });
     
     // Form submission
     document.getElementById('checkoutForm').addEventListener('submit', handleSubmit);
@@ -935,16 +969,17 @@ permalink: /tobacco-shop/checkout/
       hideError('paymentMethodError');
     }
     
-    // ID upload
-    if (!uploadedIDBase64) {
+    // ID upload (skip if returning customer)
+    const isReturningCustomer = document.getElementById('returningCustomer').checked;
+    if (!isReturningCustomer && !uploadedIDBase64) {
       showError('idUploadError', 'Please upload your photo ID');
       isValid = false;
     } else {
       hideError('idUploadError');
     }
     
-    // Age confirmation
-    if (!document.getElementById('ageConfirm').checked) {
+    // Age confirmation (skip if returning customer)
+    if (!isReturningCustomer && !document.getElementById('ageConfirm').checked) {
       showError('ageConfirmError');
       isValid = false;
     } else {
