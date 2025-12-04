@@ -1,0 +1,815 @@
+---
+layout: page
+title: "Premium Tobacco Shop"
+permalink: /tobacco-shop/
+---
+
+<style>
+/* Miami Vice Cyberpunk Theme */
+:root {
+  --neon-pink: #FF1493;
+  --neon-cyan: #00FFFF;
+  --gold: #ffcc66;
+  --navy: #0A0A2E;
+  --dark-bg: #0f0f23;
+  --card-bg: rgba(15, 15, 35, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+/* Layout Container */
+.shop-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  min-height: 600px;
+}
+
+/* Left Sidebar Navigation */
+.shop-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 1rem;
+  height: fit-content;
+}
+
+.sidebar-section {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sidebar-section h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-cyan);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Search Box */
+.search-box {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* Category Filters */
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  color: #ccc;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-item:last-child {
+  border-bottom: none;
+}
+
+.category-item:hover {
+  color: var(--neon-pink);
+  padding-left: 0.5rem;
+}
+
+.category-item.active {
+  color: var(--neon-cyan);
+  font-weight: 600;
+  padding-left: 0.5rem;
+}
+
+.category-count {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Sort Controls */
+.sort-select {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+}
+
+/* Main Product Grid */
+.shop-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.shop-header h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-pink);
+  font-size: 1.8rem;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+}
+
+.results-count {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+.product-image-container {
+  position: relative;
+  padding-top: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-stock-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 20, 147, 0.9);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-stock-badge.in-stock {
+  background: rgba(0, 255, 127, 0.9);
+}
+
+.product-stock-badge.low-stock {
+  background: rgba(255, 165, 0, 0.9);
+}
+
+.product-stock-badge.out-of-stock {
+  background: rgba(255, 0, 0, 0.9);
+}
+
+.product-info {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-category {
+  font-size: 0.8rem;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  line-height: 1.3;
+  min-height: 2.6em;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.5;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-price {
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.view-details-btn {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.view-details-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+}
+
+/* Floating Cart Button */
+.floating-cart {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+  z-index: 999997;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.floating-cart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(255, 20, 147, 0.7);
+}
+
+.cart-count {
+  background: #fff;
+  color: var(--neon-pink);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cart-total {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Loading & Empty States */
+.loading-spinner {
+  text-align: center;
+  padding: 4rem;
+  color: var(--neon-cyan);
+  font-size: 1.2rem;
+}
+
+.loading-spinner::after {
+  content: '⟳';
+  display: inline-block;
+  animation: spin 1s linear infinite;
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #aaa;
+}
+
+.empty-state h3 {
+  color: var(--neon-pink);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Age Gate Warning */
+.age-warning {
+  background: rgba(255, 20, 147, 0.1);
+  border: 2px solid var(--neon-pink);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.age-warning h3 {
+  color: var(--neon-pink);
+  margin-bottom: 0.5rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.age-warning p {
+  color: #ccc;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+  .shop-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .shop-sidebar {
+    width: 100%;
+    position: static;
+  }
+  
+  .sidebar-section {
+    padding: 1rem;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .floating-cart {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .shop-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+<!-- Age Warning -->
+<div class="age-warning">
+  <h3>🔞 21+ Only | Age Verification Required</h3>
+  <p>All tobacco purchases require age verification at checkout. Valid government-issued photo ID must be uploaded. Adult signature required upon delivery. Sales restricted to jurisdictions where allowed by law.</p>
+</div>
+
+<!-- Shop Container -->
+<div class="shop-container">
+  
+  <!-- Left Sidebar -->
+  <aside class="shop-sidebar">
+    
+    <!-- Search -->
+    <div class="sidebar-section">
+      <h3>Search Products</h3>
+      <input type="text" id="searchBox" class="search-box" placeholder="Search cigars, pipes, tobacco...">
+    </div>
+    
+    <!-- Categories -->
+    <div class="sidebar-section">
+      <h3>Categories</h3>
+      <ul id="categoryList" class="category-list">
+        <li class="category-item active" data-category="all">
+          <span>All Products</span>
+          <span class="category-count" id="count-all">0</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Sort -->
+    <div class="sidebar-section">
+      <h3>Sort By</h3>
+      <select id="sortSelect" class="sort-select">
+        <option value="name-asc">Name (A-Z)</option>
+        <option value="name-desc">Name (Z-A)</option>
+        <option value="price-asc">Price (Low to High)</option>
+        <option value="price-desc">Price (High to Low)</option>
+        <option value="stock-desc">In Stock First</option>
+      </select>
+    </div>
+    
+  </aside>
+  
+  <!-- Main Content -->
+  <main class="shop-main">
+    
+    <div class="shop-header">
+      <h2>Premium Tobacco Collection</h2>
+      <div class="results-count" id="resultsCount">Loading products...</div>
+    </div>
+    
+    <div id="productGrid" class="product-grid">
+      <div class="loading-spinner">Loading inventory...</div>
+    </div>
+    
+  </main>
+  
+</div>
+
+<!-- Floating Cart Button -->
+<button class="floating-cart" id="floatingCart" onclick="window.location.href='{{ '/tobacco-shop/cart' | relative_url }}'">
+  🛒 Cart
+  <span class="cart-count" id="cartCount">0</span>
+  <span class="cart-total" id="cartTotal">$0.00</span>
+</button>
+
+<script>
+(function() {
+  'use strict';
+  
+  // API Configuration
+  const API_URL = 'https://script.google.com/macros/s/AKfycbxV-V5BHN2a97yb0fPYVjuofjJRUAFPnPu1d73kKwnxkqXTojYEFK3c0B1qAOzKO1Aquw/exec';
+  
+  // State
+  let allProducts = [];
+  let filteredProducts = [];
+  let currentCategory = 'all';
+  let currentSort = 'name-asc';
+  let searchQuery = '';
+  
+  // Initialize
+  document.addEventListener('DOMContentLoaded', function() {
+    loadInventory();
+    updateCartDisplay();
+    attachEventListeners();
+  });
+  
+  // Fetch inventory from API
+  async function loadInventory() {
+    try {
+      const response = await fetch(`${API_URL}?route=inventory`);
+      const data = await response.json();
+      
+      if (data.items && Array.isArray(data.items)) {
+        allProducts = data.items.map(item => ({
+          sku: item.SKU || '',
+          name: item.Display_Name || 'Unnamed Product',
+          price: parseFloat(item.Price) || 0,
+          stock: parseInt(item.Qty_On_Hand) || 0,
+          description: stripHTML(item.Description || ''),
+          category: extractCategory(item),
+          image: item.Drive_Image_URL || '/assets/img/gallery/cigars.jpg',
+          categories: item.Categories || ''
+        }));
+        
+        buildCategoryList();
+        applyFilters();
+      } else {
+        showError('Invalid inventory data received');
+      }
+    } catch (error) {
+      console.error('Failed to load inventory:', error);
+      showError('Failed to load products. Please refresh the page.');
+    }
+  }
+  
+  // Extract primary category from product
+  function extractCategory(item) {
+    // Priority: Category_Level_2 > Lowest_Category > parse Categories string
+    if (item.Category_Level_2) return item.Category_Level_2;
+    if (item.Lowest_Category) return item.Lowest_Category;
+    
+    if (item.Categories) {
+      const parts = item.Categories.split('>').map(s => s.trim());
+      return parts[parts.length - 1] || 'Uncategorized';
+    }
+    
+    return 'Uncategorized';
+  }
+  
+  // Strip HTML tags from description
+  function stripHTML(html) {
+    const tmp = document.createElement('DIV');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+  }
+  
+  // Build category filter list
+  function buildCategoryList() {
+    const categoryCounts = {};
+    
+    allProducts.forEach(product => {
+      const cat = product.category;
+      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+    });
+    
+    const categoryList = document.getElementById('categoryList');
+    const allItem = categoryList.querySelector('[data-category="all"]');
+    const allCount = allItem.querySelector('.category-count');
+    allCount.textContent = allProducts.length;
+    
+    // Sort categories alphabetically
+    const sortedCategories = Object.keys(categoryCounts).sort();
+    
+    sortedCategories.forEach(category => {
+      const li = document.createElement('li');
+      li.className = 'category-item';
+      li.dataset.category = category;
+      li.innerHTML = `
+        <span>${category}</span>
+        <span class="category-count">${categoryCounts[category]}</span>
+      `;
+      categoryList.appendChild(li);
+    });
+  }
+  
+  // Apply filters and sorting
+  function applyFilters() {
+    // Filter by category
+    if (currentCategory === 'all') {
+      filteredProducts = [...allProducts];
+    } else {
+      filteredProducts = allProducts.filter(p => p.category === currentCategory);
+    }
+    
+    // Filter by search
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filteredProducts = filteredProducts.filter(p => 
+        p.name.toLowerCase().includes(query) ||
+        p.description.toLowerCase().includes(query) ||
+        p.category.toLowerCase().includes(query)
+      );
+    }
+    
+    // Sort
+    sortProducts();
+    
+    // Render
+    renderProducts();
+    updateResultsCount();
+  }
+  
+  // Sort products
+  function sortProducts() {
+    switch(currentSort) {
+      case 'name-asc':
+        filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case 'name-desc':
+        filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case 'price-asc':
+        filteredProducts.sort((a, b) => a.price - b.price);
+        break;
+      case 'price-desc':
+        filteredProducts.sort((a, b) => b.price - a.price);
+        break;
+      case 'stock-desc':
+        filteredProducts.sort((a, b) => b.stock - a.stock);
+        break;
+    }
+  }
+  
+  // Render products to grid
+  function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    
+    if (filteredProducts.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-state">
+          <h3>No products found</h3>
+          <p>Try adjusting your filters or search query.</p>
+        </div>
+      `;
+      return;
+    }
+    
+    grid.innerHTML = filteredProducts.map(product => {
+      const stockStatus = getStockStatus(product.stock);
+      return `
+        <div class="product-card" onclick="viewProduct('${escapeHTML(product.sku)}')">
+          <div class="product-image-container">
+            <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" class="product-image" loading="lazy">
+            <span class="product-stock-badge ${stockStatus.class}">${stockStatus.text}</span>
+          </div>
+          <div class="product-info">
+            <div class="product-category">${escapeHTML(product.category)}</div>
+            <h3 class="product-name">${escapeHTML(product.name)}</h3>
+            <p class="product-description">${escapeHTML(product.description)}</p>
+            <div class="product-footer">
+              <span class="product-price">$${product.price.toFixed(2)}</span>
+              <button class="view-details-btn" onclick="event.stopPropagation(); viewProduct('${escapeHTML(product.sku)}')">
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+  
+  // Get stock status badge
+  function getStockStatus(stock) {
+    if (stock === 0) {
+      return { class: 'out-of-stock', text: 'Out of Stock' };
+    } else if (stock <= 5) {
+      return { class: 'low-stock', text: `Only ${stock} Left` };
+    } else {
+      return { class: 'in-stock', text: 'In Stock' };
+    }
+  }
+  
+  // Update results count
+  function updateResultsCount() {
+    const count = document.getElementById('resultsCount');
+    const total = allProducts.length;
+    const showing = filteredProducts.length;
+    
+    if (showing === total) {
+      count.textContent = `Showing all ${total} products`;
+    } else {
+      count.textContent = `Showing ${showing} of ${total} products`;
+    }
+  }
+  
+  // View product detail page
+  window.viewProduct = function(sku) {
+    window.location.href = `{{ '/tobacco-shop/product' | relative_url }}?sku=${encodeURIComponent(sku)}`;
+  };
+  
+  // Update cart display
+  function updateCartDisplay() {
+    const cart = getCart();
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    document.getElementById('cartCount').textContent = count;
+    document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
+    
+    // Show/hide cart button
+    const cartBtn = document.getElementById('floatingCart');
+    if (count > 0) {
+      cartBtn.style.display = 'flex';
+    } else {
+      cartBtn.style.display = 'none';
+    }
+  }
+  
+  // Get cart from localStorage
+  function getCart() {
+    try {
+      const cart = localStorage.getItem('vcc_tobacco_cart');
+      if (!cart) return [];
+      
+      const parsed = JSON.parse(cart);
+      
+      // Check expiry (24 hours)
+      if (parsed.expiry && Date.now() > parsed.expiry) {
+        localStorage.removeItem('vcc_tobacco_cart');
+        return [];
+      }
+      
+      return parsed.items || [];
+    } catch (e) {
+      return [];
+    }
+  }
+  
+  // Event listeners
+  function attachEventListeners() {
+    // Category filter
+    document.getElementById('categoryList').addEventListener('click', function(e) {
+      const item = e.target.closest('.category-item');
+      if (!item) return;
+      
+      // Update active state
+      document.querySelectorAll('.category-item').forEach(el => el.classList.remove('active'));
+      item.classList.add('active');
+      
+      // Update filter
+      currentCategory = item.dataset.category;
+      applyFilters();
+    });
+    
+    // Search
+    const searchBox = document.getElementById('searchBox');
+    let searchTimeout;
+    searchBox.addEventListener('input', function(e) {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        searchQuery = e.target.value.trim();
+        applyFilters();
+      }, 300);
+    });
+    
+    // Sort
+    document.getElementById('sortSelect').addEventListener('change', function(e) {
+      currentSort = e.target.value;
+      applyFilters();
+    });
+  }
+  
+  // Error handling
+  function showError(message) {
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = `
+      <div class="empty-state">
+        <h3>⚠️ Error</h3>
+        <p>${escapeHTML(message)}</p>
+      </div>
+    `;
+  }
+  
+  // Escape HTML
+  function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  
+})();
+</script>

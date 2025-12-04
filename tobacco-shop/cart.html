@@ -1,0 +1,556 @@
+---
+layout: page
+title: "Shopping Cart"
+permalink: /tobacco-shop/cart/
+---
+
+<style>
+/* Miami Vice Cyberpunk Theme */
+:root {
+  --neon-pink: #FF1493;
+  --neon-cyan: #00FFFF;
+  --gold: #ffcc66;
+  --card-bg: rgba(15, 15, 35, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+.cart-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--neon-pink);
+  transform: translateX(-5px);
+}
+
+.cart-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cart-header h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-pink);
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Cart Items */
+.cart-items {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.cart-item:last-child {
+  margin-bottom: 0;
+}
+
+.item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.item-sku {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin: 0 0 0.5rem 0;
+}
+
+.item-price {
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.item-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.qty-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+  background: var(--neon-cyan);
+  color: #000;
+}
+
+.qty-display {
+  width: 50px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.remove-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  color: #ff6b6b;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.remove-btn:hover {
+  background: rgba(255, 0, 0, 0.2);
+  border-color: #ff6b6b;
+}
+
+.item-subtotal {
+  font-size: 1.3rem;
+  color: var(--gold);
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* Cart Summary */
+.cart-summary {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  height: fit-content;
+  position: sticky;
+  top: 1rem;
+}
+
+.cart-summary h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-cyan);
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+}
+
+.summary-line:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  font-weight: 600;
+}
+
+.summary-value {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+}
+
+.summary-line.total {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--gold);
+}
+
+.fee-info {
+  font-size: 0.8rem;
+  color: #aaa;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
+.checkout-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  color: #fff;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  margin-top: 1.5rem;
+}
+
+.checkout-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+}
+
+.continue-shopping {
+  width: 100%;
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.continue-shopping:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+/* Empty Cart */
+.empty-cart {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 4rem 2rem;
+  text-align: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.empty-cart h2 {
+  color: var(--neon-pink);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.empty-cart p {
+  color: #aaa;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+  z-index: 999998;
+  transition: transform 0.3s ease;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+  .cart-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cart-summary {
+    position: static;
+  }
+  
+  .cart-item {
+    grid-template-columns: 80px 1fr;
+    gap: 1rem;
+  }
+  
+  .item-controls {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .cart-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .cart-items, .cart-summary {
+    padding: 1.5rem;
+  }
+}
+</style>
+
+<div class="cart-container">
+  
+  <a href="{{ '/tobacco-shop' | relative_url }}" class="back-link">
+    ← Continue Shopping
+  </a>
+  
+  <div class="cart-header">
+    <h1>🛒 Your Cart</h1>
+  </div>
+  
+  <div id="cartContent"></div>
+  
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+<script>
+(function() {
+  'use strict';
+  
+  const POSTAGE_THRESHOLD = 50;
+  const POSTAGE_FEE = 7.00;
+  const ADULT_SIGNATURE_FEE = 8.50;
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    renderCart();
+  });
+  
+  function renderCart() {
+    const cart = getCart();
+    const container = document.getElementById('cartContent');
+    
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="empty-cart">
+          <h2>Your cart is empty</h2>
+          <p>Add some premium tobacco products to get started!</p>
+          <button class="checkout-btn" onclick="window.location.href='{{ '/tobacco-shop' | relative_url }}'">
+            Browse Products
+          </button>
+        </div>
+      `;
+      return;
+    }
+    
+    // Calculate totals
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const postageFee = subtotal < POSTAGE_THRESHOLD ? POSTAGE_FEE : 0;
+    const adultSignatureFee = ADULT_SIGNATURE_FEE;
+    const total = subtotal + postageFee + adultSignatureFee;
+    
+    container.innerHTML = `
+      <div class="cart-grid">
+        
+        <!-- Cart Items -->
+        <div class="cart-items">
+          ${cart.map((item, index) => `
+            <div class="cart-item">
+              <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.name)}" class="item-image">
+              <div class="item-info">
+                <h3 class="item-name">${escapeHTML(item.name)}</h3>
+                <div class="item-sku">SKU: ${escapeHTML(item.sku)}</div>
+                <div class="item-price">$${item.price.toFixed(2)} each</div>
+              </div>
+              <div class="item-controls">
+                <div class="quantity-controls">
+                  <button class="qty-btn" onclick="updateQuantity(${index}, -1)">−</button>
+                  <div class="qty-display">${item.quantity}</div>
+                  <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                </div>
+                <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                <div class="item-subtotal">$${(item.price * item.quantity).toFixed(2)}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+          <h2>Order Summary</h2>
+          
+          <div class="summary-line">
+            <span class="summary-label">Subtotal (${cart.reduce((sum, item) => sum + item.quantity, 0)} items):</span>
+            <span class="summary-value">$${subtotal.toFixed(2)}</span>
+          </div>
+          
+          <div class="summary-line">
+            <div>
+              <div class="summary-label">Postage:</div>
+              <div class="fee-info">${subtotal < POSTAGE_THRESHOLD ? `Free shipping on orders $${POSTAGE_THRESHOLD}+` : 'Free shipping applied!'}</div>
+            </div>
+            <span class="summary-value">${postageFee > 0 ? `$${postageFee.toFixed(2)}` : 'FREE'}</span>
+          </div>
+          
+          <div class="summary-line">
+            <div>
+              <div class="summary-label">Adult Signature:</div>
+              <div class="fee-info">Required by law</div>
+            </div>
+            <span class="summary-value">$${adultSignatureFee.toFixed(2)}</span>
+          </div>
+          
+          <div class="summary-line total">
+            <span class="summary-label">Total:</span>
+            <span class="summary-value">$${total.toFixed(2)}</span>
+          </div>
+          
+          <button class="checkout-btn" onclick="proceedToCheckout()">
+            Proceed to Checkout →
+          </button>
+          
+          <button class="continue-shopping" onclick="window.location.href='{{ '/tobacco-shop' | relative_url }}'">
+            ← Continue Shopping
+          </button>
+        </div>
+        
+      </div>
+    `;
+  }
+  
+  window.updateQuantity = function(index, delta) {
+    const cart = getCart();
+    
+    if (index < 0 || index >= cart.length) return;
+    
+    cart[index].quantity = Math.max(1, cart[index].quantity + delta);
+    
+    saveCart(cart);
+    renderCart();
+    showToast('Cart updated');
+  };
+  
+  window.removeItem = function(index) {
+    const cart = getCart();
+    
+    if (index < 0 || index >= cart.length) return;
+    
+    const itemName = cart[index].name;
+    cart.splice(index, 1);
+    
+    saveCart(cart);
+    renderCart();
+    showToast(`Removed ${itemName} from cart`);
+  };
+  
+  window.proceedToCheckout = function() {
+    window.location.href = `{{ '/tobacco-shop/checkout' | relative_url }}`;
+  };
+  
+  function getCart() {
+    try {
+      const cart = localStorage.getItem('vcc_tobacco_cart');
+      if (!cart) return [];
+      
+      const parsed = JSON.parse(cart);
+      
+      // Check expiry (24 hours)
+      if (parsed.expiry && Date.now() > parsed.expiry) {
+        localStorage.removeItem('vcc_tobacco_cart');
+        return [];
+      }
+      
+      return parsed.items || [];
+    } catch (e) {
+      return [];
+    }
+  }
+  
+  function saveCart(items) {
+    const data = {
+      items: items,
+      expiry: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
+    };
+    localStorage.setItem('vcc_tobacco_cart', JSON.stringify(data));
+  }
+  
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2500);
+  }
+  
+  function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  
+})();
+</script>

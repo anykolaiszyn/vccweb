@@ -1,0 +1,1013 @@
+---
+layout: page
+title: "Checkout"
+permalink: /tobacco-shop/checkout/
+---
+
+<style>
+/* Miami Vice Cyberpunk Theme */
+:root {
+  --neon-pink: #FF1493;
+  --neon-cyan: #00FFFF;
+  --gold: #ffcc66;
+  --card-bg: rgba(15, 15, 35, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+.checkout-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--neon-pink);
+  transform: translateX(-5px);
+}
+
+.checkout-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.checkout-header h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-pink);
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Checkout Form */
+.checkout-form {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.form-section {
+  margin-bottom: 2.5rem;
+}
+
+.form-section:last-child {
+  margin-bottom: 0;
+}
+
+.form-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-cyan);
+  font-size: 1.3rem;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-label.required::after {
+  content: ' *';
+  color: var(--neon-pink);
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-hint {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+.form-error {
+  font-size: 0.85rem;
+  color: #ff6b6b;
+  margin-top: 0.3rem;
+  display: none;
+}
+
+.form-error.show {
+  display: block;
+}
+
+/* Age Verification Section */
+.age-verification {
+  background: rgba(255, 165, 0, 0.1);
+  border: 2px solid #ffa500;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.age-verification h3 {
+  color: #ffa500;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+}
+
+.age-verification ul {
+  color: #ccc;
+  line-height: 1.8;
+  margin: 0 0 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.age-check {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.age-check input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.age-check label {
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+
+/* File Upload */
+.file-upload {
+  position: relative;
+}
+
+.file-upload-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.file-upload-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-preview {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 255, 127, 0.1);
+  border: 1px solid rgba(0, 255, 127, 0.3);
+  border-radius: 8px;
+  color: #0f0;
+  font-weight: 600;
+  display: none;
+}
+
+.file-preview.show {
+  display: block;
+}
+
+/* Order Summary (Right Side) */
+.order-summary {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  height: fit-content;
+  position: sticky;
+  top: 1rem;
+}
+
+.order-summary h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-cyan);
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+}
+
+.order-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.order-item-info {
+  flex: 1;
+}
+
+.order-item-name {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.order-item-meta {
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+}
+
+.summary-line:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  font-weight: 600;
+}
+
+.summary-value {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+}
+
+.summary-line.total {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--gold);
+}
+
+/* Submit Button */
+.submit-order-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  color: #fff;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  margin-top: 2rem;
+}
+
+.submit-order-btn:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+}
+
+.submit-order-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Success Message */
+.success-message {
+  background: var(--card-bg);
+  border: 2px solid #0f0;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: none;
+}
+
+.success-message.show {
+  display: block;
+}
+
+.success-message h2 {
+  color: #0f0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.success-message p {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  display: none;
+}
+
+.loading-overlay.show {
+  display: flex;
+}
+
+.loading-content {
+  text-align: center;
+  color: var(--neon-cyan);
+}
+
+.loading-spinner {
+  font-size: 3rem;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .order-summary {
+    position: static;
+    order: -1;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .checkout-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .checkout-form, .order-summary {
+    padding: 1.5rem;
+  }
+}
+</style>
+
+<div class="checkout-container">
+  
+  <a href="{{ '/tobacco-shop/cart' | relative_url }}" class="back-link">
+    ← Back to Cart
+  </a>
+  
+  <div class="checkout-header">
+    <h1>🔐 Secure Checkout</h1>
+    <p style="color: #aaa;">All information is encrypted and secure</p>
+  </div>
+  
+  <div id="checkoutContent">
+    <div class="checkout-grid">
+      
+      <!-- Checkout Form -->
+      <div class="checkout-form">
+        <form id="checkoutForm">
+          
+          <!-- Customer Information -->
+          <div class="form-section">
+            <h2>Customer Information</h2>
+            
+            <div class="form-group">
+              <label class="form-label required" for="fullName">Full Name</label>
+              <input type="text" id="fullName" class="form-input" required>
+              <div class="form-error" id="fullNameError">Please enter your full name</div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label required" for="email">Email Address</label>
+                <input type="email" id="email" class="form-input" required>
+                <div class="form-error" id="emailError">Please enter a valid email</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label required" for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-input" required>
+                <div class="form-error" id="phoneError">Please enter a valid phone number</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label required" for="dob">Date of Birth</label>
+              <input type="date" id="dob" class="form-input" required>
+              <div class="form-hint">Must be 21+ to purchase tobacco products</div>
+              <div class="form-error" id="dobError">You must be 21 or older to purchase</div>
+            </div>
+          </div>
+          
+          <!-- Shipping Address -->
+          <div class="form-section">
+            <h2>Shipping Address</h2>
+            
+            <div class="form-group">
+              <label class="form-label required" for="address">Street Address</label>
+              <input type="text" id="address" class="form-input" required>
+              <div class="form-error" id="addressError">Please enter your address</div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="address2">Apartment, Suite, etc. (Optional)</label>
+              <input type="text" id="address2" class="form-input">
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label required" for="city">City</label>
+                <input type="text" id="city" class="form-input" required>
+                <div class="form-error" id="cityError">Please enter your city</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label required" for="state">State</label>
+                <select id="state" class="form-select" required>
+                  <option value="">Select State</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+                <div class="form-error" id="stateError">Please select your state</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label required" for="zip">ZIP Code</label>
+              <input type="text" id="zip" class="form-input" required maxlength="10">
+              <div class="form-error" id="zipError">Please enter a valid ZIP code</div>
+            </div>
+          </div>
+          
+          <!-- Payment Method -->
+          <div class="form-section">
+            <h2>Payment Method</h2>
+            
+            <div class="form-group">
+              <label class="form-label required" for="paymentMethod">Preferred Payment</label>
+              <select id="paymentMethod" class="form-select" required>
+                <option value="">Select Payment Method</option>
+                <option value="ACH">ACH Bank Transfer</option>
+                <option value="Bitcoin">Bitcoin</option>
+                <option value="Other">Other (Contact Required)</option>
+              </select>
+              <div class="form-hint">Payment instructions will be provided after order placement</div>
+              <div class="form-error" id="paymentMethodError">Please select a payment method</div>
+            </div>
+          </div>
+          
+          <!-- Age Verification -->
+          <div class="form-section">
+            <div class="age-verification">
+              <h3>⚠️ Age Verification Required</h3>
+              <ul>
+                <li>You must be <strong>21 or older</strong> to purchase tobacco products</li>
+                <li>Upload a clear photo of a valid <strong>government-issued ID</strong> (driver's license, passport, or state ID)</li>
+                <li>Your ID will be securely verified and <strong>deleted within 24 hours</strong></li>
+                <li><strong>Adult signature required</strong> upon delivery ($8.50 fee applies)</li>
+              </ul>
+              
+              <div class="form-group">
+                <label class="form-label required">Upload Photo ID</label>
+                <div class="file-upload">
+                  <label for="idUpload" class="file-upload-btn">
+                    📷 Choose ID Photo (JPEG, PNG, PDF)
+                  </label>
+                  <input type="file" id="idUpload" accept="image/jpeg,image/png,application/pdf" required>
+                  <div class="form-hint">Max file size: 5MB</div>
+                  <div class="file-preview" id="filePreview">✓ ID uploaded successfully</div>
+                  <div class="form-error" id="idUploadError">Please upload your photo ID</div>
+                </div>
+              </div>
+              
+              <div class="age-check">
+                <input type="checkbox" id="ageConfirm" required>
+                <label for="ageConfirm">I confirm that I am 21 years of age or older and agree to age verification</label>
+              </div>
+              <div class="form-error" id="ageConfirmError">You must confirm you are 21+</div>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+      
+      <!-- Order Summary -->
+      <div class="order-summary" id="orderSummary">
+        <!-- Will be populated by JavaScript -->
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Success Message -->
+  <div class="success-message" id="successMessage">
+    <h2>✓ Order Placed Successfully!</h2>
+    <p>Thank you for your order. We've sent a confirmation email with payment instructions.</p>
+    <p>Your order number is: <strong id="orderNumber"></strong></p>
+    <p>We'll contact you within 24 hours to confirm payment and arrange delivery.</p>
+    <button class="submit-order-btn" onclick="window.location.href='{{ '/tobacco-shop' | relative_url }}'">
+      Continue Shopping
+    </button>
+  </div>
+  
+</div>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-content">
+    <div class="loading-spinner">⟳</div>
+    <div class="loading-text">Processing your order...</div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  
+  const API_URL = 'https://script.google.com/macros/s/AKfycbxV-V5BHN2a97yb0fPYVjuofjJRUAFPnPu1d73kKwnxkqXTojYEFK3c0B1qAOzKO1Aquw/exec';
+  const POSTAGE_THRESHOLD = 50;
+  const POSTAGE_FEE = 7.00;
+  const ADULT_SIGNATURE_FEE = 8.50;
+  
+  let uploadedIDBase64 = null;
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const cart = getCart();
+    
+    if (cart.length === 0) {
+      window.location.href = `{{ '/tobacco-shop' | relative_url }}`;
+      return;
+    }
+    
+    renderOrderSummary(cart);
+    attachEventListeners();
+  });
+  
+  function renderOrderSummary(cart) {
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const postageFee = subtotal < POSTAGE_THRESHOLD ? POSTAGE_FEE : 0;
+    const adultSignatureFee = ADULT_SIGNATURE_FEE;
+    const total = subtotal + postageFee + adultSignatureFee;
+    
+    document.getElementById('orderSummary').innerHTML = `
+      <h2>Order Summary</h2>
+      
+      <div style="margin-bottom: 1.5rem;">
+        ${cart.map(item => `
+          <div class="order-item">
+            <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.name)}" class="order-item-image">
+            <div class="order-item-info">
+              <div class="order-item-name">${escapeHTML(item.name)}</div>
+              <div class="order-item-meta">Qty: ${item.quantity} × $${item.price.toFixed(2)}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      
+      <div class="summary-line">
+        <span class="summary-label">Subtotal:</span>
+        <span class="summary-value">$${subtotal.toFixed(2)}</span>
+      </div>
+      
+      <div class="summary-line">
+        <span class="summary-label">Postage:</span>
+        <span class="summary-value">${postageFee > 0 ? `$${postageFee.toFixed(2)}` : 'FREE'}</span>
+      </div>
+      
+      <div class="summary-line">
+        <span class="summary-label">Adult Signature:</span>
+        <span class="summary-value">$${adultSignatureFee.toFixed(2)}</span>
+      </div>
+      
+      <div class="summary-line total">
+        <span class="summary-label">Total:</span>
+        <span class="summary-value">$${total.toFixed(2)}</span>
+      </div>
+      
+      <button type="submit" form="checkoutForm" class="submit-order-btn">
+        Place Order →
+      </button>
+    `;
+  }
+  
+  function attachEventListeners() {
+    // File upload
+    document.getElementById('idUpload').addEventListener('change', handleFileUpload);
+    
+    // Form submission
+    document.getElementById('checkoutForm').addEventListener('submit', handleSubmit);
+  }
+  
+  async function handleFileUpload(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    
+    // Validate file size (5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      showError('idUploadError', 'File size must be less than 5MB');
+      return;
+    }
+    
+    // Validate file type
+    const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+    if (!allowedTypes.includes(file.type)) {
+      showError('idUploadError', 'File must be JPEG, PNG, or PDF');
+      return;
+    }
+    
+    // Convert to base64
+    try {
+      uploadedIDBase64 = await fileToBase64(file);
+      document.getElementById('filePreview').classList.add('show');
+      hideError('idUploadError');
+    } catch (error) {
+      showError('idUploadError', 'Failed to process file');
+    }
+  }
+  
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+  
+  async function handleSubmit(e) {
+    e.preventDefault();
+    
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
+    
+    // Show loading
+    document.getElementById('loadingOverlay').classList.add('show');
+    
+    // Prepare order data
+    const cart = getCart();
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const postageFee = subtotal < POSTAGE_THRESHOLD ? POSTAGE_FEE : 0;
+    const total = subtotal + postageFee + ADULT_SIGNATURE_FEE;
+    
+    const orderData = {
+      customer: {
+        name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        dob: document.getElementById('dob').value
+      },
+      shipping: {
+        address: document.getElementById('address').value.trim(),
+        address2: document.getElementById('address2').value.trim(),
+        city: document.getElementById('city').value.trim(),
+        state: document.getElementById('state').value,
+        zip: document.getElementById('zip').value.trim()
+      },
+      payment: {
+        method: document.getElementById('paymentMethod').value
+      },
+      items: cart,
+      totals: {
+        subtotal: subtotal,
+        postage: postageFee,
+        adultSignature: ADULT_SIGNATURE_FEE,
+        total: total
+      },
+      idPhoto: uploadedIDBase64,
+      timestamp: new Date().toISOString()
+    };
+    
+    // Submit to API
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        // Clear cart
+        localStorage.removeItem('vcc_tobacco_cart');
+        
+        // Show success message
+        document.getElementById('orderNumber').textContent = result.orderNumber || 'Pending';
+        document.getElementById('checkoutContent').style.display = 'none';
+        document.getElementById('successMessage').classList.add('show');
+      } else {
+        throw new Error(result.message || 'Order submission failed');
+      }
+    } catch (error) {
+      console.error('Order submission error:', error);
+      alert('Failed to submit order. Please try again or contact us at vccigar@gmail.com');
+    } finally {
+      document.getElementById('loadingOverlay').classList.remove('show');
+    }
+  }
+  
+  function validateForm() {
+    let isValid = true;
+    
+    // Name
+    if (!document.getElementById('fullName').value.trim()) {
+      showError('fullNameError');
+      isValid = false;
+    } else {
+      hideError('fullNameError');
+    }
+    
+    // Email
+    const email = document.getElementById('email').value.trim();
+    if (!email || !isValidEmail(email)) {
+      showError('emailError');
+      isValid = false;
+    } else {
+      hideError('emailError');
+    }
+    
+    // Phone
+    if (!document.getElementById('phone').value.trim()) {
+      showError('phoneError');
+      isValid = false;
+    } else {
+      hideError('phoneError');
+    }
+    
+    // DOB & Age check
+    const dob = document.getElementById('dob').value;
+    if (!dob || !isOver21(dob)) {
+      showError('dobError');
+      isValid = false;
+    } else {
+      hideError('dobError');
+    }
+    
+    // Address
+    if (!document.getElementById('address').value.trim()) {
+      showError('addressError');
+      isValid = false;
+    } else {
+      hideError('addressError');
+    }
+    
+    // City
+    if (!document.getElementById('city').value.trim()) {
+      showError('cityError');
+      isValid = false;
+    } else {
+      hideError('cityError');
+    }
+    
+    // State
+    if (!document.getElementById('state').value) {
+      showError('stateError');
+      isValid = false;
+    } else {
+      hideError('stateError');
+    }
+    
+    // ZIP
+    const zip = document.getElementById('zip').value.trim();
+    if (!zip || !isValidZip(zip)) {
+      showError('zipError');
+      isValid = false;
+    } else {
+      hideError('zipError');
+    }
+    
+    // Payment method
+    if (!document.getElementById('paymentMethod').value) {
+      showError('paymentMethodError');
+      isValid = false;
+    } else {
+      hideError('paymentMethodError');
+    }
+    
+    // ID upload
+    if (!uploadedIDBase64) {
+      showError('idUploadError', 'Please upload your photo ID');
+      isValid = false;
+    } else {
+      hideError('idUploadError');
+    }
+    
+    // Age confirmation
+    if (!document.getElementById('ageConfirm').checked) {
+      showError('ageConfirmError');
+      isValid = false;
+    } else {
+      hideError('ageConfirmError');
+    }
+    
+    return isValid;
+  }
+  
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+  
+  function isValidZip(zip) {
+    return /^\d{5}(-\d{4})?$/.test(zip);
+  }
+  
+  function isOver21(dob) {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    const age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      return age - 1 >= 21;
+    }
+    
+    return age >= 21;
+  }
+  
+  function showError(errorId, message) {
+    const errorEl = document.getElementById(errorId);
+    if (message) errorEl.textContent = message;
+    errorEl.classList.add('show');
+  }
+  
+  function hideError(errorId) {
+    document.getElementById(errorId).classList.remove('show');
+  }
+  
+  function getCart() {
+    try {
+      const cart = localStorage.getItem('vcc_tobacco_cart');
+      if (!cart) return [];
+      
+      const parsed = JSON.parse(cart);
+      
+      if (parsed.expiry && Date.now() > parsed.expiry) {
+        localStorage.removeItem('vcc_tobacco_cart');
+        return [];
+      }
+      
+      return parsed.items || [];
+    } catch (e) {
+      return [];
+    }
+  }
+  
+  function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  
+})();
+</script>
