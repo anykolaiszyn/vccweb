@@ -962,7 +962,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
   <div id="product-modal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close" aria-label="Close modal">&times;</button>
-      <img id="modal-product-image" class="modal-image" alt="Product image" crossorigin="anonymous" loading="eager">
+      <img id="modal-product-image" class="modal-image" alt="Product image" loading="eager">
       <div class="modal-body">
         <h3 id="modal-product-name" class="modal-title"></h3>
         <div id="modal-product-category" class="modal-category"></div>
@@ -1375,26 +1375,29 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     }
 
     const imgElement = document.getElementById('modal-product-image');
-    imgElement.setAttribute('crossorigin', 'anonymous');
     imgElement.style.display = 'block';
+    imgElement.removeAttribute('crossorigin');
     
-    // Clear any previous error state
+    console.log('Loading modal image:', imgUrl);
+    
+    // Clear previous handlers and reset
+    imgElement.onload = null;
     imgElement.onerror = null;
     
-    // Set the new source
-    imgElement.src = imgUrl;
-    
-    // Set error handler with delay to prevent premature fallback
-    let errorAttempts = 0;
-    imgElement.onerror = function() {
-      errorAttempts++;
-      console.log('Modal image load attempt', errorAttempts, 'failed for:', imgUrl);
-      
-      // Only fallback after multiple attempts
-      if (errorAttempts >= 2) {
-        this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%231a1a3e" width="600" height="400"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="32" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
-      }
+    // Set success handler
+    imgElement.onload = function() {
+      console.log('Modal image loaded successfully');
     };
+    
+    // Set error handler
+    imgElement.onerror = function() {
+      console.error('Modal image failed to load:', imgUrl);
+      this.onerror = null; // Prevent infinite loop
+      this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect fill="%231a1a3e" width="600" height="400"/%3E%3Ctext fill="%2300ffff" font-family="Arial" font-size="32" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+    };
+    
+    // Set the source (this triggers loading)
+    imgElement.src = imgUrl;
 
     document.getElementById('modal-product-name').textContent = item.Display_Name || 'Unnamed Product';
     document.getElementById('modal-product-category').textContent = getDisplayCategory(item);
