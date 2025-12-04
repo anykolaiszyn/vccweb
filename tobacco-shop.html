@@ -110,6 +110,19 @@ permalink: /tobacco-shop/
   opacity: 0.7;
 }
 
+.category-back {
+  color: var(--neon-cyan) !important;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 0.8rem 0 !important;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.3) !important;
+}
+
+.category-back:hover {
+  color: var(--neon-pink) !important;
+  border-bottom-color: var(--neon-pink) !important;
+}
+
 /* Sort Controls */
 .sort-select {
   width: 100%;
@@ -522,6 +535,7 @@ permalink: /tobacco-shop/
   let allProducts = [];
   let filteredProducts = [];
   let currentCategory = 'all';
+  let categoryPath = []; // Track breadcrumb navigation
   let currentSort = 'name-asc';
   let searchQuery = '';
   
@@ -545,12 +559,14 @@ permalink: /tobacco-shop/
           price: parseFloat(item.Price) || 0,
           stock: parseInt(item.Qty_On_Hand) || 0,
           description: stripHTML(item.Description || ''),
-          category: extractCategory(item),
+          categoryLevel1: item.Category_Level_1 || '',
+          categoryLevel2: item.Category_Level_2 || '',
+          lowestCategory: item.Lowest_Category || '',
           image: item.Drive_Image_URL || '/assets/img/gallery/cigars.jpg',
           categories: item.Categories || ''
         }));
         
-        buildCategoryList();
+        buildCategoryHierarchy();
         applyFilters();
       } else {
         showError('Invalid inventory data received');
@@ -561,20 +577,6 @@ permalink: /tobacco-shop/
     }
   }
   
-  // Extract primary category from product
-  function extractCategory(item) {
-    // Priority: Category_Level_2 > Lowest_Category > parse Categories string
-    if (item.Category_Level_2) return item.Category_Level_2;
-    if (item.Lowest_Category) return item.Lowest_Category;
-    
-    if (item.Categories) {
-      const parts = item.Categories.split('>').map(s => s.trim());
-      return parts[parts.length - 1] || 'Uncategorized';
-    }
-    
-    return 'Uncategorized';
-  }
-  
   // Strip HTML tags from description
   function stripHTML(html) {
     const tmp = document.createElement('DIV');
@@ -582,30 +584,137 @@ permalink: /tobacco-shop/
     return tmp.textContent || tmp.innerText || '';
   }
   
-  // Build category filter list
-  function buildCategoryList() {
-    const categoryCounts = {};
-    
-    allProducts.forEach(product => {
-      const cat = product.category;
-      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
-    });
-    
+  // Build hierarchical category navigation
+  function buildCategoryHierarchy() {
     const categoryList = document.getElementById('categoryList');
     const allItem = categoryList.querySelector('[data-category="all"]');
     const allCount = allItem.querySelector('.category-count');
     allCount.textContent = allProducts.length;
     
-    // Sort categories alphabetically
-    const sortedCategories = Object.keys(categoryCounts).sort();
+    // Clear existing categories
+    while (categoryList.children.length > 1) {
+      categoryList.removeChild(categoryList.lastChild);
+    }
+    
+    if (categoryPath.length === 0) {
+      // Show Level 1 categories
+      renderLevel1Categories();
+    } else if (categoryPath.length === 1) {
+      // Show Level 2 categories under selected Level 1
+      renderLevel2Categories();
+    } else {
+      // Show lowest level categories
+      renderLowestCategories();
+    }
+  }
+  
+  function renderLevel1Categories() {
+    const level1Counts = {};
+    
+    allProducts.forEach(product => {
+      if (product.categoryLevel1) {
+        level1Counts[product.categoryLevel1] = (level1Counts[product.categoryLevel1] || 0) + 1;
+      }
+    });
+    
+    const categoryList = document.getElementById('categoryList');
+    const sortedCategories = Object.keys(level1Counts).sort();
     
     sortedCategories.forEach(category => {
       const li = document.createElement('li');
       li.className = 'category-item';
-      li.dataset.category = category;
+      li.dataset.categoryLevel = '1';
+      li.dataset.categoryName = category;
       li.innerHTML = `
         <span>${category}</span>
-        <span class="category-count">${categoryCounts[category]}</span>
+        <span class="category-count">${level1Counts[category]} →</span>
+      `;
+      categoryList.appendChild(li);
+    });
+  }
+  
+  function renderLevel2Categories() {
+    const categoryList = document.getElementById('categoryList');
+    const level1 = categoryPath[0];
+    
+    // Add back button
+    const backLi = document.createElement('li');
+    backLi.className = 'category-item category-back';
+    backLi.innerHTML = `<span>← Back to All Categories</span>`;
+    categoryList.appendChild(backLi);
+    
+    // Add current level indicator
+    const currentLi = document.createElement('li');
+    currentLi.className = 'category-item active';
+    currentLi.style.fontWeight = 'bold';
+    currentLi.style.borderBottom = '2px solid var(--neon-cyan)';
+    currentLi.innerHTML = `<span>${level1}</span>`;
+    categoryList.appendChild(currentLi);
+    
+    // Count Level 2 categories
+    const level2Counts = {};
+    
+    allProducts.forEach(product => {
+      if (product.categoryLevel1 === level1 && product.categoryLevel2) {
+        level2Counts[product.categoryLevel2] = (level2Counts[product.categoryLevel2] || 0) + 1;
+      }
+    });
+    
+    const sortedCategories = Object.keys(level2Counts).sort();
+    
+    sortedCategories.forEach(category => {
+      const li = document.createElement('li');
+      li.className = 'category-item';
+      li.dataset.categoryLevel = '2';
+      li.dataset.categoryName = category;
+      li.innerHTML = `
+        <span>${category}</span>
+        <span class="category-count">${level2Counts[category]} →</span>
+      `;
+      categoryList.appendChild(li);
+    });
+  }
+  
+  function renderLowestCategories() {
+    const categoryList = document.getElementById('categoryList');
+    const level1 = categoryPath[0];
+    const level2 = categoryPath[1];
+    
+    // Add back button
+    const backLi = document.createElement('li');
+    backLi.className = 'category-item category-back';
+    backLi.innerHTML = `<span>← Back to ${level1}</span>`;
+    categoryList.appendChild(backLi);
+    
+    // Add current level indicator
+    const currentLi = document.createElement('li');
+    currentLi.className = 'category-item active';
+    currentLi.style.fontWeight = 'bold';
+    currentLi.style.borderBottom = '2px solid var(--neon-cyan)';
+    currentLi.innerHTML = `<span>${level2}</span>`;
+    categoryList.appendChild(currentLi);
+    
+    // Count lowest level categories
+    const lowestCounts = {};
+    
+    allProducts.forEach(product => {
+      if (product.categoryLevel1 === level1 && 
+          product.categoryLevel2 === level2 && 
+          product.lowestCategory) {
+        lowestCounts[product.lowestCategory] = (lowestCounts[product.lowestCategory] || 0) + 1;
+      }
+    });
+    
+    const sortedCategories = Object.keys(lowestCounts).sort();
+    
+    sortedCategories.forEach(category => {
+      const li = document.createElement('li');
+      li.className = 'category-item';
+      li.dataset.categoryLevel = 'lowest';
+      li.dataset.categoryName = category;
+      li.innerHTML = `
+        <span>${category}</span>
+        <span class="category-count">${lowestCounts[category]}</span>
       `;
       categoryList.appendChild(li);
     });
@@ -613,11 +722,27 @@ permalink: /tobacco-shop/
   
   // Apply filters and sorting
   function applyFilters() {
-    // Filter by category
+    // Filter by category hierarchy
     if (currentCategory === 'all') {
       filteredProducts = [...allProducts];
+    } else if (categoryPath.length === 1) {
+      // Filter by Level 1
+      filteredProducts = allProducts.filter(p => p.categoryLevel1 === categoryPath[0]);
+    } else if (categoryPath.length === 2) {
+      // Filter by Level 2
+      filteredProducts = allProducts.filter(p => 
+        p.categoryLevel1 === categoryPath[0] && 
+        p.categoryLevel2 === categoryPath[1]
+      );
+    } else if (categoryPath.length === 3) {
+      // Filter by lowest category
+      filteredProducts = allProducts.filter(p => 
+        p.categoryLevel1 === categoryPath[0] && 
+        p.categoryLevel2 === categoryPath[1] &&
+        p.lowestCategory === categoryPath[2]
+      );
     } else {
-      filteredProducts = allProducts.filter(p => p.category === currentCategory);
+      filteredProducts = [...allProducts];
     }
     
     // Filter by search
@@ -761,18 +886,50 @@ permalink: /tobacco-shop/
   
   // Event listeners
   function attachEventListeners() {
-    // Category filter
+    // Category filter with hierarchical navigation
     document.getElementById('categoryList').addEventListener('click', function(e) {
       const item = e.target.closest('.category-item');
       if (!item) return;
       
-      // Update active state
-      document.querySelectorAll('.category-item').forEach(el => el.classList.remove('active'));
-      item.classList.add('active');
+      // Handle back button
+      if (item.classList.contains('category-back')) {
+        categoryPath.pop();
+        if (categoryPath.length === 0) {
+          currentCategory = 'all';
+        }
+        buildCategoryHierarchy();
+        applyFilters();
+        return;
+      }
       
-      // Update filter
-      currentCategory = item.dataset.category;
-      applyFilters();
+      // Handle "All Products"
+      if (item.dataset.category === 'all') {
+        currentCategory = 'all';
+        categoryPath = [];
+        document.querySelectorAll('.category-item').forEach(el => el.classList.remove('active'));
+        item.classList.add('active');
+        buildCategoryHierarchy();
+        applyFilters();
+        return;
+      }
+      
+      // Handle category navigation
+      const level = item.dataset.categoryLevel;
+      const categoryName = item.dataset.categoryName;
+      
+      if (level && categoryName) {
+        if (level === '1') {
+          categoryPath = [categoryName];
+        } else if (level === '2') {
+          categoryPath = [categoryPath[0], categoryName];
+        } else if (level === 'lowest') {
+          categoryPath = [categoryPath[0], categoryPath[1], categoryName];
+        }
+        
+        currentCategory = 'filtered';
+        buildCategoryHierarchy();
+        applyFilters();
+      }
     });
     
     // Search
