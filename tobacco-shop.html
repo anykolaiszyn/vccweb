@@ -346,29 +346,28 @@ permalink: /tobacco-shop/
   transform: scale(1.05);
 }
 
-/* Floating Cart Button */
-.floating-cart {
-  position: fixed !important;
-  bottom: 2rem !important;
-  right: 2rem !important;
+/* Sidebar Cart Button */
+.sidebar-cart-btn {
+  width: 100%;
   background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
   color: #fff;
   border: none;
-  border-radius: 50px;
+  border-radius: 12px;
   padding: 1rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
-  z-index: 999997 !important;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
 }
 
-.floating-cart:hover {
-  transform: scale(1.05);
+.sidebar-cart-btn:hover {
+  transform: translateY(-2px);
   box-shadow: 0 15px 40px rgba(255, 20, 147, 0.7);
 }
 
@@ -484,9 +483,7 @@ permalink: /tobacco-shop/
     gap: 1rem;
   }
   
-  .floating-cart {
-    bottom: 1rem;
-    right: 1rem;
+  .sidebar-cart-btn {
     padding: 0.8rem 1.2rem;
     font-size: 0.9rem;
   }
@@ -515,6 +512,13 @@ permalink: /tobacco-shop/
   
   <!-- Left Sidebar -->
   <aside class="shop-sidebar">
+    
+    <!-- Cart Button -->
+    <button class="sidebar-cart-btn" id="floatingCart" onclick="window.location.href='{{ '/tobacco-shop/cart' | relative_url }}'">
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
+      <span class="cart-total" id="cartTotal">$0.00</span>
+    </button>
     
     <!-- Search -->
     <div class="sidebar-section">
@@ -562,13 +566,6 @@ permalink: /tobacco-shop/
   </main>
   
 </div>
-
-<!-- Floating Cart Button -->
-<button class="floating-cart" id="floatingCart" onclick="window.location.href='{{ '/tobacco-shop/cart' | relative_url }}'">
-  🛒 Cart
-  <span class="cart-count" id="cartCount">0</span>
-  <span class="cart-total" id="cartTotal">$0.00</span>
-</button>
 
 <script>
 (function() {
