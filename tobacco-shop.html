@@ -476,23 +476,18 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
 
 .modal-content {
   background: #0f1620 !important;
-  border: 3px solid #FF1493 !important;
+  border: 2px solid #FF1493 !important;
   border-radius: 12px;
-  max-width: 700px;
   width: 90%;
-  min-height: 400px;
-  max-height: 90vh;
+  max-width: 600px;
+  max-height: 85vh;
   overflow-y: auto;
   position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
+  top: 50vh !important;
+  left: 50vw !important;
   transform: translate(-50%, -50%) !important;
   box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
   z-index: 1000000 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
 }
 
 .modal-close {
@@ -868,23 +863,35 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     return parts.pop() || 'Uncategorized';
   }
 
-  // Extract display category (skip RTPD parent, get next level)
-  function getDisplayCategory(categories) {
-    if (!categories) return 'Uncategorized';
-    const parts = categories.split('>').map(s => s.trim());
-
-    // Skip RTPD parent if it exists
-    if (parts.length > 1 && parts[0].includes('RTPD')) {
-      return parts[1]; // Return second level
+  // Extract display category - prefer Level 2, fallback to Lowest Category
+  function getDisplayCategory(item) {
+    // Priority 1: Use Category Level 2 from Square sync
+    if (item.Category_Level_2) {
+      return item.Category_Level_2;
     }
-    return parts[0] || 'Uncategorized';
+
+    // Priority 2: Use Lowest Category from Square sync
+    if (item.Lowest_Category) {
+      return item.Lowest_Category;
+    }
+
+    // Fallback: Parse from Categories string (skip RTPD parent if exists)
+    if (item.Categories) {
+      const parts = item.Categories.split('>').map(s => s.trim());
+      if (parts.length > 1 && parts[0].includes('RTPD')) {
+        return parts[1]; // Return second level
+      }
+      return parts[0] || 'Uncategorized';
+    }
+
+    return 'Uncategorized';
   }
 
-  // Get unique categories for filtering (skip RTPD)
+  // Get unique categories for filtering
   function extractCategories(items) {
     const catSet = new Set();
     items.forEach(item => {
-      const displayCat = getDisplayCategory(item.Categories);
+      const displayCat = getDisplayCategory(item);
       if (displayCat && displayCat !== 'Uncategorized') {
         catSet.add(displayCat);
       }
@@ -947,7 +954,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     items.forEach(item => {
       const desc = stripHtml(item.Description || '');
       const short = desc.length > 120 ? desc.slice(0, 120) + '…' : desc;
-      const displayCat = getDisplayCategory(item.Categories);
+      const displayCat = getDisplayCategory(item);
 
       // Use Drive image if available, fallback to placeholder
       let imgUrl = item.Drive_Image_URL || item.Square_Image_URL || '';
@@ -1080,7 +1087,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     };
 
     document.getElementById('modal-product-name').textContent = item.Display_Name || 'Unnamed Product';
-    document.getElementById('modal-product-category').textContent = getDisplayCategory(item.Categories);
+    document.getElementById('modal-product-category').textContent = getDisplayCategory(item);
     document.getElementById('modal-product-description').textContent = desc;
     document.getElementById('modal-product-price').textContent = formatPrice(item.Price);
     document.getElementById('modal-product-stock').textContent = item.Qty_On_Hand || 0;
@@ -1132,7 +1139,7 @@ description: Browse our in-stock tobacco products and pre-order premium cigars, 
     // Apply category filter
     if (activeFilter !== 'all') {
       items = items.filter(item => {
-        const displayCat = getDisplayCategory(item.Categories);
+        const displayCat = getDisplayCategory(item);
         return displayCat === activeFilter;
       });
     }
