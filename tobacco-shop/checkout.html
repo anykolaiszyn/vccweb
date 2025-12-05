@@ -832,32 +832,30 @@ permalink: /tobacco-shop/checkout/
     const postageFee = subtotal < POSTAGE_THRESHOLD ? POSTAGE_FEE : 0;
     const total = subtotal + postageFee + ADULT_SIGNATURE_FEE;
     
+    // Build shipping address string
+    const address2 = document.getElementById('address2').value.trim();
+    const shippingAddress = [
+      document.getElementById('address').value.trim(),
+      address2 ? address2 : null,
+      document.getElementById('city').value.trim(),
+      document.getElementById('state').value,
+      document.getElementById('zip').value.trim()
+    ].filter(Boolean).join(', ');
+    
+    // Build order data matching Apps Script expectations
     const orderData = {
-      customer: {
-        name: document.getElementById('fullName').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        dob: document.getElementById('dob').value
-      },
-      shipping: {
-        address: document.getElementById('address').value.trim(),
-        address2: document.getElementById('address2').value.trim(),
-        city: document.getElementById('city').value.trim(),
-        state: document.getElementById('state').value,
-        zip: document.getElementById('zip').value.trim()
-      },
-      payment: {
-        method: document.getElementById('paymentMethod').value
-      },
-      items: cart,
-      totals: {
-        subtotal: subtotal,
-        postage: postageFee,
-        adultSignature: ADULT_SIGNATURE_FEE,
-        total: total
-      },
-      idPhoto: uploadedIDBase64,
-      timestamp: new Date().toISOString()
+      customerName: document.getElementById('fullName').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      dob: document.getElementById('dob').value,
+      shippingAddress: shippingAddress,
+      paymentMethod: document.getElementById('paymentMethod').value,
+      cart: cart,
+      idFile: uploadedIDBase64 ? {
+        dataBase64: uploadedIDBase64.split(',')[1] || uploadedIDBase64,
+        type: 'image/jpeg',
+        name: 'id-upload.jpg'
+      } : null
     };
     
     // Submit to API
