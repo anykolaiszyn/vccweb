@@ -868,16 +868,19 @@ permalink: /tobacco-shop/checkout/
       
       const result = await response.json();
       
+      console.log('API Response:', result);
+      
       if (result.success) {
         // Clear cart
         localStorage.removeItem('vcc_tobacco_cart');
         
         // Show success message
-        document.getElementById('orderNumber').textContent = result.orderNumber || 'Pending';
+        document.getElementById('orderNumber').textContent = result.orderId || 'Pending';
         document.getElementById('checkoutContent').style.display = 'none';
         document.getElementById('successMessage').classList.add('show');
       } else {
-        throw new Error(result.message || 'Order submission failed');
+        console.error('Order failed:', result.error || result.message);
+        throw new Error(result.error || result.message || 'Order submission failed');
       }
     } catch (error) {
       console.error('Order submission error:', error);
