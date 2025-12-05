@@ -862,11 +862,9 @@ permalink: /tobacco-shop/checkout/
     
     // Submit to API
     try {
+      // Remove Content-Type to avoid CORS preflight (Apps Script will parse JSON anyway)
       const response = await fetch(API_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
         body: JSON.stringify(orderData)
       });
       
