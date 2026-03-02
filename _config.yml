@@ -11,9 +11,9 @@ author:
   location: "Boca Raton, FL"
 
 # Set your production URL and baseurl for GitHub Pages.
-# This is a project site, so baseurl should match the repository name
-url: "https://anykolaiszyn.github.io"
-baseurl: "/vccweb"
+# Custom domain configuration: vicecitycigars.com
+url: "https://vicecitycigars.com"
+baseurl: ""
 
 # Social Media Links
 social:
@@ -59,6 +59,7 @@ exclude:
   - tobacco-shop-backup.html
   - apps-script-updated.js
   - CODE-REVIEW-REPORT.md
+  - _notes
 
 # Jekyll Plugins
 plugins:

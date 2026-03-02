@@ -1,0 +1,147 @@
+---
+layout: default
+---
+<div class="blb-content">
+  {{ content }}
+</div>
+
+<style>
+/* Black Leaf Bounty Theme Override */
+:root {
+  /* BLB Color Palette - Pirate/Renaissance */
+  --blb-gold: #C9A84C;
+  --blb-dark: #1A0F00;
+  --blb-parchment: #F2E8D5;
+  --blb-crimson: #8B1A1A;
+  --blb-black: #0D0D0D;
+
+  /* BLB Typography */
+  --font-blb-heading: 'Cinzel Decorative', serif;
+  --font-blb-body: 'Crimson Text', serif;
+}
+
+/* BLB Layout Override */
+.site-header,
+.site-footer {
+  background: linear-gradient(135deg, var(--blb-dark) 0%, var(--blb-black) 100%);
+  border-bottom: 2px solid var(--blb-gold);
+  border-top: none;
+}
+
+.site-footer {
+  border-top: 2px solid var(--blb-gold);
+  border-bottom: none;
+}
+
+.site-header h1,
+.site-header a,
+.site-footer a {
+  color: var(--blb-parchment);
+}
+
+.site-header a:hover,
+.site-footer a:hover {
+  color: var(--blb-gold);
+}
+
+.blb-content h1,
+.blb-content h2,
+.blb-content h3,
+.blb-content h4,
+.blb-content h5,
+.blb-content h6 {
+  font-family: var(--font-blb-heading);
+  color: var(--blb-gold);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.blb-content {
+  color: var(--blb-parchment);
+}
+
+.blb-content p,
+.blb-content li {
+  font-family: var(--font-blb-body);
+  line-height: 1.8;
+}
+
+.blb-content a {
+  color: var(--blb-crimson);
+  text-decoration: underline;
+}
+
+.blb-content a:hover {
+  color: var(--blb-gold);
+}
+
+/* BLB Card Styling */
+.blb-card {
+  background: rgba(26, 15, 0, 0.6);
+  border: 2px solid var(--blb-gold);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.blb-card h3 {
+  border-bottom: 1px solid var(--blb-gold);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* BLB Button Styling */
+.blb-btn {
+  background: var(--blb-crimson);
+  color: var(--blb-parchment);
+  border: 1px solid var(--blb-gold);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  transition: all 0.3s ease;
+  font-family: var(--font-blb-body);
+}
+
+.blb-btn:hover {
+  background: var(--blb-gold);
+  color: var(--blb-dark);
+  border-color: var(--blb-parchment);
+}
+
+/* Ensure compliance footer is styled in BLB */
+.compliance-disclaimer {
+  color: var(--blb-parchment);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* BLB Table Styling */
+.blb-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: rgba(26, 15, 0, 0.4);
+}
+
+.blb-content table th,
+.blb-content table td {
+  border: 1px solid var(--blb-gold);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.blb-content table th {
+  background: rgba(201, 168, 76, 0.2);
+  color: var(--blb-gold);
+  font-family: var(--font-blb-heading);
+}
+
+.blb-content table td {
+  color: var(--blb-parchment);
+}
+
+.blb-content table tr:nth-child(even) {
+  background: rgba(26, 15, 0, 0.2);
+}
+</style>

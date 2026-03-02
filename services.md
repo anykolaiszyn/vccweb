@@ -12,21 +12,21 @@ Vice City Cigars transforms any event into a tropical smoking paradise. We bring
 <div class="services-overview">
   <div class="overview-card">
     <h3>🎉 Essential Package</h3>
-    <p><strong>Starting at $200 + travel</strong> • Intimate gatherings</p>
+    <p><strong>Contact for Pricing</strong> • Intimate gatherings</p>
     <p>Premium cigars, mobile setup, expert host</p>
     <a href="#essential-package" class="btn btn-secondary">Learn More</a>
   </div>
   
   <div class="overview-card">
     <h3>🌟 Premium Package</h3>
-    <p><strong>Starting at $350 + travel</strong> • Full tropical experience</p>
+    <p><strong>Contact for Pricing</strong> • Full tropical experience</p>
     <p>Rare cigars, pipes, enhanced setup</p>
     <a href="#premium-package" class="btn btn-secondary">Learn More</a>
   </div>
   
   <div class="overview-card">
     <h3>💎 Luxury Package</h3>
-    <p><strong>Starting at $500 + travel</strong> • Ultimate indulgence</p>
+    <p><strong>Contact for Pricing</strong> • Ultimate indulgence</p>
     <p>Hookahs, exclusive selections, bespoke design</p>
     <a href="#luxury-package" class="btn btn-secondary">Learn More</a>
   </div>

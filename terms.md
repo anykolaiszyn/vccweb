@@ -1,53 +1,63 @@
 ---
 layout: page
 title: Terms & Conditions
+description: Terms and conditions for Vice City Cigars event services
 ---
 
 # Terms & Conditions
 
-**LEGAL NOTICE: CIGARS ON VICECITYCIGARS.COM ARE NOT INTENDED FOR ANYONE UNDER THE AGE OF 21.**
-
-By placing an order with Vice City Cigars (VCC), you agree to all terms and conditions outlined below.
+**LEGAL NOTICE: Vice City Cigars services are intended for adults 21 years of age or older only**
 
 ---
 
-## General Terms
+## Tobacco Product Compliance
 
-Prices on ViceCityCigars.com are subject to change without notice. Vice City Cigars is not responsible for typographical errors. Special orders for related merchandise can be filled upon request.
+Vice City Cigars provides mobile tobacco and cigar services across South Florida. All services are 21+ only and comply with federal and state tobacco regulations.
 
-### Order Requirements
-- **Minimum Order:** $25.00 (orders under $25 will not be filled)
-- **Age Requirement:** Must be 21 years of age or older
-- **Payment Methods:** Valid credit card or PayPal
-- **Order Confirmation:** No order is binding until accepted via email/phone confirmation
+### Age Requirement
+- All attendees must be 21+ years of age
+- Vice City Cigars reserves the right to request age verification (ID) on-site
+- Event hosts are responsible for ensuring all attendees meet age requirements
+- Sales to minors are strictly prohibited
 
-### Shipping & Delivery
-- **Shipping Methods:** UPS or USPS
-- **Valid Address Required:** Items must be shipped to a valid address
-- **Signature:** May be required for delivery
-- **Processing Time:** Up to 5 business days due to availability
-
----
-
-## Age Verification
-
-### Why We Verify Age
-As per FDA regulations, VCC is required to ensure that we do not sell our products to anyone under the age of 21. To verify customer ages and protect against fraud, we require:
-
-- Date of birth verification upon site entry
-- Account setup with valid birth date
-- Manual verification via phone confirmation when necessary
-- Driver's License number and background check (when required)
+### Tobacco Disclaimer
+- Tobacco use is harmful to your health
+- This website contains tobacco product information intended for adults only
+- We do not offer free samples
 
 ---
 
-## Security & Privacy
+## Event Booking Terms
 
-### Transaction Security
-We guarantee that every transaction at VCC will be 100% safe:
-- **SSL Encryption:** Secure server software protects your information 24/7
-- **Data Protection:** Personal information, including credit card numbers, names, and addresses are encrypted
-- **Fraud Prevention:** Cutting-edge technology safeguards all transactions
+### Booking & Cancellation
+- Event bookings require 48 hours notice minimum
+- Deposits may be required to secure your event date
+- Cancellations made 7+ days in advance receive full refund
+- Cancellations within 7 days may incur deposit forfeiture
+- Weather-related cancellations will be rescheduled at no charge
+
+### Event Conduct
+- Vice City Cigars reserves the right to decline service for events we determine to be unsafe or non-compliant
+- Event hosts are responsible for guest conduct
+- Tobacco products are provided for on-premise use only
+- No tobacco product removal from event site without prior agreement
+
+### Liability
+- Guests use tobacco products at their own risk
+- Vice City Cigars is not responsible for allergic reactions, smoke sensitivity, or health complications
+- Event hosts indemnify Vice City Cigars from liability related to guest injury or misconduct
+
+---
+
+## Contact & Service Inquiries
+
+For questions regarding these terms, contact:
+- **Email:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
+- **Phone:** [561-331-0497](tel:+15613310497)
+
+---
+
+Last updated: March 2, 2026
 
 ### Privacy Policy
 - Information collected is used to notify customers about website updates and periodic specials

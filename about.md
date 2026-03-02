@@ -1,6 +1,7 @@
 ---
 layout: page
-title: About
+title: About Vice City Cigars
+description: Learn the story of Vice City Cigars and our commitment to quality, expertise, and community in South Florida
 ---
 
 # About Vice City Cigars

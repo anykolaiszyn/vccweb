@@ -1,53 +1,99 @@
 ---
 layout: page
 title: Privacy Policy
+description: Privacy policy for Vice City Cigars
 ---
 
 # Privacy Policy
 
-Thank you for visiting ViceCityCigars.com. This Privacy Policy explains how we collect, share, and use information about you when using our online services from any device.
+Thank you for visiting ViceCityCigars.com. This Privacy Policy explains how we collect, share, and use information about you when using our website and booking event services.
 
 ---
 
 ## Information We Collect
 
 ### Information You Provide
-We may collect information that you provide directly through:
-- Email notification sign-ups
-- User account creation
-- Contact form submissions
-- Customer service interactions
+We collect information you provide when you:
+- Submit a contact or booking request form
+- Email or call us for event inquiries
+- Subscribe to event updates or newsletters
 
-**Personal Information** includes information that identifies you personally:
-- Name, phone number, date of birth, address
-- Demographic information (preferences, age, gender, recent purchases)
-
-**Note:** De-identified information (with personal indicators removed) may be shared at our discretion, except when prohibited by law.
+**Personal Information** may include:
+- Name, phone number, email address
+- Event date, location, and guest count
+- Any special event requirements or notes you provide
 
 ### Automatically Collected Information
-We and our third-party providers may automatically collect:
-- IP address
-- Browser type and device type
-- Information about how you use our services
-- Usage patterns and behavior
+Like most websites, we automatically collect:
+- IP address and browser type
+- Pages you visit on our site
+- How you found our website
 
 ---
 
-## Tracking Technologies
+## How We Use Your Information
 
-### Types of Tracking Technologies Used
+- **Event Coordination:** To respond to inquiries and coordinate event services
+- **Communication:** To contact you regarding your event, updates, or promotional offers
+- **Website Improvement:** To improve our website experience and content
+- **Legal Compliance:** To comply with tobacco age verification requirements
 
-#### Cookies
-- **Session Cookies:** Make navigation easier, expire when browser closes
-- **Tracking Cookies:** Remain longer to understand usage and enhance experience
-- **Flash Cookies:** Data files via Adobe Flash plug-in
-- **HTML5 Cookies:** Programmed through HTML5 local storage
+---
 
-#### Web Beacons (Tracking Pixels)
-- Small graphic images in web pages and emails
-- Used to count visitors, monitor navigation, and count content views
+## Information Sharing
 
-#### Other Technologies
+We do **not sell** your personal information to third parties.
+
+We may share information with:
+- Event venue staff (to coordinate your event)
+- Service providers who assist with email/website hosting
+- Law enforcement or legal authorities when required by law
+
+---
+
+## Cookies & Tracking
+
+### Session Cookies
+We use temporary cookies to:
+- Remember your age verification status during your session
+- Improve website navigation and performance
+
+### Analytics
+We may use analytics tools (e.g., Google Analytics) to understand:
+- How visitors use our website
+- Which pages are most popular
+- How to improve our content
+
+You can disable cookies in your browser settings, though some website features may not function properly.
+
+---
+
+## Age Verification
+
+Per federal regulations, we verify that all website visitors and event attendees are 21 years of age or older. We use sessionStorage to temporarily store age verification during your browser session.
+
+---
+
+## Data Security
+
+We take reasonable precautions to protect your information:
+- Secure web forms (HTTPS encryption)
+- Limited staff access to personal data
+- Prompt response to data breach incidents
+
+While we strive to protect your information, no internet transmission is 100% secure.
+
+---
+
+## Contact Us
+
+For questions about this Privacy Policy or to request removal of your information, contact:
+- **Email:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
+- **Phone:** [561-331-0497](tel:+15613310497)
+
+---
+
+Last updated: March 2, 2026
 - **Embedded Scripts:** Programming code to collect interaction information
 - **Location-Identifying Technologies:** GPS and geo-filtering for location-based features
 - **Fingerprinting:** Collection of device information for identification

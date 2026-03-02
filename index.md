@@ -1,6 +1,7 @@
 ---
-layout: page
-title: Home
+layout: home
+title: Vice City Cigars — Your Mobile Tropical Smoking Oasis
+description: Premium mobile cigar, pipe, and hookah services for events across South Florida
 ---
 
 <section class="hero">
@@ -45,6 +46,12 @@ title: Home
       <a href="{{ '/contact' | relative_url }}" class="btn btn-secondary">Request a Callback</a>
     </div>
   </div>
+</section>
+
+<section class="blb-teaser">
+  <h2>Black Leaf Bounty</h2>
+  <p>Step into a different era. Black Leaf Bounty is our pirate-themed sub-brand, found at Renaissance Fairs and venues across South Florida. Premium tobacco selections, period-appropriate atmosphere, and the adventure of tobacco history.</p>
+  <a href="{{ '/black-leaf-bounty' | relative_url }}" class="btn btn-secondary">Explore Black Leaf Bounty</a>
 </section>
 
 <section class="testimonials">
