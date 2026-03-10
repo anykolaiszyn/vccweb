@@ -86,6 +86,16 @@ defaults:
       type: "pages"
     values:
       layout: "page"
+  - scope:
+      path: "vice-city"
+      type: "pages"
+    values:
+      layout: "miami"
+  - scope:
+      path: "black-leaf-bounty"
+      type: "pages"
+    values:
+      layout: "blb"
 
 # SEO Settings
 logo: /assets/img/vcclogoclear.png

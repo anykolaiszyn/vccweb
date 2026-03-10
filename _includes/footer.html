@@ -1,4 +1,10 @@
 <footer class="site-footer">
+  {% assign footer_brand = 'neutral' %}
+  {% if page.url contains '/black-leaf-bounty/' or page.brand == 'pirate' %}
+    {% assign footer_brand = 'pirate' %}
+  {% elsif page.url contains '/vice-city/' or page.brand == 'miami' %}
+    {% assign footer_brand = 'miami' %}
+  {% endif %}
   <div class="container footer-flex">
     <div class="footer-brand">
       <img src="{{ '/assets/img/vcclogoclear.png' | relative_url }}" alt="Vice City Cigars logo small" width="60" height="auto">
@@ -16,8 +22,12 @@
         <a href="{{ '/terms' | relative_url }}">Terms & Conditions</a> | 
         <a href="{{ '/privacy' | relative_url }}">Privacy Policy</a> | 
         <a href="{{ '/shipping' | relative_url }}">Shipping</a> | 
-        <a href="{{ '/refund' | relative_url }}">Returns</a>
+        <a href="{{ '/refund' | relative_url }}">Returns</a> |
+        <a href="{{ '/' | relative_url }}" title="Choose Miami or Black Leaf Bounty experience">Switch Experience</a>
       </div>
+      {% if footer_brand != 'neutral' %}
+      <p class="compliance-disclaimer">Current experience: {{ footer_brand | capitalize }}</p>
+      {% endif %}
     </div>
     <div class="footer-social">
       <a href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">

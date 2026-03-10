@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const mainNav = document.querySelector('.main-nav');
   
   if (mobileMenuToggle && mainNav) {
+    // Bind once to avoid stacking duplicate handlers each time the menu is toggled.
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mainNav.classList.remove('active');
+      });
+    });
+
     mobileMenuToggle.addEventListener('click', function() {
       const isExpanded = this.getAttribute('aria-expanded') === 'true';
       
@@ -12,15 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Toggle navigation visibility
       mainNav.classList.toggle('active');
-      
-      // Close menu when clicking on navigation links
-      const navLinks = mainNav.querySelectorAll('a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          mobileMenuToggle.setAttribute('aria-expanded', 'false');
-          mainNav.classList.remove('active');
-        });
-      });
     });
     
     // Close menu when clicking outside

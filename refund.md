@@ -11,9 +11,11 @@ All merchandise from Vice City Cigars leaves our warehouse in perfect condition.
 
 ## Order Cancellation
 
-### Before Shipping
+### Before Shipping (not yet shipped)
 - **Restocking Fee:** 15% of order total
 - **Refund Amount:** 85% of charges will be refunded
+
+> **Note:** Cancellation fees (15%) apply before the order ships. Return/restocking fees (25–30%) apply to items already received. These are separate fee structures.
 
 ---
 

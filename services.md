@@ -1,83 +1,15 @@
 ---
 layout: page
-title: Services
+title: Redirecting To Experience Chooser
+permalink: /services/
 ---
 
-# Mobile Smoking Services
+<meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
+<script>window.location.replace('{{ '/' | relative_url }}');</script>
 
-Vice City Cigars transforms any event into a tropical smoking paradise. We bring the complete mobile lounge experience—boutique & premium products, expert hosts, and that laid-back Miami energy that makes every gathering unforgettable.
+# Redirecting
 
-## Quick Overview
-
-<div class="services-overview">
-  <div class="overview-card">
-    <h3>🎉 Essential Package</h3>
-    <p><strong>Contact for Pricing</strong> • Intimate gatherings</p>
-    <p>Premium cigars, mobile setup, expert host</p>
-    <a href="#essential-package" class="btn btn-secondary">Learn More</a>
-  </div>
-  
-  <div class="overview-card">
-    <h3>🌟 Premium Package</h3>
-    <p><strong>Contact for Pricing</strong> • Full tropical experience</p>
-    <p>Rare cigars, pipes, enhanced setup</p>
-    <a href="#premium-package" class="btn btn-secondary">Learn More</a>
-  </div>
-  
-  <div class="overview-card">
-    <h3>💎 Luxury Package</h3>
-    <p><strong>Contact for Pricing</strong> • Ultimate indulgence</p>
-    <p>Hookahs, exclusive selections, bespoke design</p>
-    <a href="#luxury-package" class="btn btn-secondary">Learn More</a>
-  </div>
-</div>
-
-<div class="value-props">
-  <div class="prop-card">
-    <h4>🧠 Neurodivergent-Friendly</h4>
-    <p>Detailed communication, clear expectations, sensory-conscious setups</p>
-  </div>
-  <div class="prop-card">
-    <h4>⚔️ Renaissance Expertise</h4>
-    <p>Period-accurate presentations, historical knowledge, authentic atmosphere</p>
-  </div>
-  <div class="prop-card">
-    <h4>🏢 Corporate Ready</h4>
-    <p>Professional service, luxury presentation, business-appropriate hosting</p>
-  </div>
-</div>
-
----
-
-## Our Mobile Services
-
-### 🚐 Full Mobile Setup
-We arrive with everything needed to create an instant tropical smoking lounge:
-- Professional display and seating area setup
-- Climate-controlled mobile humidor
-- Complete cutting and lighting station
-- Flavoring and pairing station
-- Expert hosts and guides
-
-### 📦 Premium Product Selection
-- **Boutique & Premium Cigars:** Hand-selected rare finds, limited releases, and exceptional everyday smokes
-- **Artisan Pipes:** Classic briars, handcrafted pieces, period-appropriate options for Renaissance events
-- **Premium Tobacco Blends:** Traditional and modern blends, fair-exclusive selections
-- **Exquisite Hookahs:** Top-tier shisha, multiple flavor options, group-friendly setups
-
-### 👨‍🎓 Expert Hospitality
-- Knowledgeable hosts who love sharing the culture
-- Personalized recommendations based on experience level
-- Pairing suggestions for drinks and food
-- Educational component for newcomers
-- Professional service throughout your event
-
-### 🧠 Neurodivergent-Friendly Approach
-- **Clear Communication:** Detailed event timelines provided in advance
-- **Sensory Considerations:** Quieter spaces available, sensory descriptions provided upfront
-- **No Pressure Environment:** Take your time, ask questions, no judgment
-- **Systematic Service:** Consistent setup procedures, reliable timing, familiar processes
-- **Accommodation Ready:** Need modifications? Just ask—we adapt to your comfort needs
+Selecting your preferred experience...
 
 ## Event Types We Love
 - **Private Events** — Birthdays, anniversaries, bachelor/bachelorette parties, celebrations

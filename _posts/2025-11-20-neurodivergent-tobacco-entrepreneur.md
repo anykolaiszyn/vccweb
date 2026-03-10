@@ -3,6 +3,7 @@ layout: post
 title: "Late Diagnosis at 42: How Neurodivergence Makes Me a Better Tobacco Curator"
 date: 2025-11-20
 categories: [entrepreneurship, neurodivergent, personal]
+brand: both
 author: Vice City Cigars
 excerpt: "Being diagnosed with ADHD and autism in my 40s didn't just explain my past—it revealed my competitive advantage in the tobacco industry."
 image: /assets/img/gallery/pipes.jpg

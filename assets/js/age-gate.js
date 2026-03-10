@@ -1,5 +1,5 @@
 // assets/js/age-gate.js
-// Age verification gate: 21+ confirmation with sessionStorage (per-session only)
+// Age verification gate: 21+ confirmation with 30-day localStorage persistence.
 (function() {
   var modal = document.getElementById('age-gate-modal');
   var overlay = document.getElementById('age-gate-overlay');
@@ -7,17 +7,31 @@
   var yesBtn = document.getElementById('age-gate-yes');
   var noBtn = document.getElementById('age-gate-no');
   var storageKey = 'vcc-age-verified';
+  var maxAgeMs = 30 * 24 * 60 * 60 * 1000;
 
   function isVerified() {
     try {
-      var v = sessionStorage.getItem(storageKey);
-      return (v === 'yes');
+      var raw = localStorage.getItem(storageKey);
+      if (!raw) return false;
+      if (raw === 'yes') return true;
+
+      var parsed = JSON.parse(raw);
+      if (!parsed || parsed.value !== 'yes' || !parsed.ts) {
+        return false;
+      }
+
+      if ((Date.now() - parsed.ts) > maxAgeMs) {
+        localStorage.removeItem(storageKey);
+        return false;
+      }
+
+      return true;
     } catch (e) { return false; }
   }
 
   function setVerified() {
     try {
-      sessionStorage.setItem(storageKey, 'yes');
+      localStorage.setItem(storageKey, JSON.stringify({ value: 'yes', ts: Date.now() }));
     } catch (e) {}
   }
 

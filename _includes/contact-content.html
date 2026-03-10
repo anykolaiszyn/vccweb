@@ -1,0 +1,46 @@
+## Quick Contact
+
+- Call or Text: [561-331-0491](tel:+15613310491)
+- Email: [vccigar@gmail.com](mailto:vccigar@gmail.com)
+
+<form id="contact-form" action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required aria-required="true">
+
+  <label for="phone">Phone</label>
+  <input type="tel" id="phone" name="phone" required aria-required="true" pattern="[0-9\-\(\)\s]+">
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required aria-required="true">
+
+  <label for="event-type">Event Type</label>
+  <select id="event-type" name="event-type">
+    <option value="">Select event type...</option>
+    <option value="Wedding">Wedding</option>
+    <option value="Corporate Event">Corporate Event</option>
+    <option value="Private Party">Private Party</option>
+    <option value="Birthday">Birthday</option>
+    <option value="Fundraiser">Fundraiser</option>
+    <option value="Brand Activation">Brand Activation</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <label for="date">Event Date</label>
+  <input type="date" id="date" name="date">
+
+  <label for="location">Event Location</label>
+  <input type="text" id="location" name="location">
+
+  <label for="guests">Guest Count</label>
+  <input type="number" id="guests" name="guests" min="1">
+
+  <label for="notes">Additional Notes</label>
+  <textarea id="notes" name="notes" rows="4"></textarea>
+
+  <button type="submit" class="btn btn-primary">Send Request</button>
+  <a class="btn btn-secondary" href="mailto:vccigar@gmail.com?subject=Event%20Booking%20Request">Use Email Instead</a>
+</form>
+
+<p class="legal-reminder">21+ only. We do not offer free samples.</p>

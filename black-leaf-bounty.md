@@ -92,4 +92,32 @@ Have questions about Black Leaf Bounty or want to know when we're appearing at a
 
 ---
 
+## Set Your Course
+
+<div class="blb-card">
+	<h3>Ship's Store</h3>
+	<p>Our pirate-themed tobacco storefront is launching soon with curated drops and event bundles.</p>
+	<a class="blb-btn" href="{{ '/black-leaf-bounty/shop/' | relative_url }}">Visit Ship's Store (Coming Soon)</a>
+</div>
+
+<div class="blb-card">
+	<h3>Events And Voyages</h3>
+	<p>See upcoming fair appearances and recent dispatches from Renaissance events.</p>
+	<a class="blb-btn" href="{{ '/black-leaf-bounty/events/' | relative_url }}">View Events</a>
+</div>
+
+<div class="blb-card">
+	<h3>Captain's Log</h3>
+	<p>Read stories, educational notes, and behind-the-scenes moments from The Black Leaf Bounty.</p>
+	<a class="blb-btn" href="{{ '/black-leaf-bounty/blog/' | relative_url }}">Open Captain's Log</a>
+</div>
+
+<div class="blb-card">
+	<h3>Pipe And Tobacco Learning Deck</h3>
+	<p>Build confidence with pipe setup, blend guidance, and practical smoking technique.</p>
+	<a class="blb-btn" href="{{ '/black-leaf-bounty/learn/' | relative_url }}">Start Learning</a>
+</div>
+
+[Services]({{ '/black-leaf-bounty/services/' | relative_url }}) | [About]({{ '/black-leaf-bounty/about/' | relative_url }}) | [Gallery]({{ '/black-leaf-bounty/gallery/' | relative_url }}) | [Contact]({{ '/black-leaf-bounty/contact/' | relative_url }})
+
 [← Back to Vice City Cigars]({{ '/' | relative_url }})

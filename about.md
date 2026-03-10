@@ -1,82 +1,15 @@
 ---
 layout: page
-title: About Vice City Cigars
-description: Learn the story of Vice City Cigars and our commitment to quality, expertise, and community in South Florida
+title: Redirecting To Experience Chooser
+permalink: /about/
 ---
 
-# About Vice City Cigars
+<meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
+<script>window.location.replace('{{ '/' | relative_url }}');</script>
 
-Welcome to Vice City Cigars—your mobile tropical smoking oasis. Born from the sun-soaked streets of Boca Raton and inspired by the electric energy of Miami, we bring quality, expertise, community, and authenticity to every single event.
+# Redirecting
 
-## Our Mission
-To deliver premium smoking experiences with that perfect blend of laid-back tropical vibes and expert hospitality. We don't just bring cigars—we bring the entire culture.
-
-## Our Values
-- **Quality:** Only the finest hand-selected cigars, artisan pipes, and premium tobacco make the cut.
-- **Expertise:** Our friendly, knowledgeable hosts are passionate about the craft and love sharing that passion.
-- **Community:** Every event is about bringing people together, creating connections, one perfect smoke at a time.
-- **Authenticity:** Real passion, real products, real connections. No pretense, just pure love for the leaf.
-
-## Our Story
-Founded by true aficionados who understand that great cigars are about more than smoke—they're about moments, memories, and the people you share them with. Whether you're celebrating a milestone, closing a deal, or just want to elevate your gathering, we create that perfect tropical lounge atmosphere anywhere in South Florida.
-
-### Brand Origin
-Vice City Cigars was born out of a desire to create a different cigar experience—one that brings the luxury of cigars to the people in a laid-back, approachable manner. Inspired by the relaxed vibes of Miami Vice, our brand reflects the founder's roots and passion for making cigars enjoyable for everyone.
-
-### Our Unique Approach
-We set ourselves apart by being approachable and enthusiastic about educating our customers. Our mobile tropical smoking oasis brings a safe, judgment-free zone to your event, whether it's through our table setups, mobile humidor, or large tent. We partner with communities and events that welcome and appreciate our presence.
-
-From intimate private parties to grand corporate events, we bring the Vice City experience to you.
-
----
-
-## Products & Services
-
-### Curated Product Range
-We offer a carefully selected collection of:
-- **Premium cigars** from both major brands and local artisans
-- **Pipe-smoking products** for an underserved community we're dedicated to supporting
-- **Hookah offerings** reflecting the cultural ties to tobacco
-- **Educational experiences** ensuring your first experience is memorable, like the first sip of great wine or fine liquor
-
-### Event Services We Love
-We cater to a wide range of events, transforming gatherings with unique features:
-- **Weddings & Corporate Gatherings**
-- **City Festivals & Private Parties**
-- **Fundraisers & Community Events**
-- **Renaissance Fairs & Themed Events**
-
-#### Special Features
-- **4ft Tall Cigar Lighter:** Perfect for social media moments
-- **Professional Cutting Station:** Expert cuts and lighting
-- **Flavoring Service:** Gently brushing cigars with host-provided spirits
-- **Mobile Humidor:** Climate-controlled premium storage
-
----
-
-## Team & Expertise
-At the helm is Alexander, the passionate owner, supported by a rotating team of event staff. Our team brings a fresh take on the cigar experience, ensuring everyone understands the basics and can demystify common questions. We are dedicated to enhancing the customer experience through education and professional service.
-
-### Customer Experience
-Our customers frequently tell us how much they've learned and how happy they are with our services. The feedback we receive is overwhelmingly positive, highlighting the new knowledge and enjoyment our clients gain from their interactions with us.
-
----
-
-## Community & Engagement
-We actively engage with the local community and the larger cigar and tobacco enthusiast community by participating in:
-- Public sales and farmers markets
-- Beer festivals and renaissance fairs
-- Themed events and cultural celebrations
-- Educational workshops and tastings
-
-These events allow us to connect with a diverse audience and share our passion for tobacco pipes and cigars.
-
-### Social Media & Online Presence
-Connect with us on Instagram and via text message to stay updated on:
-- Events we're attending
-- Educational content about cigars, pipes, and tobacco
-- Glimpses of our customers' experiences
-- Unique themed events we participate in
+Selecting your preferred experience...
 
 Join our vibrant community and follow our journey!
 

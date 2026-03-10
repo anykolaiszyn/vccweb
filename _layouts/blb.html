@@ -1,9 +1,17 @@
----
-layout: default
----
-<div class="blb-content">
-  {{ content }}
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    {% include age-gate.html %}
+    {% include header-blb.html %}
+    <main class="container" id="main-content" role="main" tabindex="-1">
+      <div class="blb-content">
+        {{ content }}
+      </div>
+    </main>
+    {% include footer.html %}
+  </body>
+</html>
 
 <style>
 /* Black Leaf Bounty Theme Override */

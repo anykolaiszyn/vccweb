@@ -1,0 +1,196 @@
+---
+layout: default
+---
+<style>
+  /* Chooser layout: use default shell for age gate, hide site chrome for split decision screen. */
+  .site-header,
+  .site-footer {
+    display: none;
+  }
+
+  #main-content.container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .experience-chooser {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #0a0a2e;
+  }
+
+  .chooser-skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .chooser-skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    z-index: 10001;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: #101a3f;
+    color: #ffffff;
+    border: 2px solid #ffcc66;
+  }
+
+  .experience-panel {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    padding: 2rem;
+    transition: transform 220ms ease, filter 220ms ease;
+  }
+
+  .experience-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.85;
+    z-index: -2;
+  }
+
+  .experience-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+    z-index: -1;
+  }
+
+  .experience-panel:hover,
+  .experience-panel:focus-visible {
+    transform: scale(1.01);
+    filter: brightness(1.08);
+  }
+
+  .experience-panel:focus-visible {
+    outline: 4px solid #ffcc66;
+    outline-offset: -4px;
+  }
+
+  .miami-panel::before {
+    background:
+      linear-gradient(135deg, rgba(10, 10, 46, 0.98), rgba(255, 20, 147, 0.35)),
+      radial-gradient(circle at 20% 10%, rgba(0, 255, 255, 0.4), rgba(0, 0, 0, 0));
+  }
+
+  .pirate-panel::before {
+    background:
+      linear-gradient(135deg, rgba(13, 13, 13, 0.98), rgba(139, 26, 26, 0.45)),
+      radial-gradient(circle at 80% 15%, rgba(201, 168, 76, 0.45), rgba(0, 0, 0, 0));
+  }
+
+  .panel-content {
+    max-width: 34rem;
+    text-align: center;
+    padding: 2.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.38);
+  }
+
+  .panel-kicker {
+    margin: 0 0 0.65rem 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  .panel-title {
+    margin: 0;
+    font-size: clamp(2rem, 3.6vw, 3.5rem);
+    line-height: 1.08;
+  }
+
+  .panel-description {
+    margin: 1rem 0 0;
+    font-size: clamp(1rem, 1.35vw, 1.2rem);
+    line-height: 1.6;
+  }
+
+  .panel-cta {
+    display: inline-block;
+    margin-top: 1.4rem;
+    padding: 0.72rem 1.15rem;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.86rem;
+  }
+
+  @media (max-width: 900px) {
+    .experience-chooser {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .experience-panel {
+      min-height: 50vh;
+    }
+
+    .panel-content {
+      max-width: 28rem;
+      padding: 1.7rem;
+    }
+  }
+</style>
+
+<a class="chooser-skip-link" href="#experience-chooser-main">Skip to experience chooser</a>
+
+<section class="experience-chooser" id="experience-chooser-main" aria-label="Choose your Vice City Cigars experience">
+  <a class="experience-panel miami-panel" href="{{ '/vice-city/' | relative_url }}" data-brand-choice="miami">
+    <div class="panel-content">
+      <p class="panel-kicker">Left Experience</p>
+      <h1 class="panel-title">Vice City Cigars</h1>
+      <p class="panel-description">Sleek tropical neon lounge with premium cigars, modern event vibes, and Miami Vice energy.</p>
+      <span class="panel-cta">Enter Tropical Oasis</span>
+    </div>
+  </a>
+
+  <a class="experience-panel pirate-panel" href="{{ '/black-leaf-bounty/' | relative_url }}" data-brand-choice="pirate">
+    <div class="panel-content">
+      <p class="panel-kicker">Right Experience</p>
+      <h1 class="panel-title">The Black Leaf Bounty</h1>
+      <p class="panel-description">Renaissance pirate adventure with rich pipe culture, live events, and old-world tobacco storytelling.</p>
+      <span class="panel-cta">Board The Black Leaf Bounty</span>
+    </div>
+  </a>
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  var links = document.querySelectorAll('[data-brand-choice]');
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      try {
+        localStorage.setItem('vcc-brand', link.getAttribute('data-brand-choice'));
+      } catch (err) {
+        // Ignore storage failures and continue to selected experience.
+      }
+    });
+  });
+})();
+</script>

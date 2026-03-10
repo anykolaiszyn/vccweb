@@ -1,18 +1,12 @@
 ---
 layout: page
-title: Blog
+title: Redirecting To Experience Chooser
+permalink: /blog/
 ---
 
-# Vice City Cigars Blog
+<meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
+<script>window.location.replace('{{ '/' | relative_url }}');</script>
 
-Welcome to our blog! Here you’ll find event recaps, cigar tips, pairings, and staff picks.
+# Redirecting
 
-<ul class="blog-list">
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span class="blog-date">{{ post.date | date: "%b %d, %Y" }}</span>
-      <p>{{ post.excerpt }}</p>
-    </li>
-  {% endfor %}
-</ul>
+Selecting your preferred experience...
