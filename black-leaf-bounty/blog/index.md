@@ -7,7 +7,7 @@ description: "Dispatches from fairs, pirate culture, and tobacco craft on The Bl
 
 # Captain's Log
 
-Field notes, fair stories, and craft insights from The Black Leaf Bounty.
+Field notes, fair stories, and tobacconist insights from the road. Expect dispatches that keep one foot in merchant lore and the other in practical tobacco knowledge.
 
 <ul class="blog-list">
   {% assign captains_log_posts = site.posts | where_exp: "post", "post.categories contains 'renaissance' or post.categories contains 'culture' or post.categories contains 'events'" %}
