@@ -13,7 +13,7 @@ author:
 # Set your production URL and baseurl for GitHub Pages.
 # Custom domain configuration: vicecitycigars.com
 url: "https://vicecitycigars.com"
-baseurl: ""
+baseurl: "/vccweb"
 
 # Social Media Links
 social:

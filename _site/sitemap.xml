@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Home Page -->
   <url>
-    <loc>https://vicecitycigars.com/</loc>
-    <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+    <loc>https://vicecitycigars.com/vccweb/</loc>
+    <lastmod>2026-03-11T16:21:58-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,20 +12,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/404.html</loc>
+      <loc>https://vicecitycigars.com/vccweb/404.html</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/about/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -34,20 +23,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/vice-city/about/</loc>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/about/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/about/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -56,20 +34,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/</loc>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/about/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/tobacco-shop/cart/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -78,20 +45,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/tobacco-shop/checkout/</loc>
+      <loc>https://vicecitycigars.com/vccweb/about/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/contact/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -100,20 +56,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/vice-city/contact/</loc>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/contact/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -122,20 +67,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/events/</loc>
+      <loc>https://vicecitycigars.com/vccweb/tobacco-shop/cart/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/vice-city/events/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -144,20 +78,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/events/</loc>
+      <loc>https://vicecitycigars.com/vccweb/tobacco-shop/checkout/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/gallery/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -166,20 +89,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/vice-city/gallery/</loc>
+      <loc>https://vicecitycigars.com/vccweb/contact/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/blog/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -188,20 +100,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/vice-city/blog/</loc>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/contact/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/vice-city/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -210,20 +111,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/blog/</loc>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/contact/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -232,20 +122,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/learn/</loc>
+      <loc>https://vicecitycigars.com/vccweb/events/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/learn/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -254,20 +133,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/vice-city/learn/</loc>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/events/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/privacy/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -276,20 +144,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/tobacco-shop/product/</loc>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/events/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/refund/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -298,20 +155,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/vice-city/services/</loc>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/gallery/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/services/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -320,20 +166,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/services/</loc>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/gallery/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/shipping/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -342,20 +177,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/vice-city/shop/</loc>
+      <loc>https://vicecitycigars.com/vccweb/blog/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/black-leaf-bounty/shop/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -364,9 +188,185 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/sitemap.xml</loc>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/blog/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/blog/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/learn/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/learn/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/learn/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/privacy/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/tobacco-shop/product/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/refund/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/services/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/services/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/services/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/shipping/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/vice-city/shop/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/black-leaf-bounty/shop/</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/sitemap.xml</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -377,20 +377,9 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/terms/</loc>
+      <loc>https://vicecitycigars.com/vccweb/terms/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
-      
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://vicecitycigars.com/thank-you/</loc>
-      
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -399,9 +388,20 @@
   
     
     <url>
-      <loc>https://vicecitycigars.com/feed.xml</loc>
+      <loc>https://vicecitycigars.com/vccweb/thank-you/</loc>
       
-        <lastmod>2026-03-11T16:03:26-04:00</lastmod>
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://vicecitycigars.com/vccweb/feed.xml</loc>
+      
+        <lastmod>2026-03-11T16:21:58-04:00</lastmod>
       
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
@@ -412,28 +412,28 @@
   <!-- Blog Posts -->
   
     <url>
-      <loc>https://vicecitycigars.com/business/renaissance/events/culture/2025/11/25/two-worlds-one-passion/</loc>
+      <loc>https://vicecitycigars.com/vccweb/business/renaissance/events/culture/2025/11/25/two-worlds-one-passion/</loc>
       <lastmod>2025-11-25T00:00:00-05:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
-      <loc>https://vicecitycigars.com/entrepreneurship/neurodivergent/personal/2025/11/20/neurodivergent-tobacco-entrepreneur/</loc>
+      <loc>https://vicecitycigars.com/vccweb/entrepreneurship/neurodivergent/personal/2025/11/20/neurodivergent-tobacco-entrepreneur/</loc>
       <lastmod>2025-11-20T00:00:00-05:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
-      <loc>https://vicecitycigars.com/cigars/beginner-guide/education/2025/11/15/choosing-your-first-cigar/</loc>
+      <loc>https://vicecitycigars.com/vccweb/cigars/beginner-guide/education/2025/11/15/choosing-your-first-cigar/</loc>
       <lastmod>2025-11-15T00:00:00-05:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
-      <loc>https://vicecitycigars.com/events/renaissance/culture/2025/11/10/renaissance-fair-magic/</loc>
+      <loc>https://vicecitycigars.com/vccweb/events/renaissance/culture/2025/11/10/renaissance-fair-magic/</loc>
       <lastmod>2025-11-10T00:00:00-05:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
