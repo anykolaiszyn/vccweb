@@ -138,7 +138,26 @@
 
     <main class="container" id="main-content" role="main" tabindex="-1">
       <style>
-  /* Chooser layout: use default shell for age gate, hide site chrome for split decision screen. */
+  /* Chooser layout: use default shell for age gate, override neutral theme with Miami Vice background */
+  body.neutral-theme {
+    background: var(--gradient-miami-night) !important;
+  }
+  
+  body.neutral-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(rgba(255, 20, 147, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
   .site-header,
   .site-footer {
     display: none;
@@ -149,6 +168,9 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
 
   .experience-chooser {
