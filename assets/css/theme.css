@@ -89,7 +89,8 @@ body {
 /* Miami Vice cyberpunk glass effect on main content */
 .miami-theme main {
   background: var(--vcc-bg-glass);
-  margin: 1rem;
+  margin: 1rem auto;
+  max-width: 1400px;
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-neon);
   padding: 2rem 1.5rem;
@@ -132,7 +133,8 @@ body {
 
 .neutral-theme main {
   background: rgba(255, 255, 255, 0.03);
-  margin: 1rem;
+  margin: 1rem auto;
+  max-width: 1400px;
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1473,6 +1475,20 @@ blockquote::before {
   
   .blog-list li {
     padding: 2rem 1.5rem;
+  }
+  
+  .miami-theme main,
+  .neutral-theme main {
+    margin: 0.5rem auto;
+    padding: 1.5rem 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
   }
   
   form {
