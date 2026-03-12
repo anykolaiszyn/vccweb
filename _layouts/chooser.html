@@ -107,6 +107,19 @@ layout: default
     background: rgba(0, 0, 0, 0.38);
   }
 
+  .panel-logo {
+    display: block;
+    width: min(280px, 72%);
+    height: auto;
+    margin: 0 auto 1rem;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.45));
+  }
+
+  .panel-logo-blb {
+    width: min(320px, 78%);
+  }
+
   .panel-kicker {
     margin: 0 0 0.65rem 0;
     font-size: 0.9rem;
@@ -161,6 +174,7 @@ layout: default
 <section class="experience-chooser" id="experience-chooser-main" aria-label="Choose your Vice City Cigars experience">
   <a class="experience-panel miami-panel" href="{{ '/vice-city/' | relative_url }}" data-brand-choice="miami">
     <div class="panel-content">
+      <img class="panel-logo" src="{{ '/assets/img/vcclogoclear.png' | relative_url }}" alt="Vice City Cigars logo">
       <p class="panel-kicker">Left Experience</p>
       <h1 class="panel-title">Vice City Cigars</h1>
       <p class="panel-description">Sleek tropical neon lounge with premium cigars, modern event vibes, and Miami Vice energy.</p>
@@ -170,6 +184,7 @@ layout: default
 
   <a class="experience-panel pirate-panel" href="{{ '/black-leaf-bounty/' | relative_url }}" data-brand-choice="pirate">
     <div class="panel-content">
+      <img class="panel-logo panel-logo-blb" src="{{ '/assets/images/VCCBLBwb.png' | relative_url }}" alt="The Black Leaf Bounty logo">
       <p class="panel-kicker">Right Experience</p>
       <h1 class="panel-title">The Black Leaf Bounty</h1>
       <p class="panel-description">Renaissance pirate adventure with rich pipe culture, live events, and old-world tobacco storytelling.</p>
