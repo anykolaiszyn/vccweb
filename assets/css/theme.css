@@ -52,7 +52,6 @@
 }
 
 body {
-  background: var(--gradient-miami-night);
   color: var(--vcc-text-light);
   font-family: var(--font-ui);
   font-weight: 400;
@@ -63,8 +62,16 @@ body {
   overflow-x: hidden;
 }
 
+/* ============================================
+   MIAMI VICE THEME (Vice City Cigars brand)
+   ============================================ */
+
+.miami-theme {
+  background: var(--gradient-miami-night);
+}
+
 /* Miami Vice neon grid pattern */
-body::before {
+.miami-theme::before {
   content: '';
   position: fixed;
   top: 0;
@@ -79,8 +86,8 @@ body::before {
   pointer-events: none;
 }
 
-/* Main content with cyberpunk glass effect - Mobile First */
-main {
+/* Miami Vice cyberpunk glass effect on main content */
+.miami-theme main {
   background: var(--vcc-bg-glass);
   margin: 1rem;
   border-radius: var(--radius-large);
@@ -93,7 +100,7 @@ main {
 }
 
 /* Neon corner accents */
-main::before {
+.miami-theme main::before {
   content: '';
   position: absolute;
   top: 0;
@@ -104,7 +111,7 @@ main::before {
   border-radius: var(--radius-large) var(--radius-large) 0 0;
 }
 
-main::after {
+.miami-theme main::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -114,6 +121,27 @@ main::after {
   background: var(--gradient-neon-accent);
   border-radius: 0 0 var(--radius-large) var(--radius-large);
 }
+
+/* ============================================
+   NEUTRAL THEME (Legal and shared pages)
+   ============================================ */
+
+.neutral-theme {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+.neutral-theme main {
+  background: rgba(255, 255, 255, 0.03);
+  margin: 1rem;
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   SHARED STYLES (All themes)
+   ============================================ */
 
 .container {
   max-width: 1200px;
@@ -477,6 +505,18 @@ a:hover, a:focus {
   z-index: 10000;
   font-family: var(--font-ui);
   font-weight: 600;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 /* Mobile-First Navigation */
@@ -1623,6 +1663,7 @@ input.error:focus, textarea.error:focus {
   font-weight: 700;
   font-size: 0.85rem;
   border-bottom: 2px solid;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   font-family: var(--font-ui);
   text-transform: uppercase;
