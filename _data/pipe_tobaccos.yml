@@ -1,0 +1,112 @@
+# Pipe Tobacco Inventory — The Black Leaf Bounty
+# Organized by tobacco family, ascending complexity (Aromatic → English/Balkan)
+# "(BO)" = Bulk Only (Cornell & Diehl designation — no tin, sold by weight)
+# Compliance note: pipe tobacco ordering requires separate PACT Act flow — showcase only until enabled
+
+families:
+  - name: Aromatic
+    description: "Room-friendly aroma with a flavor casing over the tobacco. The most approachable family for new pipe smokers and guests curious about the ritual without heavy smoke character."
+    blends:
+      - brand: Cornell & Diehl
+        name: Berries & Cream
+        notes: Sweet berry, creamy
+      - brand: Cornell & Diehl
+        name: Black Cherry
+        notes: Bold black cherry
+      - brand: Cornell & Diehl
+        name: Jamaican Rum
+        notes: Rum-topped Burley blend
+      - brand: Cornell & Diehl
+        name: Maple Cavendish
+        notes: Sweet maple, smooth
+      - brand: Cornell & Diehl
+        name: Mocha
+        notes: Coffee and chocolate notes
+      - brand: Cornell & Diehl
+        name: Nutty Irishman
+        notes: Nutty, creamy, sweet
+      - brand: Cornell & Diehl
+        name: Strawberry Cavendish
+        notes: Sweet fresh strawberry
+      - brand: Rivertown
+        name: Custard Conspiracy
+        notes: Creamy vanilla custard
+      - brand: Rivertown
+        name: Hazelnut Hollow
+        notes: Sweet toasted hazelnut
+
+  - name: Virginia
+    description: "Naturally sweet and grassy with a bright, clean character. Virginia leaf is the backbone of many classic blends. Excellent for the guest who wants natural tobacco flavor without heaviness."
+    blends:
+      - brand: Cornell & Diehl
+        name: Golden Ash
+        notes: Light, grassy, sweet
+      - brand: Rivertown
+        name: Sunrise Select
+        notes: Light, bright, sweet
+
+  - name: Virginia / Burley
+    description: "Virginia sweetness balanced by Burley's nutty steadiness. An approachable step up from straight Virginias — more body, easier cadence, good for longer sits."
+    blends:
+      - brand: Cornell & Diehl
+        name: Plantation Evening
+        notes: Sweet, earthy, mild
+      - brand: Cornell & Diehl
+        name: Crimson Shadow
+        notes: Dark, rich, earthy
+      - brand: Cornell & Diehl
+        name: Habana Daydream
+        notes: Cuban-style, rich, earthy
+        bulk_only: true
+      - brand: Rivertown
+        name: Oak & Ember
+        notes: Woody, smoky, dry
+
+  - name: Virginia / Perique
+    description: "Virginia leaf pressed with Perique, a Louisiana single-leaf known for its peppery bite and dried-fruit complexity. Richer and more assertive than straight Virginia — a blend for those who want more character."
+    blends:
+      - brand: Cornell & Diehl
+        name: Epiphany
+        notes: Sweet, spicy, fruity
+      - brand: Cornell & Diehl
+        name: Three Friars
+        notes: Sweet, spicy, complex
+
+  - name: Burley
+    description: "Nutty, earthy, and cool-smoking. Burley is forgiving in the bowl and easy to control — a solid learning blend that holds up through a long smoke."
+    blends:
+      - brand: Cornell & Diehl
+        name: Dark Fired Kentucky
+        notes: Bold, smoky, earthy
+
+  - name: English / Balkan
+    description: "Latakia-forward blends with Oriental and Turkish leaf. Smoky, complex, and savory — the old-world style most associated with merchant and maritime tradition. For experienced smokers or the adventurous guest."
+    blends:
+      - brand: Cornell & Diehl
+        name: Atlas Balkan
+        notes: Latakia, Oriental, spicy
+      - brand: Cornell & Diehl
+        name: Byzantium
+        notes: Dark, spicy, complex
+      - brand: Cornell & Diehl
+        name: Haunted Bookshop
+        notes: Latakia, nutty, sweet
+      - brand: Cornell & Diehl
+        name: Pasha's Dream
+        notes: Turkish, Oriental, Latakia
+      - brand: Cornell & Diehl
+        name: Red Odessa
+        notes: Latakia, Turkish, smoky
+      - brand: Rivertown
+        name: Mystic Moor
+        notes: Smoky, earthy, Latakia
+
+  - name: Single Leaf
+    description: "Pure leaf sold straight — no blending, no casing. For the experienced smoker who blends their own or wants the character of one leaf alone."
+    blends:
+      - brand: Cornell & Diehl
+        name: Granulated Perique
+        notes: Peppery, spicy, fruity
+      - brand: Cornell & Diehl
+        name: Latakia
+        notes: Pure smoky Latakia

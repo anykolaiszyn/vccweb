@@ -4,179 +4,84 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Vice City Cigars is a Jekyll-based static website for a mobile cigar and tobacco business in Boca Raton, FL. The site features a Miami Vice cyberpunk aesthetic with neon pink/cyan colors, age verification, and an API-driven tobacco product catalog.
+Vice City Cigars is a Jekyll static site for a mobile cigar and tobacco business in Boca Raton, FL. The site has **two distinct brands** served under one codebase, with a chooser landing page that routes users to their preferred experience.
 
 ## Build & Development Commands
 
-### Local Development
 ```bash
-# Start Jekyll dev server (includes live reload)
+# Start Jekyll dev server with live reload
 bundle exec jekyll serve
 
-# Build the site to _site/ directory
+# Build to _site/
 bundle exec jekyll build
-
-# Check Jekyll version
-bundle exec jekyll --version
 ```
 
-### Deployment
-The site deploys automatically to GitHub Pages when pushing to the `main` branch. It's configured as a project site at:
-- **Live URL**: `https://anykolaiszyn.github.io/vccweb`
-- **Base URL**: `/vccweb` (configured in `_config.yml`)
+**Deployment**: Pushes to `main` auto-deploy to GitHub Pages at `https://anykolaiszyn.github.io/vccweb`. Base URL is `/vccweb` — always use `{{ '/path' | relative_url }}` for internal links.
 
-## Architecture & Structure
+## Dual-Brand Architecture
 
-### Jekyll Configuration
-- **Version**: Jekyll 4.4.1
-- **Markdown**: Kramdown with GFM input
-- **Plugins**: jekyll-feed, jekyll-sitemap, jekyll-seo-tag
-- **Permalink style**: pretty
-- **Collections**: Posts with category-based permalinks
+The site serves two co-branded experiences from a single codebase:
 
-### Key Architectural Patterns
+| Brand | Theme class | Layout | Header include |
+|-------|-------------|--------|----------------|
+| Vice City Cigars | `miami-theme` | `miami.html` | `header-miami.html` |
+| Black Leaf Bounty | `blb-theme` | `blb.html` | `header-blb.html` |
+| Generic / legal pages | `neutral-theme` | `default.html` | `header.html` |
 
-1. **Layout Hierarchy**
-   - `default.html` - Base layout with age-gate, header, footer
-   - `page.html` - Standard content pages
-   - `post.html` - Blog post layout
+`index.md` uses `layout: chooser` — a full-screen split-panel picker that stores the user's choice in `localStorage` (`vcc-brand` key). The chooser hides the site header/footer and renders entirely within `_layouts/chooser.html`.
 
-2. **Dual Shop System**
-   - `square-shop.md` - Future Square e-commerce integration
-   - `tobacco-shop.html` - **Self-contained standalone page** with inline CSS/JS for API-driven inventory
+**Path-based layout routing** (via `_config.yml` defaults):
+- `vice-city/**` pages → `miami` layout automatically
+- `black-leaf-bounty/**` pages → `blb` layout automatically
+- All other pages → `page` layout (wraps `default`)
 
-   **IMPORTANT**: `tobacco-shop.html` intentionally uses `layout: page` but includes all its own styles and scripts inline. It connects to a Google Apps Script API for real-time inventory.
+### Black Leaf Bounty layout notes
+`_layouts/blb.html` contains **all BLB-specific CSS inline** (500+ lines). BLB has its own complete design system with CSS custom properties prefixed `--blb-*`. Do not put BLB styles in `theme.css`. The BLB component classes (`blb-hero`, `blb-card`, `blb-btn`, etc.) are documented within that file.
 
-3. **Age Verification System**
-   - Modal gate on initial page load (`_includes/age-gate.html`)
-   - Uses localStorage with 30-day expiry
-   - Focus trap and keyboard navigation
-   - Located in `assets/js/age-gate.js`
+## Styling System
 
-4. **JavaScript Architecture**
-   - **Modular**: Separate files for mobile-menu, age-gate, contact-form
-   - **Inline**: tobacco-shop.html contains all its JS inline (intentional for standalone functionality)
-   - All JS uses IIFE patterns to avoid global scope pollution
+`assets/css/theme.css` covers the Miami Vice and neutral themes only. Key CSS custom properties in `:root`:
 
-5. **Styling System**
-   - **Primary theme**: `assets/css/theme.css` - Miami Vice cyberpunk aesthetic
-   - **Color palette**: Neon pink (#FF1493), cyan blue (#00FFFF), electric purple (#8A2BE2)
-   - **Typography**: Pacifico (script), Exo 2 (UI), Orbitron (cyber accents)
-   - **Glass morphism**: Backdrop blur effects on cards and main content
-   - **Neon effects**: Text shadows, box shadows, gradients for authentic Miami Vice feel
+- Colors: `--vice-neon-pink`, `--vice-cyan-blue`, `--vice-electric-purple`, `--vice-hot-pink`, `--vice-dark-navy`, `--vice-charcoal`, `--havana-gold`
+- Shadows: `--shadow-neon`, `--shadow`, `--shadow-luxury`
+- Typography: `--font-primary` (Pacifico), `--font-ui` (Exo 2 / Montserrat), `--font-cyber` (Orbitron), `--font-display` (Playfair Display)
+- Breakpoints: 600px (mobile), 768px (tablet), 1024px (desktop), 1200px (large)
 
-### Data Files
-- `_data/menu.yml` - Service offerings with images
-- `_data/testimonials.yml` - Customer testimonials
+## JavaScript Architecture
 
-## Tobacco Shop Integration
+All JS uses IIFE patterns (`(function() { 'use strict'; ... })()`). Three modular files in `assets/js/`:
+- `age-gate.js` — modal with focus trap, localStorage expiry (30-day)
+- `mobile-menu.js` — hamburger toggle with ARIA state
+- `contact-form.js` — Formspree submission; dynamically creates `.form-status` elements (keep this CSS class)
 
-The tobacco shop (`tobacco-shop.html`) is a critical feature with special architecture:
+`tobacco-shop.html` contains all its JS **inline** by design for standalone operation.
 
-### API Integration
-- Expects Google Apps Script endpoint URL at line 115: `const API_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';`
-- API route: `?route=inventory` returns product catalog
-- API route: `?route=checkCustomer&email=X` checks age verification status
-- POST endpoint accepts pre-orders with customer info and ID file (base64)
+## Tobacco Shop (`tobacco-shop.html`)
 
-### Expected API Response Format
+Currently `published: false` — requires legal/compliance review before re-enabling (PACT Act age verification, state shipping laws).
+
+- **API endpoint** at line ~702: `const API_URL = '...'` — Google Apps Script web app
+- Routes: `?route=inventory`, `?route=checkCustomer&email=X`; POST for pre-orders
+- All CSS and JS is inline (intentional — do not extract to shared files)
+- `escapeHTML()` uses DOM-based sanitization; inline `onclick` handlers receive escaped values
+
+Expected inventory API response:
 ```json
 {
   "items": [
-    {
-      "SKU": "string",
-      "Display_Name": "string",
-      "Price": number,
-      "Qty_On_Hand": number,
-      "Description": "HTML string",
-      "Categories": "Parent > Child > Type"
-    }
+    { "SKU": "", "Display_Name": "", "Price": 0, "Qty_On_Hand": 0, "Description": "", "Categories": "Parent > Child > Type" }
   ]
 }
 ```
 
-### Cart System
-- In-memory cart (no persistence yet)
-- Updates header badge (`#cartCountHeader`) via cross-page JavaScript
-- Cart count synced between local page (`#cart-count`) and header badge
+## Age Gate
 
-### Category Derivation
-Products auto-categorize based on category path:
-- Contains "cigar" → cigars filter
-- Contains "pipe" → pipe filter
-- Contains "shisha" or "hookah" → shisha filter
-
-## Header Navigation
-
-The header (`_includes/header.html`) has a **two-item shop dropdown**:
-- Square Shop (`/square-shop`)
-- Tobacco Products (`/tobacco-shop.html`)
-
-The dropdown uses CSS-only hover on desktop and is styled for mobile hamburger menu compatibility.
-
-## Important Configuration Values
-
-- **Contact Email**: vccigar@gmail.com
-- **Phone**: +1-561-331-0491
-- **Instagram**: @vicecitycigars
-- **Base URL**: /vccweb (critical for asset paths)
-- **Age Requirement**: 21+ (enforced via age gate)
-
-## Theme & Visual Identity
-
-### Miami Vice Cyberpunk Aesthetic
-- Dark navy/charcoal background with neon grid overlay
-- Glass morphism cards with neon borders
-- Gradient text effects on headings
-- Neon glow on hover states
-- Responsive mobile-first design
-
-### CSS Custom Properties
-All colors, shadows, and typography defined in `:root` of `theme.css`. Modify these for consistent theme changes.
-
-## Content Management
-
-### Blog Posts
-- Location: `_posts/`
-- Format: `YYYY-MM-DD-slug.md`
-- Front matter: title, date, categories, layout
-- Permalink: `/:categories/:year/:month/:day/:title/`
-
-### Page Content
-- Markdown files in root directory
-- Front matter: title, permalink, description, layout
-- Default layout applied via `_config.yml` defaults
-
-## Excluded Files
-
-The following are excluded from Jekyll builds (see `_config.yml`):
-- Content planning docs: `CONTENT-*.md`, `content-*.md`
-- Strategy docs: `PERSONA-ANALYSIS.md`, `SOCIAL-MEDIA-STRATEGY.md`
-- Development docs: `README.md`, `SHOP-INTEGRATION-README.md`, `CODE-REVIEW-REPORT.md`
-
-## Mobile-First Responsive Design
-
-All styles follow mobile-first approach:
-1. Base styles for mobile (< 768px)
-2. Tablet breakpoint: 768px
-3. Desktop breakpoint: 1024px
-4. Large desktop: 1200px
-
-Mobile menu uses hamburger toggle with ARIA attributes and transforms into horizontal nav on desktop.
-
-## Accessibility Features
-
-- Skip to content link
-- ARIA labels on navigation and buttons
-- Focus management in age gate modal
-- Keyboard navigation support
-- Semantic HTML structure
-- Focus visible styles
+Wraps the entire site. `_includes/age-gate.html` renders the modal; `assets/js/age-gate.js` manages state. Stores verification in `localStorage` — requires localStorage to be enabled.
 
 ## Common Gotchas
 
-1. **Base URL**: Always use `{{ '/path' | relative_url }}` for internal links
-2. **Tobacco Shop**: API_URL must be configured before deployment
-3. **Age Gate**: localStorage must be enabled for age verification to work
-4. **Shop Dropdown**: Requires both CSS hover rules (desktop) and is part of mobile menu
-5. **Cart Badge**: Updates require JavaScript in both header and tobacco-shop page
+1. **`relative_url` filter**: required for all asset and page links — omitting it breaks GitHub Pages deployment
+2. **`tobacco-shop.html` stays inline**: its CSS/JS must remain inline, not extracted to shared files
+3. **BLB CSS stays inline**: `blb.html` layout is self-contained; do not move its styles to `theme.css`
+4. **`published: false`**: tobacco shop is hidden; do not set to `true` without compliance review
+5. **`.form-status`**: class is created dynamically by `contact-form.js` — do not remove from `theme.css` even though it has no static HTML references

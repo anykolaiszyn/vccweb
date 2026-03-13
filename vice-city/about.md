@@ -1,27 +1,56 @@
 ---
 layout: miami
-title: About Vice City
+title: "About — Vice City Cigars"
 permalink: /vice-city/about/
-description: "The story behind Vice City Cigars and our Miami-inspired hospitality approach."
+description: "Vice City Cigars is a mobile cigar pop-up and event service based in Boca Raton, FL. Premium cigars, honest hospitality, and a laid-back Miami Vice oasis experience."
 ---
 
-# About Vice City Cigars
+<section class="hero">
+  <h1>The Oasis Story</h1>
+  <p class="hero-body">A mobile cigar experience built for South Florida — premium selections, no-pressure hospitality, and a vibe that makes any occasion feel like the right occasion to light one up.</p>
+</section>
 
-Vice City Cigars was built to deliver a premium yet approachable cigar culture experience across South Florida. Our Miami-inspired style blends polished presentation with no-pressure hospitality.
+<section class="offerings">
+  <h2>What This Is</h2>
+  <div class="offerings-grid">
+    <div class="offering-card">
+      <h3>A Mobile Operation</h3>
+      <p>No brick-and-mortar. The oasis travels — to pop-ups, private venues, and custom bookings across Palm Beach, Broward, and Miami-Dade.</p>
+    </div>
+    <div class="offering-card">
+      <h3>Honest Curation</h3>
+      <p>The humidor carries boutique Maduros, smooth Connecticuts, and limited releases selected because they're worth recommending — not because they move fast off a shelf.</p>
+    </div>
+    <div class="offering-card">
+      <h3>Education First</h3>
+      <p>First cigar or fortieth — everyone gets real guidance. What the wrapper means, what the blend does, how to light it properly. No condescension, no rush.</p>
+    </div>
+    <div class="offering-card">
+      <h3>Built For Events</h3>
+      <p>Holiday pop-ups, private venue nights, corporate entertaining, and milestone celebrations. The setup travels with the occasion.</p>
+    </div>
+  </div>
+</section>
 
-## What Defines This Side
-- Tropical, modern atmosphere
-- Boutique and premium cigar curation
-- Education-first service for new and seasoned guests
-- Event experiences tailored to your vibe and guest mix
-
-## Founder Approach
-Our process combines deep product research, pattern recognition in guest preferences, and clear communication so your event feels elevated and easy to enjoy.
-
-## Community Focus
-From private parties to corporate activations, we build experiences that create conversation, connection, and memorable moments.
+<section class="events">
+  <h2>The Philosophy</h2>
+  <div class="event-cards">
+    <div class="event-card">
+      <h3>Slow Down</h3>
+      <p>A good cigar is not a fast experience. Vice City events are built around that — unhurried, low-pressure, and focused on the moment rather than the transaction.</p>
+    </div>
+    <div class="event-card">
+      <h3>No Wrong Answer</h3>
+      <p>Prefer a mild Connecticut to a bold Maduro? Fine. Want to start somewhere and figure out the rest as you go? Even better. The recommendation fits the guest, not the other way around.</p>
+    </div>
+    <div class="event-card">
+      <h3>South Florida Roots</h3>
+      <p>Based in Boca Raton, serving the corridor from Palm Beach to Miami. The Miami Vice aesthetic is not a costume — it is the actual vibe of where this business lives and operates.</p>
+    </div>
+  </div>
+</section>
 
 <div class="hero-cta">
-  <a class="btn btn-primary" href="{{ '/vice-city/contact' | relative_url }}">Plan an Event</a>
-  <a class="btn btn-secondary" href="{{ '/vice-city/learn' | relative_url }}">Learn the Craft</a>
+  <a class="btn btn-primary" href="{{ '/vice-city/events/' | relative_url }}">See Upcoming Events</a>
+  <a class="btn btn-secondary" href="{{ '/vice-city/contact/' | relative_url }}">Get In Touch</a>
 </div>
