@@ -16,7 +16,7 @@ A look at our event setups, product displays, and tropical lounge atmosphere.
     <p>Premium cigars selected for flavor, construction, and consistency.</p>
   </div>
   <div class="offering-card">
-    <img src="{{ '/assets/img/gallery/hookah.jpg' | relative_url }}" alt="Lounge setup" loading="lazy" width="400" height="300">
+    <img src="{{ '/assets/img/gallery/cigars.jpg' | relative_url }}" alt="Lounge setup" loading="lazy" width="400" height="300">
     <h3>Lounge Atmosphere</h3>
     <p>Neon tropical styling designed for elevated social events.</p>
   </div>

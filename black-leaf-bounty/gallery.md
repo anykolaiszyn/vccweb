@@ -21,7 +21,7 @@ Scenes from the deck: the goods, the booth atmosphere, and the merchant details 
     <p>Premium cigars chosen for ceremony, construction, and enough character to justify a proper recommendation.</p>
   </div>
   <div class="offering-card blb-card blb-gallery-card">
-    <img src="{{ '/assets/img/gallery/hookah.jpg' | relative_url }}" alt="Atmospheric event setup" loading="lazy" width="400" height="300">
+    <img src="{{ '/assets/img/gallery/pipes.jpg' | relative_url }}" alt="Atmospheric event setup" loading="lazy" width="400" height="300">
     <h3>Atmosphere</h3>
     <p>Parchment, rope-tan, weathered wood, and a merchant tone that makes the booth feel discovered rather than mass-produced.</p>
   </div>

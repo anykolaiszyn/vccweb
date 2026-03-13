@@ -4,7 +4,7 @@ title: "Renaissance Fair Magic: Where History Meets Premium Tobacco"
 date: 2025-11-10
 author: Vice City Cigars
 categories: [events, renaissance, culture]
-brand: pirate
+brand: blb
 excerpt: "Behind the scenes at Camelot Days - how we bring authentic smoking experiences to Renaissance Fairs."
 image: /assets/img/gallery/pipes.jpg
 ---

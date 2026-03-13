@@ -54,7 +54,7 @@ permalink: /black-leaf-bounty/
 			<p>Beginner-friendly pipes and trusted staples for travelers who want a reliable first bowl or a worthy addition to the rack.</p>
 		</article>
 		<article class="blb-card">
-			<img src="{{ '/assets/img/gallery/hookah.jpg' | relative_url }}" alt="Atmospheric tobacco lounge display">
+			<img src="{{ '/assets/img/gallery/pipes.jpg' | relative_url }}" alt="Pipe tobacco and accessories display">
 			<h3>Pipe Tobacco</h3>
 			<p>Aromatics, English mixtures, Virginias, and house-guided recommendations matched to cadence, room note, and palate.</p>
 		</article>

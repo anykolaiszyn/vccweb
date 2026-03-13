@@ -30,7 +30,7 @@ Selecting your preferred experience...
   <div class="event-card">
     <h3 id="premium-package">Tropical Deluxe</h3>
     <p><strong>The full experience (25-75 guests)</strong><br>
-    Premium cigars, fine pipes, hookahs, mobile humidor, flavoring station, enhanced tropical setup.</p>
+    Premium cigars, fine pipes, mobile humidor, flavoring station, enhanced tropical setup.</p>
   </div>
   <div class="event-card">
     <h3 id="luxury-package">VIP Paradise</h3>
