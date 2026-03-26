@@ -77,4 +77,4 @@ When you book Vice City Cigars, you're not just getting a mobile smoking service
 
 ---
 
-*Ready to experience the difference that genuine expertise makes? [Contact us]({{ '/contact' | relative_url }}) to plan your event.*
+*Ready to experience the difference that genuine expertise makes? [Contact us]({{ '/vice-city/contact/' | relative_url }}) to plan your event.*

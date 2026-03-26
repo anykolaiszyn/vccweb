@@ -1,12 +1,13 @@
 ---
 layout: page
-title: Redirecting To Experience Chooser
+title: Contact
 permalink: /contact/
 ---
 
-<meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
-<script>window.location.replace('{{ '/' | relative_url }}');</script>
+## Choose Your Experience To Contact Us
 
-# Redirecting
+To contact Vice City Cigars or Black Leaf Bounty, choose your experience on the main chooser.
 
-Selecting your preferred experience...
+Select an option below to continue.
+
+[Go To Experience Chooser]({{ '/' | relative_url }})

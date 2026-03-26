@@ -9,6 +9,7 @@ author:
   email: "vccigar@gmail.com"
   phone: "+1-561-331-0491"
   location: "Boca Raton, FL"
+  twitter: "vicecitycigars"
 
 # Set your production URL and baseurl for GitHub Pages.
 # Custom domain configuration: vicecitycigars.com
@@ -101,3 +102,4 @@ defaults:
 logo: /assets/img/vcclogoclear.png
 twitter:
   card: summary_large_image
+  username: vicecitycigars

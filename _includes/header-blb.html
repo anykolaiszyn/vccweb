@@ -5,25 +5,25 @@
       <img src="{{ '/assets/img/vcclogoclear.png' | relative_url }}" alt="Vice City Cigars logo for the Black Leaf Bounty experience" class="site-logo">
     </a>
 
-    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
       <span class="hamburger"></span>
       <span class="hamburger"></span>
       <span class="hamburger"></span>
     </button>
 
-    <nav class="main-nav" aria-label="Black Leaf Bounty navigation">
+    <nav id="main-navigation" class="main-nav" aria-label="Black Leaf Bounty navigation">
       <ul>
-        <li><a href="{{ '/black-leaf-bounty/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/black-leaf-bounty/shop' | relative_url }}">Ship's Store</a></li>
-        <li><a href="{{ '/black-leaf-bounty/pipes/' | relative_url }}">Pipe Hold</a></li>
-        <li><a href="{{ '/black-leaf-bounty/events' | relative_url }}">Events</a></li>
-        <li><a href="{{ '/black-leaf-bounty/services' | relative_url }}">Services</a></li>
-        <li><a href="{{ '/black-leaf-bounty/about' | relative_url }}">About</a></li>
-        <li><a href="{{ '/black-leaf-bounty/learn' | relative_url }}">Learn</a></li>
-        <li><a href="{{ '/black-leaf-bounty/blog/' | relative_url }}">Captain's Log</a></li>
-        <li><a href="{{ '/black-leaf-bounty/gallery' | relative_url }}">Gallery</a></li>
-        <li><a href="{{ '/black-leaf-bounty/contact' | relative_url }}">Contact</a></li>
-        <li><a href="{{ '/terms' | relative_url }}">Policies</a></li>
+        <li><a href="{{ '/black-leaf-bounty/' | relative_url }}"{% if page.url == '/black-leaf-bounty/' %} aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="{{ '/black-leaf-bounty/shop' | relative_url }}"{% if page.url contains '/black-leaf-bounty/shop' %} aria-current="page"{% endif %}>Ship's Store</a></li>
+        <li><a href="{{ '/black-leaf-bounty/pipes/' | relative_url }}"{% if page.url contains '/black-leaf-bounty/pipes' %} aria-current="page"{% endif %}>Pipe Hold</a></li>
+        <li><a href="{{ '/black-leaf-bounty/events' | relative_url }}"{% if page.url contains '/black-leaf-bounty/events' %} aria-current="page"{% endif %}>Events</a></li>
+        <li><a href="{{ '/black-leaf-bounty/services' | relative_url }}"{% if page.url contains '/black-leaf-bounty/services' %} aria-current="page"{% endif %}>Services</a></li>
+        <li><a href="{{ '/black-leaf-bounty/about' | relative_url }}"{% if page.url contains '/black-leaf-bounty/about' %} aria-current="page"{% endif %}>About</a></li>
+        <li><a href="{{ '/black-leaf-bounty/learn' | relative_url }}"{% if page.url contains '/black-leaf-bounty/learn' %} aria-current="page"{% endif %}>Learn</a></li>
+        <li><a href="{{ '/black-leaf-bounty/blog/' | relative_url }}"{% if page.url contains '/black-leaf-bounty/blog' %} aria-current="page"{% endif %}>Captain's Log</a></li>
+        <li><a href="{{ '/black-leaf-bounty/gallery' | relative_url }}"{% if page.url contains '/black-leaf-bounty/gallery' %} aria-current="page"{% endif %}>Gallery</a></li>
+        <li><a href="{{ '/black-leaf-bounty/contact' | relative_url }}"{% if page.url contains '/black-leaf-bounty/contact' %} aria-current="page"{% endif %}>Contact</a></li>
+        <li><a href="{{ '/terms' | relative_url }}"{% if page.url contains '/terms' or page.url contains '/privacy' or page.url contains '/shipping' or page.url contains '/refund' %} aria-current="page"{% endif %}>Policies</a></li>
         <li><a href="{{ '/' | relative_url }}" title="Switch to the Vice City Cigars experience">Switch Experience</a></li>
       </ul>
     </nav>

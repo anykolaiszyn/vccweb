@@ -5,24 +5,24 @@
       <img src="{{ '/assets/img/vcclogoclear.png' | relative_url }}" alt="Vice City Cigars logo" class="site-logo">
     </a>
 
-    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
       <span class="hamburger"></span>
       <span class="hamburger"></span>
       <span class="hamburger"></span>
     </button>
 
-    <nav class="main-nav" aria-label="Vice City navigation">
+    <nav id="main-navigation" class="main-nav" aria-label="Vice City navigation">
       <ul>
-        <li><a href="{{ '/vice-city/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/vice-city/shop' | relative_url }}">The Humidor</a></li>
-        <li><a href="{{ '/vice-city/events' | relative_url }}">Events</a></li>
-        <li><a href="{{ '/vice-city/services' | relative_url }}">Services</a></li>
-        <li><a href="{{ '/vice-city/about' | relative_url }}">About</a></li>
-        <li><a href="{{ '/vice-city/learn' | relative_url }}">Learn</a></li>
-        <li><a href="{{ '/vice-city/blog/' | relative_url }}">The Dispatch</a></li>
-        <li><a href="{{ '/vice-city/gallery' | relative_url }}">Gallery</a></li>
-        <li><a href="{{ '/vice-city/contact' | relative_url }}">Contact</a></li>
-        <li><a href="{{ '/terms' | relative_url }}">Policies</a></li>
+        <li><a href="{{ '/vice-city/' | relative_url }}"{% if page.url == '/vice-city/' %} aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="{{ '/vice-city/shop' | relative_url }}"{% if page.url contains '/vice-city/shop' %} aria-current="page"{% endif %}>The Humidor</a></li>
+        <li><a href="{{ '/vice-city/events' | relative_url }}"{% if page.url contains '/vice-city/events' %} aria-current="page"{% endif %}>Events</a></li>
+        <li><a href="{{ '/vice-city/services' | relative_url }}"{% if page.url contains '/vice-city/services' %} aria-current="page"{% endif %}>Services</a></li>
+        <li><a href="{{ '/vice-city/about' | relative_url }}"{% if page.url contains '/vice-city/about' %} aria-current="page"{% endif %}>About</a></li>
+        <li><a href="{{ '/vice-city/learn' | relative_url }}"{% if page.url contains '/vice-city/learn' %} aria-current="page"{% endif %}>Learn</a></li>
+        <li><a href="{{ '/vice-city/blog/' | relative_url }}"{% if page.url contains '/vice-city/blog' %} aria-current="page"{% endif %}>The Dispatch</a></li>
+        <li><a href="{{ '/vice-city/gallery' | relative_url }}"{% if page.url contains '/vice-city/gallery' %} aria-current="page"{% endif %}>Gallery</a></li>
+        <li><a href="{{ '/vice-city/contact' | relative_url }}"{% if page.url contains '/vice-city/contact' %} aria-current="page"{% endif %}>Contact</a></li>
+        <li><a href="{{ '/terms' | relative_url }}"{% if page.url contains '/terms' or page.url contains '/privacy' or page.url contains '/shipping' or page.url contains '/refund' %} aria-current="page"{% endif %}>Policies</a></li>
         <li><a href="{{ '/' | relative_url }}" title="Switch to the Black Leaf Bounty experience">Switch Experience</a></li>
       </ul>
     </nav>

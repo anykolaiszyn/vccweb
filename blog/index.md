@@ -1,12 +1,15 @@
 ---
 layout: page
-title: Redirecting To Experience Chooser
+title: Blog
 permalink: /blog/
+description: "Choose your preferred Vice City Cigars experience to browse the blog."
+robots: noindex, follow
+sitemap: false
 ---
 
-<meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
-<script>window.location.replace('{{ '/' | relative_url }}');</script>
+## Choose Your Experience
 
-# Redirecting
+Select the blog you want:
 
-Selecting your preferred experience...
+- [The Lounge (Vice City)]({{ '/vice-city/blog/' | relative_url }})
+- [Captain's Log (Black Leaf Bounty)]({{ '/black-leaf-bounty/blog/' | relative_url }})

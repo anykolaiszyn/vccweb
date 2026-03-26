@@ -1,12 +1,15 @@
 ---
 layout: page
-title: Redirecting To Experience Chooser
+title: Events
 permalink: /events/
+description: "Choose your preferred Vice City Cigars experience to view event details."
+robots: noindex, follow
+sitemap: false
 ---
 
-<meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
-<script>window.location.replace('{{ '/' | relative_url }}');</script>
+## Choose Your Experience
 
-# Redirecting
+Select the event page you want:
 
-Selecting your preferred experience...
+- [Vice City Events]({{ '/vice-city/events/' | relative_url }})
+- [Black Leaf Bounty Events]({{ '/black-leaf-bounty/events/' | relative_url }})

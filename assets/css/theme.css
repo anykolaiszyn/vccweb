@@ -221,6 +221,7 @@ a:hover, a:focus {
 /* Art Deco Buttons */
 .btn {
   display: inline-block;
+  min-height: 44px;
   padding: 1rem 2.5rem;
   border-radius: var(--radius);
   font-family: var(--font-ui);
@@ -369,7 +370,7 @@ a:hover, a:focus {
 .hero p {
   font-size: 1.3rem;
   font-weight: 300;
-  color: var(--havana-pearl);
+  color: var(--vcc-text-dark);
   margin-bottom: 2rem;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
@@ -537,6 +538,8 @@ a:hover, a:focus {
 .mobile-menu-toggle {
   display: flex;
   flex-direction: column;
+  min-width: 44px;
+  min-height: 44px;
   background: none;
   border: none;
   cursor: pointer;
@@ -680,6 +683,7 @@ a:hover, a:focus {
   font-weight: 500;
   font-family: var(--font-ui);
   color: var(--vcc-text-light);
+  min-height: 44px;
   padding: 1rem;
   border: 1px solid transparent;
   border-radius: var(--radius-small);
@@ -691,6 +695,7 @@ a:hover, a:focus {
   text-decoration: none;
   background: transparent;
   display: block;
+  line-height: 1.2;
   text-align: center;
 }
 
@@ -702,6 +707,13 @@ a:hover, a:focus {
 }
 
 .main-nav a.current {
+  background: rgba(255, 20, 147, 0.2);
+  color: var(--vice-hot-pink);
+  border-color: var(--vice-hot-pink);
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+}
+
+.main-nav a[aria-current="page"] {
   background: rgba(255, 20, 147, 0.2);
   color: var(--vice-hot-pink);
   border-color: var(--vice-hot-pink);
@@ -1279,8 +1291,6 @@ blockquote::before {
     padding: 0;
     justify-content: center;
   }
-}
-  
   .main-nav a {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
@@ -1479,5 +1489,16 @@ input.error, textarea.error {
 
 input.error:focus, textarea.error:focus {
   outline: 2px solid var(--vice-neon-pink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 

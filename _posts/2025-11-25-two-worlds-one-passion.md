@@ -125,4 +125,4 @@ Two worlds, one passion—and room for everyone who appreciates the finer things
 
 ---
 
-*Ready to experience authentic tobacco culture at your event? Whether you're planning a Renaissance-themed celebration or a modern tropical gathering, [contact us]({{ '/contact' | relative_url }}) to discuss how we can bring our expertise to your special occasion.*
+*Ready to experience authentic tobacco culture at your event? Whether you're planning a Renaissance-themed celebration or a modern tropical gathering, [choose your experience and contact us]({{ '/' | relative_url }}) to discuss how we can bring our expertise to your special occasion.*

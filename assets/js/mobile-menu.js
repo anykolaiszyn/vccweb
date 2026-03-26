@@ -2,41 +2,69 @@
 document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const mainNav = document.querySelector('.main-nav');
+  const desktopMedia = window.matchMedia('(min-width: 768px)');
+
+  function setMenuState(isOpen) {
+    if (!mobileMenuToggle || !mainNav) return;
+
+    mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+    mainNav.classList.toggle('active', isOpen);
+    mainNav.setAttribute('aria-hidden', String(!isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  function syncMenuForViewport() {
+    if (!mobileMenuToggle || !mainNav) return;
+
+    if (desktopMedia.matches) {
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('active');
+      mainNav.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = '';
+      return;
+    }
+
+    var isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+    mainNav.setAttribute('aria-hidden', String(!isExpanded));
+  }
   
   if (mobileMenuToggle && mainNav) {
+    mainNav.setAttribute('aria-hidden', 'true');
+    syncMenuForViewport();
+
     // Bind once to avoid stacking duplicate handlers each time the menu is toggled.
     const navLinks = mainNav.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', function() {
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('active');
+        setMenuState(false);
       });
     });
 
     mobileMenuToggle.addEventListener('click', function() {
       const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      
-      // Toggle aria-expanded
-      this.setAttribute('aria-expanded', !isExpanded);
-      
-      // Toggle navigation visibility
-      mainNav.classList.toggle('active');
+      setMenuState(!isExpanded);
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
       if (!mobileMenuToggle.contains(event.target) && !mainNav.contains(event.target)) {
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('active');
+        setMenuState(false);
       }
     });
     
     // Close menu on escape key
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('active');
+        setMenuState(false);
       }
     });
+
+    if (desktopMedia.addEventListener) {
+      desktopMedia.addEventListener('change', syncMenuForViewport);
+    } else if (desktopMedia.addListener) {
+      desktopMedia.addListener(syncMenuForViewport);
+    }
+
+    window.addEventListener('resize', syncMenuForViewport);
   }
 });
