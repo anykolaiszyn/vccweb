@@ -291,6 +291,7 @@ qr_landing: true
 .card-cta-group {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.75rem;
   width: 100%;
   max-width: 300px;
@@ -306,19 +307,27 @@ qr_landing: true
 
 /* ---- vCard save link ---- */
 .card-vcard-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 300px;
+  padding: 0.85rem 1.5rem;
+  min-height: 48px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--vice-cyan-blue);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 1px;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  border: 2px solid var(--vice-cyan-blue);
+  border-radius: var(--radius);
+  background: rgba(0, 255, 255, 0.06);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
+  transition: all 0.25s ease;
 }
 
 .card-vcard-link::after {
@@ -327,8 +336,9 @@ qr_landing: true
 
 .card-vcard-link:hover,
 .card-vcard-link:focus {
+  background: rgba(0, 255, 255, 0.14);
+  box-shadow: 0 0 22px rgba(0, 255, 255, 0.35);
   color: var(--vice-cyan-blue);
-  border-color: var(--vice-cyan-blue);
 }
 
 /* ---- Optional field label ---- */
@@ -538,6 +548,7 @@ qr_landing: true
 .card-contact-link {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 105, 180, 0.3);
@@ -550,6 +561,7 @@ qr_landing: true
   transition: all 0.25s ease;
   flex: 1 1 auto;
   min-height: 44px;
+  text-align: center;
 }
 
 .card-contact-link::after {
@@ -680,6 +692,10 @@ qr_landing: true
 
   .card-cta-group .btn-secondary {
     flex: 1;
+  }
+
+  .card-vcard-link {
+    max-width: 400px;
   }
 
   .card-services-grid {
