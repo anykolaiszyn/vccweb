@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: miami
 title: Refund & Returns Policy
+permalink: /refund/
 ---
 
 # Refund & Returns Policy

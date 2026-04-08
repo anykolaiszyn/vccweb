@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: miami
 title: Terms & Conditions
 description: Terms and conditions for Vice City Cigars event services
+permalink: /terms/
 ---
 
 # Terms & Conditions

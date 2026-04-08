@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: miami
 title: Privacy Policy
 description: Privacy policy for Vice City Cigars
+permalink: /privacy/
 ---
 
 # Privacy Policy

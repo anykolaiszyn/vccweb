@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: miami
 title: Shipping Policy
+permalink: /shipping/
 ---
 
 # Shipping Policy
