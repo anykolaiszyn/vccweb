@@ -30,8 +30,12 @@ qr_landing: true
       <p class="card-sub">Private cigar hospitality for weddings, corporate events, and luxury gatherings — brought to you, wherever the moment calls.</p>
       <div class="card-cta-group">
         <a href="#inquiry" class="btn btn-primary card-btn" data-track="cta-book">Book an Experience</a>
-        <a href="tel:+15613310491" class="btn btn-secondary card-btn" data-track="cta-call">Call Us</a>
+        <a href="tel:+15613310491" class="btn btn-secondary card-btn" data-track="cta-call">Call</a>
+        <a href="mailto:vccigar@gmail.com" class="btn btn-secondary card-btn" data-track="cta-email">Email</a>
       </div>
+      <a href="{{ '/assets/vcard/vice-city-cigars.vcf' | relative_url }}" class="card-vcard-link" download data-track="cta-vcard">
+        <span aria-hidden="true">＋</span> Save Contact
+      </a>
     </div>
   </section>
 
@@ -118,24 +122,6 @@ qr_landing: true
   </section>
 
   <!-- ============================
-       SOCIAL PROOF PLACEHOLDER
-       ============================ -->
-  <section class="card-section card-social-proof" aria-labelledby="social-heading">
-    <h2 id="social-heading">What Our Clients Say</h2>
-    <div class="card-testimonials">
-      <blockquote class="card-testimonial">
-        <p>"The cigar station was the highlight of our wedding reception. Every guest talked about it."</p>
-        <footer>— Private Client, Palm Beach</footer>
-      </blockquote>
-      <blockquote class="card-testimonial">
-        <p>"Professional, well-stocked, and completely stress-free to work with. Absolutely recommend."</p>
-        <footer>— Corporate Event Coordinator</footer>
-      </blockquote>
-    </div>
-    <p class="card-proof-note">More reviews available on request.</p>
-  </section>
-
-  <!-- ============================
        INSTAGRAM / SOCIAL
        ============================ -->
   <section class="card-section card-social-connect" aria-labelledby="instagram-heading">
@@ -155,8 +141,8 @@ qr_landing: true
        INQUIRY FORM
        ============================ -->
   <section class="card-section card-inquiry" id="inquiry" aria-labelledby="inquiry-heading">
-    <h2 id="inquiry-heading">Request a Quote</h2>
-    <p class="card-inquiry-sub">Tell us about your event and we'll follow up within 24 hours.</p>
+    <h2 id="inquiry-heading">Drop Me a Note</h2>
+    <p class="card-inquiry-sub">I'll follow up same day.</p>
 
     <div class="card-contact-quick">
       <a href="tel:+15613310491" class="card-contact-link" data-track="contact-call">
@@ -187,45 +173,36 @@ qr_landing: true
       </div>
 
       <div class="card-form-row">
-        <label for="card-phone">Phone</label>
-        <input type="tel" id="card-phone" name="phone" required aria-required="true" autocomplete="tel" placeholder="Best number to reach you" pattern="[0-9\-\(\)\s\+]+">
-      </div>
-
-      <div class="card-form-row">
         <label for="card-email">Email</label>
-        <input type="email" id="card-email" name="email" autocomplete="email" placeholder="your@email.com">
+        <input type="email" id="card-email" name="email" required aria-required="true" autocomplete="email" placeholder="your@email.com">
       </div>
 
       <div class="card-form-row">
-        <label for="card-event-type">Event Type</label>
+        <label for="card-phone">Phone <span class="card-field-optional">(optional)</span></label>
+        <input type="tel" id="card-phone" name="phone" autocomplete="tel" placeholder="Best number to reach you" pattern="[0-9\-\(\)\s\+]+">
+      </div>
+
+      <div class="card-form-row">
+        <label for="card-event-type">I'm reaching out about <span class="card-field-optional">(optional)</span></label>
         <select id="card-event-type" name="event-type">
-          <option value="">Select event type...</option>
+          <option value="">Select...</option>
           <option value="Wedding">Wedding</option>
           <option value="Corporate Event">Corporate Event</option>
           <option value="Private Party">Private Party</option>
           <option value="Birthday">Birthday</option>
           <option value="Fundraiser">Fundraiser</option>
           <option value="Brand Activation">Brand Activation</option>
+          <option value="Retailer / Industry">Retailer / Industry</option>
           <option value="Other">Other</option>
         </select>
       </div>
 
       <div class="card-form-row">
-        <label for="card-date">Event Date</label>
-        <input type="date" id="card-date" name="date">
+        <label for="card-notes">Message <span class="card-field-optional">(optional)</span></label>
+        <textarea id="card-notes" name="notes" rows="3" placeholder="Event details, questions, just saying hi..."></textarea>
       </div>
 
-      <div class="card-form-row">
-        <label for="card-guests">Approximate Guest Count</label>
-        <input type="number" id="card-guests" name="guests" min="1" placeholder="e.g. 75">
-      </div>
-
-      <div class="card-form-row">
-        <label for="card-notes">Anything else we should know?</label>
-        <textarea id="card-notes" name="notes" rows="3" placeholder="Venue, vibe, special requests..."></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-primary card-btn" data-track="form-submit">Send Request</button>
+      <button type="submit" class="btn btn-primary card-btn" data-track="form-submit">Send</button>
     </form>
     <p class="legal-reminder">21+ only. We comply with all applicable tobacco regulations.</p>
   </section>
@@ -325,6 +302,42 @@ qr_landing: true
   text-align: center;
   padding: 0.9rem 1.5rem;
   font-size: 0.95rem;
+}
+
+/* ---- vCard save link ---- */
+.card-vcard-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.card-vcard-link::after {
+  display: none;
+}
+
+.card-vcard-link:hover,
+.card-vcard-link:focus {
+  color: var(--vice-cyan-blue);
+  border-color: var(--vice-cyan-blue);
+}
+
+/* ---- Optional field label ---- */
+.card-field-optional {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.75rem;
 }
 
 /* ---- Trust bar ---- */
@@ -657,10 +670,15 @@ qr_landing: true
 
   .card-cta-group {
     flex-direction: row;
+    flex-wrap: wrap;
     max-width: 400px;
   }
 
-  .card-btn {
+  .card-cta-group .btn-primary {
+    flex: 1 1 100%;
+  }
+
+  .card-cta-group .btn-secondary {
     flex: 1;
   }
 
