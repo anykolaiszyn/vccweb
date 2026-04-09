@@ -50,6 +50,14 @@ description: "Vice City Cigars is a mobile cigar pop-up and event service based 
   </div>
 </section>
 
+## Why This Exists
+
+Most cigar retail — online or in-shop — treats tobacco as commodities. They stock what moves fast. They push what has the highest margin. The experience is transactional.
+
+Vice City was built because that model misses something: the best cigar moments aren't about the product. They're about the gathering. They happen at weddings, milestone celebrations, private venues, and moments people want to mark. And nobody was specializing in *that*.
+
+So instead of competing on shelf space or price, Vice City brings the oasis to the occasion — curated selections, unhurried guidance, and the kind of hospitality that makes people want to return.
+
 <div class="hero-cta">
   <a class="btn btn-primary" href="{{ '/vice-city/events/' | relative_url }}">See Upcoming Events</a>
   <a class="btn btn-secondary" href="{{ '/vice-city/contact/' | relative_url }}">Get In Touch</a>
