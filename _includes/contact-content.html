@@ -3,6 +3,8 @@
 - Call or Text: [561-331-0491](tel:+15613310491)
 - Email: [vccigar@gmail.com](mailto:vccigar@gmail.com)
 
+**Response time:** We reply within 24 hours on business days. For urgent inquiries or to discuss upcoming events, call or text directly.
+
 <form id="contact-form" data-async-form data-loading-text="Sending your request..." data-success-message="Request received. We will follow up shortly by email or phone." action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
   <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Ignore this field">
 
@@ -10,37 +12,49 @@
   <input type="text" id="name" name="name" required aria-required="true">
 
   <label for="phone">Phone</label>
-  <input type="tel" id="phone" name="phone" required aria-required="true" pattern="[0-9\-\(\)\s]+">
+  <input type="tel" id="phone" name="phone" required aria-required="true" pattern="[0-9\-\(\)\s]+" placeholder="(561) 234-5678">
 
   <label for="email">Email</label>
   <input type="email" id="email" name="email" required aria-required="true">
 
-  <label for="event-type">Event Type</label>
+  <label for="request-type">I'm Interested In</label>
+  <select id="request-type" name="request-type">
+    <option value="">Select...</option>
+    <option value="Pop-up appearance">Pop-up Event Attendance</option>
+    <option value="Private event booking">Private Event Booking</option>
+    <option value="Question/recommendation">Question or Recommendation Request</option>
+    <option value="Corporate event">Corporate Event / Brand Activation</option>
+    <option value="Press inquiry">Press Inquiry</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <label for="event-type">Event Type (if applicable)</label>
   <select id="event-type" name="event-type">
-    <option value="">Select event type...</option>
-    <option value="Wedding">Wedding</option>
-    <option value="Corporate Event">Corporate Event</option>
-    <option value="Private Party">Private Party</option>
+    <option value="">Select...</option>
+    <option value="Wedding">Wedding / Rehearsal Dinner</option>
+    <option value="Corporate Event">Corporate Event / Retreat</option>
+    <option value="Private Party">Private Party / Celebration</option>
     <option value="Birthday">Birthday</option>
-    <option value="Fundraiser">Fundraiser</option>
+    <option value="Milestone">Milestone Celebration</option>
+    <option value="Fundraiser">Fundraiser / Charity Event</option>
     <option value="Brand Activation">Brand Activation</option>
     <option value="Other">Other</option>
   </select>
 
-  <label for="date">Event Date</label>
+  <label for="date">Preferred Event Date</label>
   <input type="date" id="date" name="date">
 
-  <label for="location">Event Location</label>
-  <input type="text" id="location" name="location">
+  <label for="location">Event Location / Venue</label>
+  <input type="text" id="location" name="location" placeholder="e.g., Boca Raton, Miami">
 
   <label for="guests">Guest Count</label>
-  <input type="number" id="guests" name="guests" min="1">
+  <input type="number" id="guests" name="guests" min="1" placeholder="Expected attendees">
 
-  <label for="notes">Additional Notes</label>
-  <textarea id="notes" name="notes" rows="4"></textarea>
+  <label for="notes">Tell Us More</label>
+  <textarea id="notes" name="notes" rows="5" placeholder="Event details, venue type, any special requests or questions..."></textarea>
 
   <button type="submit" class="btn btn-primary">Send Request</button>
-  <a class="btn btn-secondary" href="mailto:vccigar@gmail.com?subject=Event%20Booking%20Request">Use Email Instead</a>
+  <a class="btn btn-secondary" href="mailto:vccigar@gmail.com?subject=Event%20Booking%20Request">Prefer Email?</a>
 </form>
 
-<p class="legal-reminder">21+ only. We do not offer free samples.</p>
+<p class="legal-reminder">21+ only. We do not offer free samples. All tobacco services comply with state and federal regulations.</p>

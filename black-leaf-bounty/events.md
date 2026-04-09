@@ -7,7 +7,7 @@ description: "Ports of call and event appearances for The Black Leaf Bounty."
 
 # Events And Voyages
 
-Find The Black Leaf Bounty at Renaissance fairs, themed gatherings, and select private events across South Florida.
+Find The Black Leaf Bounty at Renaissance fairs, themed gatherings, and select private events across South Florida and beyond.
 
 ## Ports Of Call
 
@@ -26,6 +26,21 @@ Fresh dispatches will be posted as dates and logistics are confirmed for the nex
 - Guidance for cigar guests, pipe newcomers, and returning collectors
 - Seasonal selections and fair-ready bundles when available
 - A 21+ tobacco retail experience grounded in craft and compliance
+- Authentic merchant atmosphere—weathered wood, period styling, storytelling
+
+## Booking A Private Event
+
+The Black Leaf Bounty isn't just for Renaissance fairs. The same merchant expertise and atmospheric presentation work for themed weddings, private celebrations, brand activations, and dedicated cigar lounges.
+
+**Service models available:**
+- **The Merchant Table** (compact booth, walk-up service)
+- **The Quarterdeck Lounge** (seated experience, deeper storytelling)
+- **The Captain's Reception** (full private events, tailored theming)
+
+**Lead time:** 4–8 weeks for fair bookings; 2–4 weeks for private events.  
+**Ready to book?** [Contact the Captain]({{ '/black-leaf-bounty/contact/' | relative_url }}) or call [561-331-0491](tel:+15613310491).
+
+More details at [Services Aboard The Bounty]({{ '/black-leaf-bounty/services/' | relative_url }}).
 
 ## Event Dispatches
 <ul class="blog-list">

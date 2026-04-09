@@ -55,6 +55,18 @@ description: "South Florida cigar pop-ups, private venue nights, and custom even
   </div>
 </section>
 
+## Booking Your Event
+
+Ready to bring Vice City to your celebration? Here's the process:
+
+1. **Contact us** with your event details (date, location, guest count, occasion)
+2. **We discuss** your vision, venue logistics, and curate a selection for your crowd
+3. **Get a quote** and confirm your booking
+4. **We show up** and bring the oasis—setup, hospitality, and all
+
+**Lead time:** 2–4 weeks recommended for custom bookings.  
+**Questions?** Call or text [561-331-0491](tel:+15613310491) or [send a message]({{ '/vice-city/contact/' | relative_url }}).
+
 {% assign miami_posts = site.posts | where_exp: "post", "post.categories contains 'cigars' or post.categories contains 'events'" %}
 {% if miami_posts.size > 0 %}
 <section>
