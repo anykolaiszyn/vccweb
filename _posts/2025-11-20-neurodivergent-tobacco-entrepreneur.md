@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Late Diagnosis at 42: How Neurodivergence Makes Me a Better Tobacco Curator"
-date: 2025-11-20
+date: 2026-04-05
 categories: [entrepreneurship, neurodivergent, personal]
 brand: both
 author: Vice City Cigars

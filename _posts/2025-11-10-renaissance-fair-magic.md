@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Renaissance Fair Magic: Where History Meets Premium Tobacco"
-date: 2025-11-10
+date: 2026-04-01
 author: Vice City Cigars
 categories: [events, renaissance, culture]
 brand: blb

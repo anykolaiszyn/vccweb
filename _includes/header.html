@@ -16,6 +16,7 @@
         <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a></li>
         <li><a href="{{ '/about' | relative_url }}"{% if page.url contains '/about' %} aria-current="page"{% endif %}>About</a></li>
         <li><a href="{{ '/services' | relative_url }}"{% if page.url contains '/services' %} aria-current="page"{% endif %}>Services</a></li>
+        <li><a href="{{ '/shop' | relative_url }}"{% if page.url contains '/shop' %} aria-current="page"{% endif %}>Shop Update</a></li>
         <li><a href="{{ '/events' | relative_url }}"{% if page.url contains '/events' %} aria-current="page"{% endif %}>Events</a></li>
         <li><a href="{{ '/black-leaf-bounty' | relative_url }}"{% if page.url contains '/black-leaf-bounty' %} aria-current="page"{% endif %}>Black Leaf Bounty</a></li>
         <li><a href="{{ '/contact' | relative_url }}"{% if page.url contains '/contact' %} aria-current="page"{% endif %}>Contact</a></li>

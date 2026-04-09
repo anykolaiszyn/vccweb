@@ -157,6 +157,9 @@ qr_landing: true
 
     <form
       id="card-inquiry-form"
+      data-async-form
+      data-loading-text="Sending your note..."
+      data-success-message="Message sent. Expect a same-day follow-up."
       action="https://formspree.io/f/mwpnagkv"
       method="POST"
       autocomplete="on"

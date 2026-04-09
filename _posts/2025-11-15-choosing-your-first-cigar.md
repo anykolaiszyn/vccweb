@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Choosing Your First Cigar (Beginner Tips)"
-date: 2025-11-15
+date: 2026-04-03
 author: Vice City Cigars
 categories: [cigars, beginner-guide, education]
 brand: miami

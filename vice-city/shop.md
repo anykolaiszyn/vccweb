@@ -8,7 +8,9 @@ description: "Premium boutique cigars from Vice City Cigars — available at Sou
 <section class="hero">
   <h1>The Cigar Selection</h1>
   <p class="hero-body">Boutique Maduros, smooth Connecticuts, and limited releases hand-picked for the pop-up humidor. Not a warehouse. Not a shelf. A curated selection you can actually talk about with the person who chose it.</p>
+  <p class="hero-body">Online ordering is not active yet while compliance setup is finalized. Use the shop update page for status details.</p>
   <div class="hero-cta">
+    <a href="{{ '/shop/' | relative_url }}" class="btn btn-secondary">Online Shop Status</a>
     <a href="{{ '/vice-city/events/' | relative_url }}" class="btn btn-primary">Find Us At An Event</a>
     <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-secondary">Contact For Availability</a>
   </div>

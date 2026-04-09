@@ -10,6 +10,7 @@ description: "The merchant's manifest — cigars, pipe tobacco, pipes, and acces
   <h1>The Merchant's Manifest</h1>
   <p>The Bounty carries a curated hold of cigars, pipe tobacco, pipes, and the accessories that make the smoke go properly. All goods are available in person at events and pop-ups. Online ordering is being fitted for compliance and will open in a future voyage.</p>
   <div class="blb-cta-row">
+    <a class="blb-btn blb-btn-secondary" href="{{ '/shop/' | relative_url }}">Online Shop Status</a>
     <a class="blb-btn" href="{{ '/black-leaf-bounty/events/' | relative_url }}">Find Us At Port</a>
     <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/contact/' | relative_url }}">Send Word To The Captain</a>
   </div>
