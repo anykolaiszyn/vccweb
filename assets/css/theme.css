@@ -1258,7 +1258,7 @@ blockquote::before {
 @media (min-width: 768px) {
   .header-flex {
     padding: 1rem 2rem;
-    gap: 2rem;
+    gap: 1.25rem;
     flex-wrap: nowrap;
   }
   
@@ -1283,17 +1283,23 @@ blockquote::before {
     box-shadow: none;
     order: 2;
     flex: 1;
+    min-width: 0;
   }
   
   .main-nav ul {
     flex-direction: row;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    column-gap: 0.5rem;
+    row-gap: 0.45rem;
     padding: 0;
-    justify-content: center;
+    justify-content: flex-end;
   }
   .main-nav a {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    white-space: nowrap;
     text-align: left;
     display: inline-block;
   }
@@ -1323,16 +1329,17 @@ blockquote::before {
 /* Desktop and larger screens */
 @media (min-width: 1024px) {
   .header-flex {
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
   
   .main-nav ul {
-    gap: 2rem;
+    column-gap: 0.6rem;
+    row-gap: 0.45rem;
   }
   
   .main-nav a {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.95rem;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.86rem;
   }
   
   h1 {
