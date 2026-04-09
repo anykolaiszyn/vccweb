@@ -7,21 +7,45 @@ description: "Ports of call and event appearances for The Black Leaf Bounty."
 
 # Events And Voyages
 
-Find The Black Leaf Bounty at Renaissance fairs, themed gatherings, and select private events across South Florida and beyond.
+Find The Black Leaf Bounty at Renaissance fairs, pirate festivals, and themed gatherings across South Florida. Each voyage brings the full merchant experience: curated tobacco, honest guidance, and the kind of booth atmosphere you actually want to spend time in.
 
-## Ports Of Call
+## Upcoming Ports
 
-### Camelot Days 2025
-**November 2025** | **Pompano Beach, FL**
+<p><em>Dates are listed as pending until final event confirmations are in.</em></p>
 
-A dependable harbor for guests seeking premium cigars, thoughtful pipe guidance, and the full merchant-trader atmosphere.
+<div class="filter-buttons" id="events-brand-filters" style="margin-bottom: 1rem;">
+  <button class="filter-btn active" data-brand="all">All Brands</button>
+  <button class="filter-btn" data-brand="black-leaf-bounty">Black Leaf Bounty</button>
+  <button class="filter-btn" data-brand="vice-city">Vice City</button>
+</div>
 
-### Florida Renaissance Festival 2026
-**Spring 2026** | **Location TBA**
-
-Fresh dispatches will be posted as dates and logistics are confirmed for the next voyage.
+{% assign upcoming_events = site.shared_events | where: "status", "upcoming" | sort: "event_date" %}
+{% if upcoming_events.size > 0 %}
+<div class="offerings-grid">
+  {% for event in upcoming_events %}
+  <div class="offering-card blb-card" data-brand="{{ event.brand | default: 'shared' }}">
+    {% if event.cover_image %}
+    <img src="{{ event.cover_image | relative_url }}" alt="{{ event.title }}" loading="lazy" width="400" height="300">
+    {% endif %}
+    <h3>{{ event.title }}</h3>
+    <p class="blb-event-date"><strong>{{ event.event_date | date: "%B %Y" }}</strong> — {{ event.location }}</p>
+    <p>{{ event.summary }}</p>
+    <p><strong>Source:</strong> {% if event.brand == 'black-leaf-bounty' %}Black Leaf Bounty{% elsif event.brand == 'vice-city' %}Vice City{% else %}Shared{% endif %}</p>
+    <div class="blb-button-row">
+      <a class="blb-btn" href="{{ event.url | relative_url }}">Details & Map</a>
+      {% if event.photo_album_url %}
+      <a class="blb-btn blb-btn-secondary" href="{{ event.photo_album_url }}" target="_blank">Photos</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p><em>New voyages are being charted. Check back soon for 2026 ports of call.</em></p>
+{% endif %}
 
 ## What To Expect At The Booth
+
 - A welcoming merchant tone instead of a rushed sales pitch
 - Guidance for cigar guests, pipe newcomers, and returning collectors
 - Seasonal selections and fair-ready bundles when available
@@ -42,7 +66,8 @@ The Black Leaf Bounty isn't just for Renaissance fairs. The same merchant expert
 
 More details at [Services Aboard The Bounty]({{ '/black-leaf-bounty/services/' | relative_url }}).
 
-## Event Dispatches
+## Event Dispatches & Blog
+
 <ul class="blog-list">
   {% assign pirate_posts = site.posts | where_exp: "post", "post.categories contains 'renaissance' or post.categories contains 'events' or post.categories contains 'culture'" %}
   {% for post in pirate_posts limit: 6 %}
@@ -58,3 +83,25 @@ More details at [Services Aboard The Bounty]({{ '/black-leaf-bounty/services/' |
   <a class="blb-btn" href="{{ '/black-leaf-bounty/contact/' | relative_url }}">Book A Merchant Event</a>
   <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/blog/' | relative_url }}">Read Captain's Log</a>
 </p>
+
+<script>
+(function () {
+  'use strict';
+
+  var buttons = document.querySelectorAll('#events-brand-filters [data-brand]');
+  var cards = document.querySelectorAll('.offerings-grid [data-brand]');
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var brand = button.getAttribute('data-brand');
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      button.classList.add('active');
+      cards.forEach(function (card) {
+        var cardBrand = card.getAttribute('data-brand');
+        var show = brand === 'all' || cardBrand === brand || cardBrand === 'shared';
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>

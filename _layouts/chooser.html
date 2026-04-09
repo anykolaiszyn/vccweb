@@ -37,11 +37,40 @@ layout: default
     box-shadow: none;
   }
 
+  .chooser-intro {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    text-align: center;
+    width: min(900px, 92vw);
+    background: rgba(6, 8, 28, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    padding: 0.85rem 1rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .chooser-intro h1 {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+    line-height: 1.2;
+  }
+
+  .chooser-intro p {
+    margin: 0.4rem 0 0;
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    color: rgba(255, 255, 255, 0.86);
+  }
+
   .experience-chooser {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: #0a0a2e;
+    padding-top: 5.25rem;
   }
 
   .chooser-skip-link {
@@ -144,7 +173,7 @@ layout: default
 
   .panel-title {
     margin: 0;
-    font-size: clamp(2rem, 3.6vw, 3.5rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.35rem);
     line-height: 1.08;
   }
 
@@ -185,18 +214,27 @@ layout: default
 
 <a class="chooser-skip-link" href="#experience-chooser-main">Skip to experience chooser</a>
 
+<header class="chooser-intro" aria-label="Chooser intro">
+  <h1>Choose Your Smoking Experience</h1>
+  <p>Pick your lane: tropical modern hospitality or Renaissance merchant atmosphere.</p>
+</header>
+
 <section class="experience-chooser" id="experience-chooser-main" aria-label="Choose your Vice City Cigars experience">
   <a class="experience-panel miami-panel" href="{{ '/vice-city/' | relative_url }}" data-brand-choice="miami">
     <div class="panel-content">
       <img class="panel-logo" src="{{ '/assets/images/vcclogo-clear.png' | relative_url }}" alt="Vice City Cigars logo">
-      <p class="panel-description">Sleek tropical neon lounge with premium cigars, modern event vibes, and Miami Vice energy.</p>
+      <h2 class="panel-title">Vice City Cigars</h2>
+      <p class="panel-description">Modern tropical cigar hospitality for pop-ups, private venues, and elevated event nights.</p>
+      <span class="panel-cta">Enter Vice City</span>
     </div>
   </a>
 
   <a class="experience-panel pirate-panel" href="{{ '/black-leaf-bounty/' | relative_url }}" data-brand-choice="pirate">
     <div class="panel-content">
       <img class="panel-logo panel-logo-blb" src="{{ '/assets/images/VCCBLBwb.png' | relative_url }}" alt="The Black Leaf Bounty logo">
-      <p class="panel-description">Renaissance pirate adventure with rich pipe culture, live events, and old-world tobacco storytelling.</p>
+      <h2 class="panel-title">Black Leaf Bounty</h2>
+      <p class="panel-description">Renaissance merchant tobacco culture with pipe-forward expertise and immersive fair energy.</p>
+      <span class="panel-cta">Board The Bounty</span>
     </div>
   </a>
 </section>

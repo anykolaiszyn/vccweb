@@ -2,72 +2,138 @@
 layout: blb
 title: Pipe And Tobacco Learning Deck
 permalink: /black-leaf-bounty/learn/
-description: "Pipe and cigar education from The Black Leaf Bounty merchant deck."
+description: "Pipe and cigar education from a shared learning library with tag filtering."
 ---
 
 # The Learning Deck
 
-A practical quarterdeck for pipe-curious guests, cigar travelers, and anyone who would rather learn the craft than guess their way through it.
+A shared learning library for pipe-curious guests, cigar travelers, and anyone who would rather learn the craft than guess.
 
-## Pipe Basics For New Crew
-
-### Your First Pipe
-- Start with a simple briar or quality corn-cob pipe
-- Use a medium bowl size for easier heat control
-- Keep one pipe dedicated to one family of blends while learning
-
-### Tobacco Families
-- **Virginia:** naturally sweet and grassy
-- **Burley:** nutty and steady, easy to control
-- **English:** smoky and savory (often with Latakia)
-- **Aromatic:** room-friendly aroma with flavor casing
-
-### Pipe Shapes At A Glance
-- **Billiard:** the dependable all-rounder for daily use
-- **Apple:** rounder in hand and often comfortable for longer sessions
-- **Prince:** elegant, lower-profile, and easy to clench
-- **Bent shapes:** helpful for relaxed holding and a different hand feel
-
-## Cigar Basics For Travelers
-
-### Common Shapes
-- **Robusto:** compact, flavorful, and easy to recommend for many guests
-- **Toro:** more time in the chair, often a fuller flavor journey
-- **Corona:** slimmer, often a touch more focused and nimble in profile
-- **Figurado:** shaped heads or bodies that change how the smoke opens
-
-### Lighting With Care
-- Toast the foot first instead of rushing straight to a hard draw
-- Rotate slowly to build an even cherry
-- Correct early burn issues with patience before they become tunneling
-
-### Packing Method (Three-Layer)
-1. Bottom layer: loose gravity fill
-2. Middle layer: light press for even airflow
-3. Top layer: firmer press, still springy to touch
-
-### Lighting And Cadence
-- Char light first, then tamp gently
-- True light second, then sip slowly
-- If hot on tongue, pause and let the bowl rest
-
-## Intermediate Pipe Craft
-- Rotate pipes to let each dry between smokes
-- Track blend notes and moisture level in a journal
-- Use cleaners after every session to reduce souring
-- Jar bulk blends to stabilize moisture over time
-
-## Pairing Suggestions
-- Virginia blends with black coffee or light rum
-- English blends with peated whisky
-- Aromatics with bourbon or spiced tea
-
-<div class="blb-card">
-  <h3>Need A Guided Start?</h3>
-  <p>Book a guided conversation and we will help match your first pipe, your first cigar, or your first proper tobacco family to the pace and flavors you actually enjoy.</p>
+<div class="filter-buttons" id="brand-filters" style="margin-bottom: 0.75rem;">
+  <button class="filter-btn active" data-brand="all">All Brands</button>
+  <button class="filter-btn" data-brand="black-leaf-bounty">Black Leaf Bounty</button>
+  <button class="filter-btn" data-brand="vice-city">Vice City</button>
 </div>
 
+<div class="filter-buttons" id="topic-filters" style="margin-bottom: 2rem;">
+  <button class="filter-btn active" data-filter="all">All Topics</button>
+  {% assign all_tags = '' | split: '' %}
+  {% assign learning_items = site.shared_learning | sort: "published_on" | reverse %}
+  {% for item in learning_items %}
+    {% for tag in item.tags %}
+      {% assign all_tags = all_tags | push: tag %}
+    {% endfor %}
+  {% endfor %}
+  {% assign unique_tags = all_tags | uniq | sort %}
+  {% for tag in unique_tags %}
+  <button class="filter-btn" data-filter="{{ tag | downcase | replace: ' ', '-' }}">{{ tag }}</button>
+  {% endfor %}
+</div>
+
+<div class="offerings-grid" id="learning-cards">
+  {% for item in learning_items %}
+  {% assign tags_slug = item.tags | join: ',' | downcase | replace: ' ', '-' %}
+  {% assign item_brand = item.brand | default: 'shared' %}
+  <div class="offering-card blb-card learning-card" data-tags="{{ tags_slug }}" data-brand="{{ item_brand }}">
+    {% if item.cover_image %}
+    <img src="{{ item.cover_image | relative_url }}" alt="{{ item.title }}" loading="lazy" width="400" height="300">
+    {% endif %}
+    <h3>{{ item.title }}</h3>
+    <p class="card-tags">
+      {% for tag in item.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </p>
+    <p>{{ item.excerpt }}</p>
+    <p><strong>Source:</strong> {% if item_brand == 'black-leaf-bounty' %}Black Leaf Bounty{% elsif item_brand == 'vice-city' %}Vice City{% else %}Shared{% endif %}</p>
+    <a class="blb-btn" href="{{ item.url | relative_url }}">Read Full Lesson</a>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  var brandBtns = document.querySelectorAll('#brand-filters [data-brand]');
+  var topicBtns = document.querySelectorAll('#topic-filters [data-filter]');
+  var cards = document.querySelectorAll('.learning-card');
+  var activeBrand = 'all';
+  var activeTopic = 'all';
+
+  function applyFilters() {
+    cards.forEach(function(card) {
+      var tags = card.getAttribute('data-tags');
+      var brand = card.getAttribute('data-brand');
+      var topicMatch = activeTopic === 'all' || tags.indexOf(activeTopic) !== -1;
+      var brandMatch = activeBrand === 'all' || brand === activeBrand || brand === 'shared';
+      card.style.display = topicMatch && brandMatch ? '' : 'none';
+    });
+  }
+
+  brandBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      activeBrand = btn.getAttribute('data-brand');
+      brandBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilters();
+    });
+  });
+
+  topicBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      activeTopic = btn.getAttribute('data-filter');
+      topicBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilters();
+    });
+  });
+})();
+</script>
+
+<style>
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  background: var(--shadow-neon, rgba(255, 20, 147, 0.15));
+  border: 1px solid var(--vice-neon-pink, #FF1493);
+  color: var(--vice-neon-pink, #FF1493);
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--vice-neon-pink, #FF1493);
+  color: white;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 20, 147, 0.1);
+  border-radius: 3px;
+  color: var(--vice-neon-pink, #FF1493);
+  font-weight: 500;
+}
+</style>
+
 <p>
-  <a class="blb-btn" href="{{ '/black-leaf-bounty/contact/' | relative_url }}">Book A Guided Session</a>
-  <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/shop/' | relative_url }}">View The Store Manifest</a>
+  <a class="blb-btn" href="{{ '/black-leaf-bounty/contact/' | relative_url }}">Questions? Ask The Captain</a>
+  <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/pipes/' | relative_url }}">Browse The Manifest</a>
 </p>

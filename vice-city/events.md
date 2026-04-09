@@ -2,82 +2,75 @@
 layout: miami
 title: "Events — Vice City Cigars"
 permalink: /vice-city/events/
-description: "South Florida cigar pop-ups, private venue nights, and custom event bookings from Vice City Cigars."
+description: "Card-based event gallery for upcoming and past Vice City Cigars appearances."
 ---
 
 <section class="hero">
-  <h1>The Event Calendar</h1>
-  <p class="hero-body">Pop-ups for holidays and special occasions. Private venue nights monthly and quarterly. Custom bookings for celebrations that deserve a proper smoke.</p>
+  <h1>Event Cards</h1>
+  <p class="hero-body">Every event lives as its own card with recap details, location, and photo links. Browse upcoming and past appearances below.</p>
   <div class="hero-cta">
-    <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-primary">Book An Event</a>
-    <a href="https://instagram.com/vicecitycigars" class="btn btn-secondary" target="_blank" rel="noopener">Follow For Updates</a>
+    <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-primary">Request an Event</a>
+    <a href="https://instagram.com/vicecitycigars" class="btn btn-secondary" target="_blank" rel="noopener">Follow For Live Updates</a>
   </div>
 </section>
 
 <section class="events">
-  <h2>How We Show Up</h2>
-  <div class="event-cards">
-    <div class="event-card">
-      <h3>Holiday Pop-Ups</h3>
-      <p>Seasonal appearances around South Florida — Fourth of July, Labor Day, New Year's, and other moments worth marking. Curated selection, full setup, and the oasis vibe wherever we land.</p>
-      <p>Dates and locations drop on Instagram first.</p>
-      <a href="https://instagram.com/vicecitycigars" class="btn btn-secondary" target="_blank" rel="noopener">Follow @vicecitycigars</a>
-    </div>
-    <div class="event-card">
-      <h3>Private Venue Nights</h3>
-      <p>Monthly and quarterly hosted events at private South Florida venues. Intimate size, elevated experience, and a crowd that shows up for a good smoke and good company.</p>
-      <p>Reach out to get on the notification list.</p>
-      <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-secondary">Get On The List</a>
-    </div>
-    <div class="event-card">
-      <h3>Custom Bookings</h3>
-      <p>Private parties, corporate entertaining, weddings, and milestone celebrations. We bring the humidor, the setup, and the hospitality. You bring the occasion.</p>
-      <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-secondary">Inquire About Booking</a>
-    </div>
+  <h2>Upcoming and Past Events</h2>
+  <p>Dates marked pending are placeholders until venue confirmations are finalized.</p>
+  <div id="events-brand-filters" class="hero-cta" role="group" aria-label="Event brand filters" style="margin-bottom: 1rem;">
+    <button type="button" class="btn btn-primary" data-brand="all">All Brands</button>
+    <button type="button" class="btn btn-secondary" data-brand="vice-city">Vice City</button>
+    <button type="button" class="btn btn-secondary" data-brand="black-leaf-bounty">Black Leaf Bounty</button>
   </div>
-</section>
-
-<section class="events">
-  <h2>What To Expect At A Vice City Event</h2>
-  <div class="event-cards">
-    <div class="event-card">
-      <h3>Curated Selection</h3>
-      <p>Boutique Maduros, Connecticut shades, and limited releases chosen for the occasion. Not a generic shelf — a selection that reflects where we are and what the night calls for.</p>
-    </div>
-    <div class="event-card">
-      <h3>No-Pressure Hospitality</h3>
-      <p>First time with a cigar or a seasoned guest — either way, you get honest guidance and room to explore without anyone pushing a sale.</p>
-    </div>
-    <div class="event-card">
-      <h3>The Oasis Setup</h3>
-      <p>Mobile humidor, cutting and lighting station, and the kind of atmosphere that makes you slow down and stay a while.</p>
-    </div>
-  </div>
-</section>
-
-## Booking Your Event
-
-Ready to bring Vice City to your celebration? Here's the process:
-
-1. **Contact us** with your event details (date, location, guest count, occasion)
-2. **We discuss** your vision, venue logistics, and curate a selection for your crowd
-3. **Get a quote** and confirm your booking
-4. **We show up** and bring the oasis—setup, hospitality, and all
-
-**Lead time:** 2–4 weeks recommended for custom bookings.  
-**Questions?** Call or text [561-331-0491](tel:+15613310491) or [send a message]({{ '/vice-city/contact/' | relative_url }}).
-
-{% assign miami_posts = site.posts | where_exp: "post", "post.categories contains 'cigars' or post.categories contains 'events'" %}
-{% if miami_posts.size > 0 %}
-<section>
-  <h2>From The Blog</h2>
-  <ul class="blog-list">
-    {% for post in miami_posts limit: 3 %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span class="blog-date">{{ post.date | date: "%b %d, %Y" }}</span>
-    </li>
+  <div class="offerings-grid">
+    {% assign event_cards = site.shared_events | sort: 'event_date' | reverse %}
+    {% for event in event_cards %}
+    <article class="offering-card" data-brand="{{ event.brand | default: 'shared' }}">
+      {% if event.cover_image %}
+      <img src="{{ event.cover_image | relative_url }}" alt="{{ event.title }}" loading="lazy" width="400" height="300">
+      {% endif %}
+      <h3>{{ event.title }}</h3>
+      <p><strong>{{ event.event_date | date: "%b %d, %Y" }}</strong>{% if event.location %} · {{ event.location }}{% endif %}</p>
+      <p>{{ event.summary }}</p>
+      <p><strong>Source:</strong> {% if event.brand == 'vice-city' %}Vice City{% elsif event.brand == 'black-leaf-bounty' %}Black Leaf Bounty{% else %}Shared{% endif %}</p>
+      <div class="hero-cta">
+        <a href="{{ event.url | relative_url }}" class="btn btn-secondary">View Event Card</a>
+        {% if event.photo_album_url %}
+        <a href="{{ event.photo_album_url }}" class="btn btn-secondary" target="_blank" rel="noopener">{{ event.cta_label | default: 'Photos' }}</a>
+        {% endif %}
+      </div>
+    </article>
     {% endfor %}
-  </ul>
+  </div>
 </section>
-{% endif %}
+
+<div class="hero-cta">
+  <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-primary">Request an Event</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var buttons = document.querySelectorAll('#events-brand-filters [data-brand]');
+  var cards = document.querySelectorAll('.offerings-grid [data-brand]');
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var brand = button.getAttribute('data-brand');
+      buttons.forEach(function (b) {
+        b.classList.remove('btn-primary');
+        b.classList.add('btn-secondary');
+      });
+      button.classList.remove('btn-secondary');
+      button.classList.add('btn-primary');
+
+      cards.forEach(function (card) {
+        var cardBrand = card.getAttribute('data-brand');
+        var show = brand === 'all' || cardBrand === brand || cardBrand === 'shared';
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>

@@ -1,5 +1,5 @@
 ---
 layout: chooser
-title: Choose Your Vice City Cigars Experience
-description: "Select your journey after age verification: tropical Miami Vice lounge or pirate Renaissance adventure."
+title: Choose Your Smoking Experience
+description: "Choose your smoking experience: modern tropical Vice City or Renaissance merchant Black Leaf Bounty."
 ---

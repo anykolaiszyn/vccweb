@@ -10,8 +10,8 @@ description: "Vice City Cigars — premium cigar pop-ups and private events acro
   <h1>Your Mobile Tropical Smoking Oasis</h1>
   <p class="hero-body">Premium cigars. South Florida pop-ups. Private venue nights and custom event bookings. The oasis comes to you.</p>
   <div class="hero-cta">
-    <a href="{{ '/vice-city/events/' | relative_url }}" class="btn btn-primary">See Events</a>
-    <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-secondary">Book The Oasis</a>
+    <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-primary">Book an Experience</a>
+    <a href="{{ '/vice-city/events/' | relative_url }}" class="btn btn-secondary">See What's Going On</a>
   </div>
 </section>
 
@@ -39,26 +39,12 @@ description: "Vice City Cigars — premium cigar pop-ups and private events acro
     <div class="event-card">
       <h3>Private Venue Nights</h3>
       <p>Monthly and quarterly hosted events at private venues. Intimate size, elevated experience.</p>
-      <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-secondary">Get On The List</a>
+      <a href="{{ '/vice-city/events/' | relative_url }}" class="btn btn-secondary">View Event Cards</a>
     </div>
     <div class="event-card">
       <h3>Custom Bookings</h3>
-      <p>Private parties, corporate events, weddings, and milestone celebrations — contact us to bring the oasis to yours.</p>
-      <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-secondary">Book An Event</a>
+      <p>Private parties, corporate events, weddings, and milestone celebrations. Contact us to bring the oasis to your event.</p>
+      <a href="{{ '/vice-city/contact/' | relative_url }}" class="btn btn-secondary">Request an Event</a>
     </div>
   </div>
 </section>
-
-{% if site.data.testimonials.size > 0 %}
-<section class="testimonials">
-  <h2>What Guests Say</h2>
-  <div class="testimonial-list">
-    {% for t in site.data.testimonials %}
-    <blockquote class="testimonial">
-      <p>"{{ t.quote }}"</p>
-      <footer>— {{ t.author }}</footer>
-    </blockquote>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}

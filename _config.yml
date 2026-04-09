@@ -73,6 +73,15 @@ collections:
   posts:
     output: true
     permalink: /:categories/:year/:month/:day/:title/
+  shared_events:
+    output: true
+    permalink: /library/events/:name/
+  shared_learning:
+    output: true
+    permalink: /library/learn/:name/
+  shared_galleries:
+    output: true
+    permalink: /library/gallery/:name/
 
 # Defaults
 defaults:
@@ -97,6 +106,21 @@ defaults:
       type: "pages"
     values:
       layout: "blb"
+  - scope:
+      path: ""
+      type: "shared_events"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "shared_learning"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "shared_galleries"
+    values:
+      layout: "page"
 
 # SEO Settings
 logo: /assets/img/vcclogoclear.png

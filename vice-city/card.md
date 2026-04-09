@@ -219,6 +219,11 @@ qr_landing: true
     <a href="{{ '/vice-city/events/' | relative_url }}" data-track="nav-events">Events</a>
   </nav>
 
+  <div class="card-mobile-dock" aria-label="Quick mobile actions">
+    <a href="tel:+15613310491" class="card-mobile-dock-link" data-track="dock-call">Call</a>
+    <a href="#inquiry" class="card-mobile-dock-link card-mobile-dock-link-primary" data-track="dock-book">Book</a>
+  </div>
+
 </div>
 
 <style>
@@ -677,6 +682,45 @@ qr_landing: true
   color: var(--vice-cyan-blue);
 }
 
+/* ---- Mobile dock ---- */
+.card-mobile-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
+  background: rgba(10, 10, 46, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0, 255, 255, 0.25);
+}
+
+.card-mobile-dock-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  text-decoration: none;
+  border-radius: var(--radius-small);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--havana-cream);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.card-mobile-dock-link-primary {
+  border-color: var(--vice-cyan-blue);
+  color: var(--vice-cyan-blue);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.22);
+}
+
 /* ---- Tablet and up ---- */
 @media (min-width: 600px) {
   .card-page {
@@ -707,6 +751,10 @@ qr_landing: true
 
   .card-contact-quick {
     flex-wrap: nowrap;
+  }
+
+  .card-mobile-dock {
+    display: none;
   }
 }
 </style>
