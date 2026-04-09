@@ -48,6 +48,124 @@ The site is configured for **vicecitycigars.com**:
 
 ## Content Updates
 
+### Quick How-To: Blog, Learn, Gallery, and Events
+
+This site now uses shared markdown collections with brand tags.
+
+- `brand: vice-city` = shows in Vice City pages
+- `brand: black-leaf-bounty` = shows in BLB pages
+- `brand: shared` = shows in both brands
+
+#### 1) Add a Blog Post
+
+Create a new file in `_posts/` with format:
+
+```markdown
+---
+layout: post
+title: "Your Post Title"
+date: YYYY-MM-DD
+categories: [events, culture]
+author: Vice City Cigars
+excerpt: "Short preview text"
+image: /assets/img/gallery/your-image.jpg
+---
+
+Post content here.
+```
+
+Tips:
+- Use `categories` to control where it appears in brand blog pages.
+- Use one of these categories when relevant: `events`, `culture`, `renaissance`, `business`.
+
+#### 2) Add or Update a Learning Card
+
+Collection folder: `_shared_learning/`
+
+Use this front matter:
+
+```markdown
+---
+brand: vice-city
+layout: miami
+title: "Guide Title"
+published_on: 2026-04-20
+tags: [Beginner, Cigars, Technique]
+cover_image: /assets/img/gallery/cigars.jpg
+excerpt: "One-sentence summary for the card."
+---
+
+Full lesson content.
+```
+
+For BLB entries, change to:
+- `brand: black-leaf-bounty`
+- `layout: blb`
+
+For shared entries, use:
+- `brand: shared`
+- `layout: page`
+
+#### 3) Add or Update an Event Card
+
+Collection folder: `_shared_events/`
+
+```markdown
+---
+brand: black-leaf-bounty
+layout: blb
+title: "Event Name"
+event_date: 2026-11-01
+location: "Pompano Beach, FL"
+status: "upcoming"
+cover_image: /assets/img/gallery/pipes.jpg
+summary: "Short card summary."
+photo_album_url: "https://instagram.com/vicecitycigars"
+cta_label: "Photos"
+---
+
+Event detail content.
+```
+
+Status options used today: `upcoming`, `past`.
+If dates are not confirmed yet, keep the event and update `event_date` later.
+
+#### 4) Add or Update a Gallery Story
+
+Collection folder: `_shared_galleries/`
+
+```markdown
+---
+brand: vice-city
+layout: miami
+title: "Gallery Story Title"
+date: 2026-04-21
+cover_image: /assets/img/gallery/lounge.jpg
+caption: "Short caption shown on card."
+story: "Short teaser shown on listing page."
+album_url: "https://instagram.com/vicecitycigars"
+---
+
+Longer gallery story here.
+```
+
+#### 5) Where These Show Up
+
+- Vice City Learn/Events/Gallery pages filter from shared collections by `brand`
+- BLB Learn/Events/Gallery pages also filter from the same shared collections
+- `brand: shared` appears in both
+
+#### 6) Fast Publish Workflow
+
+```bash
+bundle exec jekyll build
+git add .
+git commit -m "content: add learning/event/gallery updates"
+git push origin main
+```
+
+GitHub Actions deploys automatically from `main`.
+
 ### Update Black Leaf Bounty Faire Schedule
 Edit: `black-leaf-bounty.md`
 
@@ -170,4 +288,4 @@ To re-enable:
 
 ---
 
-Last updated: March 2, 2026
+Last updated: April 9, 2026
