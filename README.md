@@ -1,26 +1,44 @@
 # Vice City Cigars Website
 
-Deploy on GitHub Pages:
+**MVP Status:** ✅ Launch-ready (April 2026)
 
-1. Push to GitHub
-2. Go to **Settings → Pages → Source: Deploy from a branch → main → / (root)**
-3. Site will be available at `https://anykolaiszyn.github.io/vccweb`
-4. Replace `assets/img/vcclogo.png` with your real logo (prefer transparent PNG, 600–1200px wide).
-5. (Optional) Point the contact form to your chosen static form endpoint; otherwise mailto: works.
-6. Update phone, email, and social links in `_config.yml` and footer.
-7. Add real photos to `assets/img/gallery/` and swap hero background.
+## Deployment
 
----
+The site is deployed to GitHub Pages via GitHub Actions. Push to `main` and Actions will auto-build and deploy within 2–3 minutes.
 
-## Phase 2 TODO (leave as checklist)
+**Production URL:** https://vicecitycigars.com (or https://anykolaiszyn.github.io/vccweb if using default GitHub Pages domain)
 
-- [ ] Add `_data/products.yml` + simple catalog cards
-- [ ] "Place order" flow (choose items → submit callback form or phone)
-- [ ] Crypto payment option disclosure (info page)
-- [ ] Testimonials collection + gallery page
-- [ ] Event booking calendar embed (optional)
+## Architecture
+
+- **Dual-brand system**: Vice City (Miami Vice cyberpunk) + Black Leaf Bounty (Renaissance merchant pirate)
+- **Brand chooser** at `/` with localStorage brand preference
+- **Shared root pages** (`/about`, `/services`, `/events`, `/learn`, `/contact`) auto-redirect to saved brand experience
+- **Compliance-safe shop teaser** at `/shop/` (online ordering disabled pending legal review)
+- **Blog system** with category filtering by brand (`vice-city/blog/`, `black-leaf-bounty/blog/`)
+- **QR business card landing** at `/vice-city/card/` for PCA event networking
+- **Contact forms** routed to Formspree at `f/mwpnagkv`
+
+## Development
+
+```bash
+bundle install
+bundle exec jekyll serve --baseurl ""  # Local dev (http://localhost:4000)
+bundle exec jekyll build               # Production build to _site/
+```
+
+## Post-PCA Backlog
+
+After returning from PCA, prioritize:
+1. **Gallery refresh** with real event photos
+2. **Event recap blog post** capturing PCA learnings
+3. **GA4 analytics setup** (placeholder ID still in code)
+4. **Event operations tooling** (calendar, checklist, QR tracking)
+5. **Tobacco shop compliance review** (legal team sign-off required before `published: true`)
+
+See `.copilot-instructions.md` and project docs for architecture details.
 
 ## Notes
 
-- To enable a hosted form endpoint (e.g., Formspree), set the `data-form-endpoint` and `action` attributes on the form in `contact.md`. Leaving them empty keeps the site publishable without secrets. The mailto button works as a fallback.
-- This is deployed as a project site with `baseurl: "/vccweb"` in `_config.yml`.
+- All source files use `{{ '/path' | relative_url }}` for GitHub Pages baseurl compatibility
+- API keys and tokens are in `.gitignore` (never committed): `apps-script-updated.js`, `square-inventory-sync.js`, `.env*`
+- The site builds cleanly with zero warnings/errors
