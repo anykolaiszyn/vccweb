@@ -265,7 +265,7 @@ To re-enable:
 - Never hardcode full URLs for internal links
 
 ### Images Not Loading
-- Images should be in: `assets/img/` or `assets/images/`
+- Images should be in: `assets/img/`
 - Use: `{{ '/assets/img/filename.png' | relative_url }}`
 - Check file case sensitivity (Linux servers are case-sensitive)
 
