@@ -635,14 +635,50 @@ a:hover, a:focus {
   padding: 0;
 }
 
-/* Mobile: hide trigger, show submenu items flat in the hamburger menu */
+/* Mobile: show trigger as a full-width nav row, submenu collapsed by default */
 @media (max-width: 768px) {
   .nav-dropdown-trigger {
-    display: none;
+    width: 100%;
+    justify-content: space-between;
+    border-radius: var(--radius-small);
+    border: 1px solid transparent;
+    padding: 0 1rem;
+    min-height: 44px;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .nav-dropdown-trigger[aria-expanded="true"] {
+    color: var(--vice-cyan-blue);
+    border-color: var(--vice-cyan-blue);
+  }
+
+  .nav-dropdown-trigger[aria-expanded="true"] span {
+    display: inline-block;
+    transform: rotate(180deg);
   }
 
   .nav-dropdown-menu {
+    display: none;
+    position: static;
+    background: rgba(255, 20, 147, 0.06);
+    border: none;
+    border-left: 2px solid var(--vice-hot-pink);
+    border-radius: 0;
+    box-shadow: none;
+    min-width: unset;
+    padding: 0.25rem 0;
+    margin: 0 0 0 1rem;
+  }
+
+  .nav-dropdown-menu.open {
     display: block;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
   }
 }
 

@@ -17,14 +17,14 @@
         <li><a href="{{ '/vice-city/shop' | relative_url }}"{% if page.url contains '/vice-city/shop' %} aria-current="page"{% endif %}>The Humidor</a></li>
         <li><a href="{{ '/vice-city/events' | relative_url }}"{% if page.url contains '/vice-city/events' %} aria-current="page"{% endif %}>Events</a></li>
         <li><a href="{{ '/vice-city/services' | relative_url }}"{% if page.url contains '/vice-city/services' %} aria-current="page"{% endif %}>Services</a></li>
-        <li><a href="{{ '/vice-city/about' | relative_url }}"{% if page.url contains '/vice-city/about' %} aria-current="page"{% endif %}>About</a></li>
-        <li><a href="{{ '/vice-city/learn' | relative_url }}"{% if page.url contains '/vice-city/learn' %} aria-current="page"{% endif %}>Learn</a></li>
-        <li><a href="{{ '/vice-city/blog/' | relative_url }}"{% if page.url contains '/vice-city/blog' %} aria-current="page"{% endif %}>The Dispatch</a></li>
-        <li><a href="{{ '/vice-city/gallery' | relative_url }}"{% if page.url contains '/vice-city/gallery' %} aria-current="page"{% endif %}>Gallery</a></li>
         <li><a href="{{ '/vice-city/contact' | relative_url }}"{% if page.url contains '/vice-city/contact' %} aria-current="page"{% endif %}>Contact</a></li>
         <li class="nav-dropdown">
           <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">More <span aria-hidden="true">▾</span></button>
           <ul class="nav-dropdown-menu" role="menu">
+            <li role="menuitem"><a href="{{ '/vice-city/about' | relative_url }}"{% if page.url contains '/vice-city/about' %} aria-current="page"{% endif %}>About</a></li>
+            <li role="menuitem"><a href="{{ '/vice-city/learn' | relative_url }}"{% if page.url contains '/vice-city/learn' %} aria-current="page"{% endif %}>Learn</a></li>
+            <li role="menuitem"><a href="{{ '/vice-city/blog/' | relative_url }}"{% if page.url contains '/vice-city/blog' %} aria-current="page"{% endif %}>The Dispatch</a></li>
+            <li role="menuitem"><a href="{{ '/vice-city/gallery' | relative_url }}"{% if page.url contains '/vice-city/gallery' %} aria-current="page"{% endif %}>Gallery</a></li>
             <li role="menuitem"><a href="{{ '/terms' | relative_url }}"{% if page.url contains '/terms' or page.url contains '/privacy' or page.url contains '/shipping' or page.url contains '/refund' %} aria-current="page"{% endif %}>Policies</a></li>
             <li role="menuitem"><a href="{{ '/' | relative_url }}" title="Switch to the Black Leaf Bounty experience">Switch Experience</a></li>
           </ul>
