@@ -23,8 +23,13 @@
         <li><a href="{{ '/black-leaf-bounty/blog/' | relative_url }}"{% if page.url contains '/black-leaf-bounty/blog' %} aria-current="page"{% endif %}>Captain's Log</a></li>
         <li><a href="{{ '/black-leaf-bounty/gallery' | relative_url }}"{% if page.url contains '/black-leaf-bounty/gallery' %} aria-current="page"{% endif %}>Gallery</a></li>
         <li><a href="{{ '/black-leaf-bounty/contact' | relative_url }}"{% if page.url contains '/black-leaf-bounty/contact' %} aria-current="page"{% endif %}>Contact</a></li>
-        <li><a href="{{ '/terms' | relative_url }}"{% if page.url contains '/terms' or page.url contains '/privacy' or page.url contains '/shipping' or page.url contains '/refund' %} aria-current="page"{% endif %}>Policies</a></li>
-        <li><a href="{{ '/' | relative_url }}" title="Switch to the Vice City Cigars experience">Switch Experience</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">More <span aria-hidden="true">▾</span></button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="menuitem"><a href="{{ '/terms' | relative_url }}"{% if page.url contains '/terms' or page.url contains '/privacy' or page.url contains '/shipping' or page.url contains '/refund' %} aria-current="page"{% endif %}>Policies</a></li>
+            <li role="menuitem"><a href="{{ '/' | relative_url }}" title="Switch to the Vice City Cigars experience">Switch Experience</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>

@@ -599,18 +599,69 @@ a:hover, a:focus {
   border-color: var(--vice-hot-pink);
 }
 
-/* Navigation dropdown styles - Desktop */
+/* Navigation dropdown — trigger button */
+.nav-dropdown-trigger {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: var(--font-ui);
+  color: var(--vcc-text-light);
+  min-height: 44px;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.3s ease;
+  border-radius: var(--radius-small);
+  border: 1px solid transparent;
+}
+
+.nav-dropdown-trigger:hover {
+  color: var(--vice-cyan-blue);
+  border-color: var(--vice-cyan-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+/* Hidden by default on all screen sizes */
+.nav-dropdown-menu {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile: hide trigger, show submenu items flat in the hamburger menu */
+@media (max-width: 768px) {
+  .nav-dropdown-trigger {
+    display: none;
+  }
+
+  .nav-dropdown-menu {
+    display: block;
+  }
+}
+
+/* Desktop dropdown styles */
 @media (min-width: 769px) {
   .nav-dropdown {
     position: relative;
   }
 
-  .nav-dropdown > a {
-    cursor: pointer;
+  .nav-dropdown-trigger {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    white-space: nowrap;
+    min-height: unset;
   }
 
   .nav-dropdown-menu {
-    display: none;
     position: absolute;
     top: calc(100% + 0.5rem);
     left: 50%;
@@ -619,10 +670,8 @@ a:hover, a:focus {
     border: 2px solid var(--vice-hot-pink);
     border-radius: var(--radius);
     box-shadow: var(--shadow-neon);
-    min-width: 220px;
-    list-style: none;
+    min-width: 200px;
     padding: 0.5rem 0;
-    margin: 0;
     z-index: 2000;
   }
 
@@ -632,20 +681,23 @@ a:hover, a:focus {
 
   .nav-dropdown-menu a {
     display: block;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.25rem;
     color: var(--vcc-text-light);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     background: transparent;
+    font-size: 0.82rem;
+    white-space: nowrap;
   }
 
   .nav-dropdown-menu a:hover {
     background: rgba(255, 20, 147, 0.2);
     color: var(--vice-cyan-blue);
-    padding-left: 2rem;
+    padding-left: 1.6rem;
   }
 
-  .nav-dropdown:hover .nav-dropdown-menu {
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
     display: block;
   }
 }
@@ -1460,7 +1512,6 @@ blockquote::before {
 
 /* Art Deco Focus Styles */
 a, button, input, textarea {
-  outline: none;
   transition: all 0.3s ease;
 }
 
