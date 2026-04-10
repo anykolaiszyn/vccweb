@@ -700,8 +700,8 @@ a:hover, a:focus {
   .nav-dropdown-menu {
     position: absolute;
     top: calc(100% + 0.5rem);
-    left: 50%;
-    transform: translateX(-50%);
+    right: 0;
+    left: auto;
     background: var(--vcc-bg-dark);
     border: 2px solid var(--vice-hot-pink);
     border-radius: var(--radius);
