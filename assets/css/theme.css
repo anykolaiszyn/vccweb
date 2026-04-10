@@ -88,7 +88,6 @@ body {
 .miami-theme main {
   background: var(--vcc-bg-glass);
   margin: 1rem auto;
-  max-width: 1400px;
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-neon);
   padding: 2rem 1.5rem;
@@ -132,7 +131,6 @@ body {
 .neutral-theme main {
   background: rgba(255, 255, 255, 0.03);
   margin: 1rem auto;
-  max-width: 1400px;
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -220,9 +218,12 @@ a:hover, a:focus {
 
 /* Art Deco Buttons */
 .btn {
-  display: inline-block;
-  min-height: 44px;
-  padding: 1rem 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 2rem;
+  line-height: 1;
   border-radius: var(--radius);
   font-family: var(--font-ui);
   font-weight: 600;
@@ -235,6 +236,10 @@ a:hover, a:focus {
   letter-spacing: 0.1em;
   position: relative;
   overflow: hidden;
+}
+
+.btn::after {
+  display: none;
 }
 
 .btn::before {
@@ -684,7 +689,7 @@ a:hover, a:focus {
   font-family: var(--font-ui);
   color: var(--vcc-text-light);
   min-height: 44px;
-  padding: 1rem;
+  padding: 0 1rem;
   border: 1px solid transparent;
   border-radius: var(--radius-small);
   transition: all 0.3s ease;
@@ -694,7 +699,8 @@ a:hover, a:focus {
   position: relative;
   text-decoration: none;
   background: transparent;
-  display: block;
+  display: flex;
+  align-items: center;
   line-height: 1.2;
   text-align: center;
 }
@@ -830,6 +836,13 @@ a:hover, a:focus {
   text-shadow: 0 0 5px currentColor;
 }
 
+.compliance-disclaimer {
+  font-size: 0.78rem;
+  color: var(--vcc-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
 .badge-21 {
   background: var(--gradient-neon-accent);
   color: var(--vcc-bg-dark);
@@ -894,7 +907,7 @@ a:hover, a:focus {
   color: var(--vcc-text-light);
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-neon);
-  padding: 3rem 3rem;
+  padding: 3rem 2rem;
   text-align: center;
   max-width: 400px;
   margin: auto;
@@ -930,7 +943,8 @@ a:hover, a:focus {
 }
 
 /* Miami Vice Forms */
-form {
+.miami-theme form,
+.neutral-theme form {
   background: var(--vcc-bg-glass);
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-neon);
@@ -946,7 +960,8 @@ form {
   backdrop-filter: blur(20px);
 }
 
-form::before {
+.miami-theme form::before,
+.neutral-theme form::before {
   content: '';
   position: absolute;
   top: 0;
@@ -957,7 +972,8 @@ form::before {
   border-radius: var(--radius-large) var(--radius-large) 0 0;
 }
 
-form label {
+.miami-theme form label,
+.neutral-theme form label {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--vice-cyan-blue);
@@ -968,7 +984,8 @@ form label {
   text-shadow: 0 0 5px currentColor;
 }
 
-form input, form textarea {
+.miami-theme form input, .miami-theme form textarea,
+.neutral-theme form input, .neutral-theme form textarea {
   border: 2px solid var(--vice-hot-pink);
   border-radius: var(--radius-small);
   padding: 1rem;
@@ -980,19 +997,22 @@ form input, form textarea {
   transition: all 0.3s ease;
 }
 
-form input:focus, form textarea:focus {
+.miami-theme form input:focus, .miami-theme form textarea:focus,
+.neutral-theme form input:focus, .neutral-theme form textarea:focus {
   border-color: var(--vice-cyan-blue);
   box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.3), 0 0 15px rgba(0, 255, 255, 0.5);
   outline: none;
 }
 
-form textarea {
+.miami-theme form textarea,
+.neutral-theme form textarea {
   min-height: 120px;
   resize: vertical;
   font-family: var(--font-ui);
 }
 
-form button {
+.miami-theme form button,
+.neutral-theme form button {
   margin-top: 1.5rem;
 }
 
@@ -1300,8 +1320,9 @@ blockquote::before {
     letter-spacing: 0.02em;
     text-transform: none;
     white-space: nowrap;
-    text-align: left;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
   }
   
   .site-logo {

@@ -92,29 +92,6 @@ A shared learning library for pipe-curious guests, cigar travelers, and anyone w
 </script>
 
 <style>
-.filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.filter-btn {
-  padding: 0.5rem 1rem;
-  background: var(--shadow-neon, rgba(255, 20, 147, 0.15));
-  border: 1px solid var(--vice-neon-pink, #FF1493);
-  color: var(--vice-neon-pink, #FF1493);
-  cursor: pointer;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--vice-neon-pink, #FF1493);
-  color: white;
-}
-
 .card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -125,11 +102,15 @@ A shared learning library for pipe-curious guests, cigar travelers, and anyone w
 
 .tag {
   display: inline-block;
-  padding: 0.25rem 0.5rem;
-  background: rgba(255, 20, 147, 0.1);
-  border-radius: 3px;
-  color: var(--vice-neon-pink, #FF1493);
-  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  background: rgba(200, 168, 122, 0.12);
+  border: 1px solid rgba(200, 168, 122, 0.3);
+  border-radius: 999px;
+  color: var(--blb-rope);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 </style>
 
