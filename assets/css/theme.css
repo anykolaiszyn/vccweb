@@ -1636,8 +1636,8 @@ input.error:focus, textarea.error:focus {
    ============================================================= */
 
 :root {
-  --vcc-pink-lt: #FFF0F8;
-  --vcc-cyan-lt: #F0FAFF;
+  --vcc-pink-lt: rgba(20, 16, 28, 0.92);
+  --vcc-cyan-lt: rgba(12, 20, 28, 0.92);
   --vcc-gold:    #C8960C;
   --vcc-gold-lt: #FDF8E8;
   --vcc-gray:    #777777;
@@ -1675,6 +1675,10 @@ a.services-card-link {
   border-collapse: collapse;
   margin: 2rem 0;
   font-family: var(--font-ui);
+  background: rgba(10, 12, 22, 0.9);
+  border: 1px solid rgba(0, 255, 255, 0.22);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
 .services-table thead {
@@ -1697,13 +1701,17 @@ a.services-card-link {
 }
 
 .services-table tbody tr:nth-child(odd) td {
-  background: var(--vcc-pink-lt);
-  color: var(--vice-charcoal);
+  background: #171922;
+  color: var(--havana-cream);
 }
 
 .services-table tbody tr:nth-child(even) td {
-  background: var(--vcc-cyan-lt);
-  color: var(--vice-charcoal);
+  background: #111b24;
+  color: var(--havana-cream);
+}
+
+.services-table tbody td strong {
+  color: var(--vice-cyan-blue);
 }
 
 @media (max-width: 600px) {
