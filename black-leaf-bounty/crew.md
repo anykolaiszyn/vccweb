@@ -1,24 +1,24 @@
 ---
 layout: blb
-title: "Join The Crew | Black Leaf Bounty Loyalty Program"
+title: "Captain's Circle | Black Leaf Bounty"
 permalink: /black-leaf-bounty/crew/
-description: "Join The Crew — Black Leaf Bounty's loyalty program. Early access to limited blends, faire schedule updates, pre-order windows, and Captain's Table benefits."
+description: "Captain's Circle — Black Leaf Bounty's insider list for early port alerts, limited blends, and Captain's Table opportunities."
 ---
 
 <section class="blb-hero">
-  <span class="blb-kicker">The Crew</span>
-  <h1>Sign The Manifest And Sail With Us</h1>
-  <p>Every ship keeps a loyal crew. Ours hears first of limited blends, upcoming ports of call, and the opportunities that never make it to the open quay.</p>
+  <span class="blb-kicker">Captain's Circle</span>
+  <h1>Enter The Captain's Circle</h1>
+  <p>The Captain's Circle is for guests who want first word on limited blends, upcoming ports of call, and the opportunities that never make it to the open quay.</p>
 </section>
 
 <section class="blb-section">
   <span class="blb-kicker">The Three Tiers</span>
-  <h2>How The Crew Is Ordered</h2>
+  <h2>How The Circle Is Ordered</h2>
   <div class="blb-card-grid">
     <article class="blb-card">
       <h3>Deckhand</h3>
       <p>Faire schedule announcements before public posting, early notice of new and limited blends, and the Captain's Log in your inbox.</p>
-      <p class="blb-mini-note">Entry by email sign-up.</p>
+      <p class="blb-mini-note">Entry by Captain's Circle sign-up.</p>
     </article>
     <article class="blb-card">
       <h3>First Mate</h3>
@@ -42,7 +42,7 @@ description: "Join The Crew — Black Leaf Bounty's loyalty program. Early acces
         data-error-message="Something went wrong. Send word directly to vccigar@gmail.com."
         action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
     <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Ignore this field">
-    <input type="hidden" name="_subject" value="Black Leaf Bounty Crew Signup">
+    <input type="hidden" name="_subject" value="Black Leaf Bounty Captain's Circle Signup">
     <input type="hidden" name="form-name" value="blb-crew-signup">
 
     <label for="crew-first-name">First Name *</label>
@@ -63,5 +63,5 @@ description: "Join The Crew — Black Leaf Bounty's loyalty program. Early acces
 
     <button type="submit" class="btn">Sign The Manifest</button>
   </form>
-  <p class="blb-mini-note" style="margin-top:1rem;">First Mate and Captain's Table status are earned at the booth. Signing up here enrolls you as a Deckhand and places you on the Captain's Log.</p>
+  <p class="blb-mini-note" style="margin-top:1rem;">First Mate and Captain's Table status are earned at the booth. Signing up here places you in the Captain's Circle as a Deckhand and puts you on the Captain's Log.</p>
 </section>

@@ -25,7 +25,7 @@ description: "Contact Black Leaf Bounty for event bookings, blend inquiries, fai
 
 # Send Word To The Captain
 
-If you need booking details, blend guidance, crew information, or the next port of call, hail the ship here. We answer all proper messages within 24 to 48 hours.
+If you need booking details, blend guidance, Captain's Circle information, or the next port of call, hail the ship here. We answer all proper messages within 24 to 48 hours.
 
 <div class="blb-card">
 	<h3>Contact Deck</h3>

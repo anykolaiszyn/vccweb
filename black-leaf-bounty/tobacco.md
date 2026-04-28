@@ -11,7 +11,7 @@ description: "26 premium pipe tobacco blends from Cornell & Diehl and Rivertown 
   <p>Twenty-six blends from Cornell &amp; Diehl and Rivertown Tobacco Works. Aromatics for the curious. Virginias for the disciplined palate. English and Balkan mixtures for those who prefer a little smoke in the air and a little complexity in the bowl.</p>
   <div class="blb-cta-row">
     <a class="blb-btn" href="{{ '/black-leaf-bounty/schedule/' | relative_url }}">Find Us At A Faire</a>
-    <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/crew/' | relative_url }}">Join The Crew</a>
+    <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/crew/' | relative_url }}">Join The Captain's Circle</a>
   </div>
 </section>
 
@@ -28,8 +28,8 @@ description: "26 premium pipe tobacco blends from Cornell & Diehl and Rivertown 
       <p>Selected blends are available in limited daily pouch quantities and only with a tin purchase. The crew will tell you plainly what remains aboard that day.</p>
     </article>
     <article class="blb-card">
-      <h3>Crew Priority</h3>
-      <p>Crew members hear first about scarce blends and upcoming ports of call. When limited stock makes landfall, the manifest reaches them before the public.</p>
+      <h3>Captain's Circle Priority</h3>
+      <p>Captain's Circle members hear first about scarce blends and upcoming ports of call. When limited stock makes landfall, the manifest reaches them before the public.</p>
     </article>
   </div>
 </section>

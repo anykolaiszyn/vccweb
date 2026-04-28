@@ -13,6 +13,38 @@ permalink: /black-leaf-bounty/
     <a class="blb-btn" href="{{ '/black-leaf-bounty/tobacco/' | relative_url }}">Browse The Hold</a>
     <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/schedule/' | relative_url }}">Find Us At A Faire</a>
   </div>
+  <p class="blb-mini-note">Buying in person? Start with the schedule. Hosting an event? <a href="{{ '/black-leaf-bounty/events/' | relative_url }}">Book the Bounty</a>. Want early notice? <a href="{{ '/black-leaf-bounty/crew/' | relative_url }}">Join the Captain's Circle</a>.</p>
+</section>
+
+<section class="blb-section">
+  <span class="blb-kicker">How It Works</span>
+  <h2>Choose Your Course</h2>
+  <div class="blb-card-grid">
+    <article class="blb-card">
+      <h3>Visit Us At A Faire</h3>
+      <p>Find the next port of call, see what is confirmed, and plan your visit to the booth for tins, pipes, and guidance in person.</p>
+      <div class="blb-button-row">
+        <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/schedule/' | relative_url }}">See The Schedule</a>
+      </div>
+    </article>
+    <article class="blb-card">
+      <h3>Book A Private Event</h3>
+      <p>Bring the full merchant experience to a themed wedding, gala, private revel, or historical gathering with a self-contained in-character setup.</p>
+      <div class="blb-button-row">
+        <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/events/' | relative_url }}">Book The Bounty</a>
+      </div>
+    </article>
+    <article class="blb-card">
+      <h3>Captain's Circle</h3>
+      <p>Get first word on new ports, limited blends, and manifest updates before the general public hears what is coming aboard.</p>
+      <div class="blb-button-row">
+        <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/crew/' | relative_url }}">Join The Captain's Circle</a>
+      </div>
+    </article>
+  </div>
+  <div class="blb-blend-callout" style="margin-top: 1.5rem;">
+    <p><strong>Before you set out:</strong> Black Leaf Bounty is strictly 21+. Tobacco is sold in person at fairs and events or discussed by direct inquiry. No online tobacco sales are offered through this site.</p>
+  </div>
 </section>
 
 <section class="blb-section">
@@ -75,24 +107,29 @@ permalink: /black-leaf-bounty/
   </div>
 </section>
 
-<section class="blb-section" id="join-the-crew">
-  <span class="blb-kicker">Join The Crew</span>
+<section class="blb-section" id="captains-circle">
+  <span class="blb-kicker">Captain's Circle</span>
   <h2>Be First To Know When We Make Port</h2>
   <div class="blb-story-card">
     <p>New blends, new dates, pre-order access, and the occasional word from the Captain. Sign the manifest and keep your name on the right list.</p>
+    <ul class="blb-list" style="margin-bottom: 1rem;">
+      <li>New port dates before public posting</li>
+      <li>Limited blend and manifest alerts</li>
+      <li>Early notice when special stock comes aboard</li>
+    </ul>
     <form data-async-form
           data-loading-text="Signing the manifest..."
           data-success-message="You are on the manifest. Watch for the Captain's Log."
           data-error-message="Something went wrong. Send word directly to vccigar@gmail.com."
           action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
       <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Ignore this field">
-      <input type="hidden" name="_subject" value="Black Leaf Bounty Homepage Crew Signup">
+      <input type="hidden" name="_subject" value="Black Leaf Bounty Captain's Circle Signup">
       <input type="hidden" name="form-name" value="blb-home-crew">
 
       <label for="home-crew-email">Email *</label>
       <input type="email" id="home-crew-email" name="email" required aria-required="true" autocomplete="email">
 
-      <button type="submit">Join The Crew</button>
+      <button type="submit">Join The Captain's Circle</button>
     </form>
   </div>
 </section>

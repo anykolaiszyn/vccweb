@@ -51,11 +51,35 @@ description: "Book Black Leaf Bounty for Renaissance-themed weddings, medieval c
 </section>
 
 <section class="blb-section">
+  <span class="blb-kicker">Before You Book</span>
+  <h2>What To Know Before Sending Word</h2>
+  <div class="blb-card-grid">
+    <article class="blb-card">
+      <h3>Service Area</h3>
+      <p>The Bounty primarily serves Florida events and select regional themed gatherings. Travel farther afield can be arranged when the port, scale, and timing justify the voyage.</p>
+    </article>
+    <article class="blb-card">
+      <h3>Venue Fit</h3>
+      <p>Outdoor or well-designated smoking areas make the strongest setting. If your venue has restrictions on open smoking or event footprint, send those details early.</p>
+    </article>
+    <article class="blb-card">
+      <h3>What Shapes The Quote</h3>
+      <p>Final pricing depends on duration, travel, guest count, footprint, staffing, and whether you want specialty add-ons such as a live roller or custom demonstrations.</p>
+    </article>
+    <article class="blb-card">
+      <h3>After You Inquire</h3>
+      <p>The Captain replies within 24 to 48 hours with follow-up questions, availability, and the right next step for your port, venue, and crowd.</p>
+    </article>
+  </div>
+</section>
+
+<section class="blb-section">
   <span class="blb-kicker">Send Word To The Captain</span>
   <h2>Event Inquiry</h2>
+  <p class="blb-mini-note">Takes about a minute. Send the essentials first and the Captain will follow up with the details that matter.</p>
   <form data-async-form
         data-loading-text="Sending your inquiry..."
-        data-success-message="Inquiry received. The Captain will reply within 24–48 hours."
+        data-success-message="Inquiry received. The Captain will reply within 24–48 hours with the next step."
         data-error-message="Something went wrong. Please call 561-331-0497 or email vccigar@gmail.com."
         action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
     <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Ignore this field">
@@ -67,9 +91,6 @@ description: "Book Black Leaf Bounty for Renaissance-themed weddings, medieval c
 
     <label for="blb-booking-email">Email *</label>
     <input type="email" id="blb-booking-email" name="email" required aria-required="true" autocomplete="email">
-
-    <label for="blb-booking-phone">Phone</label>
-    <input type="tel" id="blb-booking-phone" name="phone" pattern="[0-9\-\(\)\s\+]+" autocomplete="tel">
 
     <label for="blb-booking-type">Event Type</label>
     <select id="blb-booking-type" name="event-type">
@@ -105,6 +126,9 @@ description: "Book Black Leaf Bounty for Renaissance-themed weddings, medieval c
       <option>No</option>
       <option>Not Sure</option>
     </select>
+
+    <label for="blb-booking-phone">Phone</label>
+    <input type="tel" id="blb-booking-phone" name="phone" pattern="[0-9\-\(\)\s\+]+" autocomplete="tel" placeholder="Optional">
 
     <label for="blb-booking-message">Message</label>
     <textarea id="blb-booking-message" name="message" rows="5" placeholder="Tell us the theme, setting, and what kind of atmosphere you want the Bounty to bring."></textarea>

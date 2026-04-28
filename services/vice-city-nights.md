@@ -9,7 +9,7 @@ description: "A ticketed, immersive 90-minute cigar lounge experience. Live roll
   <h1>Vice City Nights</h1>
   <p class="hero-body">A ticketed immersive cigar experience. Limited seats. Unforgettable night.</p>
   <div class="hero-cta">
-    <a class="btn btn-primary" href="#waitlist">Join the Waitlist</a>
+    <a class="btn btn-primary" href="#waitlist">Join the Guest List</a>
     <a class="btn btn-secondary" href="{{ '/services/venue-partnerships/' | relative_url }}">Host a Night</a>
   </div>
 </section>
@@ -75,9 +75,9 @@ An intimate, 90-minute immersive cigar experience produced by Vice City Cigars. 
   <p>Vice City Nights is the most intimate brand activation available in South Florida. 90 minutes with a captive, curated audience who paid to be there. <a href="{{ '/services/brand-activations/' | relative_url }}">Learn more about brand partnerships &rarr;</a></p>
 </div>
 
-<h2 id="waitlist">Be First to Know</h2>
+<h2 id="waitlist">Join the Guest List</h2>
 
-Tickets drop in limited batches. Add your name and we'll let you know when the next event is announced.
+Tickets drop in limited batches. Add your name to the Guest List and we'll let you know when the next event is announced.
 
 {% include services-form-waitlist.html %}
 
