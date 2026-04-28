@@ -7,7 +7,7 @@
     <main class="container blb-shell" id="main-content" role="main" tabindex="-1">
       {{ content }}
     </main>
-    {% include footer.html %}
+    {% include footer-blb.html %}
   </body>
 </html>
 
@@ -59,6 +59,55 @@
 .blb-theme .site-footer a,
 .blb-theme .site-header h1 {
   color: var(--blb-parchment);
+}
+
+.blb-footer {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(200, 168, 122, 0.3);
+}
+
+.blb-footer-flex {
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.blb-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.blb-footer-brand div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.blb-footer-brand strong {
+  color: var(--blb-rope);
+  font-family: var(--blb-heading-alt);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.blb-footer-brand span {
+  color: rgba(244, 241, 232, 0.68);
+  font-size: 0.92rem;
+}
+
+.blb-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.blb-footer-links a {
+  text-decoration: none;
+}
+
+.blb-footer-links span {
+  color: rgba(200, 168, 122, 0.5);
 }
 
 /* Override VCC cyan on BLB hamburger bars and logo */
@@ -569,6 +618,121 @@
   color: var(--blb-ink);
 }
 
+.blb-badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-family: var(--blb-heading-alt);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.blb-badge-family {
+  background: rgba(139, 26, 26, 0.18);
+  border: 1px solid rgba(139, 26, 26, 0.5);
+  color: #d9a5a5;
+}
+
+.blb-badge-limited {
+  background: rgba(139, 26, 26, 0.34);
+  border: 1px solid #8B1A1A;
+  color: #ffd4d4;
+}
+
+.blb-badge-select {
+  background: rgba(200, 168, 122, 0.24);
+  border: 1px solid rgba(200, 168, 122, 0.58);
+  color: var(--blb-rope);
+}
+
+.blb-blend-callout {
+  background: linear-gradient(180deg, rgba(244, 241, 232, 0.08), rgba(255, 255, 255, 0.03));
+  border-left: 4px solid var(--blb-rope);
+  border-radius: 0.85rem;
+  padding: 1.2rem 1.35rem;
+}
+
+.blb-blend-callout p {
+  margin: 0;
+  color: rgba(244, 241, 232, 0.88);
+  font-style: italic;
+}
+
+.blb-theme .services-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: rgba(24, 17, 12, 0.82);
+  border: 1px solid rgba(200, 168, 122, 0.35);
+  overflow: hidden;
+}
+
+.blb-theme .services-table thead {
+  background: #1C1008;
+}
+
+.blb-theme .services-table thead th {
+  color: var(--blb-rope);
+  text-align: left;
+  padding: 0.95rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.82rem;
+  font-family: var(--blb-heading-alt);
+}
+
+.blb-theme .services-table tbody td {
+  padding: 0.95rem 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(74, 44, 10, 0.28);
+  color: #23170f;
+}
+
+.blb-theme .services-table tbody tr:nth-child(odd) td {
+  background: #F5EDD6;
+}
+
+.blb-theme .services-table tbody tr:nth-child(even) td {
+  background: #FDFAF3;
+}
+
+.blb-theme .services-table tbody td strong {
+  color: #4A2C0A;
+}
+
+.blb-blend-guide-grid,
+.blb-tobacco-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.blb-tobacco-card {
+  background: linear-gradient(180deg, var(--blb-panel-strong), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--blb-border);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  box-shadow: var(--blb-shadow-soft);
+}
+
+.blb-tobacco-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.blb-tobacco-card h4 {
+  margin: 0 0 0.45rem;
+  color: var(--blb-parchment);
+}
+
+.blb-tobacco-card .blb-btn {
+  margin-top: 0.8rem;
+}
+
 @media (max-width: 600px) {
   .blb-hero {
     padding: 2.5rem 1.25rem;
@@ -600,7 +764,9 @@
   .blb-card-grid,
   .blb-knowledge-grid,
   .blb-ports-grid,
-  .blb-grid {
+  .blb-grid,
+  .blb-blend-guide-grid,
+  .blb-tobacco-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -615,7 +781,8 @@
   }
 
   .blb-knowledge-grid,
-  .blb-ports-grid {
+  .blb-ports-grid,
+  .blb-tobacco-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

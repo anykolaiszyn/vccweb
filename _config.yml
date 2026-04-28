@@ -82,6 +82,9 @@ collections:
   shared_galleries:
     output: true
     permalink: /library/gallery/:name/
+  blends:
+    output: true
+    permalink: /black-leaf-bounty/tobacco/:name/
 
 # Defaults
 defaults:
@@ -121,6 +124,11 @@ defaults:
       type: "shared_learning"
     values:
       layout: "page"
+  - scope:
+      path: ""
+      type: "blends"
+    values:
+      layout: "blend"
   - scope:
       path: ""
       type: "shared_galleries"

@@ -1,107 +1,116 @@
 ---
 layout: blb
-title: Black Leaf Bounty Events
+title: "Private & Themed Events | Black Leaf Bounty"
 permalink: /black-leaf-bounty/events/
-description: "Ports of call and event appearances for The Black Leaf Bounty."
+description: "Book Black Leaf Bounty for Renaissance-themed weddings, medieval corporate events, pirate-themed galas, and private gatherings. Fully immersive theatrical tobacco experience."
 ---
 
-# Events And Voyages
+<section class="blb-hero">
+  <span class="blb-kicker">Private & Themed Events</span>
+  <h1>Bring The Experience To Your Event</h1>
+  <p>Renaissance weddings. Medieval corporate nights. Pirate galas. Fantasy conventions. If your event has a theme, the Bounty has a booth worth docking there.</p>
+</section>
 
-Find The Black Leaf Bounty at Renaissance fairs, pirate festivals, and themed gatherings across South Florida. Each voyage brings the full merchant experience: curated tobacco, honest guidance, and the kind of booth atmosphere you actually want to spend time in.
-
-## Upcoming Ports
-
-<p><em>Dates are listed as pending until final event confirmations are in.</em></p>
-
-<div class="filter-buttons" id="events-brand-filters" style="margin-bottom: 1rem;">
-  <button class="filter-btn active" data-brand="all">All Brands</button>
-  <button class="filter-btn" data-brand="black-leaf-bounty">Black Leaf Bounty</button>
-  <button class="filter-btn" data-brand="vice-city">Vice City</button>
-</div>
-
-{% assign upcoming_events = site.shared_events | where: "status", "upcoming" | sort: "event_date" %}
-{% if upcoming_events.size > 0 %}
-<div class="offerings-grid">
-  {% for event in upcoming_events %}
-  <div class="offering-card blb-card" data-brand="{{ event.brand | default: 'shared' }}">
-    {% if event.cover_image %}
-    <img src="{{ event.cover_image | relative_url }}" alt="{{ event.title }}" loading="lazy" width="400" height="300">
-    {% endif %}
-    <h3>{{ event.title }}</h3>
-    <p class="blb-event-date"><strong>{{ event.event_date | date: "%B %Y" }}</strong> — {{ event.location }}</p>
-    <p>{{ event.summary }}</p>
-    <p><strong>Source:</strong> {% if event.brand == 'black-leaf-bounty' %}Black Leaf Bounty{% elsif event.brand == 'vice-city' %}Vice City{% else %}Shared{% endif %}</p>
-    <div class="blb-button-row">
-      <a class="blb-btn" href="{{ event.url | relative_url }}">Details & Map</a>
-      {% if event.photo_album_url %}
-      <a class="blb-btn blb-btn-secondary" href="{{ event.photo_album_url }}" target="_blank">Photos</a>
-      {% endif %}
-    </div>
+<section class="blb-section">
+  <span class="blb-kicker">What We Bring</span>
+  <h2>The Merchant House, Fully Aboard</h2>
+  <div class="blb-card-grid">
+    <article class="blb-card"><h3>Full Booth Setup</h3><p>Branded, in-character, and self-contained. The venue does not need to build the atmosphere for us.</p></article>
+    <article class="blb-card"><h3>Crew In Costume</h3><p>Hosts trained to the Captain's standard: knowledgeable, warm, theatrical, and disciplined in service.</p></article>
+    <article class="blb-card"><h3>26-Blend Selection</h3><p>Pipe tobacco families, fine pipes, cigars, and guidance delivered in character without becoming parody.</p></article>
+    <article class="blb-card"><h3>Optional Live Roller</h3><p>For premium events where the host wants something even more substantial on the deck.</p></article>
   </div>
-  {% endfor %}
-</div>
-{% else %}
-<p><em>New voyages are being charted. Check back soon for 2026 ports of call.</em></p>
-{% endif %}
+</section>
 
-## What To Expect At The Booth
+<section class="blb-section">
+  <span class="blb-kicker">Best-Fit Gatherings</span>
+  <h2>Where The Bounty Belongs</h2>
+  <div class="blb-card-grid">
+    <article class="blb-card"><h3>Renaissance &amp; Medieval Weddings</h3><p>A merchant tobacco station that feels native to the setting rather than borrowed from another world.</p></article>
+    <article class="blb-card"><h3>Medieval Corporate Events</h3><p>Team gatherings and client nights that need atmosphere, conversation, and a genuine point of interest.</p></article>
+    <article class="blb-card"><h3>Pirate-Themed Charity Galas</h3><p>A richer alternative to novelty décor, anchored in real product and real guest interaction.</p></article>
+    <article class="blb-card"><h3>Fantasy &amp; RPG Conventions</h3><p>For events where the crowd values worldbuilding and knows the difference between costume and craft.</p></article>
+    <article class="blb-card"><h3>Historical Reenactment Events</h3><p>Guided tobacco hospitality that respects the setting and behaves like it belongs there.</p></article>
+    <article class="blb-card"><h3>Estate &amp; Mansion Private Parties</h3><p>Where a merchant lounge becomes the one detail every guest remembers after the evening is over.</p></article>
+  </div>
+</section>
 
-- A welcoming merchant tone instead of a rushed sales pitch
-- Guidance for cigar guests, pipe newcomers, and returning collectors
-- Seasonal selections and fair-ready bundles when available
-- A 21+ tobacco retail experience grounded in craft and compliance
-- Authentic merchant atmosphere—weathered wood, period styling, storytelling
+<section class="blb-section">
+  <span class="blb-kicker">Packages</span>
+  <h2>How The Bounty Makes Port</h2>
+  <table class="services-table">
+    <thead>
+      <tr><th>Package</th><th>Investment</th><th>Duration</th><th>What's Included</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>The Shore Party</strong></td><td>$800&ndash;$1,200</td><td>Up to 3 hrs</td><td>Booth, full selection, one crew member in character, cutting &amp; lighting, retail service</td></tr>
+      <tr><td><strong>The Captain's Table</strong></td><td>$1,400&ndash;$2,200</td><td>Up to 5 hrs</td><td>Full booth, two crew, tobacco education experience, pipe demonstration</td></tr>
+      <tr><td><strong>The Fleet</strong></td><td>$2,200&ndash;$4,000</td><td>Up to 8 hrs</td><td>Full production, multi-crew, live roller optional, premium selection, custom demo</td></tr>
+    </tbody>
+  </table>
+</section>
 
-## Booking A Private Event
+<section class="blb-section">
+  <span class="blb-kicker">Send Word To The Captain</span>
+  <h2>Event Inquiry</h2>
+  <form data-async-form
+        data-loading-text="Sending your inquiry..."
+        data-success-message="Inquiry received. The Captain will reply within 24–48 hours."
+        data-error-message="Something went wrong. Please call 561-331-0497 or email vccigar@gmail.com."
+        action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
+    <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Ignore this field">
+    <input type="hidden" name="_subject" value="Black Leaf Bounty Event Inquiry">
+    <input type="hidden" name="form-name" value="blb-events-booking">
 
-The Black Leaf Bounty isn't just for Renaissance fairs. The same merchant expertise and atmospheric presentation work for themed weddings, private celebrations, brand activations, and dedicated cigar lounges.
+    <label for="blb-booking-name">Name *</label>
+    <input type="text" id="blb-booking-name" name="name" required aria-required="true" autocomplete="name">
 
-**Service models available:**
-- **The Merchant Table** (compact booth, walk-up service)
-- **The Quarterdeck Lounge** (seated experience, deeper storytelling)
-- **The Captain's Reception** (full private events, tailored theming)
+    <label for="blb-booking-email">Email *</label>
+    <input type="email" id="blb-booking-email" name="email" required aria-required="true" autocomplete="email">
 
-**Lead time:** 4–8 weeks for fair bookings; 2–4 weeks for private events.  
-**Ready to book?** [Contact the Captain]({{ '/black-leaf-bounty/contact/' | relative_url }}) or call [561-331-0497](tel:+15613310497).
+    <label for="blb-booking-phone">Phone</label>
+    <input type="tel" id="blb-booking-phone" name="phone" pattern="[0-9\-\(\)\s\+]+" autocomplete="tel">
 
-More details at [Services Aboard The Bounty]({{ '/black-leaf-bounty/services/' | relative_url }}).
+    <label for="blb-booking-type">Event Type</label>
+    <select id="blb-booking-type" name="event-type">
+      <option value="">Select...</option>
+      <option>Renaissance Wedding</option>
+      <option>Medieval Corporate Event</option>
+      <option>Pirate Gala</option>
+      <option>Fantasy Convention</option>
+      <option>Historical Reenactment</option>
+      <option>Private Party</option>
+      <option>Other</option>
+    </select>
 
-## Event Dispatches & Blog
+    <label for="blb-booking-date">Event Date</label>
+    <input type="date" id="blb-booking-date" name="event-date">
 
-<ul class="blog-list">
-  {% assign pirate_posts = site.posts | where_exp: "post", "post.categories contains 'renaissance' or post.categories contains 'events' or post.categories contains 'culture'" %}
-  {% for post in pirate_posts limit: 6 %}
-  <li>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <span class="blog-date">{{ post.date | date: "%b %d, %Y" }}</span>
-    <p>{{ post.excerpt }}</p>
-  </li>
-  {% endfor %}
-</ul>
+    <label for="blb-booking-location">Location</label>
+    <input type="text" id="blb-booking-location" name="location" placeholder="City, State or venue name">
 
-<p>
-  <a class="blb-btn" href="{{ '/black-leaf-bounty/contact/' | relative_url }}">Book A Merchant Event</a>
-  <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/blog/' | relative_url }}">Read Captain's Log</a>
-</p>
+    <label for="blb-booking-guests">Estimated Guests</label>
+    <select id="blb-booking-guests" name="guest-count">
+      <option value="">Select...</option>
+      <option>Under 50</option>
+      <option>50–100</option>
+      <option>100–200</option>
+      <option>200+</option>
+    </select>
 
-<script>
-(function () {
-  'use strict';
+    <label for="blb-booking-outdoor">Outdoor Space Available?</label>
+    <select id="blb-booking-outdoor" name="outdoor-space">
+      <option value="">Select...</option>
+      <option>Yes</option>
+      <option>No</option>
+      <option>Not Sure</option>
+    </select>
 
-  var buttons = document.querySelectorAll('#events-brand-filters [data-brand]');
-  var cards = document.querySelectorAll('.offerings-grid [data-brand]');
+    <label for="blb-booking-message">Message</label>
+    <textarea id="blb-booking-message" name="message" rows="5" placeholder="Tell us the theme, setting, and what kind of atmosphere you want the Bounty to bring."></textarea>
 
-  buttons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      var brand = button.getAttribute('data-brand');
-      buttons.forEach(function (b) { b.classList.remove('active'); });
-      button.classList.add('active');
-      cards.forEach(function (card) {
-        var cardBrand = card.getAttribute('data-brand');
-        var show = brand === 'all' || cardBrand === brand || cardBrand === 'shared';
-        card.style.display = show ? '' : 'none';
-      });
-    });
-  });
-})();
-</script>
+    <button type="submit" class="btn">Send My Inquiry</button>
+  </form>
+</section>
+
+<p class="legal-reminder">All BLB events are strictly 21+ for tobacco service.</p>

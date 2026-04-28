@@ -1,0 +1,338 @@
+- name: "Berries & Cream"
+  slug: berries-and-cream
+  producer: "Cornell & Diehl"
+  family: "Aromatic"
+  tasting_notes: "Sweet berry, creamy vanilla, mild room note"
+  description: "A welcoming aromatic with berry sweetness and a creamy finish."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Light ale, lemonade, or mild white wine"
+- name: "Black Cherry"
+  slug: black-cherry
+  producer: "Cornell & Diehl"
+  family: "Aromatic"
+  tasting_notes: "Bold black cherry, slightly tangy, warm finish"
+  description: "A fruit-forward aromatic with more structure than most cherry blends."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Port wine or black coffee"
+- name: "Jamaican Rum"
+  slug: jamaican-rum
+  producer: "Cornell & Diehl"
+  family: "Aromatic"
+  tasting_notes: "Rum sweetness, toasted Burley, warm spice"
+  description: "Burley-based aromatic with rum character and a warm, social smoke."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Dark rum or smooth lager"
+- name: "Maple Cavendish"
+  slug: maple-cavendish
+  producer: "Cornell & Diehl"
+  family: "Aromatic"
+  tasting_notes: "Sweet maple, smooth Cavendish, gentle warmth"
+  description: "Soft Cavendish blend with light maple sweetness for newer smokers."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Herbal tea or light cider"
+- name: "Mocha"
+  slug: mocha
+  producer: "Cornell & Diehl"
+  family: "Aromatic"
+  tasting_notes: "Coffee, dark chocolate, smooth finish"
+  description: "Aromatic with roasted coffee and cocoa character over steady leaf."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: true
+  pairing: "Espresso or stout"
+- name: "Nutty Irishman"
+  slug: nutty-irishman
+  producer: "Cornell & Diehl"
+  family: "Aromatic"
+  tasting_notes: "Toasted hazelnut, cream, mild sweetness"
+  description: "Nutty and creamy aromatic suited to first-time pipe smokers."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Irish cream or latte"
+- name: "Strawberry Cavendish"
+  slug: strawberry-cavendish
+  producer: "Cornell & Diehl"
+  family: "Aromatic"
+  tasting_notes: "Fresh strawberry, sweet Cavendish, light and clean"
+  description: "Bright fruit aromatic with a cleaner finish than heavier dessert blends."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Rosé or lemonade"
+- name: "Custard Conspiracy"
+  slug: custard-conspiracy
+  producer: "Rivertown Tobacco Works"
+  family: "Aromatic"
+  tasting_notes: "Creamy vanilla custard, smooth, warm"
+  description: "Dessert-style aromatic with rich vanilla custard character."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Cafe au lait or pastry"
+- name: "Hazelnut Hollow"
+  slug: hazelnut-hollow
+  producer: "Rivertown Tobacco Works"
+  family: "Aromatic"
+  tasting_notes: "Sweet toasted hazelnut, mild, approachable"
+  description: "A softer hazelnut aromatic that stays gentle through the bowl."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Hazelnut coffee or warm cider"
+- name: "Golden Ash"
+  slug: golden-ash
+  producer: "Cornell & Diehl"
+  family: "Virginia"
+  tasting_notes: "Light grassy sweetness, bright citrus, clean finish"
+  description: "Bright Virginia leaf for smokers who want the tobacco to speak plainly."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Dry cider or black tea"
+- name: "Sunrise Select"
+  slug: sunrise-select
+  producer: "Rivertown Tobacco Works"
+  family: "Virginia"
+  tasting_notes: "Bright leaf, gentle sweetness, morning-friendly"
+  description: "Easygoing Virginia with natural sweetness and morning-table manners."
+  strength: "Mild"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Coffee or farmhouse ale"
+- name: "Plantation Evening"
+  slug: plantation-evening
+  producer: "Cornell & Diehl"
+  family: "Virginia / Burley"
+  tasting_notes: "Sweet, earthy, mild body"
+  description: "Balanced Virginia-Burley mixture for a steady, all-evening smoke."
+  strength: "Mild-Medium"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Amber ale or bourbon highball"
+- name: "Crimson Shadow"
+  slug: crimson-shadow
+  producer: "Cornell & Diehl"
+  family: "Virginia / Burley"
+  tasting_notes: "Dark, rich, earthy, steady"
+  description: "A darker Virginia-Burley bowl with more body and earth."
+  strength: "Medium"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: true
+  pairing: "Brown ale or rye whiskey"
+- name: "Habana Daydream"
+  slug: habana-daydream
+  producer: "Cornell & Diehl"
+  family: "Virginia / Burley"
+  tasting_notes: "Rich, earthy, cigar-like, dry finish"
+  description: "Cigar-leaning blend sold in bulk for smokers who want weight and gravitas."
+  strength: "Medium"
+  cut: "Ribbon"
+  available_tin: false
+  available_pouch: false
+  limited: true
+  captains_select: false
+  pairing: "Dark rum or porter"
+- name: "Oak & Ember"
+  slug: oak-and-ember
+  producer: "Rivertown Tobacco Works"
+  family: "Virginia / Burley"
+  tasting_notes: "Woody, smoky edge, dry and balanced"
+  description: "Woody, restrained Virginia-Burley mixture with a faint charred edge."
+  strength: "Medium"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Oaked ale or black coffee"
+- name: "Epiphany"
+  slug: epiphany
+  producer: "Cornell & Diehl"
+  family: "Virginia / Perique"
+  tasting_notes: "Sweet hay, pepper, dried fruit"
+  description: "A proper Va/Per with sweetness, spice, and dried-fruit depth."
+  strength: "Medium"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: true
+  pairing: "Mead or saison"
+- name: "Three Friars"
+  slug: three-friars
+  producer: "Cornell & Diehl"
+  family: "Virginia / Perique"
+  tasting_notes: "Sweet, spicy, layered, lively"
+  description: "Livelier Va/Per for smokers who want more movement in the bowl."
+  strength: "Medium"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Spiced ale or rye"
+- name: "Dark Fired Kentucky"
+  slug: dark-fired-kentucky
+  producer: "Cornell & Diehl"
+  family: "Burley"
+  tasting_notes: "Bold smoke, earth, toasted nuttiness"
+  description: "Fire-cured Burley with weight, smoke, and a firm backbone."
+  strength: "Medium-Full"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: true
+  pairing: "Bourbon or porter"
+- name: "Atlas Balkan"
+  slug: atlas-balkan
+  producer: "Cornell & Diehl"
+  family: "English / Balkan"
+  tasting_notes: "Latakia smoke, Oriental spice, savory depth"
+  description: "Bold Balkan mixture with real maritime smoke and spice."
+  strength: "Medium-Full"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: true
+  pairing: "Scotch or dark tea"
+- name: "Byzantium"
+  slug: byzantium
+  producer: "Cornell & Diehl"
+  family: "English / Balkan"
+  tasting_notes: "Dark spice, incense smoke, dense complexity"
+  description: "Deep Balkan bowl for smokers who already know they want complexity."
+  strength: "Full"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: true
+  pairing: "Scotch or stout"
+- name: "Haunted Bookshop"
+  slug: haunted-bookshop
+  producer: "Cornell & Diehl"
+  family: "English / Balkan"
+  tasting_notes: "Nutty Burley, spice, smoky undertone"
+  description: "Hybrid character with Burley body and a smoky, spiced finish."
+  strength: "Medium-Full"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Brown ale or coffee"
+- name: "Pasha's Dream"
+  slug: pashas-dream
+  producer: "Cornell & Diehl"
+  family: "English / Balkan"
+  tasting_notes: "Turkish leaf, Oriental spice, Latakia haze"
+  description: "Fragrant, drier Balkan for smokers who enjoy nuance over brute force."
+  strength: "Medium-Full"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Dry red wine or strong tea"
+- name: "Red Odessa"
+  slug: red-odessa
+  producer: "Cornell & Diehl"
+  family: "English / Balkan"
+  tasting_notes: "Latakia smoke, Turkish leaf, bold savory finish"
+  description: "A serious Balkan mixture for evening smokers and Latakia devotees."
+  strength: "Full"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: true
+  pairing: "Peated Scotch or porter"
+- name: "Mystic Moor"
+  slug: mystic-moor
+  producer: "Rivertown Tobacco Works"
+  family: "English / Balkan"
+  tasting_notes: "Smoky, earthy, Latakia-rich"
+  description: "Rivertown's darker English contribution with steady smoke and earth."
+  strength: "Full"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: true
+  limited: false
+  captains_select: false
+  pairing: "Stout or smoky whiskey"
+- name: "Granulated Perique"
+  slug: granulated-perique
+  producer: "Cornell & Diehl"
+  family: "Single Leaf"
+  tasting_notes: "Peppery, fermented fruit, intense spice"
+  description: "Straight Perique for experienced smokers and blenders only."
+  strength: "Full"
+  cut: "Granulated"
+  available_tin: true
+  available_pouch: false
+  limited: true
+  captains_select: true
+  pairing: "Strong coffee"
+- name: "Latakia"
+  slug: latakia
+  producer: "Cornell & Diehl"
+  family: "Single Leaf"
+  tasting_notes: "Pure campfire smoke, leathery, resinous"
+  description: "Straight Latakia for serious English smokers and blending experiments."
+  strength: "Full"
+  cut: "Ribbon"
+  available_tin: true
+  available_pouch: false
+  limited: true
+  captains_select: true
+  pairing: "Peated whisky"

@@ -18,9 +18,14 @@ Vice City Cigars is a fully self-contained mobile cigar bar that transforms any 
 
 <div class="services-grid">
   <article class="services-card">
-    <h3>Weddings &amp; Private Events</h3>
+    <h3>Weddings</h3>
     <p>Your most important moments deserve an unforgettable experience.</p>
     <a class="services-card-link" href="{{ '/services/weddings/' | relative_url }}">Learn More &rarr;</a>
+  </article>
+  <article class="services-card">
+    <h3>Private Parties &amp; Milestones</h3>
+    <p>Birthdays, retirements, backyard gatherings, and group nights.</p>
+    <a class="services-card-link" href="{{ '/services/private-parties/' | relative_url }}">Learn More &rarr;</a>
   </article>
   <article class="services-card">
     <h3>Corporate &amp; Grand Openings</h3>

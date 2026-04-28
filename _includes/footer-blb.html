@@ -1,0 +1,22 @@
+<footer class="site-footer blb-footer">
+  <div class="container footer-flex blb-footer-flex">
+    <div class="footer-brand blb-footer-brand">
+      <img src="{{ '/assets/img/VCCBLBwb.png' | relative_url }}" alt="Black Leaf Bounty logo" width="72" height="72">
+      <div>
+        <strong>Black Leaf Bounty</strong>
+        <span>A Black Leaf Bounty Production · Vice City Cigars · 561-331-0497</span>
+      </div>
+    </div>
+
+    <div class="footer-legal blb-footer-legal">
+      <div class="footer-links blb-footer-links">
+        {% for item in site.data.navigation.blb_footer %}
+        <a href="{{ item.url | relative_url }}">{{ item.label }}</a>{% unless forloop.last %}<span aria-hidden="true">·</span>{% endunless %}
+        {% endfor %}
+      </div>
+      <p class="compliance-disclaimer">21+ Only. Tobacco products are for adult smokers only.</p>
+      <p class="compliance-disclaimer">Tobacco products contain nicotine. No online tobacco sales are offered through this site.</p>
+      <p class="compliance-disclaimer"><a href="https://vicecitycigars.com" target="_blank" rel="noopener">Visit vicecitycigars.com</a> for the parent brand's tropical event services.</p>
+    </div>
+  </div>
+</footer>

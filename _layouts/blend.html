@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body class="blb-theme">
+    {% include age-gate.html %}
+    {% include header-blb.html %}
+    <main class="container blb-shell" id="main-content" role="main" tabindex="-1">
+
+      <article class="blb-blend-detail">
+
+        <nav class="blb-breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ '/black-leaf-bounty/' | relative_url }}">Black Leaf Bounty</a>
+          <span aria-hidden="true"> › </span>
+          <a href="{{ '/black-leaf-bounty/tobacco/' | relative_url }}">The Hold</a>
+          <span aria-hidden="true"> › </span>
+          <span aria-current="page">{{ page.name }}</span>
+        </nav>
+
+        <header class="blb-blend-header">
+          <div class="blb-blend-badges">
+            <span class="blb-badge blb-badge-producer">{{ page.producer }}</span>
+            <span class="blb-badge blb-badge-family">{{ page.family }}</span>
+            {% if page.limited %}<span class="blb-badge blb-badge-limited">LIMITED STOCK</span>{% endif %}
+            {% if page.captains_select %}<span class="blb-badge blb-badge-select">CAPTAIN'S SELECT</span>{% endif %}
+          </div>
+          <h1>{{ page.name }}</h1>
+
+          <div class="blb-blend-notes">
+            {% assign notes_arr = page.tasting_notes | split: ", " %}
+            {% for note in notes_arr %}
+            <span class="blb-note-tag">{{ note }}</span>
+            {% endfor %}
+          </div>
+
+          <div class="blb-blend-meta-row">
+            <div class="blb-blend-meta-item">
+              <span class="blb-blend-meta-label">Strength</span>
+              <span class="blb-blend-meta-value">
+                {% if page.strength == "Mild" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip" aria-hidden="true">⚓</span><span class="blb-strength-pip" aria-hidden="true">⚓</span>
+                {% elsif page.strength == "Mild-Medium" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip" aria-hidden="true">⚓</span>
+                {% elsif page.strength == "Medium" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip" aria-hidden="true">⚓</span>
+                {% elsif page.strength == "Medium-Full" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active blb-pip-half" aria-hidden="true">⚓</span>
+                {% elsif page.strength == "Full" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span>{% endif %}
+                <span class="blb-strength-label">{{ page.strength }}</span>
+              </span>
+            </div>
+            <div class="blb-blend-meta-item">
+              <span class="blb-blend-meta-label">Cut</span>
+              <span class="blb-blend-meta-value">{{ page.cut }}</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="blb-blend-body">
+          <div class="blb-blend-main">
+            <section class="blb-blend-section">
+              <h2>About This Blend</h2>
+              <p>{{ page.description }}</p>
+            </section>
+
+            {% if page.pairing %}
+            <section class="blb-blend-section">
+              <h2>Best Paired With</h2>
+              <p class="blb-blend-pairing">{{ page.pairing }}</p>
+            </section>
+            {% endif %}
+
+            {% if page.bulk_only %}
+            <div class="blb-blend-callout">
+              <p><strong>Bulk Only:</strong> This blend is available by weight rather than in tins. Ask the crew at the booth for current availability and pricing.</p>
+            </div>
+            {% endif %}
+          </div>
+
+          <aside class="blb-blend-sidebar">
+            <div class="blb-blend-availability">
+              <h3>Availability</h3>
+              <ul class="blb-avail-list">
+                <li class="{% if page.available_tin %}blb-avail-yes{% else %}blb-avail-no{% endif %}">
+                  Tin purchase {% unless page.available_tin %}— not available{% endunless %}
+                </li>
+                <li class="{% if page.available_pouch %}blb-avail-yes{% else %}blb-avail-no{% endif %}">
+                  2oz pouch {% if page.available_pouch %}— with tin purchase, limited daily qty{% else %}— not available{% endif %}
+                </li>
+              </ul>
+              <p class="blb-avail-note">Pipe tobacco is available in person at faire appearances and by direct inquiry. No online sales.</p>
+            </div>
+
+            <div class="blb-blend-ctas">
+              <a class="blb-btn" href="{{ '/black-leaf-bounty/schedule/' | relative_url }}">Find Us at a Faire</a>
+              <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/contact/?blend=' | relative_url }}{{ page.name | url_encode }}">Inquire About This Blend</a>
+            </div>
+          </aside>
+        </div>
+
+        {% assign related = site.blends | where: "family", page.family | where_exp: "b", "b.name != page.name" %}
+        {% if related.size > 0 %}
+        <section class="blb-blend-related">
+          <h2>More From This Family</h2>
+          <div class="blb-related-grid">
+            {% for blend in related limit: 4 %}
+            <a class="blb-related-card" href="{{ blend.url | relative_url }}">
+              <span class="blb-related-name">{{ blend.name }}</span>
+              <span class="blb-related-notes">{{ blend.tasting_notes }}</span>
+            </a>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+
+        <div class="blb-blend-footer-nav">
+          <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/tobacco/' | relative_url }}">&larr; Back to The Hold</a>
+        </div>
+
+      </article>
+
+    </main>
+    {% include footer-blb.html %}
+  </body>
+</html>
+
+<style>
+.blb-breadcrumb {
+  font-size: 0.88rem;
+  color: rgba(244, 241, 232, 0.6);
+  margin-bottom: 2rem;
+}
+.blb-breadcrumb a { color: var(--blb-rope); text-decoration: none; }
+.blb-breadcrumb a:hover { color: var(--blb-parchment); }
+
+.blb-blend-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(200, 168, 122, 0.3);
+}
+
+.blb-blend-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.blb-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-family: var(--blb-heading-alt);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.blb-badge-producer { background: rgba(200, 168, 122, 0.18); border: 1px solid rgba(200, 168, 122, 0.5); color: var(--blb-rope); }
+.blb-badge-family { background: rgba(139, 26, 26, 0.18); border: 1px solid rgba(139, 26, 26, 0.5); color: #d48a8a; }
+.blb-badge-limited { background: rgba(139, 26, 26, 0.35); border: 1px solid #8B1A1A; color: #fbbaba; }
+.blb-badge-select { background: rgba(200, 168, 122, 0.35); border: 1px solid var(--blb-rope); color: var(--blb-rope); }
+
+.blb-blend-header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin: 0.5rem 0 1rem;
+  color: var(--blb-parchment);
+}
+
+.blb-blend-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.blb-note-tag {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(200, 168, 122, 0.4);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: rgba(244, 241, 232, 0.82);
+  font-style: italic;
+}
+
+.blb-blend-meta-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.blb-blend-meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+.blb-blend-meta-label {
+  font-size: 0.75rem;
+  font-family: var(--blb-heading-alt);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(200, 168, 122, 0.7);
+}
+.blb-blend-meta-value { font-size: 0.95rem; color: var(--blb-parchment); display: flex; align-items: center; gap: 0.5rem; }
+
+.blb-strength-pip { color: rgba(200, 168, 122, 0.3); font-size: 1rem; }
+.blb-pip-active { color: var(--blb-rope); }
+.blb-strength-label { font-size: 0.88rem; color: rgba(244, 241, 232, 0.8); margin-left: 0.25rem; }
+
+.blb-blend-body {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .blb-blend-body { grid-template-columns: 1fr 280px; }
+}
+
+.blb-blend-section { margin-bottom: 2rem; }
+.blb-blend-section h2 {
+  font-size: 1.1rem;
+  color: var(--blb-rope);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  font-family: var(--blb-heading-alt);
+}
+
+.blb-blend-pairing { font-style: italic; color: rgba(244, 241, 232, 0.85); }
+
+.blb-blend-callout {
+  background: rgba(139, 26, 26, 0.12);
+  border-left: 4px solid #8B1A1A;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.blb-blend-callout p { margin: 0; font-size: 0.93rem; color: rgba(244, 241, 232, 0.85); }
+
+.blb-blend-sidebar {}
+.blb-blend-availability {
+  background: linear-gradient(180deg, rgba(244, 241, 232, 0.08), rgba(255,255,255,0.03));
+  border: 1px solid rgba(200, 168, 122, 0.3);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.blb-blend-availability h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blb-rope);
+  margin: 0 0 0.9rem;
+  font-family: var(--blb-heading-alt);
+}
+.blb-avail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.blb-avail-list li {
+  padding: 0.4rem 0;
+  font-size: 0.88rem;
+  color: rgba(244, 241, 232, 0.8);
+  border-bottom: 1px solid rgba(200, 168, 122, 0.1);
+  padding-left: 1.2rem;
+  position: relative;
+}
+.blb-avail-yes::before { content: '✓'; position: absolute; left: 0; color: var(--blb-rope); font-weight: bold; }
+.blb-avail-no::before { content: '–'; position: absolute; left: 0; color: rgba(244, 241, 232, 0.3); }
+.blb-avail-note { font-size: 0.8rem; color: rgba(244, 241, 232, 0.55); margin: 0; line-height: 1.5; }
+
+.blb-blend-ctas { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.blb-blend-related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(200, 168, 122, 0.2); }
+.blb-blend-related h2 {
+  font-size: 1.1rem;
+  color: var(--blb-rope);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  font-family: var(--blb-heading-alt);
+}
+.blb-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; }
+.blb-related-card {
+  display: block;
+  padding: 1rem;
+  background: rgba(244, 241, 232, 0.05);
+  border: 1px solid rgba(200, 168, 122, 0.25);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.blb-related-card:hover { border-color: var(--blb-rope); background: rgba(200, 168, 122, 0.08); }
+.blb-related-name { display: block; font-weight: 700; color: var(--blb-parchment); font-size: 0.9rem; margin-bottom: 0.3rem; }
+.blb-related-notes { display: block; font-size: 0.8rem; color: rgba(200, 168, 122, 0.8); font-style: italic; }
+
+.blb-blend-footer-nav { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(200, 168, 122, 0.15); }
+</style>

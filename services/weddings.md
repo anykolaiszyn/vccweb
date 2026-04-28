@@ -1,16 +1,16 @@
 ---
 layout: miami
-title: "Weddings & Private Events | Vice City Cigars"
+title: "Wedding Cigar Lounge | Vice City Cigars"
 permalink: /services/weddings/
-description: "A premium mobile cigar lounge experience for your wedding, engagement party, milestone celebration, or private event. Fully self-contained. South Florida."
+description: "A premium mobile cigar lounge for weddings and engagement parties across South Florida. Fully self-contained. Zero work for your venue or planner."
 ---
 
 <section class="hero">
   <h1>Your Guests Will Be Talking About the Cigar Lounge Long After the Last Dance.</h1>
-  <p class="hero-body">A premium mobile cigar bar for weddings, engagement parties, milestone celebrations, and private events.</p>
+  <p class="hero-body">A premium mobile cigar bar for weddings and engagement parties. Fully self-contained &mdash; zero work for your venue or planner.</p>
   <div class="hero-cta">
     <a class="btn btn-primary" href="{{ '/services/booking/' | relative_url }}">Get a Quote</a>
-    <a class="btn btn-secondary" href="{{ '/services/' | relative_url }}">All Services</a>
+    <a class="btn btn-secondary" href="{{ '/services/private-parties/' | relative_url }}">Private Parties &rarr;</a>
   </div>
 </section>
 

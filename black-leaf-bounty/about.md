@@ -1,8 +1,8 @@
 ---
 layout: blb
-title: About The Black Leaf Bounty
+title: "About Black Leaf Bounty — The Story"
 permalink: /black-leaf-bounty/about/
-description: "The story and merchant philosophy behind The Black Leaf Bounty."
+description: "The story of Black Leaf Bounty — South Florida's theatrical tobacco experience, appearing at Renaissance Faires and private events across the Southeast."
 ---
 
 # About The Black Leaf Bounty
@@ -21,13 +21,24 @@ Most fair vendors treat tobacco as afterthought—a novelty to fill booth space.
 - **Booth authenticity**—weathered wood, rope, parchment, and the feel of a discovered trading post, not a mass-produced costume
 - **Fair expertise**—booths specifically designed to thrive at Renaissance events, pirate festivals, and themed gatherings
 
-## Our Promise
-No hard sell. No hollow pirate caricature. Just carefully chosen goods, practical guidance, and a memorable merchant experience built on actual tobacconist standards.
+## What We Believe
+
+1. The experience is the product. The tobacco is how we deliver it.
+2. Product knowledge is not optional. Every crew member earns their place at the booth.
+3. A guest who leaves with the right recommendation comes back. A guest who leaves with a bad one does not.
 
 ## The House Character
 Expect charcoal, parchment, rope-tan, and weathered wood rather than neon or nightclub gloss. Expect language that sounds like an experienced captain speaking to travelers. Expect every page and event appearance to treat tobacco like a craft worth learning, not merely a prop.
 
 If you've ever met a fair vendor who actually knew their product—someone whose recommendations held up once the smoke was lit—you've felt what the Bounty aspires to. Atmosphere in service of knowledge, not the other way around.
+
+## The Captain's Codex
+
+Our crew operates to the standard of the Captain's Codex — Black Leaf Bounty's internal guide to product knowledge, sales approach, compliance, and performance on the deck. The guest may never read it, but they feel its effects in every honest recommendation and every well-run port.
+
+## The Parent Brand
+
+Black Leaf Bounty is a production of Vice City Cigars. Vice City handles the tropical and modern side of the house. The Bounty carries the sea. Both are experiences. Neither is just a vendor.
 
 > Welcome aboard the Black Leaf Bounty. The ship carries cigars of character, pipe leaf worth savoring, and counsel for those still learning the trade winds.
 
