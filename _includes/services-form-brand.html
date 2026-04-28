@@ -1,0 +1,66 @@
+<form id="brand-inquiry-form" data-async-form
+      data-loading-text="Sending your message..."
+      data-success-message="Message received. Alexander will be in touch shortly."
+      data-error-message="Something went wrong. Try again or email vccigar@gmail.com."
+      action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
+  <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Ignore this field">
+  <input type="hidden" name="_subject" value="VCC Brand Activation Inquiry">
+  <input type="hidden" name="form-name" value="brand-activation">
+
+  <label for="brand-company-name">Brand / Company Name *</label>
+  <input type="text" id="brand-company-name" name="brand-name" required aria-required="true">
+
+  <label for="brand-contact-name">Contact Name *</label>
+  <input type="text" id="brand-contact-name" name="contact-name" required aria-required="true" autocomplete="name">
+
+  <label for="brand-email">Email *</label>
+  <input type="email" id="brand-email" name="email" required aria-required="true" autocomplete="email">
+
+  <label for="brand-phone">Phone</label>
+  <input type="tel" id="brand-phone" name="phone" pattern="[0-9\-\(\)\s\+]+" autocomplete="tel">
+
+  <label for="brand-category">Brand Category</label>
+  <select id="brand-category" name="brand-category">
+    <option value="">Select...</option>
+    <option>Spirits</option>
+    <option>Wine</option>
+    <option>Cigar Brand</option>
+    <option>Other</option>
+  </select>
+
+  <fieldset>
+    <legend>Activation Interest (select all that apply)</legend>
+    <label class="checkbox-label">
+      <input type="checkbox" name="activation-interest[]" value="Presenting Sponsor">
+      Presenting Lounge Sponsor
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" name="activation-interest[]" value="Element Sponsor">
+      Element / Category Sponsor
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" name="activation-interest[]" value="Pairing Menu">
+      Pairing Menu Integration
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" name="activation-interest[]" value="Vice City Nights">
+      Vice City Nights Sponsorship
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" name="activation-interest[]" value="Season Partner">
+      Season Partner (3–6 events)
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" name="activation-interest[]" value="Other">
+      Other
+    </label>
+  </fieldset>
+
+  <label for="brand-timeline">Upcoming Event or Timeline</label>
+  <input type="text" id="brand-timeline" name="timeline" placeholder="e.g., Q3 2026, SOBEWFF, specific event date">
+
+  <label for="brand-message">Message</label>
+  <textarea id="brand-message" name="message" rows="5" placeholder="Tell us about your brand, your audience, and what you're looking to accomplish."></textarea>
+
+  <button type="submit" class="btn btn-primary">Start the Conversation</button>
+</form>

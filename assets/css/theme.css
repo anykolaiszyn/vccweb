@@ -1629,3 +1629,246 @@ input.error:focus, textarea.error:focus {
   }
 }
 
+/* =============================================================
+   SERVICES SECTION — added 2026-04
+   All selectors prefixed services- or vcn- to avoid collisions.
+   References existing :root vars — do NOT duplicate them here.
+   ============================================================= */
+
+:root {
+  --vcc-pink-lt: #FFF0F8;
+  --vcc-cyan-lt: #F0FAFF;
+  --vcc-gold:    #C8960C;
+  --vcc-gold-lt: #FDF8E8;
+  --vcc-gray:    #777777;
+}
+
+/* ---- Services card grid ------------------------------------ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.services-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 20, 147, 0.3);
+  border-left: 4px solid var(--vice-neon-pink);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.services-card h3 {
+  color: var(--vice-neon-pink);
+  margin-top: 0;
+}
+
+a.services-card-link {
+  color: var(--vice-cyan-blue);
+  font-weight: 600;
+}
+
+/* ---- Pricing / package table ------------------------------ */
+.services-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-family: var(--font-ui);
+}
+
+.services-table thead {
+  background: var(--vice-charcoal);
+}
+
+.services-table thead th {
+  color: var(--vice-neon-pink);
+  text-align: left;
+  padding: 0.9rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.services-table tbody td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255, 20, 147, 0.15);
+  vertical-align: top;
+}
+
+.services-table tbody tr:nth-child(odd) td {
+  background: var(--vcc-pink-lt);
+  color: var(--vice-charcoal);
+}
+
+.services-table tbody tr:nth-child(even) td {
+  background: var(--vcc-cyan-lt);
+  color: var(--vice-charcoal);
+}
+
+@media (max-width: 600px) {
+  .services-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ---- Stat strip (dark band, pink numbers) ----------------- */
+.services-stat-strip {
+  background: var(--vice-dark-navy);
+  padding: 2.5rem 1.5rem;
+  border-top: 2px solid var(--vice-cyan-blue);
+  border-bottom: 2px solid var(--vice-cyan-blue);
+  margin: 2.5rem 0;
+}
+
+.services-stat-strip .stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-stat-strip .stat-num {
+  display: block;
+  font-family: var(--font-cyber);
+  font-size: 2.2rem;
+  color: var(--vice-neon-pink);
+  line-height: 1;
+}
+
+.services-stat-strip .stat-label {
+  color: var(--havana-cream);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* ---- Callout block (gradient left-border) ----------------- */
+.services-callout {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.12), rgba(0, 255, 255, 0.06));
+  border-left: 4px solid var(--vice-neon-pink);
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius);
+  margin: 2rem 0;
+}
+
+.services-callout p {
+  margin: 0;
+  color: var(--havana-cream);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/* ---- CTA strip (full-width pink band) --------------------- */
+.services-cta-strip {
+  background: var(--vice-neon-pink);
+  color: #fff;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  margin: 3rem 0 0;
+  border-radius: var(--radius);
+}
+
+.services-cta-strip h2 {
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.services-cta-strip .btn-primary {
+  background: #fff;
+  color: var(--vice-neon-pink);
+  border-color: #fff;
+}
+
+/* ---- Pill badges ------------------------------------------ */
+.services-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.services-badge {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--vice-cyan-blue);
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  color: var(--vice-cyan-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.services-badge a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- Checkbox label (brand form fieldset) ----------------- */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.4rem 0;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: var(--vice-neon-pink);
+}
+
+/* ---- Vice City Nights gold accents (vcn- prefix) ---------- */
+.vcn-section {
+  background: var(--vcc-gold-lt);
+  border-top: 3px solid var(--vcc-gold);
+  border-bottom: 3px solid var(--vcc-gold);
+  padding: 2.5rem 1.5rem;
+  margin: 2rem 0;
+  color: var(--vice-charcoal);
+}
+
+.vcn-section h2,
+.vcn-section h3 {
+  color: var(--vcc-gold);
+}
+
+.vcn-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.vcn-timeline-step {
+  background: #fff;
+  padding: 1.25rem;
+  border-left: 3px solid var(--vcc-gold);
+  border-radius: var(--radius);
+}
+
+.vcn-timeline-step h4 {
+  margin: 0 0 0.5rem;
+  color: var(--vcc-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .services-stat-strip .stat-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .vcn-timeline {
+    grid-template-columns: 1fr;
+  }
+}
+

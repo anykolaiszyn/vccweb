@@ -1,0 +1,40 @@
+<form id="services-venue-form" data-async-form
+      data-loading-text="Sending your inquiry..."
+      data-success-message="Inquiry received. We'll reach out to plan a first night."
+      data-error-message="Something went wrong. Please call 561-331-0497 or email vccigar@gmail.com."
+      action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
+  <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Ignore this field">
+  <input type="hidden" name="_subject" value="VCC Venue Partnership Inquiry">
+  <input type="hidden" name="form-name" value="services-venue">
+
+  <label for="venue-name">Venue Name *</label>
+  <input type="text" id="venue-name" name="venue-name" required aria-required="true">
+
+  <label for="venue-contact-name">Contact Name *</label>
+  <input type="text" id="venue-contact-name" name="contact-name" required aria-required="true" autocomplete="name">
+
+  <label for="venue-email">Email *</label>
+  <input type="email" id="venue-email" name="email" required aria-required="true" autocomplete="email">
+
+  <label for="venue-phone">Phone</label>
+  <input type="tel" id="venue-phone" name="phone" pattern="[0-9\-\(\)\s\+]+" autocomplete="tel">
+
+  <label for="venue-type">Venue Type</label>
+  <select id="venue-type" name="venue-type">
+    <option value="">Select...</option>
+    <option>Brewery</option>
+    <option>Distillery</option>
+    <option>Winery</option>
+    <option>Hotel</option>
+    <option>Club</option>
+    <option>Other</option>
+  </select>
+
+  <label for="venue-space">Approximate Outdoor Space Available</label>
+  <input type="text" id="venue-space" name="outdoor-space" placeholder="e.g., 25x25 ft patio">
+
+  <label for="venue-message">Message</label>
+  <textarea id="venue-message" name="message" rows="5" placeholder="Tell us about your venue, audience, and what you're hoping to build."></textarea>
+
+  <button type="submit" class="btn btn-primary">Let's Build a Night Together</button>
+</form>

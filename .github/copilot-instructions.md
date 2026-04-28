@@ -89,4 +89,4 @@ Permalink: `/:categories/:year/:month/:day/:title/`
 - **Includes**: `header.html`, `footer.html`, `age-gate.html`, `head.html`
 - **Theme source**: `assets/css/theme.css` (~800 lines, mobile-first)
 - **JS modules**: IIFE pattern, deferred loading, no globals except in tobacco-shop inline
-- **Contact**: vccigar@gmail.com | +1-561-331-0491 | @vicecitycigars
+- **Contact**: vccigar@gmail.com | +1-561-331-0497 | @vicecitycigars

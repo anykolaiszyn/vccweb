@@ -236,7 +236,7 @@ We reserve the right to change this Privacy Policy. Changes are effective upon p
 For privacy questions or concerns:
 - **Email:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
 - **California Privacy Requests:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
-- **Phone:** [561-331-0491](tel:+15613310491)
+- **Phone:** [561-331-0497](tel:+15613310497)
 
 ---
 

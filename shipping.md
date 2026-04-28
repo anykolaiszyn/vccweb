@@ -52,7 +52,7 @@ We work with shipping partners to investigate missing packages and determine app
 
 For shipping questions or concerns:
 - **Email:** [vccigar@gmail.com](mailto:vccigar@gmail.com)
-- **Phone:** [561-331-0491](tel:+15613310491)
+- **Phone:** [561-331-0497](tel:+15613310497)
 
 ---
 

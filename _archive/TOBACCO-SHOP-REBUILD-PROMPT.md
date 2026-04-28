@@ -686,7 +686,7 @@ image: /assets/img/tobacco-shop-og.jpg
 
 **Developer**: Vice City Cigars Web Team  
 **Email**: vccigar@gmail.com  
-**Phone**: +1-561-331-0491  
+**Phone**: +1-561-331-0497  
 **Social**: @vicecitycigars
 
 **API Issues**: Contact Google Apps Script admin  

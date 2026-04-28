@@ -62,7 +62,7 @@ The Black Leaf Bounty isn't just for Renaissance fairs. The same merchant expert
 - **The Captain's Reception** (full private events, tailored theming)
 
 **Lead time:** 4–8 weeks for fair bookings; 2–4 weeks for private events.  
-**Ready to book?** [Contact the Captain]({{ '/black-leaf-bounty/contact/' | relative_url }}) or call [561-331-0491](tel:+15613310491).
+**Ready to book?** [Contact the Captain]({{ '/black-leaf-bounty/contact/' | relative_url }}) or call [561-331-0497](tel:+15613310497).
 
 More details at [Services Aboard The Bounty]({{ '/black-leaf-bounty/services/' | relative_url }}).
 

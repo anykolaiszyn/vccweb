@@ -14,7 +14,7 @@ Ready to book your tropical cigar experience? Reach us directly, then submit eve
   <div class="event-cards">
     <article class="event-card">
       <h3>Phone</h3>
-      <p><a href="tel:+15613310491">561-331-0491</a></p>
+      <p><a href="tel:+15613310497">561-331-0497</a></p>
     </article>
     <article class="event-card">
       <h3>Email</h3>

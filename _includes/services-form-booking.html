@@ -1,0 +1,76 @@
+<form id="services-booking-form" data-async-form
+      data-loading-text="Sending your inquiry..."
+      data-success-message="Inquiry received. We'll respond within 24–48 hours."
+      data-error-message="Something went wrong. Please call 561-331-0497 or email vccigar@gmail.com."
+      action="https://formspree.io/f/mwpnagkv" method="POST" autocomplete="on">
+  <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Ignore this field">
+  <input type="hidden" name="_subject" value="VCC Booking Inquiry">
+  <input type="hidden" name="form-name" value="services-booking">
+
+  <label for="booking-first-name">First Name *</label>
+  <input type="text" id="booking-first-name" name="first-name" required aria-required="true" autocomplete="given-name">
+
+  <label for="booking-last-name">Last Name *</label>
+  <input type="text" id="booking-last-name" name="last-name" required aria-required="true" autocomplete="family-name">
+
+  <label for="booking-email">Email *</label>
+  <input type="email" id="booking-email" name="email" required aria-required="true" autocomplete="email">
+
+  <label for="booking-phone">Phone</label>
+  <input type="tel" id="booking-phone" name="phone" pattern="[0-9\-\(\)\s\+]+" placeholder="(561) 234-5678" autocomplete="tel">
+
+  <label for="booking-event-type">Event Type</label>
+  <select id="booking-event-type" name="event-type">
+    <option value="">Select...</option>
+    <option>Wedding</option>
+    <option>Private Event</option>
+    <option>Corporate Event</option>
+    <option>Grand Opening</option>
+    <option>Golf / Club Event</option>
+    <option>Festival</option>
+    <option>Fundraiser</option>
+    <option>Vice City Nights (hosting inquiry)</option>
+    <option>Brand Activation / Sponsorship</option>
+    <option>Venue Partnership</option>
+    <option>Other</option>
+  </select>
+
+  <label for="booking-event-date">Event Date</label>
+  <input type="date" id="booking-event-date" name="event-date">
+
+  <label for="booking-guest-count">Estimated Guest Count</label>
+  <select id="booking-guest-count" name="guest-count">
+    <option value="">Select...</option>
+    <option>Under 50</option>
+    <option>50–100</option>
+    <option>100–200</option>
+    <option>200+</option>
+  </select>
+
+  <label for="booking-location">Event Location / City</label>
+  <input type="text" id="booking-location" name="location" placeholder="e.g., Boca Raton, Miami">
+
+  <label for="booking-outdoor-space">Outdoor Space Available?</label>
+  <select id="booking-outdoor-space" name="outdoor-space">
+    <option value="">Select...</option>
+    <option>Yes</option>
+    <option>No</option>
+    <option>Not Sure</option>
+  </select>
+
+  <label for="booking-referral">How did you hear about us?</label>
+  <select id="booking-referral" name="referral">
+    <option value="">Select...</option>
+    <option>Google</option>
+    <option>Instagram</option>
+    <option>Referral</option>
+    <option>Event</option>
+    <option>SOBEWFF</option>
+    <option>Other</option>
+  </select>
+
+  <label for="booking-message">Message / Additional Details</label>
+  <textarea id="booking-message" name="message" rows="5" placeholder="Event details, venue type, any special requests..."></textarea>
+
+  <button type="submit" class="btn btn-primary">Send My Inquiry</button>
+</form>

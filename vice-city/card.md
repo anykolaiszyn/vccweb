@@ -30,7 +30,7 @@ qr_landing: true
       <p class="card-sub">Private cigar hospitality for weddings, corporate events, and luxury gatherings — brought to you, wherever the moment calls.</p>
       <div class="card-cta-group">
         <a href="#inquiry" class="btn btn-primary card-btn" data-track="cta-book">Book an Experience</a>
-        <a href="tel:+15613310491" class="btn btn-secondary card-btn" data-track="cta-call">Call</a>
+        <a href="tel:+15613310497" class="btn btn-secondary card-btn" data-track="cta-call">Call</a>
         <a href="mailto:vccigar@gmail.com" class="btn btn-secondary card-btn" data-track="cta-email">Email</a>
       </div>
       <a href="{{ '/assets/vcard/vice-city-cigars.vcf' | relative_url }}" class="card-vcard-link" download data-track="cta-vcard">
@@ -145,9 +145,9 @@ qr_landing: true
     <p class="card-inquiry-sub">I'll follow up same day.</p>
 
     <div class="card-contact-quick">
-      <a href="tel:+15613310491" class="card-contact-link" data-track="contact-call">
+      <a href="tel:+15613310497" class="card-contact-link" data-track="contact-call">
         <span class="card-contact-icon" aria-hidden="true">📞</span>
-        <span>561-331-0491</span>
+        <span>561-331-0497</span>
       </a>
       <a href="mailto:vccigar@gmail.com" class="card-contact-link" data-track="contact-email">
         <span class="card-contact-icon" aria-hidden="true">✉️</span>
@@ -220,7 +220,7 @@ qr_landing: true
   </nav>
 
   <div class="card-mobile-dock" aria-label="Quick mobile actions">
-    <a href="tel:+15613310491" class="card-mobile-dock-link" data-track="dock-call">Call</a>
+    <a href="tel:+15613310497" class="card-mobile-dock-link" data-track="dock-call">Call</a>
     <a href="#inquiry" class="card-mobile-dock-link card-mobile-dock-link-primary" data-track="dock-book">Book</a>
   </div>
 
