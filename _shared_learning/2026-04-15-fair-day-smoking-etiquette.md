@@ -6,6 +6,7 @@ published_on: 2026-04-15
 tags: [Beginner, Events, Etiquette]
 cover_image: /assets/img/gallery/lounge.jpg
 excerpt: "Smoke respectfully in crowded event spaces and keep the vibe welcoming."
+description: "Smoke respectfully in crowded event spaces and keep the vibe welcoming."
 ---
 
 Whether you are at a lounge pop-up or a Renaissance fair, etiquette keeps the experience better for everyone.

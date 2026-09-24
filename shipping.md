@@ -2,6 +2,7 @@
 layout: miami
 title: Shipping Policy
 permalink: /shipping/
+description: "Vice City Cigars shipping policy: processing times, free domestic shipping on orders over $99.99, and what to do about lost or stolen orders."
 ---
 
 # Shipping Policy

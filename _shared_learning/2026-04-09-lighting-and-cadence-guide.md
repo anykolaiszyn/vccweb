@@ -9,6 +9,7 @@ tags:
   - Cigars
 cover_image: /assets/img/gallery/lounge.jpg
 excerpt: "A practical routine for clean lights, even burn, and cooler smoking pace."
+description: "A practical routine for clean lights, even burn, and cooler smoking pace."
 ---
 
 ## The Right Start

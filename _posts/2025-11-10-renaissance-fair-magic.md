@@ -6,6 +6,7 @@ author: Vice City Cigars
 categories: [events, renaissance, culture]
 brand: blb
 excerpt: "Behind the scenes at Camelot Days - how we bring authentic smoking experiences to Renaissance Fairs."
+description: "Behind the scenes at Camelot Days - how we bring authentic smoking experiences to Renaissance Fairs."
 image: /assets/img/gallery/pipes.jpg
 ---
 

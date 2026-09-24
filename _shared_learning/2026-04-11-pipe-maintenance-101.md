@@ -6,6 +6,7 @@ published_on: 2026-04-11
 tags: [Beginner, Pipes, Care]
 cover_image: /assets/img/gallery/pipes.jpg
 excerpt: "Keep your pipe clean and your tobacco tasting fresh. A simple care routine from the deck."
+description: "Keep your pipe clean and your tobacco tasting fresh. A simple care routine from the deck."
 ---
 
 A pipe that's been loved lasts decades. A pipe that's been neglected lasts one disappointing session.

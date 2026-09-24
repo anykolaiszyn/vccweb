@@ -2,6 +2,7 @@
 layout: miami
 title: Refund & Returns Policy
 permalink: /refund/
+description: "Vice City Cigars refund, cancellation, and return policy: restocking fees, the 48-hour inspection window, and how to request a return authorization."
 ---
 
 # Refund & Returns Policy

@@ -4,4 +4,4 @@ Disallow: /_site/
 Disallow: /CONTENT-CHECKLIST.md
 Disallow: /content-batch-*.md
 
-Sitemap: https://vicecitycigars.com/vccweb/sitemap.xml
+Sitemap: https://vicecitycigars.com/sitemap.xml

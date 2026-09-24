@@ -7,6 +7,7 @@ location: "South Florida Area"
 status: "upcoming"
 cover_image: /assets/img/gallery/pipes.jpg
 summary: "Spring voyage to Florida's largest Renaissance fair. The Bounty returns with fresh stock, full selection, and experienced guidance."
+description: "Spring voyage to Florida's largest Renaissance fair. The Bounty returns with fresh stock, full selection, and experienced guidance."
 photo_album_url: "https://instagram.com/vicecitycigars"
 cta_label: "Find Us At The Festival"
 ---

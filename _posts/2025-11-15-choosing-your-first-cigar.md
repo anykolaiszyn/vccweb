@@ -6,6 +6,7 @@ author: Vice City Cigars
 categories: [cigars, beginner-guide, education]
 brand: miami
 excerpt: "New to cigars? Here's how to pick your first stick with confidence."
+description: "New to cigars? Here's how to pick your first stick with confidence."
 image: /assets/img/gallery/cigars.jpg
 ---
 

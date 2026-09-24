@@ -5,6 +5,7 @@ title: Lounge Nights
 date: 2026-03-20
 cover_image: /assets/img/gallery/lounge.jpg
 caption: "Neon lounge setups designed for long conversations and relaxed pacing."
+description: "Neon lounge setups designed for long conversations and relaxed pacing."
 story: "A collection of private and semi-private nights where guests explored curated selections in a social lounge atmosphere."
 album_url: "https://instagram.com/vicecitycigars"
 ---

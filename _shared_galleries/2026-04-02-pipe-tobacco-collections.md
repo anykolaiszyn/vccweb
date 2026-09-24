@@ -5,6 +5,7 @@ title: "Pipe & Tobacco Collections"
 date: 2026-04-02
 cover_image: /assets/img/gallery/pipes.jpg
 caption: "Briar, corn-cob, and blends across six tobacco families."
+description: "Briar, corn-cob, and blends across six tobacco families."
 story: "The hold carries more pipe tobacco than most Renaissance vendors see in a year. Cornell & Diehl aromatics, Virginias, English/Balkan blends, and single-leaf options. Pipes in a range of materials and shapes. Not everything—but everything that matters for a new smoker or a seasoned collector to find their next favorite. Organization by family, not by shelf-filler logic. That's the difference."
 album_url: "https://instagram.com/vicecitycigars"
 ---

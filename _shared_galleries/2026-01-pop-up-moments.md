@@ -5,6 +5,7 @@ title: Pop-Up Moments
 date: 2026-01-25
 cover_image: /assets/img/gallery/cigars.jpg
 caption: "Public pop-up appearances and holiday moments across South Florida."
+description: "Public pop-up appearances and holiday moments across South Florida."
 story: "Snapshots from open events where guests found Vice City for the first time and discovered curated cigar recommendations."
 album_url: "https://instagram.com/vicecitycigars"
 ---

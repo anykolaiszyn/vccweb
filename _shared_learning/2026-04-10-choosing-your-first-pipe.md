@@ -6,6 +6,7 @@ published_on: 2026-04-10
 tags: [Beginner, Pipes, Hardware]
 cover_image: /assets/img/gallery/pipes.jpg
 excerpt: "Start with the right shape and material. A guide to first-pipe selection from the Captain."
+description: "Start with the right shape and material. A guide to first-pipe selection from the Captain."
 ---
 
 Your first pipe is less about status and more about fit—comfort in hand, ease of cleaning, and a shape that feels natural to you.
