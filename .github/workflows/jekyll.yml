@@ -41,6 +41,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
 
   deploy:
+    # Pull requests only build; the github-pages environment accepts main only.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
