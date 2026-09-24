@@ -7,6 +7,7 @@ location: Boca Raton, FL
 status: past
 cover_image: /assets/img/gallery/lounge.jpg
 summary: "An evening lounge pop-up with curated Maduros, Connecticut options, and guided pairings."
+description: "An evening lounge pop-up with curated Maduros, Connecticut options, and guided pairings."
 photo_album_url: "https://instagram.com/vicecitycigars"
 cta_label: View Photos
 ---

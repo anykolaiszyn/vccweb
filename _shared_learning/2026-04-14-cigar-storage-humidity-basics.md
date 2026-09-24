@@ -6,6 +6,7 @@ published_on: 2026-04-14
 tags: [Beginner, Cigars, Storage]
 cover_image: /assets/img/gallery/cigars.jpg
 excerpt: "How to keep cigars fresh without overcomplicating your setup."
+description: "How to keep cigars fresh without overcomplicating your setup."
 ---
 
 A simple humidor setup beats a complicated one you never maintain.

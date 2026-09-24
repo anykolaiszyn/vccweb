@@ -6,6 +6,7 @@ published_on: 2026-04-13
 tags: [Beginner, Pipes, Troubleshooting]
 cover_image: /assets/img/gallery/pipes.jpg
 excerpt: "We've all done these. So have you, probably. Here's the fix."
+description: "Common first-time pipe smoking mistakes, and how to avoid them."
 ---
 
 The merchant has seen it all. Here are the blunders that happen to every new pipe smoker—and how to fix them.

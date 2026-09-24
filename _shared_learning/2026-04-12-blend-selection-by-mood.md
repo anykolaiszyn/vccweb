@@ -6,6 +6,7 @@ published_on: 2026-04-12
 tags: [Intermediate, Blends, Flavor]
 cover_image: /assets/img/gallery/pipes.jpg
 excerpt: "Smooth sailing or bold seas? Pick your blend to match the moment."
+description: "Smooth sailing or bold seas? Pick your blend to match the moment."
 ---
 
 Once you've smoked a few times, you'll notice: your mood and the moment matter.

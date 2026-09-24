@@ -9,6 +9,7 @@ tags:
   - Flavor
 cover_image: /assets/img/gallery/cigars.jpg
 excerpt: "How to match wrapper types and strength profiles to your taste and tolerance."
+description: "How to match wrapper types and strength profiles to your taste and tolerance."
 ---
 
 ## Wrapper Quick Guide

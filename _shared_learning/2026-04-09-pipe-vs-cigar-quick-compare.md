@@ -9,6 +9,7 @@ tags:
   - Comparison
 cover_image: /assets/img/gallery/pipes.jpg
 excerpt: "Understand the pace, prep, and flavor rhythm differences between pipe and cigar sessions."
+description: "Understand the pace, prep, and flavor rhythm differences between pipe and cigar sessions."
 ---
 
 ## Key Differences

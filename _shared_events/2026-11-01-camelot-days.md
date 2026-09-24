@@ -7,6 +7,7 @@ location: "Pompano Beach, FL"
 status: "upcoming"
 cover_image: /assets/img/gallery/pipes.jpg
 summary: "A settled port for guests seeking premium cigars, pipe guidance, and the full merchant atmosphere. The Black Leaf Bounty returns to Camelot Days with the complete hold."
+description: "The Black Leaf Bounty returns to Camelot Days with premium cigars, pipe guidance, and the full merchant atmosphere."
 photo_album_url: "https://instagram.com/vicecitycigars"
 cta_label: "See Us At Camelot"
 ---

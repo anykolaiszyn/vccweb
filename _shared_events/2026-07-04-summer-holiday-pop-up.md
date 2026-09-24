@@ -7,6 +7,7 @@ location: South Florida (TBA)
 status: upcoming
 cover_image: /assets/img/gallery/cigars.jpg
 summary: "A holiday-focused public pop-up with rotating selections and signature Vice City atmosphere."
+description: "A holiday-focused public pop-up with rotating selections and signature Vice City atmosphere."
 photo_album_url: "https://instagram.com/vicecitycigars"
 cta_label: Follow For Updates
 ---

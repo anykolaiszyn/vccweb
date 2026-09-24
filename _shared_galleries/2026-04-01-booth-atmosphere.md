@@ -5,6 +5,7 @@ title: "Booth Atmosphere"
 date: 2026-04-01
 cover_image: /assets/img/gallery/pipes.jpg
 caption: "Weathered wood, rope work, and the feeling of discovering a real merchant."
+description: "Weathered wood, rope work, and the feeling of discovering a real merchant."
 story: "The booth is built by hand each event—rope-work railings, parchment maps, weathered wood frames. Nothing mass-produced. Every detail says: this is a trading post run by someone who knows tobacco. That's the point."
 album_url: "https://instagram.com/vicecitycigars"
 ---

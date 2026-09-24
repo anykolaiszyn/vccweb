@@ -6,6 +6,7 @@ categories: [business, renaissance, events, culture]
 brand: both
 author: Vice City Cigars
 excerpt: "From period-accurate Renaissance Fair booths to modern tropical events, discover why the same passion for tobacco culture connects two very different worlds."
+description: "From period-accurate Renaissance Fair booths to modern tropical events, discover why the same passion for tobacco culture connects two very different worlds."
 image: /assets/img/gallery/cigars.jpg
 ---
 

@@ -7,6 +7,7 @@ location: "South Florida Area"
 status: "upcoming"
 cover_image: /assets/img/gallery/pipes.jpg
 summary: "High seas and higher spirits. The Black Leaf Bounty joins the pirate celebration with sailor-worthy cigars and tobacco."
+description: "High seas and higher spirits. The Black Leaf Bounty joins the pirate celebration with sailor-worthy cigars and tobacco."
 photo_album_url: "https://instagram.com/vicecitycigars"
 cta_label: "Join The Crew"
 ---

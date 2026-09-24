@@ -6,6 +6,7 @@ published_on: 2026-04-16
 tags: [Beginner, Events, Preparation]
 cover_image: /assets/img/gallery/pipes.jpg
 excerpt: "A practical checklist for cigar and pipe sessions at fairs and private events."
+description: "A practical checklist for cigar and pipe sessions at fairs and private events."
 ---
 
 Use this quick list before heading out.

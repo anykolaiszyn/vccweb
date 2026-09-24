@@ -7,6 +7,7 @@ location: Delray Beach, FL
 status: past
 cover_image: /assets/img/gallery/events.jpg
 summary: "A private invite-only cigar night with hospitality-focused recommendations and premium selections."
+description: "A private invite-only cigar night with hospitality-focused recommendations and premium selections."
 photo_album_url: "https://instagram.com/vicecitycigars"
 cta_label: Event Photos
 ---
