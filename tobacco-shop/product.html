@@ -382,7 +382,7 @@ robots: "noindex, nofollow"
             name: product.Display_Name || 'Unnamed Product',
             price: parseFloat(product.Price) || 0,
             stock: parseInt(product.Qty_On_Hand) || 0,
-            description: product.Description || '',
+            description: sanitizeDescriptionHTML(product.Description || ''),
             category: extractCategory(product),
             image: product.Drive_Image_URL || '/assets/img/gallery/cigars.jpg',
             categories: product.Categories || ''
@@ -595,6 +595,33 @@ robots: "noindex, nofollow"
     div.textContent = str;
     return div.innerHTML;
   }
-  
+
+  // Keep basic formatting tags from the catalog description, strip everything else
+  // (scripts, event-handler attributes, embeds) before it goes into innerHTML.
+  function sanitizeDescriptionHTML(html) {
+    const allowedTags = ['P', 'BR', 'STRONG', 'B', 'EM', 'I', 'UL', 'OL', 'LI', 'SPAN'];
+    const template = document.createElement('template');
+    template.innerHTML = html;
+
+    function clean(node) {
+      Array.from(node.childNodes).forEach(function(child) {
+        if (child.nodeType !== 1) return;
+        if (child.tagName === 'SCRIPT' || child.tagName === 'STYLE') {
+          child.remove();
+          return;
+        }
+        while (child.attributes.length) child.removeAttribute(child.attributes[0].name);
+        clean(child);
+        if (allowedTags.indexOf(child.tagName) === -1) {
+          while (child.firstChild) child.parentNode.insertBefore(child.firstChild, child);
+          child.remove();
+        }
+      });
+    }
+
+    clean(template.content);
+    return template.innerHTML;
+  }
+
 })();
 </script>
