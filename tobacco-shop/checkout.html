@@ -692,6 +692,7 @@ robots: "noindex, nofollow"
   const ADULT_SIGNATURE_FEE = 8.50;
   
   let uploadedIDBase64 = null;
+  let uploadedIDFile = null;
   
   document.addEventListener('DOMContentLoaded', function() {
     const cart = getCart();
@@ -766,12 +767,14 @@ robots: "noindex, nofollow"
         ageSection.style.display = 'none';
         idUpload.required = false;
         ageConfirm.required = false;
-        uploadedIDBase64 = 'RETURNING_CUSTOMER_BYPASS';
+        uploadedIDBase64 = null;
+        uploadedIDFile = null;
       } else {
         ageSection.style.display = 'block';
         idUpload.required = true;
         ageConfirm.required = true;
         uploadedIDBase64 = null;
+        uploadedIDFile = null;
         document.getElementById('filePreview').classList.remove('show');
       }
     });
@@ -800,6 +803,7 @@ robots: "noindex, nofollow"
     // Convert to base64
     try {
       uploadedIDBase64 = await fileToBase64(file);
+      uploadedIDFile = { type: file.type, name: file.name };
       document.getElementById('filePreview').classList.add('show');
       hideError('idUploadError');
     } catch (error) {
@@ -852,10 +856,10 @@ robots: "noindex, nofollow"
       shippingAddress: shippingAddress,
       paymentMethod: document.getElementById('paymentMethod').value,
       cart: cart,
-      idFile: uploadedIDBase64 ? {
-        dataBase64: uploadedIDBase64.split(',')[1] || uploadedIDBase64,
-        type: 'image/jpeg',
-        name: 'id-upload.jpg'
+      idFile: uploadedIDBase64 && uploadedIDFile ? {
+        dataBase64: uploadedIDBase64.split(',')[1],
+        type: uploadedIDFile.type,
+        name: uploadedIDFile.name
       } : null
     };
     

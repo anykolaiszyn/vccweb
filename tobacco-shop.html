@@ -933,10 +933,10 @@ TODO: Requires compliance review before re-enabling. See COMPLIANCE NOTE above.
     // Filter by search
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      filteredProducts = filteredProducts.filter(p => 
+      filteredProducts = filteredProducts.filter(p =>
         p.name.toLowerCase().includes(query) ||
         p.description.toLowerCase().includes(query) ||
-        p.category.toLowerCase().includes(query)
+        p.categories.toLowerCase().includes(query)
       );
     }
     
