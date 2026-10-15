@@ -13,8 +13,8 @@ Once you've smoked a few times, you'll notice: your mood and the moment matter.
 
 ## Morning Smokes
 
-**Best Pick:** Mild Virginia or light Aromatic
-- Light on the palate; won't overpower breakfast
+**Best Pick:** Bright Virginia or a creamy Aromatic
+- Clean on the palate; won't overpower breakfast
 - Golden Ash, Sunrise Select
 - 20–30 minute duration
 
@@ -22,7 +22,7 @@ Once you've smoked a few times, you'll notice: your mood and the moment matter.
 
 ## Social/Fair Setting
 
-**Best Pick:** Aromatic or mild Virginia/Burley blend
+**Best Pick:** Aromatic or a sweeter Virginia/Burley blend
 - Room-friendly aroma (guests notice—often positively)
 - Berries & Cream, Nutty Irishman, Plantation Evening
 - Medium bowl recommended
@@ -49,7 +49,7 @@ Once you've smoked a few times, you'll notice: your mood and the moment matter.
 
 ## Outdoor / Active Setting
 
-**Best Pick:** Mild to medium Burley or Virginia/Burley
+**Best Pick:** Nutty Burley or Virginia/Burley
 - Steady burn; forgiving if you're moving around
 - Plantation Evening, Oak & Ember
 - Prince or bent shape (one-handed potential)
@@ -62,8 +62,8 @@ Start with **Cornell & Diehl Berries & Cream** or **Nutty Irishman**. Both are f
 
 ## A Word On Sequencing
 
-Don't smoke a bold English and then jump into a light Aromatic—the heavy tones will ghost the delicate one. If you're rotating pipes in one evening:
-1. Mild → Medium → Bold (flavor-wise)
+Don't smoke a bold English and then jump into a delicate Aromatic—the heavy tones will ghost it. If you're rotating pipes in one evening:
+1. Delicate → Balanced → Bold (flavor-wise)
 2. OR rotate different pipes, so each one rests
 
 Much cleaner palate that way.

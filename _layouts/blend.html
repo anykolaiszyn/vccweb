@@ -34,17 +34,6 @@
 
           <div class="blb-blend-meta-row">
             <div class="blb-blend-meta-item">
-              <span class="blb-blend-meta-label">Strength</span>
-              <span class="blb-blend-meta-value">
-                {% if page.strength == "Mild" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip" aria-hidden="true">⚓</span><span class="blb-strength-pip" aria-hidden="true">⚓</span>
-                {% elsif page.strength == "Mild-Medium" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip" aria-hidden="true">⚓</span>
-                {% elsif page.strength == "Medium" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip" aria-hidden="true">⚓</span>
-                {% elsif page.strength == "Medium-Full" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active blb-pip-half" aria-hidden="true">⚓</span>
-                {% elsif page.strength == "Full" %}<span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span><span class="blb-strength-pip blb-pip-active" aria-hidden="true">⚓</span>{% endif %}
-                <span class="blb-strength-label">{{ page.strength }}</span>
-              </span>
-            </div>
-            <div class="blb-blend-meta-item">
               <span class="blb-blend-meta-label">Cut</span>
               <span class="blb-blend-meta-value">{{ page.cut }}</span>
             </div>
@@ -191,10 +180,6 @@
   color: rgba(200, 168, 122, 0.7);
 }
 .blb-blend-meta-value { font-size: 0.95rem; color: var(--blb-parchment); display: flex; align-items: center; gap: 0.5rem; }
-
-.blb-strength-pip { color: rgba(200, 168, 122, 0.3); font-size: 1rem; }
-.blb-pip-active { color: var(--blb-rope); }
-.blb-strength-label { font-size: 0.88rem; color: rgba(244, 241, 232, 0.8); margin-left: 0.25rem; }
 
 .blb-blend-body {
   display: grid;

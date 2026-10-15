@@ -103,5 +103,5 @@ description: "26 premium pipe tobacco blends from Cornell & Diehl and Rivertown 
 </section>
 
 <div class="blb-blend-callout" style="margin-top:2rem;">
-  <p><strong>New to pipe tobacco?</strong> The Captain usually points first-time smokers toward an aromatic or a mild Virginia. If you are not sure what suits your taste, ask the crew at the booth or send word before your visit.</p>
+  <p><strong>New to pipe tobacco?</strong> The Captain usually points first-time smokers toward an aromatic or a bright Virginia. If you are not sure what suits your taste, ask the crew at the booth or send word before your visit.</p>
 </div>

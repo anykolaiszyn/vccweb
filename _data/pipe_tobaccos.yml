@@ -40,17 +40,17 @@ families:
     blends:
       - brand: Cornell & Diehl
         name: Golden Ash
-        notes: Light, grassy, sweet
+        notes: Grassy, bright, sweet
       - brand: Rivertown
         name: Sunrise Select
-        notes: Light, bright, sweet
+        notes: Bright, sweet, clean
 
   - name: Virginia / Burley
     description: "Virginia sweetness balanced by Burley's nutty steadiness. An approachable step up from straight Virginias — more body, easier cadence, good for longer sits."
     blends:
       - brand: Cornell & Diehl
         name: Plantation Evening
-        notes: Sweet, earthy, mild
+        notes: Sweet, earthy, steady
       - brand: Cornell & Diehl
         name: Crimson Shadow
         notes: Dark, rich, earthy

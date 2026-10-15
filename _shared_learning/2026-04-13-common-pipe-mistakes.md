@@ -64,7 +64,7 @@ The merchant has seen it all. Here are the blunders that happen to every new pip
 **The Problem:** You buy an expensive English blend because it sounds cool, smoke one bowl, hate it, and think pipes aren't for you.
 
 **The Fix:**
-- Start with an Aromatic or mild Virginia
+- Start with an Aromatic or a bright Virginia
 - Smoke 3–5 bowls of the same blend before judging
 - Once you know what you like, explore one new family at a time
 - Chat with us at the booth about what's worked for others
