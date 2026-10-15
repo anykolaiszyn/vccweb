@@ -10,5 +10,5 @@ available_tin: true
 available_pouch: true
 limited: false
 captains_select: false
-pairing: "Hazelnut coffee, light honey ale, or warm cider"
+pairing: "Hazelnut coffee, honey ale, or warm cider"
 ---
