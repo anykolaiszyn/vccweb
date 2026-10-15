@@ -2,7 +2,7 @@
 layout: blb
 title: "Contact Black Leaf Bounty"
 permalink: /black-leaf-bounty/contact/
-description: "Contact Black Leaf Bounty for event bookings, blend inquiries, faire schedules, and Crew membership. 561-331-0497."
+description: "Contact Black Leaf Bounty for event bookings, blend inquiries, faire schedules, and Captain's Circle membership. 561-331-0497."
 ---
 
 <script type="application/ld+json">
@@ -60,7 +60,7 @@ If you need booking details, blend guidance, Captain's Circle information, or th
 		<option>Event Booking</option>
 		<option>Blend Inquiry</option>
 		<option>Faire Schedule</option>
-		<option>Crew Membership</option>
+		<option>Captain's Circle Membership</option>
 		<option>Other</option>
 	</select>
 

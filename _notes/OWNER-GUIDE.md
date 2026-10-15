@@ -95,7 +95,7 @@ brand: black-leaf-bounty
 layout: blb
 title: "Camelot Days Renaissance Fair"
 event_date: 2026-11-08
-location: "Pompano Beach, FL"
+location: "T.Y. Park, Hollywood, FL"
 status: upcoming
 cover_image: "https://drive.google.com/thumbnail?id=YOUR_FILE_ID&sz=w800"
 summary: "Short description shown on the event card. One or two sentences."
