@@ -49,6 +49,7 @@ description: "Find Black Leaf Bounty at Renaissance Faires across the Southeast.
       <p class="blb-meta">{{ event.location }}</p>
       <h3>{{ event.name }}</h3>
       <p><strong>{{ event.dates }}</strong></p>
+      {% if event.hours %}<p>{{ event.hours }}</p>{% endif %}
       <p>{{ event.notes }}</p>
       <p>
         <span class="blb-badge blb-badge-select">CONFIRMED</span>
