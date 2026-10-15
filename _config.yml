@@ -40,6 +40,19 @@ sass:
 
 permalink: pretty
 
+# Publish documents whose date is still ahead of the build date.
+#
+# Jekyll takes a document's date from a YYYY-MM-DD filename prefix, and with the
+# default `future: false` it silently refuses to write any document dated after the
+# build. Event pages in _shared_events are named for the day the event starts, so
+# every upcoming event was being withheld from the site until the event had already
+# begun -- the one window in which the page is worth publishing.
+#
+# This is not hypothetical: /library/events/2026-11-01-camelot-days/ returned 404 in
+# production while appearing in sitemap.xml, because jekyll-sitemap lists the document
+# but the writer skipped it.
+future: true
+
 # Exclude from processing
 exclude:
   - node_modules
