@@ -40,8 +40,4 @@ Our Renaissance Fair selection focuses on classic shapes and traditional craftsm
 ### Educational Experience
 Fair-goers love to learn. We share the history of tobacco, pipe-making traditions, and the cultural significance of smoking throughout history.
 
-## Looking Ahead: Florida Renaissance Festival 2026
-
-We're thrilled to announce we've been invited back to the Florida Renaissance Festival in 2026! After taking some time away, we're excited to return with an even better booth and expanded selection.
-
 *Planning a Renaissance Fair appearance or want to book us for your medieval-themed event? [Get in touch]({{ '/black-leaf-bounty/contact/' | relative_url }}) and let's create something authentic together.*
