@@ -21,7 +21,7 @@ My brain doesn't do things halfway. When I got serious about cigars and pipes, I
 ## The Neurodivergent Advantage in Tobacco
 
 ### Pattern Recognition = Perfect Pairings
-My autistic brain naturally spots patterns that others miss. I can tell within minutes of talking to someone whether they'll love a mild Connecticut wrapper or need the complexity of a Nicaraguan puro. It's not magic—it's pattern recognition applied to flavor preferences, personality types, and smoking experience.
+My autistic brain naturally spots patterns that others miss. I can tell within minutes of talking to someone whether they'll love a creamy Connecticut wrapper or need the complexity of a Nicaraguan puro. It's not magic—it's pattern recognition applied to flavor preferences, personality types, and smoking experience.
 
 ### Hyperfocus = Quality Obsession
 When neurotypical business owners say "good enough," my ADHD brain says "but what if we could make it perfect?" Every cigar in my mobile humidor earned its place through obsessive research. I don't stock something because it has good margins—I stock it because it's exceptional for its category.

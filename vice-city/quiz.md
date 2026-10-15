@@ -2,7 +2,7 @@
 layout: miami
 title: Cigar Fit Quiz
 permalink: /vice-city/quiz/
-description: "Find your best starting cigar profile based on flavor, strength, and session style."
+description: "Find your best starting cigar profile based on flavor, body, and session style."
 ---
 
 <section class="hero">
@@ -11,12 +11,12 @@ description: "Find your best starting cigar profile based on flavor, strength, a
 </section>
 
 <form id="cigar-fit-quiz" aria-label="Cigar fit quiz">
-  <label for="quiz-strength">1) Preferred strength</label>
-  <select id="quiz-strength" required>
+  <label for="quiz-body">1) Preferred body</label>
+  <select id="quiz-body" required>
     <option value="">Choose...</option>
-    <option value="mild">Mild</option>
-    <option value="medium">Medium</option>
-    <option value="bold">Bold</option>
+    <option value="creamy">Creamy and balanced</option>
+    <option value="medium">Medium-bodied</option>
+    <option value="full">Full-bodied</option>
   </select>
 
   <label for="quiz-flavor">2) Flavor lane</label>
@@ -58,15 +58,15 @@ description: "Find your best starting cigar profile based on flavor, strength, a
   var recommendation = document.getElementById('quiz-recommendation');
   var share = document.getElementById('quiz-share');
 
-  function buildRecommendation(strength, flavor, time) {
-    if (strength === 'mild' && flavor === 'creamy') {
+  function buildRecommendation(bodyPref, flavor, time) {
+    if (bodyPref === 'creamy' && flavor === 'creamy') {
       return 'Start with a Connecticut shade in a robusto or toro. Smooth entry profile with balanced body.';
     }
-    if (strength === 'bold' || flavor === 'rich') {
+    if (bodyPref === 'full' || flavor === 'rich') {
       return 'Start with a Maduro profile in a robusto or toro for richer depth and fuller character.';
     }
     if (flavor === 'spice') {
-      return 'Try a medium Habano profile for balanced spice and aroma without overwhelming strength.';
+      return 'Try a medium Habano profile for balanced spice and aroma without overwhelming the palate.';
     }
     if (time === 'short') {
       return 'Choose a shorter format like a petite robusto for a focused, manageable session.';
@@ -77,10 +77,10 @@ description: "Find your best starting cigar profile based on flavor, strength, a
   form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    var strength = document.getElementById('quiz-strength').value;
+    var bodyPref = document.getElementById('quiz-body').value;
     var flavor = document.getElementById('quiz-flavor').value;
     var time = document.getElementById('quiz-time').value;
-    var result = buildRecommendation(strength, flavor, time);
+    var result = buildRecommendation(bodyPref, flavor, time);
 
     recommendation.textContent = result;
     resultWrap.hidden = false;

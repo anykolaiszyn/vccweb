@@ -2,22 +2,20 @@
   slug: berries-and-cream
   producer: "Cornell & Diehl"
   family: "Aromatic"
-  tasting_notes: "Sweet berry, creamy vanilla, mild room note"
+  tasting_notes: "Sweet berry, creamy vanilla, welcoming room note"
   description: "A welcoming aromatic with berry sweetness and a creamy finish."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
   limited: false
   captains_select: false
-  pairing: "Light ale, lemonade, or mild white wine"
+  pairing: "Wheat ale, lemonade, or crisp white wine"
 - name: "Black Cherry"
   slug: black-cherry
   producer: "Cornell & Diehl"
   family: "Aromatic"
   tasting_notes: "Bold black cherry, slightly tangy, warm finish"
   description: "A fruit-forward aromatic with more structure than most cherry blends."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -30,7 +28,6 @@
   family: "Aromatic"
   tasting_notes: "Rum sweetness, toasted Burley, warm spice"
   description: "Burley-based aromatic with rum character and a warm, social smoke."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -42,21 +39,19 @@
   producer: "Cornell & Diehl"
   family: "Aromatic"
   tasting_notes: "Sweet maple, smooth Cavendish, gentle warmth"
-  description: "Soft Cavendish blend with light maple sweetness for newer smokers."
-  strength: "Mild"
+  description: "Soft Cavendish blend with a sweet maple casing for newer smokers."
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
   limited: false
   captains_select: false
-  pairing: "Herbal tea or light cider"
+  pairing: "Herbal tea or fresh cider"
 - name: "Mocha"
   slug: mocha
   producer: "Cornell & Diehl"
   family: "Aromatic"
   tasting_notes: "Coffee, dark chocolate, smooth finish"
   description: "Aromatic with roasted coffee and cocoa character over steady leaf."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -67,9 +62,8 @@
   slug: nutty-irishman
   producer: "Cornell & Diehl"
   family: "Aromatic"
-  tasting_notes: "Toasted hazelnut, cream, mild sweetness"
+  tasting_notes: "Toasted hazelnut, cream, gentle sweetness"
   description: "Nutty and creamy aromatic suited to first-time pipe smokers."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -80,9 +74,8 @@
   slug: strawberry-cavendish
   producer: "Cornell & Diehl"
   family: "Aromatic"
-  tasting_notes: "Fresh strawberry, sweet Cavendish, light and clean"
+  tasting_notes: "Fresh strawberry, sweet Cavendish, bright and clean"
   description: "Bright fruit aromatic with a cleaner finish than heavier dessert blends."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -95,7 +88,6 @@
   family: "Aromatic"
   tasting_notes: "Creamy vanilla custard, smooth, warm"
   description: "Dessert-style aromatic with rich vanilla custard character."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -106,9 +98,8 @@
   slug: hazelnut-hollow
   producer: "Rivertown Tobacco Works"
   family: "Aromatic"
-  tasting_notes: "Sweet toasted hazelnut, mild, approachable"
+  tasting_notes: "Sweet toasted hazelnut, creamy, approachable"
   description: "A softer hazelnut aromatic that stays gentle through the bowl."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -119,9 +110,8 @@
   slug: golden-ash
   producer: "Cornell & Diehl"
   family: "Virginia"
-  tasting_notes: "Light grassy sweetness, bright citrus, clean finish"
+  tasting_notes: "Grassy sweetness, bright citrus, clean finish"
   description: "Bright Virginia leaf for smokers who want the tobacco to speak plainly."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -134,7 +124,6 @@
   family: "Virginia"
   tasting_notes: "Bright leaf, gentle sweetness, morning-friendly"
   description: "Easygoing Virginia with natural sweetness and morning-table manners."
-  strength: "Mild"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -145,9 +134,8 @@
   slug: plantation-evening
   producer: "Cornell & Diehl"
   family: "Virginia / Burley"
-  tasting_notes: "Sweet, earthy, mild body"
+  tasting_notes: "Sweet, earthy, steady body"
   description: "Balanced Virginia-Burley mixture for a steady, all-evening smoke."
-  strength: "Mild-Medium"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -160,7 +148,6 @@
   family: "Virginia / Burley"
   tasting_notes: "Dark, rich, earthy, steady"
   description: "A darker Virginia-Burley bowl with more body and earth."
-  strength: "Medium"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -173,7 +160,6 @@
   family: "Virginia / Burley"
   tasting_notes: "Rich, earthy, cigar-like, dry finish"
   description: "Cigar-leaning blend sold in bulk for smokers who want weight and gravitas."
-  strength: "Medium"
   cut: "Ribbon"
   available_tin: false
   available_pouch: false
@@ -186,7 +172,6 @@
   family: "Virginia / Burley"
   tasting_notes: "Woody, smoky edge, dry and balanced"
   description: "Woody, restrained Virginia-Burley mixture with a faint charred edge."
-  strength: "Medium"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -199,7 +184,6 @@
   family: "Virginia / Perique"
   tasting_notes: "Sweet hay, pepper, dried fruit"
   description: "A proper Va/Per with sweetness, spice, and dried-fruit depth."
-  strength: "Medium"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -212,7 +196,6 @@
   family: "Virginia / Perique"
   tasting_notes: "Sweet, spicy, layered, lively"
   description: "Livelier Va/Per for smokers who want more movement in the bowl."
-  strength: "Medium"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -225,7 +208,6 @@
   family: "Burley"
   tasting_notes: "Bold smoke, earth, toasted nuttiness"
   description: "Fire-cured Burley with weight, smoke, and a firm backbone."
-  strength: "Medium-Full"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -238,7 +220,6 @@
   family: "English / Balkan"
   tasting_notes: "Latakia smoke, Oriental spice, savory depth"
   description: "Bold Balkan mixture with real maritime smoke and spice."
-  strength: "Medium-Full"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -251,7 +232,6 @@
   family: "English / Balkan"
   tasting_notes: "Dark spice, incense smoke, dense complexity"
   description: "Deep Balkan bowl for smokers who already know they want complexity."
-  strength: "Full"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -264,7 +244,6 @@
   family: "English / Balkan"
   tasting_notes: "Nutty Burley, spice, smoky undertone"
   description: "Hybrid character with Burley body and a smoky, spiced finish."
-  strength: "Medium-Full"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -277,7 +256,6 @@
   family: "English / Balkan"
   tasting_notes: "Turkish leaf, Oriental spice, Latakia haze"
   description: "Fragrant, drier Balkan for smokers who enjoy nuance over brute force."
-  strength: "Medium-Full"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -290,7 +268,6 @@
   family: "English / Balkan"
   tasting_notes: "Latakia smoke, Turkish leaf, bold savory finish"
   description: "A serious Balkan mixture for evening smokers and Latakia devotees."
-  strength: "Full"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -303,7 +280,6 @@
   family: "English / Balkan"
   tasting_notes: "Smoky, earthy, Latakia-rich"
   description: "Rivertown's darker English contribution with steady smoke and earth."
-  strength: "Full"
   cut: "Ribbon"
   available_tin: true
   available_pouch: true
@@ -316,7 +292,6 @@
   family: "Single Leaf"
   tasting_notes: "Peppery, fermented fruit, intense spice"
   description: "Straight Perique for experienced smokers and blenders only."
-  strength: "Full"
   cut: "Granulated"
   available_tin: true
   available_pouch: false
@@ -329,7 +304,6 @@
   family: "Single Leaf"
   tasting_notes: "Pure campfire smoke, leathery, resinous"
   description: "Straight Latakia for serious English smokers and blending experiments."
-  strength: "Full"
   cut: "Ribbon"
   available_tin: true
   available_pouch: false
