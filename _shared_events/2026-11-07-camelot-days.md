@@ -32,4 +32,4 @@ The most dependable harbor on the calendar. The Black Leaf Bounty brings the ful
 - Pipes and tool kits for first-timers and collectors
 - Tampers, cleaners, and pouches for the fair bag
 
-Find us by the rope and weathered wood. Look for the Captain.
+Find us by the black flag. Look for the Captain.

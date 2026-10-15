@@ -115,8 +115,8 @@ Collection folder: `_shared_events/`
 brand: black-leaf-bounty
 layout: blb
 title: "Event Name"
-event_date: 2026-11-01
-location: "Pompano Beach, FL"
+event_date: YYYY-MM-DD
+location: "City, FL"
 status: "upcoming"
 cover_image: /assets/img/gallery/pipes.jpg
 summary: "Short card summary."
@@ -167,17 +167,29 @@ git push origin main
 GitHub Actions deploys automatically from `main`.
 
 ### Update Black Leaf Bounty Faire Schedule
-Edit: `black-leaf-bounty.md`
+Edit: `_data/blb_schedule.yml`
 
-Find the section:
-```markdown
-## Find Us at Renaissance Fairs
+Every faire on the site comes from this one file. One list entry per faire:
 
-**Camelot Days 2025**  
-📅 November 2025 | 📍 Pompano Beach, FL
+```yaml
+- name: "Faire Name YYYY"
+  location: "Venue, City, FL"
+  dates: "Month D–D, YYYY"
+  hours: "10:00 AM – 5:30 PM each day"
+  dates_iso_start: "YYYY-MM-DD"
+  dates_iso_end: "YYYY-MM-DD"
+  website: "https://example.com/"
+  status: "confirmed"
+  notes: "Short note shown with the entry."
+  featured: true
 ```
 
-Update dates and add/remove fairs as needed.
+Update dates and add/remove faires as needed. Two fields decide where an entry shows up:
+
+- `status: confirmed` lists it under "Confirmed Ports"; `status: tentative` lists it under "Tentative Ports" instead
+- `featured: true` also surfaces it on the BLB home page (`black-leaf-bounty.md`); `false` means it appears on the schedule page only
+
+Both `black-leaf-bounty.md` and `black-leaf-bounty/schedule.md` read this file — you never edit the schedule markup itself.
 
 ### Update Contact Form
 The contact form uses **Formspree**:
