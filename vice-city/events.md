@@ -30,7 +30,7 @@ description: "Card-based event gallery for upcoming and past Vice City Cigars ap
       <img src="{{ event.cover_image | relative_url }}" alt="{{ event.title }}" loading="lazy" width="400" height="300">
       {% endif %}
       <h3>{{ event.title }}</h3>
-      <p><strong>{{ event.event_date | date: "%b %d, %Y" }}</strong>{% if event.location %} · {{ event.location }}{% endif %}</p>
+      <p><strong>{% if event.date_display %}{{ event.date_display }}{% else %}{{ event.event_date | date: "%b %d, %Y" }}{% endif %}</strong>{% if event.location %} · {{ event.location }}{% endif %}</p>
       <p>{{ event.summary }}</p>
       <p><strong>Source:</strong> {% if event.brand == 'vice-city' %}Vice City{% elsif event.brand == 'black-leaf-bounty' %}Black Leaf Bounty{% else %}Shared{% endif %}</p>
       <div class="hero-cta">

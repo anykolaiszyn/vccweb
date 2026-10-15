@@ -2,8 +2,9 @@
 brand: black-leaf-bounty
 layout: blb
 title: "Camelot Days 2026"
-event_date: 2026-11-01
-location: "Pompano Beach, FL"
+event_date: 2026-11-07
+date_display: "November 7–8, 14–15 and 21–22, 2026"
+location: "T.Y. Park, Hollywood, FL"
 status: "upcoming"
 cover_image: /assets/img/gallery/pipes.jpg
 summary: "A settled port for guests seeking premium cigars, pipe guidance, and the full merchant atmosphere. The Black Leaf Bounty returns to Camelot Days with the complete hold."
@@ -12,7 +13,10 @@ photo_album_url: "https://instagram.com/vicecitycigars"
 cta_label: "See Us At Camelot"
 ---
 
-## Camelot Days 2026 — November 
+## Camelot Days 2026 — November 7–8, 14–15 and 21–22
+
+**T.Y. Park, 3300 N. Park Rd., Hollywood, Florida**  
+**10:00 AM – 5:30 PM each day**
 
 The most dependable harbor on the calendar. The Black Leaf Bounty brings the full merchant experience: premium cigars, a curated pipe tobacco selection, and the kind of guidance you won't find anywhere else at a fair.
 

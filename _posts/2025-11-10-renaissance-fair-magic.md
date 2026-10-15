@@ -18,7 +18,7 @@ When we first started appearing at Renaissance Fairs, we knew we had to do it ri
 
 ### Camelot Days: Our Home Away From Home
 
-[Camelot Days](https://camelotdays.com/) in Pompano Beach has become our favorite event of the year. The fair attracts serious enthusiasts—people who appreciate craftsmanship, history, and quality. It's where our pipe tobacco really shines.
+[Camelot Days](https://camelotdays.com/) has become our favorite event of the year. The fair attracts serious enthusiasts—people who appreciate craftsmanship, history, and quality. It's where our pipe tobacco really shines.
 
 ## What Makes Renaissance Fair Customers Special
 
