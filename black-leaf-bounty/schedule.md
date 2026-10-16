@@ -32,7 +32,7 @@ description: "Find Black Leaf Bounty at Renaissance Faires across the Southeast.
 <section class="blb-hero">
   <span class="blb-kicker">Faire Schedule</span>
   <h1>The Black Leaf Bounty Makes Port Across The Southeast</h1>
-  <p>Captain's Circle members hear of new ports first. The public manifest below shows where the ship is presently bound, what is confirmed, and which harbors are still awaiting final papers.</p>
+  <p>Captain's Circle members hear of new ports first. The public manifest below shows where the ship is presently bound.</p>
   <div class="blb-cta-row">
     <a class="blb-btn" href="{{ '/black-leaf-bounty/crew/' | relative_url }}">Join The Captain's Circle</a>
     <a class="blb-btn blb-btn-secondary" href="{{ '/black-leaf-bounty/events/' | relative_url }}">Book A Private Event</a>
