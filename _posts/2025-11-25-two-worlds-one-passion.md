@@ -84,16 +84,6 @@ Having expertise in both worlds creates unique opportunities:
 
 **Year-Round Engagement:** Social media content never gets stale when you can draw from two rich content wells.
 
-## Building Bridges Between Communities
-
-Some of our best customers discovered us at a Renaissance Fair and later booked us for a wedding. Others met us at a corporate event and became interested in attending Renaissance Fairs.
-
-**The common denominator?** People who appreciate:
-- Quality craftsmanship
-- Educational experiences
-- Authentic passion
-- Community building around shared interests
-
 ## Social Media Strategy That Works
 
 Our mixed Instagram content reflects this dual approach:
