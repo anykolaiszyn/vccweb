@@ -70,16 +70,6 @@ Whether I'm explaining 500-year-old smoking traditions or modern cigar craftsman
 
 The tools and setting change, but the core values remain identical.
 
-## Building Bridges Between Communities
-
-Some of our best customers discovered us at a Renaissance Fair and later booked us for a wedding. Others met us at a corporate event and became interested in attending Renaissance Fairs.
-
-**The common denominator?** People who appreciate:
-- Quality craftsmanship
-- Educational experiences
-- Authentic passion
-- Community building around shared interests
-
 ## The Future of Both Worlds
 
 As Vice City Cigars grows, we're not choosing between Renaissance Fairs and modern events. We're becoming the bridge that connects them.
