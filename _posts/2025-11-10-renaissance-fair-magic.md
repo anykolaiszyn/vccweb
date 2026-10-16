@@ -5,8 +5,8 @@ date: 2026-04-01
 author: Vice City Cigars
 categories: [events, renaissance, culture]
 brand: blb
-excerpt: "Behind the scenes at Camelot Days - how we bring authentic smoking experiences to Renaissance Fairs."
-description: "Behind the scenes at Camelot Days - how we bring authentic smoking experiences to Renaissance Fairs."
+excerpt: "How we bring authentic smoking experiences to Renaissance Fairs."
+description: "How we bring authentic smoking experiences to Renaissance Fairs."
 image: /assets/img/gallery/pipes.jpg
 ---
 
@@ -15,10 +15,6 @@ There's something magical about stepping into a Renaissance Fair. The costumes, 
 ## Our Renaissance Fair Journey
 
 When we first started appearing at Renaissance Fairs, we knew we had to do it right. No modern displays or tropical decorations here—we go full period-appropriate with our booth setup. Think wooden displays, traditional signage, and an atmosphere that honors the centuries-old tradition of pipe smoking.
-
-### Camelot Days: Our Home Away From Home
-
-[Camelot Days](https://camelotdays.com/) has become our favorite event of the year. The fair attracts serious enthusiasts—people who appreciate craftsmanship, history, and quality. It's where our pipe tobacco really shines.
 
 ## What Makes Renaissance Fair Customers Special
 
