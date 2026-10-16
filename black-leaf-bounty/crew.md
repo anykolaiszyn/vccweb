@@ -2,7 +2,7 @@
 layout: blb
 title: "Captain's Circle | Black Leaf Bounty"
 permalink: /black-leaf-bounty/crew/
-description: "Captain's Circle — Black Leaf Bounty's insider list for early port alerts, limited blends, and Captain's Table opportunities."
+description: "Captain's Circle — Black Leaf Bounty's insider list for early port alerts and limited blends."
 ---
 
 <section class="blb-hero">
@@ -12,30 +12,8 @@ description: "Captain's Circle — Black Leaf Bounty's insider list for early po
 </section>
 
 <section class="blb-section">
-  <span class="blb-kicker">The Three Tiers</span>
-  <h2>How The Circle Is Ordered</h2>
-  <div class="blb-card-grid">
-    <article class="blb-card">
-      <h3>Deckhand</h3>
-      <p>Faire schedule announcements before public posting, early notice of new and limited blends, and the Captain's Log in your inbox.</p>
-      <p class="blb-mini-note">Entry by Captain's Circle sign-up.</p>
-    </article>
-    <article class="blb-card">
-      <h3>First Mate</h3>
-      <p>All Deckhand benefits, plus a pre-order window on limited blends and loyalty recognition on tin purchases at the booth.</p>
-      <p class="blb-mini-note">Earned through repeat booth purchases.</p>
-    </article>
-    <article class="blb-card">
-      <h3>Captain's Table</h3>
-      <p>Private tasting invitations, special-blend access, and direct consultation on the leaf worth your time.</p>
-      <p class="blb-mini-note">By invitation only. The Captain decides.</p>
-    </article>
-  </div>
-</section>
-
-<section class="blb-section">
   <span class="blb-kicker">Join The Log</span>
-  <h2>Enroll As A Deckhand</h2>
+  <h2>Join The Captain's Circle</h2>
   <form data-async-form
         data-loading-text="Signing the manifest..."
         data-success-message="You are on the manifest. Watch for the Captain's Log."
@@ -63,5 +41,4 @@ description: "Captain's Circle — Black Leaf Bounty's insider list for early po
 
     <button type="submit" class="btn">Sign The Manifest</button>
   </form>
-  <p class="blb-mini-note" style="margin-top:1rem;">First Mate and Captain's Table status are earned at the booth. Signing up here places you in the Captain's Circle as a Deckhand and puts you on the Captain's Log.</p>
 </section>
