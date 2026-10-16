@@ -16,7 +16,6 @@ description: "Card-based event gallery for upcoming and past Vice City Cigars ap
 
 <section class="events">
   <h2>Upcoming and Past Events</h2>
-  <p>Dates marked pending are placeholders until venue confirmations are finalized.</p>
   <div id="events-brand-filters" class="hero-cta" role="group" aria-label="Event brand filters" style="margin-bottom: 1rem;">
     <button type="button" class="btn btn-primary" data-brand="all">All Brands</button>
     <button type="button" class="btn btn-secondary" data-brand="vice-city">Vice City</button>
