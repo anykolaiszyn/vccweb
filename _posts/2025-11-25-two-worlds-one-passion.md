@@ -10,8 +10,6 @@ description: "From period-accurate Renaissance Fair booths to modern tropical ev
 image: /assets/img/gallery/cigars.jpg
 ---
 
-If you follow our Instagram [@vicecitycigars](https://instagram.com/vicecitycigars), you've probably noticed something interesting: we move seamlessly between period-accurate Renaissance Fair setups and ultra-modern tropical events. One day we're in medieval garb discussing 16th-century tobacco varieties, the next we're bringing Miami vibes to a corporate party in Boca Raton.
-
 Some people ask: "Aren't those completely different audiences?" The answer might surprise you.
 
 ## The Common Thread: Authentic Experience
@@ -72,18 +70,6 @@ Whether I'm explaining 500-year-old smoking traditions or modern cigar craftsman
 
 The tools and setting change, but the core values remain identical.
 
-## The Business Advantage
-
-Having expertise in both worlds creates unique opportunities:
-
-**Diverse Revenue Streams:** Renaissance Fair seasons and modern event calendar complement each other perfectly.
-
-**Broader Expertise:** Understanding both historical and contemporary tobacco culture makes me a more complete educator.
-
-**Unique Positioning:** Very few mobile cigar services can authentically serve both Renaissance enthusiasts and modern event hosts.
-
-**Year-Round Engagement:** Social media content never gets stale when you can draw from two rich content wells.
-
 ## Building Bridges Between Communities
 
 Some of our best customers discovered us at a Renaissance Fair and later booked us for a wedding. Others met us at a corporate event and became interested in attending Renaissance Fairs.
@@ -93,16 +79,6 @@ Some of our best customers discovered us at a Renaissance Fair and later booked 
 - Educational experiences
 - Authentic passion
 - Community building around shared interests
-
-## Social Media Strategy That Works
-
-Our mixed Instagram content reflects this dual approach:
-- **Renaissance posts** attract history enthusiasts and period accuracy lovers
-- **Modern event posts** attract celebration planners and cigar aficionados
-- **Educational posts** serve both communities with tobacco knowledge
-- **Behind-the-scenes posts** show the authentic passion that drives everything
-
-This isn't confusion—it's comprehensive coverage of tobacco culture across time periods.
 
 ## The Future of Both Worlds
 
@@ -119,8 +95,6 @@ Because ultimately, whether you're wearing medieval garb or a business suit, if 
 **Hosting a modern celebration?** We bring contemporary knowledge and tropical Miami vibes.
 
 **Curious about tobacco culture?** We bridge centuries of knowledge to give you the complete picture.
-
-**Want to see both worlds in action?** Follow our Instagram journey as we move between medieval fairs and modern parties, always with the same passionate attention to quality and education.
 
 Two worlds, one passion—and room for everyone who appreciates the finer things in life.
 

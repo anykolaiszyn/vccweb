@@ -32,7 +32,7 @@ Renaissance Fair attendees are different from our typical South Florida event cl
 ## Our Fair-Specific Approach
 
 ### Traditional Blends
-We bring tobacco blends that would feel at home in any century—rich, earthy, and complex. No fruity modern flavors here, just the timeless tastes that pipe smokers have enjoyed for generations.
+We bring tobacco blends that would feel at home in any century—rich, earthy, and complex. Just the timeless tastes that pipe smokers have enjoyed for generations.
 
 ### Artisan Pipes
 Our Renaissance Fair selection focuses on classic shapes and traditional craftsmanship. Straight-grain briars, classic billiards, and handcrafted pieces that look like they belong in the hands of a medieval craftsman.
