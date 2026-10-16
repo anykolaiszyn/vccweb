@@ -224,6 +224,7 @@ If you're using Claude Code directly, just say "commit and push" and it will han
 All content files follow the same pattern: `YYYY-MM-DD-short-description.md`
 
 - Use the date the content is relevant to (event date, publish date)
+- A filename date is not an embargo: a file dated in the future goes live the moment it merges. To hold content back, don't merge it.
 - Use hyphens, no spaces, no capitals
 - Examples: `2026-11-08-camelot-days.md`, `2026-04-15-choosing-cigars.md`
 
