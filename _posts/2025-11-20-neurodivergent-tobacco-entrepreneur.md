@@ -49,8 +49,6 @@ Social situations can be tricky for everyone, not just neurodivergent folks. I g
 
 My neurodivergent traits align perfectly with Renaissance Fair culture. The deep appreciation for craftsmanship, attention to historical detail, and genuine enthusiasm for sharing specialized knowledge—that's my natural operating mode.
 
-At Camelot Days, you'll find me in period-appropriate attire, discussing 16th-century tobacco varieties with the same intensity I bring to modern boutique cigars. Because whether it's historical accuracy or flavor profiling, my brain doesn't know how to do things superficially.
-
 ## Building a Different Kind of Business
 
 Traditional business advice says "fake it till you make it." Neurodivergent business ownership says "use your authentic intensity as your competitive advantage."
