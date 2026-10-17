@@ -32,16 +32,6 @@ Whether it's a Renaissance Fair or a modern wedding, people are seeking the same
 
 **The magic ingredient in both?** Genuine passion and deep knowledge shared by someone who truly cares about the craft.
 
-## Why My Neurodivergent Brain Loves Both
-
-My ADHD hyperfocus and autistic attention to detail work perfectly for both environments:
-
-**Renaissance Fairs demand historical accuracy:** Every pipe, every tobacco blend, every setup detail needs to be period-appropriate. My brain loves researching 16th-century smoking customs and replicating them authentically.
-
-**Modern events demand contemporary excellence:** Every cigar needs to be perfectly stored, every cut precise, every recommendation tailored to the individual guest. My pattern recognition helps me match people with their perfect smoke.
-
-Both require the same core skill: **obsessive attention to quality and authentic expertise**.
-
 ## The Education Connection
 
 ### Renaissance Fair Education
