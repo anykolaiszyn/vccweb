@@ -27,8 +27,8 @@ Every event VCC attends is a room full of high-value consumers at their most rec
       <span class="stat-label">Every attendee verified</span>
     </div>
     <div>
-      <span class="stat-num">Paid to attend</span>
-      <span class="stat-label">Vice City Nights guests are self-selected premium consumers</span>
+      <span class="stat-num">30&ndash;50</span>
+      <span class="stat-label">Guests at a Vice City Nights &mdash; intentionally intimate</span>
     </div>
   </div>
 </div>
@@ -62,7 +62,7 @@ Every event VCC attends is a room full of high-value consumers at their most rec
     </tr>
     <tr>
       <td><strong>Vice City Nights Sponsorship</strong></td>
-      <td>Presenting or element sponsor at a ticketed immersive event &mdash; 90 min with 30&ndash;50 captive guests</td>
+      <td>Presenting or element sponsor at a ticketed immersive event &mdash; 90 min with 30&ndash;50 guests</td>
       <td>$800&ndash;$5,000/event</td>
     </tr>
     <tr>

@@ -97,7 +97,7 @@ Every venue has one. Here's how it usually goes:
     </div>
     <div>
       <span class="stat-num">Step 2</span>
-      <span class="stat-label">First Ticketed Night &mdash; 30&ndash;50 seats, $85&ndash;$115 tickets, full Vice City Nights production</span>
+      <span class="stat-label">First Ticketed Night &mdash; 30&ndash;50 seats, full Vice City Nights production</span>
     </div>
     <div>
       <span class="stat-num">Step 3</span>
