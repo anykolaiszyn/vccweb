@@ -16,7 +16,7 @@ description: "A ticketed, immersive 90-minute cigar lounge experience. Live roll
 
 ## What Is Vice City Nights
 
-An intimate, 90-minute immersive cigar experience produced by Vice City Cigars. Capacity is limited to 30&ndash;50 guests per event. Tickets $75&ndash;$125. Guests arrive to a fully transformed outdoor lounge with live music, a live cigar roller, curated pairings, and a premium included cigar. This is not an event you walk through. It is an event you plan your evening around.
+An intimate, 90-minute immersive cigar experience produced by Vice City Cigars. Capacity is limited to 30&ndash;50 guests per event. Guests arrive to a fully transformed outdoor lounge with live music, a live cigar roller, curated pairings, and a premium included cigar. This is not an event you walk through. It is an event you plan your evening around.
 
 <div class="vcn-section">
   <h2>The 90-Minute Experience</h2>
@@ -49,15 +49,11 @@ An intimate, 90-minute immersive cigar experience produced by Vice City Cigars. 
 </div>
 
 <div class="services-stat-strip">
-  <h2 style="text-align:center;color:var(--vice-neon-pink);margin:0 0 1.5rem;">Why It Sells Out</h2>
+  <h2 style="text-align:center;color:var(--vice-neon-pink);margin:0 0 1.5rem;">Built to Be Intimate</h2>
   <div class="stat-row">
     <div>
       <span class="stat-num">30&ndash;50</span>
       <span class="stat-label">Guests &mdash; intentionally intimate</span>
-    </div>
-    <div>
-      <span class="stat-num">$75&ndash;$125</span>
-      <span class="stat-label">Premium, accessible</span>
     </div>
     <div>
       <span class="stat-num">90 min</span>
@@ -72,7 +68,7 @@ An intimate, 90-minute immersive cigar experience produced by Vice City Cigars. 
 
 <div class="vcn-section">
   <h2>For Spirits, Wine &amp; Cigar Brands</h2>
-  <p>Vice City Nights is the most intimate brand activation available in South Florida. 90 minutes with a captive, curated audience who paid to be there. <a href="{{ '/services/brand-activations/' | relative_url }}">Learn more about brand partnerships &rarr;</a></p>
+  <p>Vice City Nights is a ticketed, 90-minute event limited to 30&ndash;50 guests. <a href="{{ '/services/brand-activations/' | relative_url }}">Learn more about brand partnerships &rarr;</a></p>
 </div>
 
 <h2 id="waitlist">Join the Guest List</h2>
